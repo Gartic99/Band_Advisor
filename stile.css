@@ -1,0 +1,252 @@
+.mediaViewInfo {
+  --web-view-name: Band Advisor;
+  --web-view-id: Band_Advisor;
+  --web-scale-on-resize: true;
+  --web-enable-deep-linking: true;
+}
+:root {
+  --web-view-ids: Band_Advisor;
+}
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  max-height:100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+}
+#Main {
+  flex-grow:1;
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+  background-color: rgba(255,255,255,1);
+  overflow: hidden;
+    --web-view-name: Band Advisor;
+    --web-view-id: Band_Advisor;
+    --web-scale-on-resize: true;
+    --web-enable-deep-linking: true;
+}
+#crowd_in_front_of_people_playi {
+  opacity: 0.62;
+  position: absolute;
+  width: 1967px;
+  height: 1310.5px;
+  left: -33px;
+  top: 201px;
+  overflow: hidden;
+}
+#Band_Advisor {
+  position: absolute;
+  width: 289px;
+  height: 105px;
+  left: 816px;
+  top: 49px;
+  overflow: visible;
+}
+#Band_ {
+  position: absolute;
+  left: 0px;
+  top: 4px;
+  overflow: visible;
+  width: 174px;
+  white-space: nowrap;
+  text-align: left;
+  font-family: MEISHA SANS SERIF;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 59px;
+  color: rgba(255,23,68,1);
+}
+#_Advisor {
+  position: absolute;
+  left: 91px;
+  top: 0px;
+  overflow: visible;
+  width: 199px;
+  white-space: nowrap;
+  text-align: left;
+  font-family: Meisha;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 47px;
+  color: rgba(0,0,0,1);
+}
+#Main_Bar {
+  position: absolute;
+  width: 570.552px;
+  height: 195px;
+  left: 674.835px;
+  top: 540px;
+  overflow: visible;
+}
+.Rectangle_3 {
+  position: absolute;
+  overflow: visible;
+  width: 573.552px;
+  height: 198px;
+  left: 0px;
+  top: 0px;
+}
+#ID034_electric_guitar_1 {
+  position: absolute;
+  width: 104px;
+  height: 104px;
+  left: 29.165px;
+  top: 24px;
+  overflow: visible;
+}
+#ID013_microphone_2 {
+  position: absolute;
+  width: 104px;
+  height: 104px;
+  left: 296.165px;
+  top: 24px;
+  overflow: visible;
+}
+#ID002_cd {
+  position: absolute;
+  width: 104px;
+  height: 104px;
+  left: 154.165px;
+  top: 24px;
+  overflow: visible;
+}
+#ID060_stage {
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  left: 438.165px;
+  top: 28px;
+  overflow: visible;
+}
+#Rock {
+  position: absolute;
+  left: 29.165px;
+  top: 135px;
+  overflow: visible;
+  width: 97px;
+  white-space: nowrap;
+  text-align: left;
+  font-family: Gilroy ☞;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 43px;
+  color: rgba(0,0,0,1);
+}
+#Dj {
+  position: absolute;
+  left: 186.165px;
+  top: 135px;
+  overflow: visible;
+  width: 42px;
+  white-space: nowrap;
+  text-align: left;
+  font-family: Gilroy ☞;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 43px;
+  color: rgba(0,0,0,1);
+}
+#Pop {
+  position: absolute;
+  left: 309.165px;
+  top: 135px;
+  overflow: visible;
+  width: 78px;
+  white-space: nowrap;
+  text-align: left;
+  font-family: Gilroy ☞;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 43px;
+  color: rgba(0,0,0,1);
+}
+#Locali {
+  position: absolute;
+  left: 428.165px;
+  top: 135px;
+  overflow: visible;
+  width: 116px;
+  white-space: nowrap;
+  text-align: left;
+  font-family: Gilroy ☞;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 43px;
+  color: rgba(0,0,0,1);
+}
+#Top_Bar {
+  position: absolute;
+  width: 248px;
+  height: 54px;
+  left: 1561px;
+  top: 67px;
+  overflow: visible;
+}
+#edit {
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+.Rectangle_4 {
+  position: absolute;
+  overflow: visible;
+  width: 138px;
+  height: 54px;
+  left: 110px;
+  top: 0px;
+}
+#Entra {
+  position: absolute;
+  left: 136px;
+  top: 7px;
+  overflow: visible;
+  width: 88px;
+  white-space: nowrap;
+  text-align: left;
+  font-family: Gilroy ☞;
+  font-style: normal;
+  font-weight: lighter;
+  font-size: 36px;
+  color: rgba(255,255,255,1);
+}
+.Rectangle_5 {
+  position: absolute;
+  overflow: visible;
+  width: 746px;
+  height: 90px;
+  left: 584px;
+  top: 362px;
+}
+#search {
+  position: absolute;
+  width: 47px;
+  height: 47px;
+  left: 626px;
+  top: 382px;
+  overflow: visible;
+}
+#Cosa_stai_cercando_ {
+  position: absolute;
+  left: 785px;
+  top: 387px;
+  overflow: visible;
+  width: 344px;
+  white-space: nowrap;
+  text-align: left;
+  font-family: Gilroy ☞;
+  font-style: normal;
+  font-weight: lighter;
+  font-size: 36px;
+  color: rgba(127,127,127,1);
+}
