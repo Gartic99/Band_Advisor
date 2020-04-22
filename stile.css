@@ -42,14 +42,6 @@ url("assets/Fonts/MEISHA_SANS_SERIF.otf") format("opentype");
   	//left: +15%;
 	top: 201px;
 }
-.Band_Advisor{
-	position: absolute;
-	width: 289px;
-	height: 105px;
-	left: 695px;
-	top: 42px;
-	overflow: visible;
-}
 .Band{
 	
 	position: absolute;
@@ -59,7 +51,7 @@ url("assets/Fonts/MEISHA_SANS_SERIF.otf") format("opentype");
 	width: 174px;
 	white-space: nowrap;
 	text-align: left;
-	font-family: Meisha Sans;
+	font-family: MEISHA SANS SERIF;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 59px;
@@ -68,8 +60,8 @@ url("assets/Fonts/MEISHA_SANS_SERIF.otf") format("opentype");
 }
 .Advisor{
 	position: absolute;
-	left: 91px;
-	top: 0px;
+	left: 130px;
+	top: 20px;
 	overflow: visible;
 	width: 199px;
 	white-space: nowrap;
