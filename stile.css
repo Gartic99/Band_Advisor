@@ -141,7 +141,7 @@ url("assets/Fonts/MEISHA_SANS_SERIF.otf") format("opentype");
 	left: 554.835px;
 	top: 540px;*/
 	top:60%;
-	left:38%;
+	left:35.5%;
 	overflow: visible;
 }
 
@@ -237,8 +237,8 @@ url("assets/Fonts/MEISHA_SANS_SERIF.otf") format("opentype");
 
 .search-input {
   position: relative;
-  top: 27%;
-  left: 32%;
+  top: 28.5%;
+  left: 29%;
   font-size: 36px;
   background: none;
   color: #5a6674;
@@ -259,7 +259,7 @@ input::placeholder {
 
 .search-button {
   position: absolute;
-  top: 30%;
+  top: 26%;
   left: 10%;
   /*height: 47px;
   width: 47px;*/
