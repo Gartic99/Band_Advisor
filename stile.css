@@ -76,6 +76,17 @@
 	position: absolute;
 	overflow: visible;
 }
+.Recensione_button{
+	position: absolute;
+	width: 54px;
+	height: 54px;
+	overflow: visible;
+  	background: none;
+  	outline: none!important;
+  	cursor: pointer;
+  
+}
+
 .Button_entra {
   	background-color: #ff1744;
   	border: none;
@@ -98,7 +109,6 @@
 	font-weight: lighter;
 
 }
-
 .Option_bar {
 	position: absolute;
 	width: 570.552px;
@@ -200,7 +210,7 @@
   font-size: 36px;
   background: none;
   color: #5a6674;
-  width: 90%;
+  width: 70%;
   border: none;
   appearance: none;
   outline: none;
