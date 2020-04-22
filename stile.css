@@ -15,11 +15,14 @@
 
 .pubblico {	
   	opacity: .62;
-  	width: 1967px;
- 	height: 1311px;
- 	overflow: visible;
+  	//width: 1967px;
+ 	//height: 1311px;
+    max-height: 140%;
+    max-width: 100%;
+    margin:0;
+    overflow: visible;
   	position: absolute;
-  	left: -33px;
+  	//left: +15%;
 	top: 201px;
 }
 .Band_Advisor{
