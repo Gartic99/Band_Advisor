@@ -3,9 +3,20 @@
 
 
 @font-face {
-font-family: "Gilroy";
+font-family: "Gilroy Bold";
 src:
-url("assets/Fonts/Gilroy.otf") format("opentype");
+url("assets/Fonts/EM-Gilroy/Gilroy-Bold.ttf") format("opentype");
+}
+
+@font-face {
+	font-family: "Gilroy Medium";
+	src:
+	url("assets/Fonts/EM-Gilroy/Gilroy-Medium.ttf") format("opentype");
+}
+@font-face {
+	font-family: "Gilroy Light";
+	src:
+	url("assets/Fonts/EM-Gilroy/Gilroy-Light.ttf") format("opentype");
 }
 
 @font-face {
@@ -28,8 +39,8 @@ url("assets/Fonts/MEISHA_SANS_SERIF.otf") format("opentype");
 .main{
 	display: flex;
 	background-color: #ffffff;
-	width: 1680px;
-	height: 1080px;
+	width: 100%;
+	height: ;
 }
 
 .pubblico {	
@@ -39,15 +50,15 @@ url("assets/Fonts/MEISHA_SANS_SERIF.otf") format("opentype");
     margin:0;
     overflow: visible;
   	position: absolute;
-  	//left: +15%;
+  	/*left: +15%;*/
 	top: 201px;
 }
 .Band_Advisor{
 	position: absolute;
-	width: 289px;
-	height: 105px;
-	left: 695px;
-	top: 42px;
+	/*width: 289px;
+	height: 105px;*/
+	left: 45%;
+	top: 5%;
 	overflow: visible;
 }
 .Band{
@@ -85,21 +96,18 @@ url("assets/Fonts/MEISHA_SANS_SERIF.otf") format("opentype");
 	height: 54px;
 	overflow: visible;
 	position: absolute;
-	left: 1330px;
+	left: 80%;
 	top: 67px;
 }
 .Recensione{
 	width: 54px;
 	height: 54px;
-	left: 0px
-	top: 0px;
-	position: absolute;
-	overflow: visible;
+	left: 0px;
 }
 .Recensione_button{
 	position: absolute;
-	width: 54px;
-	height: 54px;
+	/*width: 54px;
+	height: 54px;*/
 	overflow: visible;
   	background: none;
   	outline: none!important;
@@ -124,17 +132,19 @@ url("assets/Fonts/MEISHA_SANS_SERIF.otf") format("opentype");
   	display: inline-block;
 
   	font-size: 36px;
-	font-family: Gilroy;
+	font-family: Gilroy Light;
 	font-style: normal;
 	font-weight: lighter;
 
 }
 .Option_bar {
 	position: absolute;
-	width: 570.552px;
+	/*width: 570.552px;
 	height: 195px;
 	left: 554.835px;
-	top: 540px;
+	top: 540px;*/
+	top:60%;
+	left:38%;
 	overflow: visible;
 }
 
@@ -180,7 +190,7 @@ url("assets/Fonts/MEISHA_SANS_SERIF.otf") format("opentype");
 	top: 135px;
 	white-space: nowrap;
 	text-align: left;
-	font-family: Gilroy;
+	font-family: Gilroy Medium;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 43px;
@@ -207,17 +217,21 @@ url("assets/Fonts/MEISHA_SANS_SERIF.otf") format("opentype");
 
 
 .search-form {
-  position: relative;
-  top: 363px;
+  position: absolute;
+  /*top: 363px;
   left: 843px;
   width: 746px;
-  height: 90px;
+  height: 90px;*/
+  top:50%;
+  left:53%;
+  width: 45%;
+  height: 10%;
   border-radius: 44px;
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
   transform: translate(-50%, -50%);
-  vertical-align: middle;
+ /* vertical-align: middle;*/
   background: #fff;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 
   &.focus {
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
@@ -225,9 +239,9 @@ url("assets/Fonts/MEISHA_SANS_SERIF.otf") format("opentype");
 }
 
 .search-input {
-  position: absolute;
-  top: 24px;
-  left: 202px;
+  position: relative;
+  top: 27%;
+  left: 32%;
   font-size: 36px;
   background: none;
   color: #5a6674;
@@ -242,16 +256,16 @@ url("assets/Fonts/MEISHA_SANS_SERIF.otf") format("opentype");
   }
 }
 input::placeholder {
-  font-family: Gilroy;
+  font-family: Gilroy Light;
   color: #7f7f7f;
 }
 
 .search-button {
   position: absolute;
-  top: 23px;
-  left: 44px;
-  height: 47px;
-  width: 47px;
+  top: 30%;
+  left: 10%;
+  /*height: 47px;
+  width: 47px;*/
   padding: 0;
   margin: 0;
   border: none;
@@ -259,11 +273,11 @@ input::placeholder {
   outline: none!important;
   cursor: pointer;
   vertical-align: middle;
-  & svg {
+  /*& svg {
     width: 20px;
     height: 20px;
     fill: #5a6674;
-  }
+  }*/
 }
 
 
