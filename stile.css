@@ -48,10 +48,10 @@ url("assets/Fonts/MEISHA_SANS_SERIF.otf") format("opentype");
     max-height: 140%;
     max-width: 100%;
     margin:0;
-    overflow: visible;
+   /* overflow: visible;*/
   	position: absolute;
   	/*left: +15%;*/
-	top: 201px;
+	top: 22%;
 }
 .Band_Advisor{
 	position: absolute;
@@ -97,7 +97,7 @@ url("assets/Fonts/MEISHA_SANS_SERIF.otf") format("opentype");
 	overflow: visible;
 	position: absolute;
 	left: 80%;
-	top: 67px;
+	top: 7%;
 }
 .Recensione{
 	width: 54px;
