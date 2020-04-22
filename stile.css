@@ -59,7 +59,7 @@ url("assets/Fonts/MEISHA_SANS_SERIF.otf") format("opentype");
 	width: 174px;
 	white-space: nowrap;
 	text-align: left;
-	font-family: MEISHA SANS SERIF;
+	font-family: Meisha Sans;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 59px;
@@ -68,7 +68,7 @@ url("assets/Fonts/MEISHA_SANS_SERIF.otf") format("opentype");
 }
 .Advisor{
 	position: absolute;
-	left: 130px;
+	left: 120px;
 	top: 20px;
 	overflow: visible;
 	width: 199px;
@@ -215,6 +215,7 @@ url("assets/Fonts/MEISHA_SANS_SERIF.otf") format("opentype");
   border-radius: 44px;
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
   transform: translate(-50%, -50%);
+  vertical-align: middle;
   background: #fff;
   transition: all 0.3s ease;
 
@@ -232,6 +233,7 @@ url("assets/Fonts/MEISHA_SANS_SERIF.otf") format("opentype");
   color: #5a6674;
   width: 70%;
   border: none;
+  vertical-align: middle;
   appearance: none;
   outline: none;
 
@@ -256,7 +258,7 @@ input::placeholder {
   background: none;
   outline: none!important;
   cursor: pointer;
-  
+  vertical-align: middle;
   & svg {
     width: 20px;
     height: 20px;
