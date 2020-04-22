@@ -42,6 +42,14 @@ url("assets/Fonts/MEISHA_SANS_SERIF.otf") format("opentype");
   	//left: +15%;
 	top: 201px;
 }
+.Band_Advisor{
+	position: absolute;
+	width: 289px;
+	height: 105px;
+	left: 695px;
+	top: 42px;
+	overflow: visible;
+}
 .Band{
 	
 	position: absolute;
