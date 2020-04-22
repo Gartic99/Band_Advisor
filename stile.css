@@ -1,4 +1,23 @@
 
+
+
+
+@font-face {
+font-family: "Gilroy";
+src:
+url("assets/Fonts/Gilroy.otf") format("opentype");
+}
+
+@font-face {
+font-family: "Meisha";
+src:
+url("assets/Fonts/MEISHA.otf") format("opentype");
+}
+@font-face {
+font-family: "Meisha Sans";
+src:
+url("assets/Fonts/MEISHA_SANS_SERIF.otf") format("opentype");
+}
 * {
 	margin: 0;
 	padding: 0;
@@ -15,8 +34,6 @@
 
 .pubblico {	
   	opacity: .62;
-  	//width: 1967px;
- 	//height: 1311px;
     max-height: 140%;
     max-width: 100%;
     margin:0;
@@ -42,7 +59,7 @@
 	width: 174px;
 	white-space: nowrap;
 	text-align: left;
-	font-family: MEISHA SANS SERIF;
+	font-family: Meisha Sans;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 59px;
