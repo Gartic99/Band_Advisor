@@ -99,7 +99,8 @@ url("assets/Fonts/EM-Gilroy/Gilroy-Bold.ttf") format("opentype");
 	left: 554.835px;
 	top: 540px;*/
 	top:60%;
-	left:33%;
+	left: 33%;
+	width: auto;
 	border-radius: 44px;
 	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 	transform: translate(-50%, -50%);
