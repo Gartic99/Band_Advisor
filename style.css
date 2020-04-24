@@ -1,0 +1,123 @@
+@font-face {
+    font-family: "Gilroy Bold";
+    src: url("assets/Fonts/EM-Gilroy/Gilroy-Bold.ttf") format("opentype");
+}
+    
+@font-face {
+    font-family: "Gilroy Medium";
+    src:url("assets/Fonts/EM-Gilroy/Gilroy-Medium.ttf") format("opentype");
+}
+@font-face {
+    font-family: "Gilroy Light";
+    src:url("assets/Fonts/EM-Gilroy/Gilroy-Light.ttf") format("opentype");
+}
+
+a:active{ outline: none;}
+a img {outline : none;}
+img {border : 0;}
+
+/*the whole thing*/
+.main{
+    height: 1080px;
+    background: #ffffff;
+    background-image: url(assets/crowd_in_front_of_people_playi.png);
+    background-size: cover;
+    background-position: center;
+
+}
+
+
+/*left side buttons */
+
+/* recensione button */
+.Recensione_button{
+	overflow: visible;
+  	background: none;
+  	outline: none!important;
+  	cursor: pointer;  
+}
+
+/* entra button */
+.Button_entra {
+    background-color: #ff1744;
+    border: none;
+    color: #ffffff;
+    border-radius: 26.5px;
+    overflow: visible;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    outline: none;
+
+    font-size: 36px;
+    font-family: Gilroy Light;
+}
+
+
+
+
+
+/*search bar things*/
+
+/* bar body*/
+.search-form {
+    border-radius: 44px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    background: #fff;
+    transition: all 0.5s ease;
+  }
+/* magnifier lens*/
+.search-button{
+    position: relative;
+    border: none;
+    background: none;
+    outline: none!important;
+    cursor: pointer;
+}
+/* input area */
+.search-input {
+    font-size: 36px;
+    background: none;
+    color: #5a6674;
+    border: none;
+    appearance: none;
+    outline: none;
+  }
+  input::placeholder {
+    font-family: Gilroy Light;
+    color: #7f7f7f;
+    opacity: .7;
+}
+
+
+/* Main bar */
+
+/* white rectangle */
+.rec {
+	overflow: visible;
+	width: 100%;
+	height: auto;
+}
+
+/* icons and fonts */
+
+
+.Guitar {
+    outline: none;
+}
+.Microphone{
+    outline: none;
+}
+.Cd {
+    outline: none;
+}
+.Stage{
+    outline: none;
+}
+.Central_font{
+	font-family: Gilroy Medium;
+	font-size: 43px;
+	color: #000000;
+	overflow: visible;
+}
+

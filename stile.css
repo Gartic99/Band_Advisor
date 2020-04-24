@@ -33,13 +33,6 @@ url("assets/Fonts/MEISHA_SANS_SERIF.otf") format("opentype");
 	border: none;
 }
 
-.main{
-	display: flex;
-	background-color: #ffffff;
-	width: 100%;
-	height: 100%;
-}
-
 .pubblico {	
   	opacity: .62;
     max-height: 140%;
@@ -145,10 +138,6 @@ url("assets/Fonts/MEISHA_SANS_SERIF.otf") format("opentype");
 	border-radius: 1em;
     padding: 1em;
     position: absolute;
-    top: 50%;
-    left: 38%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%) 
 }
 
 .Option_button{
@@ -216,7 +205,6 @@ url("assets/Fonts/MEISHA_SANS_SERIF.otf") format("opentype");
 	left: 428.165px;
 	width: 116px;
 }
-
 
 
 .search-form {
