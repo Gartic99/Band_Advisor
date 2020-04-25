@@ -5,72 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Band Advisor</title>
 </head>
     <body>
+        <section class="header fixed-top">
+            <div class="container">
+                <div class="row justify-content-center" id="header">
+                    <div class="col">
+                        <img src="assets/BandLogo.png" height="100px" width="400px" class="logo"></img>
+                    </div>
+                    <div class="col">
+                        <div class="top">
+                            <input class="Recensione_button" type=image src="assets/edit.png" >
+                            <input class="Entra_button" type="image" src="assets/Rectangle 4.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section class="main">
             <div class="container">
-                <div class="row">
+                <div class="row" id="space" style="height: 20vh;">
                     <div class="col">
-                        <img src="assets/BandLogo.png" height="100px" width="400px"></img>
-                    </div>
-                    <div class="col">
-                        <input class="Recensione_button" type=image src="assets/edit.png" >
-                        <a href="#" class="Button_entra">Entra</a>
+
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <form class="search-form">
-                            <button type="submit" class="search-button">
-                                <div class="search-button">
-                                    <img src="assets/search.png">
-                                </div>
-                            </button>
-                            <input type="text" value="" placeholder="Cosa stai cercando?" class="search-input">
-                        </form>
-                    </div>
+                <div class="row  justify-content-center">
+                    <form class="search-form">
+                        <button type="submit" class="search-button">
+                            <div class="search-button">
+                                <img src="assets/search.png">
+                            </div>
+                        </button>
+                        <input type="text" value="" placeholder="Cosa stai cercando?" class="search-input">
+                    </form>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="Option_bar">
-                            <svg class="rec">
-                                <rect fill="#ffffff" stroke="#2c2828" stroke-width="3px" stroke-linejoin="bevel" stroke-linecap="round" stroke-miterlimit="4" shape-rendering="auto" class="rec" rx="35" ry="35" x="0" y="0" width="570.552" height="195">
-                                </rect>
-                            </svg>
-                            <section class="icons">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col">
-                                            <input class="Guitar Option_button" type="image"  src="assets/ID034_electric_guitar_1.png"  >
-                                            <div class="Rock_font Central_font">
-                                                <span>Rock</span>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <input class="Dj  Option_button" type="image" src="assets/ID013_microphone_2.png">
-                                            <div class="Dj_font Central_font">
-                                                <span>Dj</span>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <input class="Cd Option_button" type="image" src="assets/ID002_cd.png" >
-                                            <div class="Pop_font Central_font">
-                                                <span>Pop</span>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <input class="Stage Option_button" type="image" src="assets/ID060_stage.png">
-                                            <div class="Locali_font Central_font">
-                                                <span>Locali</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                        </section>
+                <div class="row justify-content-center">
+                            <div class="Option_bar">
+                                <img src="assets/Main Bar.svg" id="tab">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </body>
+    <!--Che sbrodata Carlo-->
 </html>
