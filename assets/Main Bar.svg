@@ -3,6 +3,7 @@
   <style type="text/css">
     @font-face {
       font-family: Gilroy-Medium;
+      font-family: Gilroy ☞
       src: url('assets/Fonts/EM-GIlroy/Gilroy-Medium.ttf');
     }
   </style>
