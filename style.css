@@ -1,0 +1,156 @@
+@font-face {
+    font-family: "Gilroy Bold";
+    src: url("assets/Fonts/EM-Gilroy/Gilroy-Bold.ttf") format("opentype");
+}
+    
+@font-face {
+    font-family: "Gilroy Medium";
+    src:url("assets/Fonts/EM-Gilroy/Gilroy-Medium.ttf") format("opentype");
+}
+@font-face {
+    font-family: "Gilroy Light";
+    src:url("assets/Fonts/EM-Gilroy/Gilroy-Light.ttf") format("opentype");
+}
+
+a:active{ outline: none;}
+a img {outline : none;}
+img {border : 0;}
+
+/*the whole thing*/
+.main{
+    height: 100vh;
+    background: #ffffff;
+    background-image: url(assets/crowd_in_front_of_people_playi.png);
+    background-size: cover;
+    background-position: center;
+    width: auto;
+
+}
+
+/* header */
+.header{
+    position: -webkit-sticky;
+    position: sticky;
+    background-color: #ffffff;
+    padding-bottom: 3%;
+}
+
+/* Band Advisor Logo */
+.logo{
+    padding-right: 12%;
+    padding-left:12% ;
+    padding-top: 5%;
+    padding-bottom: 0%;
+}
+
+
+/*Right side buttons */
+
+.top{
+    padding-top: 3%;
+}
+
+/* recensione button */
+.Recensione_button{
+    padding-left: 5%;
+    padding-right: 5%;
+	overflow: visible;
+  	background: none;
+  	outline: none!important;
+  	cursor: pointer;  
+}
+
+/* entra button */
+.Entra {
+    outline: none!important;
+    overflow: visible;
+}
+
+
+/*Search bar things*/
+
+/* bar body */
+.search-form {
+    border-radius: 44px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    background: #fff;
+    transition: all 0.5s ease;
+  }
+/* magnifier lens*/
+.search-button{
+    border: none;
+    background: none;
+    outline: none!important;
+    cursor: pointer;
+}
+/* input area */
+.search-input {
+    padding-top: 0%;
+    font-size: 36px;
+    background: none;
+    color: #5a6674;
+    border: none;
+    appearance: none;
+    outline: none;
+  }
+  input::placeholder {
+    font-family: Gilroy Light;
+    color: #7f7f7f;
+    opacity: .7;
+}
+
+
+/* Main bar */
+
+
+
+/* white rectangle */
+.rec {
+    position: relative;
+    padding-top: 20%;
+	overflow: visible;
+    width: 100%;
+	height: auto;
+}
+#tab{
+    padding-top: 20%;
+    padding-left: 10%;
+    width: 100%;
+    height: auto;
+}
+
+/* Italian Mafia */
+.icons{
+    padding-left: 10%;
+    padding-top: 20%;
+    padding-bottom:10% ;
+    width: 130%;
+    background-clip: content-box;
+    background-image: url(assets/Rectangle\ 3.png);
+    background-size: cover;
+    height: auto;
+}
+
+/* icons and fonts */
+
+
+.Guitar {
+    outline: none;
+}
+.Microphone{
+    outline: none;
+}
+.Cd {
+    outline: none;
+}
+.Stage{
+    outline: none;
+}
+.Central_font{
+	font-family: Gilroy Medium;
+	font-size: 43px;
+	color: #000000;
+	overflow: visible;
+}
+
+
