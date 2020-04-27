@@ -78,6 +78,7 @@ img {border : 0;}
   }
 /* magnifier lens*/
 .search-button{
+    padding-bottom: 1%;
     border: none;
     background: none;
     outline: none!important;
@@ -86,7 +87,7 @@ img {border : 0;}
 /* input area */
 .search-input {
     padding-top: 0%;
-    font-size: 36px;
+    font-size: 4vw;
     background: none;
     color: #5a6674;
     border: none;
@@ -119,7 +120,8 @@ img {border : 0;}
     background-size: auto;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 15%;
+    padding-left: 25%;
+    padding-right: 25%;
 }
 
 /* buttons*/
@@ -138,5 +140,8 @@ img {border : 0;}
     border-style: solid;
     border-color: #000000;
     background-color: #ffffff;
-    padding: 5%;
+    padding: 4%;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    background: #fff;
+    transition: all 0.5s ease;
 }
