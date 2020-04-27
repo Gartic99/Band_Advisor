@@ -105,13 +105,6 @@ img {border : 0;}
 
 
 /* white rectangle */
-.rec {
-    position: relative;
-    padding-top: 20%;
-	overflow: visible;
-    width: 100%;
-	height: auto;
-}
 #tab{
     padding-top: 20%;
     padding-left: 10%;
@@ -119,38 +112,30 @@ img {border : 0;}
     height: auto;
 }
 
-/* Italian Mafia */
-.icons{
-    padding-left: 10%;
-    padding-top: 20%;
-    padding-bottom:10% ;
-    width: 130%;
-    background-clip: content-box;
-    background-image: url(assets/Rectangle\ 3.png);
-    background-size: cover;
+.Option_bar{
+   
+    width: 100%;
     height: auto;
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 15%;
 }
 
-/* icons and fonts */
-
-
-.Guitar {
-    outline: none;
+/* buttons*/
+.Option_bar .btn{
+    font-family: Gilroy Bold;
+    color: #000000;
 }
-.Microphone{
-    outline: none;
+.btn-sq-lg {
+    width: 100px !important;
+    height: 100px !important;
 }
-.Cd {
-    outline: none;
+  
+#rec{
+    border-radius: 25px;
+    border-style: solid;
+    border-color: #000000;
+    background-color: #ffffff;
+    padding: 5%;
 }
-.Stage{
-    outline: none;
-}
-.Central_font{
-	font-family: Gilroy Medium;
-	font-size: 43px;
-	color: #000000;
-	overflow: visible;
-}
-
-
