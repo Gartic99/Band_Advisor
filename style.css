@@ -131,8 +131,9 @@ img {border : 0;}
     width: 100px !important;
     height: 100px !important;
 }
-  
+/* main rectangle*/
 #rec{
+    /*disegnato a mano con tanta cura*/
     border-radius: 25px;
     border-style: solid;
     border-color: #000000;
