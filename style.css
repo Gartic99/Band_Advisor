@@ -26,6 +26,14 @@ img {border : 0;}
     width: auto;
 
 }
+.login{
+    height: 100vh;
+    background: #ffffff;
+    background-image: url(assets/people_watching_concert_during.png);
+    background-size: cover;
+    background-position: center;
+    width: auto;
+}
 
 /* header */
 .header{
@@ -144,4 +152,14 @@ img {border : 0;}
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
     background: #fff;
     transition: all 0.5s ease;
+}
+.login-label{
+    font-family: Gilroy Medium;
+    color: #000000;
+    font-size: 3rem;
+}
+.login-label-secondo{
+    font-family: Gilroy Light;
+    color: #000000;
+    font-size: 2rem;
 }
