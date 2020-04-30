@@ -1,3 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="87" height="43" viewBox="0 0 87 43">
-  <text id="Entra" transform="translate(0 34)" fill="#fff" font-size="36" font-family="Gilroy-Light, Gilroy ☞" font-weight="300"><tspan x="0" y="0">Entra</tspan></text>
+<svg xmlns="http://www.w3.org/2000/svg" width="138" height="54" viewBox="0 0 138 54">
+  <g id="Group_1" data-name="Group 1" transform="translate(-1658 -74)">
+    <g id="Rectangle_4" data-name="Rectangle 4" transform="translate(1658 74)" fill="#ff1744" stroke="#707070" stroke-width="1">
+      <rect width="138" height="54" rx="27" stroke="none"/>
+      <rect x="0.5" y="0.5" width="137" height="53" rx="26.5" fill="none"/>
+    </g>
+    <text id="Entra" transform="translate(1684 114)" fill="#fff" font-size="36" font-family="Gilroy-Light, Gilroy ☞" font-weight="300"><tspan x="0" y="0">Entra</tspan></text>
+  </g>
 </svg>
