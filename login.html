@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="style.css">
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<meta name="google-signin-client_id" content="836928160219-as2iudf75qicjsp6jt12vcfm0ifc3dbr.apps.googleusercontent.com">
     <title>Band Advisor</title>
 </head>
 	<body>
@@ -53,6 +55,7 @@
 						<div class="row">
 							<div class="col-2">
 								<Label class="login-label-secondo"> Registrati</Label>
+								<div class="g-signin2" data-onsuccess="onSignIn"></div>
 							</div>
 						</div>
 					</div>
