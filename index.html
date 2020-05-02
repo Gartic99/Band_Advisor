@@ -7,81 +7,79 @@
     <link rel="stylesheet" href="style.css">
     <title>Band Advisor</title>
 </head>
-    <body>
-        <section class="header fixed-top">
-            <div class="container">
-                <div class="row" style="height:5vh">
-                    <div class="col-12" style="height: 5vh"></div></div>
-                    <div class="row justify-content-center " id="header" style="height:11vh">
-                        <div class="col-4"></div>  
-                        <div class="col-3 justify-content-center " >
-                            <embed src="assets/BandLogo.svg" style="width: 100%;height: auto;">
-                        </div>  
-                         <div class="col"></div>    
-                        <div class="col-auto ">
-                            <input class="Recensione_button" type=image src="assets/edit.png" style="width: 100%;height: auto;" >
+<body>
+    <section class="header fixed-top">
+        <div class="container">
+            <div class="row " style="height: 5vh;"></div>
+            <div class="row" style="height: 10vh;">
+                <div class="col-4 "></div>
+                <div class="col-4 ">
+                    <embed src="assets/BandLogo.svg" style="width: 100%;height: auto;">
+                </div>
+                <div class="col-4 ">
+                    <div class="row">
+                        <div class="col-2">
+
                         </div>
-                        <div class="col-auto ">
-                            <input class="Entra_button" type="image" src="assets/Rectangle 4.png"  style="width: 100%;height: auto;">
+                        <div class="col-3">
+                            <input class="Recensione_button" type=image src="assets/edit.svg" style="width: 100%;height: 5vh;" >
+                        </div>
+                        <div class="col-4">
+                            <input class="Entra_button" type="image" onclick="window.location.href = 'login.html' " src="assets/Entra2.svg" style="width: 100%;height: auto;">
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <section class="main">
-            <div class="container">
-                <div class="row" id="space" style="height: 20vh;">
-                    <div class="col">
-
+        </div>
+    </section>
+    <section class="main">
+        <div class="container">
+            <div class="row" style="height: 25vh;">
+                <div class="col-12"></div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <form class="search-form">
+                <button type="submit" class="search-button">
+                    <div class="search-button">
+                        <img src="assets/search.png">
                     </div>
-                </div>
-                <div class="row  justify-content-center">
-                    <form class="search-form">
-                        <button type="submit" class="search-button">
-                            <div class="search-button">
-                                <img src="assets/search.png">
-                            </div>
-                        </button>
-                        <input type="text" value="" placeholder="Cosa stai cercando?" class="search-input">
-                    </form>
-                </div>
-                <div class="row">
-                    <div class="col" style="height: 5vh;">
-
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="Option_bar">
-                        <div class="container">
-                            <div class="row justify-content-center border border-dark" id="rec">
-                                <div class="col-auto justify-content-center">
-                                    <p>
-                                        <a href="#" class="btn btn-sq-lg">
-                                            <img src="assets/Icons/electric-guitar.png" style="height: auto; width: 100%;"><br/>
-                                            Band <br>
-                                        </a>
-                                        <a href="#" class="btn btn-sq-lg">
-                                            <img src="assets/Icons/microphone.png" style="height: auto; width: 100%;"><br/>
-                                            Cantanti <br>
-                                        </a>
-                                        <!--<a href="#" class="btn btn-sq-lg">
-                                            <img src="assets/Icons/cd.png" style="height: auto; width: 100%;"><br/>
-                                            DJ <br>
-                                        </a>-->
-                                        <a href="#" class="btn btn-sq-lg">
-                                        <img src="assets/Icons/speaker.png" style="height: auto; width: 100%;">
-                                            Locali 
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>                                       
+                </button>
+                <input type="text" value="" placeholder="Cosa stai cercando?" class="search-input">
+            </form>
+        </div>
+        <div class="row" style="height: 5vh;">
+            <div class="col-12"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="Option_bar">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-auto justify-content-center" id="rec">
+                            <p>
+                                <a href="#" class="btn btn-sq-lg">
+                                    <img src="assets/Icons/electric-guitar.png" style="height: auto; width: 100%;"><br/>
+                                    Band <br>
+                                </a>
+                                <a href="#" class="btn btn-sq-lg">
+                                    <img src="assets/Icons/microphone.png" style="height: auto; width: 100%;"><br/>
+                                    Cantanti <br>
+                                </a>
+                                <!--<a href="#" class="btn btn-sq-lg">
+                                    <img src="assets/Icons/cd.png" style="height: auto; width: 100%;"><br/>
+                                    DJ <br>
+                                </a>-->
+                                <a href="#" class="btn btn-sq-lg">
+                                <img src="assets/Icons/speaker.png" style="height: auto; width: 100%;">
+                                    Locali 
+                                </a>
+                            </p>
                         </div>
                     </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
-        </section>
-    </body>
-    <!--Che sbrodata Carlo-->
-</html>
+        </div>
+        
+    </section>
+</body>
