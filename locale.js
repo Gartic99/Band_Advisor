@@ -9,29 +9,7 @@ function locale_up(){
     // remove of the buttons
     $( "#prova" ).remove();
 
-    /*<div class="col-5">
-        <label class="login-label">Entra</label><br>
-        <form class="search-form">
-            <label class="login-label-secondo">Nome Utente</label>
-            <div><input type="text" value=""  class="search-input" id="nome"></div>
-            <label class="login-label-secondo">Password</label>
-            <div><input type="text" value=""  class="search-input" id="password"></div>
-        </form>
-        <br>
-        <div class="row">
-            <div class="col-8"></div>
-            <div class="col-4">
-                <embed type="image/svg+xml" src="/ass/Entra2.svg"style="width: 140%;height: auto;" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-2">
-                <Label class="login-label-secondo" onclick="window.location.href = 'signup.html' " style="cursor: pointer; "> Registrati</Label>
-                <div class="g-signin2" data-onsuccess="onSignIn"></div>
-            </div>
-        </div>
-    </div>*/
-
+    
     // creo il container
     var container = document.createElement("container");
     // creo la row
@@ -44,7 +22,7 @@ function locale_up(){
 
     //create a form
     var f = document.createElement("form");
-    f.className = "search-form"
+    f.className = "form-form"
 
     //************************ creo le label ***************************/
         //create label registrati da locale
@@ -83,21 +61,21 @@ function locale_up(){
         nome_locale.type = "text";
         nome_locale.id = "nome";
         nome_locale.value = "";
-        nome_locale.className = "search-input";
+        nome_locale.className = "form-input";
 
         //create input element email 
         var email = document.createElement("input");
         email.type = "html";
         email.id = "email";
         email.value = "";
-        email.className = "search-input";
+        email.className = "form-input";
 
         //create input element password
         var password = document.createElement("input");
         password.type = "text";
         password.id = "password";
         password.value = "";
-        password.className = "search-input";
+        password.className = "form-input";
 
     //************************ creo input ***************************/
 

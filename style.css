@@ -81,7 +81,7 @@ img {border : 0;}
 .search-form {
     border-radius: 44px;
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-    background: none;
+    background: #fff;
     transition: all 0.5s ease;
   }
 /* magnifier lens*/
@@ -96,14 +96,11 @@ img {border : 0;}
 .search-input {
     padding-top: 0%;
     font-size: 3vw;
-    background: white;
+    background: none;
     color: #5a6674;
     border: none;
     appearance: none;
     outline: none;
-    border-radius: 44px;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-    transition: all 0.5s ease;
   }
   input::placeholder {
     font-family: Gilroy Light;
@@ -156,6 +153,7 @@ img {border : 0;}
     background: #fff;
     transition: all 0.5s ease;
 }
+/*some fonts styles*/
 .login-label{
     font-family: Gilroy Medium;
     color: #000000;
@@ -166,3 +164,23 @@ img {border : 0;}
     color: #000000;
     font-size: 2rem;
 }
+
+/*login and signup forms*/
+.form-input {
+    padding-top: 0%;
+    font-size: 3vw;
+    background: white;
+    color: #5a6674;
+    border: none;
+    appearance: none;
+    outline: none;
+    border-radius: 44px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.5s ease;
+  }
+  .fomr-form {
+    border-radius: 44px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    background: none;
+    transition: all 0.5s ease;
+  }
