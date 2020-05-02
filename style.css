@@ -81,7 +81,7 @@ img {border : 0;}
 .search-form {
     border-radius: 44px;
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-    background: #fff;
+    background: none;
     transition: all 0.5s ease;
   }
 /* magnifier lens*/
@@ -96,11 +96,14 @@ img {border : 0;}
 .search-input {
     padding-top: 0%;
     font-size: 3vw;
-    background: none;
+    background: white;
     color: #5a6674;
     border: none;
     appearance: none;
     outline: none;
+    border-radius: 44px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.5s ease;
   }
   input::placeholder {
     font-family: Gilroy Light;
