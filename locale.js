@@ -40,7 +40,7 @@ function locale_up(){
 
     // creo la col
     var col_1 = document.createElement("div");
-    col_1.className = "col-5";
+    col_1.className = "col-6";
 
     //create a form
     var f = document.createElement("form");
@@ -75,7 +75,7 @@ function locale_up(){
         //create label musica preferita locale
         var l_musica_p = document.createElement("label");
         l_musica_p.className = "login-label-secondo";
-        l_musica_p.innerHTML = "Musica Preferita";
+        l_musica_p.innerHTML = "Musica";
 
     //************************ creo input ***************************/
         //create input element nome
@@ -125,7 +125,9 @@ function locale_up(){
     f.appendChild(password);
     f.appendChild(l_tipo_locale);
     f.appendChild(tipo_locale);
+    f.appendChild(document.createElement("br"));
     f.appendChild(l_musica_p);
+    f.appendChild(document.createElement("br"));
     f.appendChild(musica_preferita);
 
 
