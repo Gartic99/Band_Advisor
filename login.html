@@ -14,17 +14,17 @@
             <div class="container">
                 <div class="row " style="height: 1.5vh;"></div>
                 <div class="row" style="height: 10vh;">
-                    <div class="col-4 "></div>
-                    <div class="col-4 ">
-                        <embed src="assets/BandLogo.svg" style="width: 100%;height: auto;">
+                    <div class="col-3 col-md-4 "></div>
+                    <div class="col-6 col-md-4  ">
+                        <embed src="assets/BandLogo.svg" onclick="window.location.href = 'index.html' " style="width: 100%;height: auto;">
                     </div>
-                    <div class="col-4 ">
+                    <div class="col-3 col-md-4 ">
                         <div class="row">
 
                             <div class="col-2">
 
                             </div>
-                            <div class="col-auto ">
+                            <div class="col-7 col-md-3">
                                 <input class="Recensione_button" type=image src="assets/edit.svg" style="width: 100%;height: 5vh;" >
                             </div>
                         </div>
@@ -43,23 +43,24 @@
 						<label class="login-label">Entra</label><br>
 						<form class="form-form">
 							<label class="login-label-secondo">Nome Utente</label>
-							<div><input type="text" value=""  class="form-input" id="nome"></div>
+							<input type="text" value=""  class="form-input" id="nome">
 							<label class="login-label-secondo">Password</label>
-							<div><input type="text" value=""  class="form-input" id="password"></div>
+							<input type="text" value=""  class="form-input" id="password">
 						</form>
 						<br>
 						<div class="row">
-							<div class="col-8"></div>
-							<div class="col-4">
+							<div class="col-7"></div>
+							<div class="col-5 col-md-3">
 								<embed type="image/svg+xml" src="/assets/Entra2.svg"style="width: 140%;height: auto;" />
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-2">
+							<div class="col-5 col-md-2">
 								<input class="Entra_button" type="image" onclick="window.location.href = 'signup.html' " src="assets/RegistratiButton.png" style="width: 250%;height: auto;">
 								<!--<Label class="login-label-secondo" onclick="window.location.href = 'signup.html' " style="cursor: pointer; "> Registrati</Label>-->
-								<div class="g-signin2" data-onsuccess="onSignIn"></div>
 							</div>
+							<div class="col-12"></div>
+							<div class="col-1 col-md-1"> <div class="g-signin2" data-onsuccess="onSignIn"></div> </div>
 						</div>
 					</div>
 				</div>

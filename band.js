@@ -23,7 +23,7 @@ function band_up(){
         col_2.className = "col-8"
 
         var col_3 = document.createElement("div");
-        col_3.className = "col-4"
+        col_3.className = "col-5 col-md-3"
 
         //create a form
         var f = document.createElement("form");
