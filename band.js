@@ -77,7 +77,7 @@ function band_up(){
 
         //create input element password
         var password = document.createElement("input");
-        password.type = "text";
+        password.type = "password";
         password.id = "password";
         password.value = "";
         password.className = "form-input";
