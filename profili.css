@@ -1,0 +1,111 @@
+@font-face {
+    font-family: "Gilroy Bold";
+    src: url("assets/Fonts/EM-Gilroy/Gilroy-Bold.ttf") format("opentype");
+}
+@font-face {
+    font-family: "Gilroy Semi-Bold";
+    src: url("assets/Fonts/EM-Gilroy/Gilroy-SemiBold.ttf") format("opentype");
+}      
+@font-face {
+    font-family: "Gilroy Medium";
+    src:url("assets/Fonts/EM-Gilroy/Gilroy-Medium.ttf") format("opentype");
+}
+@font-face {
+    font-family: "Gilroy Light";
+    src:url("assets/Fonts/EM-Gilroy/Gilroy-Light.ttf") format("opentype");
+}
+
+a:active{ outline: none;}
+a img {outline : none;}
+img {border : 0;}
+a:hover,a:focus {
+    background-color: transparent !important;
+}
+/*the whole thing*/
+.main{
+    height: 100vh;
+    background: #ffffff;
+    width: auto;
+
+}
+.login{
+    height: 100vh;
+    background: #ffffff;
+    width: auto;
+}
+
+/*Top Bar*/
+
+/* header */
+.header{
+    position: -webkit-sticky;
+    position: sticky;
+    background-color: #ffffff;
+    padding-bottom: 3%;
+}
+
+/* Band Advisor Logo */
+.logo{
+    padding-right: 12%;
+    padding-left:12% ;
+    padding-top: 5%;
+    padding-bottom: 0%;
+}
+
+
+/*Right top side*/
+
+.top{
+    padding-top: 3%;
+}
+
+#nome{
+    font-family: Gilroy Light;
+    color: #000000;
+    font-size: 1vw;
+}
+#fotoprofilo{
+    padding-top: 12%;
+}
+
+
+/* Main part */
+
+/*contattato*/
+.contattato{
+    font-family: Gilroy Semi-Bold;
+    color: #000000;
+    font-size: 2vw; 
+}
+/*contatta*/
+.contatta{
+    font-family: Gilroy Semi-Bold;
+    color: #000000;
+    font-size: 2vw; 
+    text-decoration: none;
+    background-color: transparent;
+}
+/*recensioni*/
+.recensioni{
+    font-family: Gilroy Semi-Bold;
+    color: #000000;
+    font-size: 2vw; 
+}
+
+.contatti {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    font-family: Gilroy Light;
+    color: #000000;
+    font-size: 2vw; 
+}
+
+.testi {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    font-family: Gilroy Light;
+    color: #000000;
+    font-size: 1vw; 
+}
