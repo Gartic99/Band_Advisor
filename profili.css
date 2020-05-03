@@ -92,6 +92,7 @@ a:hover,a:focus {
     font-size: 2vw; 
 }
 
+/*lista dei contatti*/
 .contatti {
     position: absolute;
     top: 5%;
@@ -100,7 +101,7 @@ a:hover,a:focus {
     color: #000000;
     font-size: 2vw; 
 }
-
+/*lista delle recensioni*/
 .testi {
     position: absolute;
     top: 20%;
