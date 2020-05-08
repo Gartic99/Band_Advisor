@@ -95,8 +95,9 @@ img {border : 0;}
   }
 /* magnifier lens*/
 .search-button{
-    height: auto;
-    padding-top: 3%;
+    height: 40%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
     width: auto;
     border: none;
     background: none;
