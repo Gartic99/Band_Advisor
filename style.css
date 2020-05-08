@@ -106,8 +106,8 @@ img {border : 0;}
 .search-input {
     height: 100%;
     width: auto;
-    padding-left:2.5%;
-    font-size: 2.5vw;
+    padding: 2.5%;
+    font-size: 1.5vw;
     background: none;
     color: #5a6674;
     border: none;

@@ -7,8 +7,17 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="assets/B.png">
     <title>Band Advisor</title>
+    <script>
+        function load(){
+            //true if we are on mobile
+            var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            if(isMobile){
+                document.getElementById("searchRow").style.height = "5vh";
+            }
+        }
+    </script>
 </head>
-<body>
+<body onload="return load();">
     <section class="header fixed-top">
         <div class="container">
             <div class="row " style="height: 5vh;"></div>
@@ -31,17 +40,19 @@
             </div>
         </div>
     </section>
-    <section class="main">
+    <section class="main" >
         <div class="container">
             <div class="row" style="height: 25vh;">
             </div>
-            <div class="row justify-content-center ">
-                <form class="search-form  col-7 col-md-6">
-                    <div class="row" style="height: 7vh;">
+            <div class="row justify-content-center">
+                
+                <form class="search-form col-7">
+                    <div class="row" style="height:8vh;" id="searchRow">
                         <input type="image" src="assets/tools-and-utensils.svg" class="search-button">
                         <input type="text" value="" placeholder="Cosa stai cercando?" class="search-input">
                     </div>
                 </form>
+                
             </div>
             <div class="row" style="height: 6vh;"></div>
             <div class="row justify-content-center">
