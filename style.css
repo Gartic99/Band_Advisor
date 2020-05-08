@@ -90,8 +90,7 @@ img {border : 0;}
     background: #fff;
     border: #000000;
     border-style: solid;
-    
-    transition: all 0.5s ease;
+    transition: all 0.8s ease;
   }
 /* magnifier lens*/
 .search-button{
@@ -99,7 +98,7 @@ img {border : 0;}
     padding-left: 1.5%;
     padding-top: 1.5%;
     padding-bottom: 1.5%;
-    width: 10%;
+    width: auto;
     border: none;
     background: none;
     outline: none!important;
@@ -107,7 +106,7 @@ img {border : 0;}
 }
 /* input area */
 .search-input {
-    height: auto;
+    height: 100%;
     width: auto;
     padding-left:2.5%;
     font-size: 2.5vw;
