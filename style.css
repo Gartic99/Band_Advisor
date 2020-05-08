@@ -88,11 +88,16 @@ img {border : 0;}
     border-radius: 44px;
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
     background: #fff;
+    border: #000000;
+    border-style: solid;
+    border-width: 3px;
     transition: all 0.5s ease;
   }
 /* magnifier lens*/
 .search-button{
-    padding-bottom: 1%;
+    height: 70%;
+    padding-top: 3%;
+    
     border: none;
     background: none;
     outline: none!important;
@@ -100,8 +105,9 @@ img {border : 0;}
 }
 /* input area */
 .search-input {
-    padding-top: 0%;
-    font-size: 3vw;
+    padding-left: 3%;
+    padding-top: 1%;
+    font-size: 2vw;
     background: none;
     color: #5a6674;
     border: none;
