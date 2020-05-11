@@ -28,50 +28,63 @@ function band_up(){
         //create a form
         var f = document.createElement("form");
         f.className = "form-form"
+        f.action="signup.php"
+        f.method="post"
+        f.className = "form-form"
 
     //************************ creo il bottone *************************/
-        var b_registrati = document.createElement("embed");
+        /*var b_registrati = document.createElement("embed");
         b_registrati.type = "image/svg+xml";
         b_registrati.src = "/assets/Entra2.svg";
+        b_registrati.style = "width: 140%;height: auto;"*/
+        var b_registrati = document.createElement("input");
+        b_registrati.className = "Entra_button";
+        b_registrati.type = "submit";
+        b_registrati.name = "b_registrationButton"
+        b_registrati.src = "/assets/Entra2.svg";
         b_registrati.style = "width: 140%;height: auto;"
+
+
     //************************ creo le label ***************************/
-        //create label registrati da locale
-        var locale = document.createElement("label");
-        locale.className = "login-label";
-        locale.innerHTML = "Registrati da Band"
+        //create label registrati da band
+        var band = document.createElement("label");
+        band.className = "login-label";
+        band.innerHTML = "Registrati da Band"
 
-        //create label nome locale
-        var l_nome_locale = document.createElement("label");
-        l_nome_locale.className = "login-label-secondo";
-        l_nome_locale.innerHTML = "Nome Band";
+        //create label nome band
+        var l_nome_band = document.createElement("label");
+        l_nome_band.className = "login-label-secondo";
+        l_nome_band.innerHTML = "Nome Band";
 
-        //create label email locale
+        //create label email band
         var l_email = document.createElement("label");
         l_email.className = "login-label-secondo";
         l_email.innerHTML = "Email";
 
-        //create label password locale
+        //create label password band
         var l_password = document.createElement("label");
         l_password.className = "login-label-secondo";
         l_password.innerHTML = "Password";
 
-        //create label musica preferita locale
+        //create label musica preferita band
         var l_musica_p = document.createElement("label");
         l_musica_p.className = "login-label-secondo";
         l_musica_p.innerHTML = "Musica";
 
     //************************ creo input ***************************/
         //create input element nome
-        var nome_locale = document.createElement("input");
-        nome_locale.type = "text";
-        nome_locale.id = "nome";
-        nome_locale.value = "";
-        nome_locale.className = "form-input";
+        var nome_band = document.createElement("input");
+        nome_band.type = "text";
+        nome_band.id = "nome";
+        nome_band.name = "nome";
+        nome_band.value = "";
+        nome_band.className = "form-input";
 
         //create input element email 
         var email = document.createElement("input");
         email.type = "html";
         email.id = "email";
+        email.name = "email";
         email.value = "";
         email.className = "form-input";
 
@@ -79,6 +92,7 @@ function band_up(){
         var password = document.createElement("input");
         password.type = "password";
         password.id = "password";
+        password.name = "password";
         password.value = "";
         password.className = "form-input";
 
@@ -110,10 +124,10 @@ function band_up(){
     // add all elements to the form
     container.appendChild(row);
     row.appendChild(col_1);
-    col_1.appendChild(locale);
+    col_1.appendChild(band);
     col_1.appendChild(f);
-    f.appendChild(l_nome_locale);
-    f.appendChild(nome_locale);
+    f.appendChild(l_nome_band);
+    f.appendChild(nome_band);
     f.appendChild(l_email);
     f.appendChild(email);
     f.appendChild(l_password);
@@ -122,9 +136,10 @@ function band_up(){
     f.appendChild(l_musica_p);
     f.appendChild(document.createElement("br"));
     f.appendChild(musica_preferita);
+    f.appendChild(b_registrati);
     row.appendChild(col_2);
     row.appendChild(col_3);
-    col_3.appendChild(b_registrati);
+    //col_3.appendChild(b_registrati);
 
 
 

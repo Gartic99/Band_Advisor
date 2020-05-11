@@ -31,12 +31,22 @@ function locale_up(){
         //create a form
         var f = document.createElement("form");
         f.className = "form-form"
+        f.action="signup.php"
+        f.method="post"
+        f.className = "form-form"
 
     //************************ creo il bottone *************************/
-        var b_registrati = document.createElement("embed");
-        b_registrati.type = "image/svg+xml";
-        b_registrati.src = "/assets/Entra2.svg";
-        b_registrati.style = "width: 140%;height: auto;"
+        /*var l_registrati = document.createElement("embed");
+        l_registrati.type = "image/svg+xml";
+        l_registrati.src = "/assets/Entra2.svg";
+        l_registrati.style = "width: 140%;height: auto;"*/
+        var l_registrati = document.createElement("button");
+        l_registrati.className = "Entra_button";
+        l_registrati.type = "submit";
+        l_registrati.name = "l_registrationButton"
+        l_registrati.src = "/assets/Entra2.svg";
+        l_registrati.style = "width: 140%;height: auto;"
+
 
     //************************ creo le label ***************************/
         //create label registrati da locale
@@ -74,6 +84,7 @@ function locale_up(){
         var nome_locale = document.createElement("input");
         nome_locale.type = "text";
         nome_locale.id = "nome";
+        nome_locale.name = "nome";
         nome_locale.value = "";
         nome_locale.className = "form-input";
 
@@ -81,6 +92,7 @@ function locale_up(){
         var email = document.createElement("input");
         email.type = "html";
         email.id = "email";
+        email.name = "email";
         email.value = "";
         email.className = "form-input";
 
@@ -88,6 +100,7 @@ function locale_up(){
         var password = document.createElement("input");
         password.type = "password";
         password.id = "password";
+        password.name = "password";
         password.value = "";
         password.className = "form-input";
 
@@ -155,9 +168,10 @@ function locale_up(){
         f.appendChild(l_musica_p);
         f.appendChild(document.createElement("br"));
         f.appendChild(musica_preferita);
+        f.appendChild(l_registrati);
         row.appendChild(col_2);
         row.appendChild(col_3);
-        col_3.appendChild(b_registrati);
+        //col_3.appendChild(l_registrati);
 
 
 
