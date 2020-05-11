@@ -33,16 +33,16 @@ function band_up(){
         f.className = "form-form"
 
     //************************ creo il bottone *************************/
-        /*var b_registrati = document.createElement("embed");
+        var b_registrati = document.createElement("embed");
         b_registrati.type = "image/svg+xml";
         b_registrati.src = "/assets/Entra2.svg";
-        b_registrati.style = "width: 140%;height: auto;"*/
+        b_registrati.style = "width: 140%;height: auto;"/*
         var b_registrati = document.createElement("input");
         b_registrati.className = "Entra_button";
         b_registrati.type = "submit";
         b_registrati.name = "b_registrationButton"
         b_registrati.src = "/assets/Entra2.svg";
-        b_registrati.style = "width: 140%;height: auto;"
+        b_registrati.style = "width: 140%;height: auto;"*/
 
 
     //************************ creo le label ***************************/
