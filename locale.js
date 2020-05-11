@@ -1,6 +1,9 @@
 
-
 function locale_up(){
+
+
+    
+
     // remove of the buttons
     $( "#prova" ).remove();
 
@@ -64,7 +67,7 @@ function locale_up(){
         //create label musica preferita locale
         var l_musica_p = document.createElement("label");
         l_musica_p.className = "login-label-secondo";
-        l_musica_p.innerHTML = "Musica";
+        l_musica_p.innerHTML = "Musica Preferita";
 
     //************************ creo input ***************************/
         //create input element nome
@@ -92,41 +95,78 @@ function locale_up(){
 
         //create drop down tipo locale 
         var tipo_locale = document.createElement("select");
-        tipo_locale.attributes = "multiple"
+        tipo_locale.attributes = "multiple";
+        
+        var option=document.createElement("option");
+        //option.className="selectpicker";
+        option.value= "Bar";
+        option.innerHTML="Bar";
+        //$(option).selectpicker();
+
+        var optionB=document.createElement("option");
+        //option.className="selectpicker";
+        optionB.value= "Pub";
+        optionB.innerHTML="Pub";
+        //$(option).selectpicker();
+
+        tipo_locale.appendChild(option);
+        tipo_locale.appendChild(optionB);
+
+
 
         //create drop down musica preferita 
         var musica_preferita = document.createElement("select");
-        musica_preferita.attributes = "multiple"
+        musica_preferita.attributes = "multiple";
+
+        var optionC=document.createElement("option");
+        //option.className="selectpicker";
+        optionC.value= "Rock";
+        optionC.innerHTML="Rock";
+        //$(option).selectpicker();
+
+        var optionD=document.createElement("option");
+        //option.className="selectpicker";
+        optionD.value= "Pop";
+        optionD.innerHTML="Pop";
+        //$(option).selectpicker();
+
+        musica_preferita.appendChild(optionC);
+        musica_preferita.appendChild(optionD);
+        
 
 
 
 
     // add all elements to the form
-    container.appendChild(row);
-    row.appendChild(col_1);
-    col_1.appendChild(locale);
-    col_1.appendChild(f);
-    f.appendChild(l_nome_locale);
-    f.appendChild(nome_locale);
-    f.appendChild(l_email);
-    f.appendChild(email);
-    f.appendChild(l_password);
-    f.appendChild(password);
-    f.appendChild(l_tipo_locale);
-    f.appendChild(document.createElement("br"));
-    f.appendChild(tipo_locale);
-    f.appendChild(document.createElement("br"));
-    f.appendChild(l_musica_p);
-    f.appendChild(document.createElement("br"));
-    f.appendChild(musica_preferita);
-    row.appendChild(col_2);
-    row.appendChild(col_3);
-    col_3.appendChild(b_registrati);
+        container.appendChild(row);
+        row.appendChild(col_1);
+        col_1.appendChild(locale);
+        col_1.appendChild(f);
+        f.appendChild(l_nome_locale);
+        f.appendChild(nome_locale);
+        f.appendChild(l_email);
+        f.appendChild(email);
+        f.appendChild(l_password);
+        f.appendChild(password);
+        f.appendChild(l_tipo_locale);
+        f.appendChild(document.createElement("br"));
+        f.appendChild(tipo_locale);
+        f.appendChild(document.createElement("br"));
+        f.appendChild(l_musica_p);
+        f.appendChild(document.createElement("br"));
+        f.appendChild(musica_preferita);
+        row.appendChild(col_2);
+        row.appendChild(col_3);
+        col_3.appendChild(b_registrati);
 
 
 
     // add the form inside the body
-    $("#sostituto").append(row);   //using jQuery or
+        $("#sostituto").append(row);   //using jQuery or
     //document.getElementsByTagName('body')[0].appendChild(f); //pure javascript
+
+    $(function () {
+        $('select').selectpicker();
+    });
 
 }

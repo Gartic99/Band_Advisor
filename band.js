@@ -88,6 +88,22 @@ function band_up(){
         var musica_preferita = document.createElement("select");
         musica_preferita.attributes = "multiple"
 
+        var optionC=document.createElement("option");
+        //option.className="selectpicker";
+        optionC.value= "Rock";
+        optionC.innerHTML="Rock";
+        //$(option).selectpicker();
+
+        var optionD=document.createElement("option");
+        //option.className="selectpicker";
+        optionD.value= "Pop";
+        optionD.innerHTML="Pop";
+        //$(option).selectpicker();
+
+        musica_preferita.appendChild(optionC);
+        musica_preferita.appendChild(optionD);
+        
+
 
 
 
