@@ -38,7 +38,7 @@
                     $genre="funky";
                     $q2 = 'INSERT INTO band VALUES($1,$2,$3,$4)';
                     $results = pg_query_params($con, $q2,array($email,$name,$password,$genre));
-                    if ($result){
+                    if ($results){
                         echo "<h1> Registrazione completata</h1>
                         <a href=../profilo_band.html>inizia a navigare</a>";
                     }
@@ -62,7 +62,7 @@
                     $fav_music = "funky";
                     $q3 = 'INSERT INTO locale VALUES($1,$2,$3,$4,$5)';
                     $results = pg_query_params($con, $q3,array($email,$name,$password,$genre,$fav_music));
-                    if ($result){
+                    if ($results){
                         echo "<h1> Registrazione completata</h1>
                         <a href=../profilo_band.html>inizia a navigare</a>";
                     }
