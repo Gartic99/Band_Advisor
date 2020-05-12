@@ -27,29 +27,29 @@ function band_up(){
 
         //create a form
         var f = document.createElement("form");
-        f.className = "form-form"
-        f.action="signup.php"
-        f.method="post"
-        f.className = "form-form"
+        f.className = "form-form";
+        f.action="signup.php";
+        f.method="post";
+        f.className = "form-form";
 
     //************************ creo il bottone *************************/
-        var b_registrati = document.createElement("embed");
+        /*var b_registrati = document.createElement("embed");
         b_registrati.type = "image/svg+xml";
         b_registrati.src = "/assets/Entra2.svg";
-        b_registrati.style = "width: 140%;height: auto;"/*
-        var b_registrati = document.createElement("input");
+        b_registrati.style = "width: 140%;height: auto;"*/
+        var b_registrati = document.createElement("button");
         b_registrati.className = "Entra_button";
         b_registrati.type = "submit";
         b_registrati.name = "b_registrationButton"
-        b_registrati.src = "/assets/Entra2.svg";
-        b_registrati.style = "width: 140%;height: auto;"*/
+        b_registrati.src = "/assets/Rectangle 4.png";
+        b_registrati.style = "width: 50%;height: auto; padding:5%;";
 
 
     //************************ creo le label ***************************/
         //create label registrati da band
         var band = document.createElement("label");
         band.className = "login-label";
-        band.innerHTML = "Registrati da Band"
+        band.innerHTML = "Registrati da Band";
 
         //create label nome band
         var l_nome_band = document.createElement("label");

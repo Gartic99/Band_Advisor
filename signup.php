@@ -1,6 +1,10 @@
+<html>
+    <title>EsempioinPHP</title>
+    <head></head>
+<body>
 <?php
-    //error_reporting(E_ALL | E_STRICT);
-    //ini_set('display_errors', 1);
+    error_reporting(E_ALL | E_STRICT);
+    ini_set('display_errors', 1);
 
 
     if (!(isset($_POST['b_registrationButton']))&&!(isset($_POST['l_registrationButton']))){
@@ -68,4 +72,5 @@
         pg_close($con);
     }
 ?>
-
+</body>
+</html>

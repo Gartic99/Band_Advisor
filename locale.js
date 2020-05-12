@@ -30,10 +30,10 @@ function locale_up(){
 
         //create a form
         var f = document.createElement("form");
-        f.className = "form-form"
-        f.action="signup.php"
-        f.method="post"
-        f.className = "form-form"
+        f.className = "form-form";
+        f.action="signup.php";
+        f.method="post";
+        f.className = "form-form";
 
     //************************ creo il bottone *************************/
         /*var l_registrati = document.createElement("embed");
@@ -45,7 +45,7 @@ function locale_up(){
         l_registrati.type = "submit";
         l_registrati.name = "l_registrationButton"
         l_registrati.src = "/assets/Entra2.svg";
-        l_registrati.style = "width: 140%;height: auto;"
+        l_registrati.style = "width: 140%;height: auto;";
 
 
     //************************ creo le label ***************************/

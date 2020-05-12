@@ -15,12 +15,35 @@
               or die ("Could not connect to server\n");
            
 
-            $email=$_POST[""];
-            $name=$_POST[""];
-            $password=$_POST[""];
-            $genre=$_POST[""];
-            $query = 'INSERT INTO band VALUES($email,$name,$password,$genre)';
-            $results = pg_query($con, $query) or die('Query failed: ' . pg_last_error());
+            $email=$_POST["nome"];
+            $password=$_POST["password"];
+           
+
+            $q1="select password from locale where nome= $1";
+            $q2="select password from band where nome = $1";
+            $resultLocale = pg_query_params($con,$q1,array($email));
+            $resultBand = pg_query_params($con,$q2,array($email));
+
+            if(($line=pg_fetch_array($resultLocale,null,PGSQL_ASSOC))){
+               if(md5($line)==md5($password))
+                    header("location: profilo_locale.html");
+                else{
+                    echo "<h1>Errore Password</h1>
+                    <a href=../login.html>clicca qui per login</a>";
+                }
+            }
+            else if($line=pg_fetch_array($resultBand,null,PGSQL_ASSOC)){
+                if(md5($line)==md5($password))
+                    header("location: profilo_band.html");
+                else{
+                    echo "<h1>Errore Password</h1>
+                    <a href=../login.html>clicca qui per login</a>";
+                }
+            }
+            else{
+                echo "<h1>Errore Username, Sicuro di essere registrato?</h1>
+                <a href=../login.html>clicca qui per login</a>";
+            }
            
             
             
