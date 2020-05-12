@@ -1,5 +1,4 @@
 
-
 function band_up(){
     // remove of the buttons
     $( "#prova" ).remove();
@@ -37,13 +36,22 @@ function band_up(){
         b_registrati.type = "image/svg+xml";
         b_registrati.src = "/assets/Entra2.svg";
         b_registrati.style = "width: 140%;height: auto;"*/
-        var b_registrati = document.createElement("button");
-        b_registrati.className = "Entra_button";
-        b_registrati.type = "submit";
-        b_registrati.name = "b_registrationButton"
-        b_registrati.src = "/assets/Rectangle 4.png";
-        b_registrati.style = "width: 50%;height: auto; padding:5%;";
+        var hidden_b = document.createElement("input");
+        hidden_b.type = "submit";
+        hidden_b.name = "b_registrationButton";
+        hidden_b.style = "display:none";
 
+        var b_registrati = document.createElement("input");
+        b_registrati.className = "Entra_button";
+        b_registrati.type = "image";
+        b_registrati.name = "b_registrationButton";
+        b_registrati.src = "/assets/Rectangle 4.png";
+        b_registrati.style = "width: 140%;height: auto;";
+        b_registrati.onclick = function (){
+            $(document).ready(function(){
+                $(".form-form").submit();
+                }); 
+            };
 
     //************************ creo le label ***************************/
         //create label registrati da band
@@ -136,10 +144,11 @@ function band_up(){
     f.appendChild(l_musica_p);
     f.appendChild(document.createElement("br"));
     f.appendChild(musica_preferita);
-    f.appendChild(b_registrati);
+    f.appendChild(hidden_b);
+    //f.appendChild(b_registrati);
     row.appendChild(col_2);
     row.appendChild(col_3);
-    //col_3.appendChild(b_registrati);
+    col_3.appendChild(b_registrati);
 
 
 

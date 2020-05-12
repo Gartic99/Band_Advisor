@@ -1,16 +1,12 @@
-<html>
-    <title>EsempioinPHP</title>
-    <head></head>
-<body>
 <?php
     error_reporting(E_ALL | E_STRICT);
     ini_set('display_errors', 1);
 
 
-    if (!(isset($_POST['b_registrationButton']))&&!(isset($_POST['l_registrationButton']))){
+    /*if (!(isset($_POST['b_registrationButton']))&&!(isset($_POST['l_registrationButton']))){
         header("Location: ../index.html");
-    }
-    else{
+    }*/
+    //else{
         $host = "rogue.db.elephantsql.com";
         $user = "mffqfyag";
         $pass = "sCmWtk6dBysXWEn3IqvDDZtgvjcARlhs";
@@ -70,7 +66,5 @@
             }
         }
         pg_close($con);
-    }
+    //}
 ?>
-</body>
-</html>

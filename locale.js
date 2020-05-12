@@ -1,9 +1,5 @@
 
 function locale_up(){
-
-
-    
-
     // remove of the buttons
     $( "#prova" ).remove();
 
@@ -40,12 +36,23 @@ function locale_up(){
         l_registrati.type = "image/svg+xml";
         l_registrati.src = "/assets/Entra2.svg";
         l_registrati.style = "width: 140%;height: auto;"*/
-        var l_registrati = document.createElement("button");
+        var hidden_b = document.createElement("input");
+        hidden_b.type = "submit";
+        hidden_b.name = "b_registrationButton";
+        hidden_b.style = "display:none";
+
+
+        var l_registrati = document.createElement("input");
         l_registrati.className = "Entra_button";
-        l_registrati.type = "submit";
+        l_registrati.type = "image";
         l_registrati.name = "l_registrationButton"
-        l_registrati.src = "/assets/Entra2.svg";
+        l_registrati.src = "/assets/Rectangle 4.png";
         l_registrati.style = "width: 140%;height: auto;";
+        l_registrati.onclick = function (){
+            $(document).ready(function(){
+                $(".form-form").submit();
+                }); 
+            };
 
 
     //************************ creo le label ***************************/
@@ -168,10 +175,10 @@ function locale_up(){
         f.appendChild(l_musica_p);
         f.appendChild(document.createElement("br"));
         f.appendChild(musica_preferita);
-        f.appendChild(l_registrati);
+        f.appendChild(hidden_b);
         row.appendChild(col_2);
         row.appendChild(col_3);
-        //col_3.appendChild(l_registrati);
+        col_3.appendChild(l_registrati);
 
 
 
