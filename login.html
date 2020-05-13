@@ -14,9 +14,20 @@
  	<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
     <script type="text/javascript" src="form.js"></script>
     <title>Band Advisor</title>
- 	<link rel="icon" href="assets/B.png">
+	<link rel="icon" href="assets/B.png">
+
+	<script>
+		function submit(){
+			document.getElementById("b_submit").onclick = function (){
+				$(document).ready(function(){
+					$(".form-form").submit();
+					}); 
+				};
+		}
+	</script>
+	 
  </head>
- 	<body>
+ 	<body onload="return submit()">
  		<section class="header fixed-top">
              <div class="container">
                  <div class="row " style="height: 1.5vh;"></div>
@@ -49,18 +60,18 @@
  					<div class="col-5">
  						<label class="login-label">Entra</label><br>
  						<form class="form-form" action="login.php" method="post" id="login">
- 							<label class="login-label-secondo" >Nome Utente</label>
- 							<input type="text" value=""  class="form-input" id="nome" name="nome">
+ 							<label class="login-label-secondo" >Email Utente</label>
+ 							<input type="text" value=""  class="form-input" id="nome" name="email" required>
  							<label class="login-label-secondo">Password</label>
-                            <input type="password" value=""  class="form-input" id="password" name="password">
+							<input type="password" value=""  class="form-input" id="password" name="password" required> 
+							<input class="Entra_button" type="image" src="/assets/Rectangle 4.png" style="width: 40%;height: auto; cursor: pointer;padding:5%;" id="b_submit"> 
  						</form>
                          <br>
                          
  						<div class="row">
  							<div class="col-7"></div>
  							<div class="col-5 col-md-3">
-								 <input class="Entra_button" type="image" src="/assets/Rectangle 4.png" style="width: 140%;height: auto; cursor: pointer;" id="b_submit" onclick="click()">
-								 <input type="submit" value="Entra">
+								
  							</div>
                          </div>
                          

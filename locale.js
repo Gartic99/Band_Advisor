@@ -94,6 +94,8 @@ function locale_up(){
         nome_locale.name = "nome";
         nome_locale.value = "";
         nome_locale.className = "form-input";
+        nome_locale.setAttribute("required", "");
+        nome_locale.required = true;    
 
         //create input element email 
         var email = document.createElement("input");
@@ -102,6 +104,7 @@ function locale_up(){
         email.name = "email";
         email.value = "";
         email.className = "form-input";
+        email.attributes["required"] = "";
 
         //create input element password
         var password = document.createElement("input");
@@ -110,6 +113,7 @@ function locale_up(){
         password.name = "password";
         password.value = "";
         password.className = "form-input";
+        password.attributes["required"] = "";
 
     //************************ creo input ***************************/
 

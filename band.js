@@ -87,6 +87,7 @@ function band_up(){
         nome_band.name = "nome";
         nome_band.value = "";
         nome_band.className = "form-input";
+        nome_band.attributes["required"] = "";
 
         //create input element email 
         var email = document.createElement("input");
@@ -95,6 +96,7 @@ function band_up(){
         email.name = "email";
         email.value = "";
         email.className = "form-input";
+        email.attributes["required"] = "";
 
         //create input element password
         var password = document.createElement("input");
@@ -103,6 +105,7 @@ function band_up(){
         password.name = "password";
         password.value = "";
         password.className = "form-input";
+        password.attributes["required"] = "";
 
     //************************ creo input ***************************/
 

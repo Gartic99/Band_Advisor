@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +24,7 @@
                     <div class="row">
                         <div class="col-md-4"></div>
                         <div class="col-7 col-md-3">
-                            <div id="nome"><br>Nome Band</br></div>
+                            <div id="nome"><br> <?php echo htmlspecialchars($_SESSION["username"]); ?> </br></div>
                         </div>
                         <div class="col-10 col-md-5">
                             <img id="fotoprofilo"  src="assets/social-media.svg" style="width: 50%;height: auto;">
@@ -38,19 +41,19 @@
                     <div class="container">
                         <div class="row">
                             <div class="contattato">
-                                Locali che ti hanno contattato
+                                Band che ti hanno contattato
                             </div>
                         </div>
                         <div class="row" style="height: 10vh;"></div>
                         <div class="row" style="padding-bottom: 20%;">
-                            <div class="col" id="cntcts">
+                            <div class="col">
                                 <img src="assets/Rectangle 11.png" style="width: 80%;height: auto;">
                                 <div class="contatti">
                                     <a href="#">
-                                        Locale di Esempio</br>
+                                        Band di Esempio</br>
                                     </a>
                                     <a href="#">
-                                        Locale di Esempio 2</br>
+                                        Band di Esempio 2</br>
                                     </a>
                                 </div>
                             </div>
@@ -61,23 +64,23 @@
                     <div class="container">
                         <div class="row">
                             <a class="contatta" href="#">
-                                Contatta un Locale
+                                Contatta una Band
                             </a>
                         </div>
                         <div class="row" style="height: 30vh;"></div>
                         <div class="row">
-                            <div class="col-auto">
+                            <div class="col">
                                 <div class="recensioni">Le tue recensioni</div>
                                 <img src="assets/Rectangle 14.png" style="width: 140%;height: auto;">
-                                <div class="testi" id="rvws">
+                                <div class="testi">
                                     <a href="#">
-                                    Da Giuseppe69420:
-                                    Fate schifo, andate a casa!
+                                    Da Peppino:
+                                    Fate schifo, chiudete presto!
                                     </br>
                                     </a>
                                     <a href="#">
-                                        Da Giuseppe69421:
-                                        Fate schifo, andate a casa1!1!
+                                        Da Peppino1:
+                                        Fate schifo, vi auguro il fallimento domani1!1!
                                         </br>
                                     </a>
                                 </div>
