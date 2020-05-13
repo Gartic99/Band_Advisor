@@ -38,7 +38,7 @@ function locale_up(){
         l_registrati.style = "width: 140%;height: auto;"*/
         var hidden_b = document.createElement("input");
         hidden_b.type = "submit";
-        hidden_b.name = "b_registrationButton";
+        hidden_b.name = "l_registrationButton";
         hidden_b.style = "display:none";
 
 
@@ -101,7 +101,7 @@ function locale_up(){
         var email = document.createElement("input");
         email.type = "html";
         email.id = "email";
-        email.name = "email";
+        email.name = "l_email";
         email.value = "";
         email.className = "form-input";
         email.attributes["required"] = "";

@@ -38,13 +38,11 @@ function band_up(){
         b_registrati.style = "width: 140%;height: auto;"*/
         var hidden_b = document.createElement("input");
         hidden_b.type = "submit";
-        hidden_b.name = "b_registrationButton";
         hidden_b.style = "display:none";
 
         var b_registrati = document.createElement("input");
         b_registrati.className = "Entra_button";
         b_registrati.type = "image";
-        b_registrati.name = "b_registrationButton";
         b_registrati.src = "/assets/Rectangle 4.png";
         b_registrati.style = "width: 140%;height: auto;";
         b_registrati.onclick = function (){
@@ -93,7 +91,7 @@ function band_up(){
         var email = document.createElement("input");
         email.type = "html";
         email.id = "email";
-        email.name = "email";
+        email.name = "b_email";
         email.value = "";
         email.className = "form-input";
         email.attributes["required"] = "";

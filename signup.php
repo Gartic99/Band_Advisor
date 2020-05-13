@@ -18,8 +18,8 @@
             echo "<h1> Impossibile connettersi<7h1>";
         }
         else{
-            if (isset($_POST['b_registrationButton'])){
-                $email=$_POST["email"];
+            if (isset($_POST['b_email'])){
+                $email=$_POST["b_email"];
                 $q1="select * from locale where mail= $1";
                 $q2="select * from band where mail = $1";
                 $result1 = pg_query_params($con,$q1,array($email));
@@ -36,12 +36,12 @@
                     $results = pg_query_params($con, $q2,array($email,$name,$password,$genre));
                     if ($results){
                         echo "<h1> Registrazione completata</h1>
-                        <a href=../profilo_band.html>inizia a navigare</a>";
+                        <a href=../profilo_band.php>inizia a navigare</a>";
                     }
                 } 
             }
             else{
-                $email=$_POST["email"];
+                $email=$_POST["l_email"];
                 $q1="select * from locale where mail= $1";
                 $q2="select * from band where mail = $1";
                 $result1 = pg_query_params($con,$q1,array($email));
@@ -60,7 +60,7 @@
                     $results = pg_query_params($con, $q3,array($email,$name,$password,$genre,$fav_music));
                     if ($results){
                         echo "<h1> Registrazione completata</h1>
-                        <a href=../profilo_band.html>inizia a navigare</a>";
+                        <a href=../profilo_locale.php>inizia a navigare</a>";
                     }
                 } 
             }
