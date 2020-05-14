@@ -1,7 +1,7 @@
 
 function band_up(){
     // remove of the buttons
-    $( "#prova" ).remove();
+    $( "#dynamic" ).remove();
 
 
     //************************ creo tutti le rows e cols ***************/
@@ -29,7 +29,13 @@ function band_up(){
         f.className = "form-form";
         f.action="signup.php";
         f.method="post";
-        f.className = "form-form";
+        f.name="band_form";
+        f.onsubmit = function (event){
+            $(document).ready(function(){
+                validateForm();
+            }); 
+            event.preventDefault();
+        };
 
     //************************ creo il bottone *************************/
         /*var b_registrati = document.createElement("embed");
@@ -85,7 +91,6 @@ function band_up(){
         nome_band.name = "nome";
         nome_band.value = "";
         nome_band.className = "form-input";
-        nome_band.attributes["required"] = "";
 
         //create input element email 
         var email = document.createElement("input");
@@ -94,7 +99,6 @@ function band_up(){
         email.name = "b_email";
         email.value = "";
         email.className = "form-input";
-        email.attributes["required"] = "";
 
         //create input element password
         var password = document.createElement("input");
@@ -103,7 +107,6 @@ function band_up(){
         password.name = "password";
         password.value = "";
         password.className = "form-input";
-        password.attributes["required"] = "";
 
     //************************ creo input ***************************/
 
@@ -152,9 +155,17 @@ function band_up(){
     col_3.appendChild(b_registrati);
 
 
-
     // add the form inside the body
-    $("#sostituto").append(row);   //using jQuery or
-    //document.getElementsByTagName('body')[0].appendChild(f); //pure javascript
+    $("#sostituto").append(row);   //using jQuery
 
+}
+
+function validateForm() {
+    var b_email = document.forms["band_form"]["b_email"].value;
+    var nome = document.forms["band_form"]["nome"].value;
+    var password = document.forms["band_form"]["password"].value;
+    if (b_email == "" || nome == "" || password == "") {
+      alert("compila tutti i campi obligatori");
+      //return false;
+    }
 }

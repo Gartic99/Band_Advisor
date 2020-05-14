@@ -5,3 +5,11 @@ function click(){
         })
     })
 }
+function validateForm() {
+  var email = document.forms[".form-form"]["email"].value;
+  if (email == "" || nome == "" || password=="") {
+    alert("devi compilare tutti i campi");
+    return false;
+  }
+}
+
