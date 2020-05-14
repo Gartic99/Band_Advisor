@@ -116,8 +116,26 @@ function band_up(){
     //************************ creo input ***************************/
 
         //creo drop down musica preferita 
-        var musica_preferita = document.createElement("select");
-        musica_preferita.attributes = "multiple"
+        var genere = document.createElement("select");
+        genere.name="genere[]"
+        genere.setAttribute("multiple", "multiple");
+        genere.setAttribute("size","2");
+
+        //script che modifica il comportamento della select
+        /*$(document).ready(function(){$("select").mousedown(function(e){
+            e.preventDefault();
+        
+            var select = this;
+            var scroll = select.scrollTop;
+        
+            e.target.selected = !e.target.selected;
+        
+            setTimeout(function(){select.scrollTop = scroll;}, 0);
+        
+            $(select ).focus();
+        }).mousemove(function(e){e.preventDefault()});}
+        )*/
+        
 
         var optionC=document.createElement("option");
         //option.className="selectpicker";
@@ -130,8 +148,15 @@ function band_up(){
         optionD.value= "Pop";
         optionD.innerHTML="Pop";
 
-        musica_preferita.appendChild(optionC);
-        musica_preferita.appendChild(optionD);
+        var optionE=document.createElement("option");
+        //option.className="selectpicker";
+        optionE.value= "Rap";
+        optionE.innerHTML="Rap";
+
+        genere.appendChild(optionC);
+        genere.appendChild(optionD);
+        genere.appendChild(optionE);
+        
         
 
 
@@ -151,16 +176,20 @@ function band_up(){
     f.appendChild(document.createElement("br"));
     f.appendChild(l_musica_p);
     f.appendChild(document.createElement("br"));
-    f.appendChild(musica_preferita);
+    f.appendChild(genere);
     f.appendChild(hidden_b);
     //f.appendChild(b_registrati);
     row.appendChild(col_2);
     row.appendChild(col_3);
     col_3.appendChild(b_registrati);
 
+   
 
     // aggiungo la form dentro il body
     $("#sostituto").append(row);   //using jQuery
+
+    
+    
 
 }
 

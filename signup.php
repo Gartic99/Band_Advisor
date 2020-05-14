@@ -35,13 +35,16 @@
                 else{
                     $name=$_POST["nome"];
                     $password=md5($_POST["password"]);
-                    $genre="funky";
+
+                    $genre=implode(" ",$_POST['genere']);
+                    
                     $q2 = 'INSERT INTO band VALUES($1,$2,$3,$4)';
                     $results = pg_query_params($con, $q2,array($email,$name,$password,$genre));
                     if ($results){
                         echo "<h1> Registrazione completata</h1>
                         <a href=../profilo_band.php>inizia a navigare</a>";
                     }
+                    pg_free_result($results);
                 } 
             }
             else{
@@ -68,13 +71,13 @@
                         echo "<h1> Registrazione completata</h1>
                         <a href=../profilo_locale.php>inizia a navigare</a>";
                     }
+                    pg_free_result($results);
                 } 
             }
         }
         // chiudo la connesione con il server
         pg_free_result($result1);
         pg_free_result($result2);
-        pg_free_result($results);
         pg_close($con);
     
     }
