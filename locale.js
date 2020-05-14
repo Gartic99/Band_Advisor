@@ -129,40 +129,51 @@ function locale_up(){
 
         //create drop down tipo locale 
         var tipo_locale = document.createElement("select");
-        tipo_locale.attributes = "multiple";
+        tipo_locale.name="tipo_l[]";
+        tipo_locale.id="tipo_l";
+        tipo_locale.setAttribute("multiple","multiple");
+        tipo_locale.setAttribute("size","2");
         
         var option=document.createElement("option");
-        //option.className="selectpicker";
         option.value= "Bar";
         option.innerHTML="Bar";
-        //$(option).selectpicker();
 
         var optionB=document.createElement("option");
-        //option.className="selectpicker";
         optionB.value= "Pub";
         optionB.innerHTML="Pub";
-        //$(option).selectpicker();
+
+        var optionC=document.createElement("option");
+        optionC.value= "Risto_Bar";
+        optionC.innerHTML="Risto_bar";
 
         tipo_locale.appendChild(option);
         tipo_locale.appendChild(optionB);
+        tipo_locale.appendChild(optionC);
 
 
 
         //create drop down musica preferita 
         var musica_preferita = document.createElement("select");
-        musica_preferita.attributes = "multiple";
-
-        var optionC=document.createElement("option");
-        //option.className="selectpicker";
-        optionC.value= "Rock";
-        optionC.innerHTML="Rock";
-        //$(option).selectpicker();
+        musica_preferita.name="mus_pref[]";
+        musica_preferita.id="mus_pref";
+        musica_preferita.setAttribute("multiple","multiple");
+        musica_preferita.setAttribute("size","2");
 
         var optionD=document.createElement("option");
-        //option.className="selectpicker";
-        optionD.value= "Pop";
-        optionD.innerHTML="Pop";
-        //$(option).selectpicker();
+        optionD.value= "Rock";
+        optionD.innerHTML="Rock";
+
+        var optionE=document.createElement("option");
+        optionE.value= "Pop";
+        optionE.innerHTML="Pop";
+
+        var optionF=document.createElement("option");
+        optionF.value= "Rap";
+        optionF.innerHTML="Rap";
+
+        musica_preferita.appendChild(optionD);
+        musica_preferita.appendChild(optionE);
+        musica_preferita.appendChild(optionF);
         
     // add all elements to the form
         container.appendChild(row);
@@ -199,10 +210,20 @@ function validateLForm() {
     var l_email = $("#l_email").val();
     var nome = $("#nome").val();
     var password = $("password").val();
-    if (l_email == "" || nome == "" || password == "") {
+
+    var tipo_l = $("tipo_l option:selected").length;
+    var mus_pref = $("mus_pref option:selected").length;
+
+
+    
+    alert(mus_pref);
+    if (l_email == "" || nome == "" || password == "" /*|| tipo_l < 1 || mus_pref < 1*/) {
       alert("compila tutti i campi obligatori");
       //return false;
     }
+    /*else if (mus_pref > 2 || tipo_l>2){
+        alert("si possono scegliere al massimo 2 opzioni");
+    }*/
     else{
         document.forms["locale_form"].submit();
     }
