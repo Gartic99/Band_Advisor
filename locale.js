@@ -1,6 +1,6 @@
 
 function locale_up(){
-    // remove of the buttons
+    // rimuovo i bottoni
     $( "#dynamic" ).remove();
 
 
@@ -30,6 +30,7 @@ function locale_up(){
         f.action="signup.php";
         f.method="post";
         f.name="locale_form";
+        f.id="locale_form";
         f.onsubmit = function (event){
             $(document).ready(function(){
                 validateLForm()
@@ -42,6 +43,9 @@ function locale_up(){
         l_registrati.type = "image/svg+xml";
         l_registrati.src = "/assets/Entra2.svg";
         l_registrati.style = "width: 140%;height: auto;"*/
+        /*Creo un bottone virtuale esterno e un bottone submit interno alla form,
+        in questo modo potrò posizionare il bottone submit ovunque.
+        Il bottone virtuale farà una jquery con la quale premerà il submit.*/
         var hidden_b = document.createElement("input");
         hidden_b.type = "submit";
         hidden_b.name = "l_registrationButton";
@@ -185,15 +189,16 @@ function locale_up(){
 
 
 
-    // add the form inside the body
-        $("#sostituto").append(row);   //using jQuery or
-    //document.getElementsByTagName('body')[0].appendChild(f); //pure javascript
+    // aggiungo gli elementi nel DOM
+        $("#sostituto").append(row);   //uso jQuery 
 
 }
+
+// script per verificare i valori della form
 function validateLForm() {
-    var l_email = document.forms["locale_form"]["l_email"].value;
-    var nome = document.forms["locale_form"]["nome"].value;
-    var password = document.forms["locale_form"]["password"].value;
+    var l_email = $("#l_email").val();
+    var nome = $("#nome").val();
+    var password = $("password").val();
     if (l_email == "" || nome == "" || password == "") {
       alert("compila tutti i campi obligatori");
       //return false;

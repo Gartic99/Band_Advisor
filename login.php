@@ -8,13 +8,13 @@
     $pass = "sCmWtk6dBysXWEn3IqvDDZtgvjcARlhs";
     $db = "mffqfyag";
     
-    // Open a PostgreSQL connection
+    // Apro la connesione con il db Postgres
     $con = pg_connect("host=$host dbname=$db user=$user password=$pass") or die ("Could not connect to server\n");
     
 
     $email=$_POST["email"];
     $password=$_POST["password"];
-
+    //ricerco la password nel db corrispondente alla email
     $q1="select band.password from band where band.mail=$1";
     $q2="select locale.password from locale where locale.mail = $1";
     $resultBand = pg_query_params($con,$q1,array($email));
@@ -22,14 +22,14 @@
 
     $lineLocale=pg_fetch_array($resultLocale,null,PGSQL_ASSOC);
     $lineBand=pg_fetch_array($resultBand,null,PGSQL_ASSOC);
-
+    //verifico che ci siano dei risultati per il locale
     if(!pg_num_rows($resultLocale)==0){
-        if(strcmp($lineLocale["password"],md5($password))){
+        if(strcmp($lineLocale["password"],md5($password))){ //verifico che la password corrisponda con quella inserita
             $qn="select locale.nome from locale where locale.mail=$1";
             $resultName = pg_query_params($con,$qn,array($email));
             $ln=pg_fetch_array($resultName,null,PGSQL_ASSOC);
             $_SESSION["username"] = $ln["nome"];
-            header("location: profilo_locale.php");
+            header("location: profilo_locale.php"); //carico il profilo dell'utente
         } 
         else{
             echo "<h1>Errore Password</h1>
@@ -37,13 +37,14 @@
             </a>";
         }
     }
+    //verifico che ci siano dei risultati per la band
     else if(!pg_num_rows($resultBand)==0){
-        if(strcmp($lineBand["password"],md5($password))){
+        if(strcmp($lineBand["password"],md5($password))){ //verifico che la password corrisponda con quella inserita
             $qn="select band.nome from band where band.mail=$1";
             $resultName = pg_query_params($con,$qn,array($email));
             $ln=pg_fetch_array($resultName,null,PGSQL_ASSOC);
             $_SESSION["username"] = $ln["nome"];
-            header("location: profilo_band.php");
+            header("location: profilo_band.php"); //carico il profilo dell'utente
         }
         else{
             echo "<h1>Errore Password</h1>
@@ -56,7 +57,7 @@
     }
     
     
-    
+    //libero la memoria e chiudo la connessione
     pg_free_result($resultBand);
     pg_free_result($resultLocale);
     pg_close($con);

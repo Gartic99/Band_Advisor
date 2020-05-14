@@ -2,23 +2,26 @@
     error_reporting(E_ALL | E_STRICT);
     ini_set('display_errors', 1);
 
-
-    /*if (!(isset($_POST['b_registrationButton']))&&!(isset($_POST['l_registrationButton']))){
+    //reindirizzo alla main page nel caso in cui il php non venga chiamato dal form
+    if (!(isset($_POST['b_email'])||isset($_POST['l_email']))){
         header("Location: ../index.html");
-    }*/
-    //else{
+    }
+    // inizio invio i dati del form nel db
+    else{
         $host = "rogue.db.elephantsql.com";
         $user = "mffqfyag";
         $pass = "sCmWtk6dBysXWEn3IqvDDZtgvjcARlhs";
         $db = "mffqfyag";
-        // Open a PostgreSQL connection
+        //apro la connessione con il db postgress
         $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
         or die ("Could not connect to server\n");
         if (!$con){
             echo "<h1> Impossibile connettersi<7h1>";
         }
         else{
+            //verifico se i dati arrivano dal form delle band
             if (isset($_POST['b_email'])){
+                // verifico che l'email non sia già presente nel db
                 $email=$_POST["b_email"];
                 $q1="select * from locale where mail= $1";
                 $q2="select * from band where mail = $1";
@@ -28,6 +31,7 @@
                     echo "<h1> Già registrato</h1>
                     <a href=../login.html>clicca qui per login</a>";
                 }
+                // invio i dati al db
                 else{
                     $name=$_POST["nome"];
                     $password=md5($_POST["password"]);
@@ -41,6 +45,7 @@
                 } 
             }
             else{
+                // verifico che l'email non sia già presente nel db
                 $email=$_POST["l_email"];
                 $q1="select * from locale where mail= $1";
                 $q2="select * from band where mail = $1";
@@ -51,6 +56,7 @@
                     echo "<h1> Già registrato</h1>
                     <a href=../login.html>clicca qui per login</a>";
                 }
+                // invio i dati al db
                 else{
                     $name=$_POST["nome"];
                     $password=md5($_POST["password"]);
@@ -65,6 +71,11 @@
                 } 
             }
         }
+        // chiudo la connesione con il server
+        pg_free_result($result1);
+        pg_free_result($result2);
+        pg_free_result($results);
         pg_close($con);
-    //}
+    
+    }
 ?>

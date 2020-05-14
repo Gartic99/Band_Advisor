@@ -24,12 +24,13 @@ function band_up(){
         var col_3 = document.createElement("div");
         col_3.className = "col-5 col-md-3"
 
-        //create a form
+        //creo a form
         var f = document.createElement("form");
         f.className = "form-form";
         f.action="signup.php";
         f.method="post";
         f.name="band_form";
+        f.id="band_form"; 
         f.onsubmit = function (event){
             $(document).ready(function(){
                 validateForm();
@@ -42,6 +43,10 @@ function band_up(){
         b_registrati.type = "image/svg+xml";
         b_registrati.src = "/assets/Entra2.svg";
         b_registrati.style = "width: 140%;height: auto;"*/
+
+        /*Creo un bottone virtuale esterno e un bottone submit interno alla form,
+        in questo modo potrò posizionare il bottone submit ovunque.
+        Il bottone virtuale farà una jquery con la quale premerà il submit.*/
         var hidden_b = document.createElement("input");
         hidden_b.type = "submit";
         hidden_b.style = "display:none";
@@ -58,33 +63,33 @@ function band_up(){
             };
 
     //************************ creo le label ***************************/
-        //create label registrati da band
+        //creo label registrati da band
         var band = document.createElement("label");
         band.className = "login-label";
         band.innerHTML = "Registrati da Band";
 
-        //create label nome band
+        //creo label nome band
         var l_nome_band = document.createElement("label");
         l_nome_band.className = "login-label-secondo";
         l_nome_band.innerHTML = "Nome Band";
 
-        //create label email band
+        //creo label email band
         var l_email = document.createElement("label");
         l_email.className = "login-label-secondo";
         l_email.innerHTML = "Email";
 
-        //create label password band
+        //creo label password band
         var l_password = document.createElement("label");
         l_password.className = "login-label-secondo";
         l_password.innerHTML = "Password";
 
-        //create label musica preferita band
+        //creo label musica preferita band
         var l_musica_p = document.createElement("label");
         l_musica_p.className = "login-label-secondo";
         l_musica_p.innerHTML = "Musica";
 
     //************************ creo input ***************************/
-        //create input element nome
+        //creo input element nome
         var nome_band = document.createElement("input");
         nome_band.type = "text";
         nome_band.id = "nome";
@@ -92,7 +97,7 @@ function band_up(){
         nome_band.value = "";
         nome_band.className = "form-input";
 
-        //create input element email 
+        //creo input element email 
         var email = document.createElement("input");
         email.type = "html";
         email.id = "email";
@@ -100,7 +105,7 @@ function band_up(){
         email.value = "";
         email.className = "form-input";
 
-        //create input element password
+        //creo input element password
         var password = document.createElement("input");
         password.type = "password";
         password.id = "password";
@@ -110,7 +115,7 @@ function band_up(){
 
     //************************ creo input ***************************/
 
-        //create drop down musica preferita 
+        //creo drop down musica preferita 
         var musica_preferita = document.createElement("select");
         musica_preferita.attributes = "multiple"
 
@@ -124,7 +129,6 @@ function band_up(){
         //option.className="selectpicker";
         optionD.value= "Pop";
         optionD.innerHTML="Pop";
-        //$(option).selectpicker();
 
         musica_preferita.appendChild(optionC);
         musica_preferita.appendChild(optionD);
@@ -133,7 +137,7 @@ function band_up(){
 
 
 
-    // add all elements to the form
+    // aggiungo tutti gli elementi alla form
     container.appendChild(row);
     row.appendChild(col_1);
     col_1.appendChild(band);
@@ -155,15 +159,16 @@ function band_up(){
     col_3.appendChild(b_registrati);
 
 
-    // add the form inside the body
+    // aggiungo la form dentro il body
     $("#sostituto").append(row);   //using jQuery
 
 }
 
+// script per verificare i valori della form
 function validateForm() {
-    var b_email = document.forms["band_form"]["b_email"].value;
-    var nome = document.forms["band_form"]["nome"].value;
-    var password = document.forms["band_form"]["password"].value;
+    var b_email = $("#b_email").val();
+    var nome = $("#nome").val();
+    var password = $("password").val();
     if (b_email == "" || nome == "" || password == "") {
       alert("compila tutti i campi obligatori");
       //return false;
