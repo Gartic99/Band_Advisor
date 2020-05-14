@@ -1,7 +1,7 @@
 
 function locale_up(){
     // remove of the buttons
-    $( "#prova" ).remove();
+    $( "#dynamic" ).remove();
 
 
     //************************ creo tutti le rows e cols ***************/
@@ -29,7 +29,13 @@ function locale_up(){
         f.className = "form-form";
         f.action="signup.php";
         f.method="post";
-        f.className = "form-form";
+        f.name="locale_form";
+        f.onsubmit = function (event){
+            $(document).ready(function(){
+                validateLForm()
+            }); 
+            event.preventDefault();
+        };
 
     //************************ creo il bottone *************************/
         /*var l_registrati = document.createElement("embed");
@@ -153,14 +159,7 @@ function locale_up(){
         optionD.value= "Pop";
         optionD.innerHTML="Pop";
         //$(option).selectpicker();
-
-        musica_preferita.appendChild(optionC);
-        musica_preferita.appendChild(optionD);
         
-
-
-
-
     // add all elements to the form
         container.appendChild(row);
         row.appendChild(col_1);
@@ -190,8 +189,16 @@ function locale_up(){
         $("#sostituto").append(row);   //using jQuery or
     //document.getElementsByTagName('body')[0].appendChild(f); //pure javascript
 
-    $(function () {
-        $('select').selectpicker();
-    });
-
+}
+function validateLForm() {
+    var l_email = document.forms["locale_form"]["l_email"].value;
+    var nome = document.forms["locale_form"]["nome"].value;
+    var password = document.forms["locale_form"]["password"].value;
+    if (l_email == "" || nome == "" || password == "") {
+      alert("compila tutti i campi obligatori");
+      //return false;
+    }
+    else{
+        document.forms["locale_form"].submit();
+    }
 }

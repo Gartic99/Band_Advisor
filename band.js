@@ -168,4 +168,7 @@ function validateForm() {
       alert("compila tutti i campi obligatori");
       //return false;
     }
+    else{
+        document.forms["band_form"].submit();
+    }
 }
