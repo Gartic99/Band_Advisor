@@ -31,6 +31,7 @@ session_start();
                 <a class="nav-link" href="#">Contatta una BAnd<span class="sr-only">(current)</span></a>
             </li>
           </ul>
+          <a class="nav-link" href="#"> <?php echo htmlspecialchars($_SESSION["username"]); ?> <span class="sr-only">(current)</span></a>
         </div>
     </nav>
     <section class="main">
@@ -62,15 +63,12 @@ session_start();
                 <div class="col-4">
                     <div class="container">
                         <div class="row">
-                            <a class="contatta" href="#">
-                                Contatta una Band
-                            </a>
+                            <div class="recensioni">Le tue recensioni</div>
                         </div>
-                        <div class="row" style="height: 30vh;"></div>
+                        <div class="row" style="height: 10vh;"></div>
                         <div class="row">
                             <div class="col">
-                                <div class="recensioni">Le tue recensioni</div>
-                                <img src="assets/Rectangle 14.png" style="width: 140%;height: auto;">
+                                <img src="assets/Rectangle 11.png" style="width: 140%;height: auto;">
                                 <div class="testi">
                                     <a href="#">
                                     Da Peppino:
