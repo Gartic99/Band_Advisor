@@ -205,25 +205,37 @@ function locale_up(){
 
 }
 
+//
+function check_select(select){
+    var maxOptions = 2;
+    var optionCount = 0;
+    for (var i = 0; i < select.length; i++) {
+        if (select[i].selected) {
+            optionCount++;
+            if (optionCount > maxOptions) {
+                alert("scegliere al massimo 2 opzioni")
+                return false;
+            }
+        }
+    }
+    if (optionCount==0) return false;
+    return true;
+}
+
 // script per verificare i valori della form
 function validateLForm() {
     var l_email = $("#l_email").val();
     var nome = $("#nome").val();
     var password = $("password").val();
 
-    var tipo_l = $("tipo_l option:selected").length;
-    var mus_pref = $("mus_pref option:selected").length;
+    var tipo_l = check_select($("#tipo_l"));
+    var mus_pref = check_select($("#mus_pref"));
+    alert(tipo_l);
+    alert(mus_pref);    
 
-
-    
-    alert(mus_pref);
-    if (l_email == "" || nome == "" || password == "" /*|| tipo_l < 1 || mus_pref < 1*/) {
+    if (l_email == "" || nome == "" || password == "" || !tipo_l || !mus_pref) {
       alert("compila tutti i campi obligatori");
-      //return false;
     }
-    /*else if (mus_pref > 2 || tipo_l>2){
-        alert("si possono scegliere al massimo 2 opzioni");
-    }*/
     else{
         document.forms["locale_form"].submit();
     }
