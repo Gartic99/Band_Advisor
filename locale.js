@@ -131,8 +131,14 @@ function locale_up(){
         var tipo_locale = document.createElement("select");
         tipo_locale.name="tipo_l[]";
         tipo_locale.id="tipo_l";
-        tipo_locale.setAttribute("multiple","multiple");
-        tipo_locale.setAttribute("size","2");
+        $(document).ready(function(){
+            $("#tipo_l").selectpicker();
+        })
+        tipo_locale.setAttribute("multiple", "multiple");
+        tipo_locale.setAttribute("data-live-search","true");
+        tipo_locale.setAttribute("data-max-options","2");
+        tipo_locale.setAttribute("title","imposta il tipo di locale");
+
         
         var option=document.createElement("option");
         option.value= "Bar";
@@ -156,8 +162,13 @@ function locale_up(){
         var musica_preferita = document.createElement("select");
         musica_preferita.name="mus_pref[]";
         musica_preferita.id="mus_pref";
-        musica_preferita.setAttribute("multiple","multiple");
-        musica_preferita.setAttribute("size","2");
+        $(document).ready(function(){
+            $("#mus_pref").selectpicker();
+        })
+        musica_preferita.setAttribute("multiple", "multiple");
+        musica_preferita.setAttribute("data-live-search","true");
+        musica_preferita.setAttribute("data-max-options","2");
+        musica_preferita.setAttribute("title","imposta il genere che preferisci");
 
         var optionD=document.createElement("option");
         optionD.value= "Rock";

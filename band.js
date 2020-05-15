@@ -117,24 +117,15 @@ function band_up(){
 
         //creo drop down musica preferita 
         var genere = document.createElement("select");
-        genere.name="genere[]"
+        genere.name="genere[]";
+        genere.id="genere";
+        $(document).ready(function(){
+            $("#genere").selectpicker();
+        })
         genere.setAttribute("multiple", "multiple");
-        genere.setAttribute("size","2");
-
-        //script che modifica il comportamento della select
-        /*$(document).ready(function(){$("select").mousedown(function(e){
-            e.preventDefault();
-        
-            var select = this;
-            var scroll = select.scrollTop;
-        
-            e.target.selected = !e.target.selected;
-        
-            setTimeout(function(){select.scrollTop = scroll;}, 0);
-        
-            $(select ).focus();
-        }).mousemove(function(e){e.preventDefault()});}
-        )*/
+        genere.setAttribute("data-live-search","true");
+        genere.setAttribute("data-max-options","2");
+        genere.setAttribute("title","imposta il tuo genere musicale");
         
 
         var optionC=document.createElement("option");
@@ -184,7 +175,6 @@ function band_up(){
     col_3.appendChild(b_registrati);
 
    
-
     // aggiungo la form dentro il body
     $("#sostituto").append(row);   //using jQuery
 
