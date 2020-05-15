@@ -23,6 +23,10 @@ function locale_up(){
 
         var col_3 = document.createElement("div");
         col_3.className = "col-5 col-md-3"
+        
+        var col_4 = document.createElement("div");
+        col_4.className = "col-12";
+        col_4.style = "height: 2vh;";
 
         //create a form
         var f = document.createElement("form");
@@ -205,6 +209,7 @@ function locale_up(){
         f.appendChild(document.createElement("br"));
         f.appendChild(musica_preferita);
         f.appendChild(hidden_b);
+        row.appendChild(col_4);
         row.appendChild(col_2);
         row.appendChild(col_3);
         col_3.appendChild(l_registrati);
