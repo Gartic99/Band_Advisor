@@ -12,28 +12,22 @@ session_start();
     <link rel="icon" href="assets/B.png">
 </head>
 <body>
-    <section class="header fixed-top">
-        <div class="container">
-            <div class="row " style="height: 5vh;"></div>
-            <div class="row" style="height: 10vh;">
-                <div class="col-3 col-md-4 "></div>
-                <div class="col-6 col-md-4">
-                    <embed src="assets/BandLogo.svg" onclick="window.location.href = 'index.html' " style="width: 100%;height: auto;">
-                </div>
-                <div class="col-3 col-md-4">
-                    <div class="row">
-                        <div class="col-md-4"></div>
-                        <div class="col-7 col-md-3">
-                            <div id="nome"><br> <?php echo htmlspecialchars($_SESSION["username"]); ?> </br></div>
-                        </div>
-                        <div class="col-10 col-md-5">
-                            <img id="fotoprofilo"  src="assets/social-media.svg" style="width: 50%;height: auto;">
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+        <a class="navbar-brand" href="index.html">
+            <img class="img-responsive" src="assets/BandLogo.png" style="max-width:17vw;height:auto;display:block;">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExample04">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Scrivi una Recensione<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Contatta un Locale<span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
         </div>
-    </section>
+    </nav>
     <section class="main">
         <div class="container">
             <div class="row">
