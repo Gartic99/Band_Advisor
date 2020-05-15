@@ -188,7 +188,11 @@ function validateForm() {
     var b_email = $("#b_email").val();
     var nome = $("#nome").val();
     var password = $("password").val();
-    if (b_email == "" || nome == "" || password == "") {
+
+    var genere = $("#gnere").val().length;
+    if (genere>2) alert("al massimo 2 generi musicali");
+
+    if (b_email == "" || nome == "" || password == "" || genere<1) {
       alert("compila tutti i campi obligatori");
       //return false;
     }

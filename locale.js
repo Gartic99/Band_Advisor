@@ -136,7 +136,6 @@ function locale_up(){
         })
         tipo_locale.setAttribute("multiple", "multiple");
         tipo_locale.setAttribute("data-live-search","true");
-        tipo_locale.setAttribute("data-max-options","2");
         tipo_locale.setAttribute("title","imposta il tipo di locale");
 
         
@@ -167,7 +166,6 @@ function locale_up(){
         })
         musica_preferita.setAttribute("multiple", "multiple");
         musica_preferita.setAttribute("data-live-search","true");
-        musica_preferita.setAttribute("data-max-options","2");
         musica_preferita.setAttribute("title","imposta il genere che preferisci");
 
         var optionD=document.createElement("option");
@@ -216,35 +214,18 @@ function locale_up(){
 
 }
 
-//
-function check_select(select){
-    var maxOptions = 2;
-    var optionCount = 0;
-    for (var i = 0; i < select.length; i++) {
-        if (select[i].selected) {
-            optionCount++;
-            if (optionCount > maxOptions) {
-                alert("scegliere al massimo 2 opzioni")
-                return false;
-            }
-        }
-    }
-    if (optionCount==0) return false;
-    return true;
-}
 
 // script per verificare i valori della form
 function validateLForm() {
     var l_email = $("#l_email").val();
     var nome = $("#nome").val();
     var password = $("password").val();
+    
+    var tipo_l = $("#tipo_l").val().length;
+    var mus_pref = $("#mus_pref").val().length;   
+    if (tipo_l>2 || mus_pref>2) alert("al massimo 2 generi musicali o tipo locale");
 
-    var tipo_l = check_select($("#tipo_l"));
-    var mus_pref = check_select($("#mus_pref"));
-    alert(tipo_l);
-    alert(mus_pref);    
-
-    if (l_email == "" || nome == "" || password == "" || !tipo_l || !mus_pref) {
+    if (l_email == "" || nome == "" || password == "" || tipo_l<1 || mus_pref<1) {
       alert("compila tutti i campi obligatori");
     }
     else{
