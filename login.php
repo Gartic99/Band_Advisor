@@ -29,7 +29,7 @@
     $lineBand=pg_fetch_array($resultBand,null,PGSQL_ASSOC);
     //verifico che ci siano dei risultati per il locale
     if(!pg_num_rows($resultLocale)==0){
-        if(strcmp($lineLocale["password"],md5($password))){ //verifico che la password corrisponda con quella inserita
+        if(strcmp($lineLocale["password"],md5($password))===0){ //verifico che la password corrisponda con quella inserita
             $qn="select locale.nome from locale where locale.mail=$1";
             $resultName = pg_query_params($con,$qn,array($email));
             $ln=pg_fetch_array($resultName,null,PGSQL_ASSOC);
@@ -40,11 +40,12 @@
             echo "<h1>Errore Password</h1>
             <a href=../login.html>clicca qui per login
             </a>";
+            echo (strcmp($lineLocale["password"],md5($password))
         }
     }
     //verifico che ci siano dei risultati per la band
     else if(!pg_num_rows($resultBand)==0){
-        if(strcmp($lineBand["password"],md5($password))){ //verifico che la password corrisponda con quella inserita
+        if(strcmp($lineBand["password"],md5($password)===0)){ //verifico che la password corrisponda con quella inserita
             $qn="select band.nome from band where band.mail=$1";
             $resultName = pg_query_params($con,$qn,array($email));
             $ln=pg_fetch_array($resultName,null,PGSQL_ASSOC);
