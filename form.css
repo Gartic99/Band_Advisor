@@ -2,7 +2,7 @@
 /*login and signup forms*/
 .form-input {
     padding-left: 5%;
-    font-size: 1.8vw;
+    font-size: 3vh;
     background: white;
     color: #5a6674;
     border: none;
@@ -18,6 +18,6 @@
     background: none;
     transition: all 0.5s ease;
   }
-.button{
+/*.button{
     border-radius: 44px;
-}
+}*/

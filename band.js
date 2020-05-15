@@ -19,10 +19,13 @@ function band_up(){
         col_1.className = "col-6";
         
         var col_2 = document.createElement("div");
-        col_2.className = "col-8"
+        col_2.className = "col-8";
 
         var col_3 = document.createElement("div");
-        col_3.className = "col-5 col-md-3"
+        col_3.className = "col-5 col-md-3";
+        var col_4 = document.createElement("div");
+        col_4.className = "col-12";
+        col_4.style = "height: 2vh;";
 
         //creo a form
         var f = document.createElement("form");
@@ -86,7 +89,7 @@ function band_up(){
         //creo label musica preferita band
         var l_musica_p = document.createElement("label");
         l_musica_p.className = "login-label-secondo";
-        l_musica_p.innerHTML = "Musica";
+        l_musica_p.innerHTML = "Genere Musicale";
 
     //************************ creo input ***************************/
         //creo input element nome
@@ -124,8 +127,8 @@ function band_up(){
         })
         genere.setAttribute("multiple", "multiple");
         genere.setAttribute("data-live-search","true");
-        genere.setAttribute("data-max-options","2");
-        genere.setAttribute("title","imposta il tuo genere musicale");
+        genere.setAttribute("title","imposta genere musicale");
+        genere.setAttribute("data-size","5");
         
 
         var optionC=document.createElement("option");
@@ -169,7 +172,7 @@ function band_up(){
     f.appendChild(document.createElement("br"));
     f.appendChild(genere);
     f.appendChild(hidden_b);
-    //f.appendChild(b_registrati);
+    row.appendChild(col_4);
     row.appendChild(col_2);
     row.appendChild(col_3);
     col_3.appendChild(b_registrati);
@@ -189,7 +192,7 @@ function validateForm() {
     var nome = $("#nome").val();
     var password = $("password").val();
 
-    var genere = $("#gnere").val().length;
+    var genere = $("#genere").val().length;
     if (genere>2) alert("al massimo 2 generi musicali");
 
     if (b_email == "" || nome == "" || password == "" || genere<1) {

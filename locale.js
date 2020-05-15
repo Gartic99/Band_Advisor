@@ -137,6 +137,7 @@ function locale_up(){
         tipo_locale.setAttribute("multiple", "multiple");
         tipo_locale.setAttribute("data-live-search","true");
         tipo_locale.setAttribute("title","imposta il tipo di locale");
+        tipo_locale.setAttribute("data-size","5");
 
         
         var option=document.createElement("option");
@@ -166,7 +167,8 @@ function locale_up(){
         })
         musica_preferita.setAttribute("multiple", "multiple");
         musica_preferita.setAttribute("data-live-search","true");
-        musica_preferita.setAttribute("title","imposta il genere che preferisci");
+        musica_preferita.setAttribute("title","genere che preferisci");
+        musica_preferita.setAttribute("data-size","5");
 
         var optionD=document.createElement("option");
         optionD.value= "Rock";
