@@ -8,10 +8,17 @@
     }
     // inizio invio i dati del form nel db
     else{
-        $host = "rogue.db.elephantsql.com";
+        /*$host = "rogue.db.elephantsql.com";
         $user = "mffqfyag";
         $pass = "sCmWtk6dBysXWEn3IqvDDZtgvjcARlhs";
-        $db = "mffqfyag";
+        $db = "mffqfyag"; old db*/
+
+
+        $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
+        $user = "postgres";
+        $pass = "Quindicimaggio_20";
+        $db = "postgres";
+
         //apro la connessione con il db postgress
         $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
         or die ("Could not connect to server\n");

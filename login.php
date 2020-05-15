@@ -3,10 +3,15 @@
     ini_set('display_errors', 1);
 
 
-    $host = "rogue.db.elephantsql.com";
+    /*$host = "rogue.db.elephantsql.com";
     $user = "mffqfyag";
     $pass = "sCmWtk6dBysXWEn3IqvDDZtgvjcARlhs";
-    $db = "mffqfyag";
+    $db = "mffqfyag"; old db*/
+
+    $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
+    $user = "postgres";
+    $pass = "Quindicimaggio_20";
+    $db = "postgres";
     
     // Apro la connesione con il db Postgres
     $con = pg_connect("host=$host dbname=$db user=$user password=$pass") or die ("Could not connect to server\n");
