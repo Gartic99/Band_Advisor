@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="common.css">
     <link rel="icon" href="assets/B.png">
     <title>Band Advisor</title>
     <script>
@@ -18,7 +21,7 @@
     </script>
 </head>
 <body onload="return load();">
-    <section class="header fixed-top">
+    <!--<section class="header fixed-top">
         <div class="container">
             <div class="row " style="height: 5vh;"></div>
             <div class="row" style="height: 10vh;">
@@ -39,20 +42,38 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
+    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="index.html">
+            <img class="img-responsive" src="assets/BandLogo.png" style="max-width:20vw;height:auto;display:block;">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExample04">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Scrivi una Recensione<span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+          <!--<input class="Recensione_button border" type=image src="assets/edit.svg" style="width: 3vw;height: auto;" >-->
+          <!--<input class="Entra_button" type="image" onclick="window.location.href = 'login.html' " src="assets/Entra.svg" style="width: 7%;height: auto;">-->
+          <button type="button" class="btn btn-danger" id="Entra" onclick="window.location.href = 'login.html'">Entra</button>
+        </div>
+    </nav>
+
+
     <section class="main" >
         <div class="container">
             <div class="row" style="height: 25vh;">
             </div>
-            <div class="row justify-content-center">
-                
+            <div class="row justify-content-center">   
                 <form class="search-form col-7">
                     <div class="row" style="height:8vh;" id="searchRow">
                         <input type="image" src="assets/tools-and-utensils.svg" class="search-button">
                         <input type="text" value="" placeholder="Cosa stai cercando?" class="search-input">
                     </div>
                 </form>
-                
             </div>
             <div class="row" style="height: 6vh;"></div>
             <div class="row justify-content-center">
@@ -81,4 +102,8 @@
             </div>
         </div>
     </section>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+   
 </body>

@@ -60,8 +60,6 @@ img {border : 0;}
 
 /* recensione button */
 .Recensione_button{
-    padding-left: 5%;
-    padding-right: 5%;
 	overflow: visible;
   	background: none;
   	outline: none!important;
@@ -79,7 +77,11 @@ img {border : 0;}
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
+#Entra{
+    font-family: Gilroy Light;
+    border-radius: 44px;
+    background-color:#FF1744;
+}
 
 /*Search bar things*/
 
@@ -166,6 +168,8 @@ img {border : 0;}
     transition: all 0.5s ease;
 }
 
+/*Common font styles*/
+
 
 /*some fonts styles*/
 .login-label{
@@ -179,27 +183,3 @@ img {border : 0;}
     font-size: 1.8rem;
 }
 
-
-
-/*login and signup forms*/
-.form-input {
-    padding-left: 5%;
-    font-size: 1.8vw;
-    background: white;
-    color: #5a6674;
-    border: none;
-    appearance: none;
-    outline: none;
-    border-radius: 44px;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-    transition: all 0.5s ease;
-  }
-.form-form {
-    /*border-radius: 44px;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);*/
-    background: none;
-    transition: all 0.5s ease;
-  }
-.button{
-    border-radius: 44px;
-}
