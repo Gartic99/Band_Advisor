@@ -40,7 +40,7 @@
             echo "<h1>Errore Password</h1>
             <a href=../login.html>clicca qui per login
             </a>";
-            echo (strcmp($lineLocale["password"],md5($password))
+            echo (strcmp($lineLocale["password"],md5($password)));
         }
     }
     //verifico che ci siano dei risultati per la band
