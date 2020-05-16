@@ -35,7 +35,7 @@
                 $result1 = pg_query_params($con,$q1,array($email));
                 $result2 = pg_query_params($con,$q2,array($email));
                 if(($line=pg_fetch_array($result1,null,PGSQL_ASSOC)) || ($line=pg_fetch_array($result2,null,PGSQL_ASSOC)) ){
-                    echo "<h1> Già registrato</h1>
+                    $response =  "<h1> Già registrato</h1>
                     <a href=../login.html>clicca qui per login</a>";
                 }
                 // invio i dati al db
@@ -48,7 +48,7 @@
                     $q2 = 'INSERT INTO band VALUES($1,$2,$3,$4)';
                     $results = pg_query_params($con, $q2,array($email,$name,$password,$genre));
                     if ($results){
-                        echo "<h1> Registrazione completata</h1>
+                        $response = "<h1> Registrazione completata</h1>
                         <a href=../profilo_band.php>inizia a navigare</a>";
                     }
                     pg_free_result($results);
@@ -63,7 +63,7 @@
                 $result2 = pg_query_params($con,$q2,array($email));
 
                 if(($line=pg_fetch_array($result1,null,PGSQL_ASSOC)) || ($line=pg_fetch_array($result2,null,PGSQL_ASSOC)) ){
-                    echo "<h1> Già registrato</h1>
+                    $response = "<h1> Già registrato</h1>
                     <a href=../login.html>clicca qui per login</a>";
                 }
                 // invio i dati al db
@@ -75,7 +75,7 @@
                     $q3 = 'INSERT INTO locale VALUES($1,$2,$3,$4,$5)';
                     $results = pg_query_params($con, $q3,array($email,$name,$password,$genre,$fav_music));
                     if ($results){
-                        echo "<h1> Registrazione completata</h1>
+                        $response =  "<h1> Registrazione completata</h1>
                         <a href=../profilo_locale.php>inizia a navigare</a>";
                     }
                     pg_free_result($results);

@@ -163,10 +163,15 @@ function band_up(){
     col_1.appendChild(band);
     col_1.appendChild(f);
     f.appendChild(l_nome_band);
+    f.appendChild(document.createElement("br"));
     f.appendChild(nome_band);
+    f.appendChild(document.createElement("br"));
     f.appendChild(l_email);
+    f.appendChild(document.createElement("br"));
     f.appendChild(email);
+    f.appendChild(document.createElement("br"));
     f.appendChild(l_password);
+    f.appendChild(document.createElement("br"));
     f.appendChild(password);
     f.appendChild(document.createElement("br"));
     f.appendChild(l_musica_p);
