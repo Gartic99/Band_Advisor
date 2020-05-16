@@ -29,7 +29,7 @@
             //verifico se i dati arrivano dal form delle band
             if (isset($_POST['b_email'])){
                 // verifico che l'email non sia già presente nel db
-                $email=$_POST["b_email"];
+                $email=strtolower($_POST["b_email"]);
                 $q1="select * from locale where mail= $1";
                 $q2="select * from band where mail = $1";
                 $result1 = pg_query_params($con,$q1,array($email));
@@ -56,7 +56,8 @@
             }
             else{
                 // verifico che l'email non sia già presente nel db
-                $email=$_POST["l_email"];
+                
+                $email=strtolower($_POST["l_email"]);
                 $q1="select * from locale where mail= $1";
                 $q2="select * from band where mail = $1";
                 $result1 = pg_query_params($con,$q1,array($email));

@@ -17,7 +17,8 @@
     $con = pg_connect("host=$host dbname=$db user=$user password=$pass") or die ("Could not connect to server\n");
     
 
-    $email=$_POST["email"];
+    
+    $email=strtolower($_POST["email"]);
     $password=$_POST["password"];
     //ricerco la password nel db corrispondente alla email
     $q1="select band.password from band where band.mail=$1 and password=$2";
