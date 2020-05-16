@@ -196,11 +196,17 @@ function locale_up(){
         col_1.appendChild(locale);
         col_1.appendChild(f);
         f.appendChild(l_nome_locale);
+        f.appendChild(document.createElement("br"));
         f.appendChild(nome_locale);
+        f.appendChild(document.createElement("br"));
         f.appendChild(l_email);
+        f.appendChild(document.createElement("br"));
         f.appendChild(email);
+        f.appendChild(document.createElement("br"));
         f.appendChild(l_password);
+        f.appendChild(document.createElement("br"));
         f.appendChild(password);
+        f.appendChild(document.createElement("br"));
         f.appendChild(l_tipo_locale);
         f.appendChild(document.createElement("br"));
         f.appendChild(tipo_locale);
