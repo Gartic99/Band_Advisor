@@ -206,6 +206,22 @@ function validateForm() {
       //return false;
     }
     else{
-        document.forms["band_form"].submit();
+        var frm = $('#band_form');
+        //document.forms["locale_form"].submit();
+        $.ajax({
+            type: frm.attr('method'),
+            url: frm.attr('action'),
+            data: frm.serialize(),
+            success: function (data) {
+                $('.modal-body').append(document.createElement("p").innerHTML = data);
+                $('#myModal').modal('show');
+                console.log(data);
+            },
+            error: function (data) {
+                $('.modal-body').append(document.createElement("p").innerHTML = data);
+                $('#myModal').modal('show');
+                console.log(data);
+            },
+        });
     }
 }

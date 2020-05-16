@@ -225,6 +225,8 @@ function locale_up(){
     // aggiungo gli elementi nel DOM
         $("#sostituto").append(row);   //uso jQuery 
         //tentativi di modal
+        
+       
 
 }
 
@@ -243,6 +245,22 @@ function validateLForm() {
       alert("compila tutti i campi obligatori");
     }
     else{
-        document.forms["locale_form"].submit();
+        var frm = $('#locale_form');
+        //document.forms["locale_form"].submit();
+        $.ajax({
+            type: frm.attr('method'),
+            url: frm.attr('action'),
+            data: frm.serialize(),
+            success: function (data) {
+                $('.modal-body').append(document.createElement("p").innerHTML = data);
+                $('#myModal').modal('show');
+                console.log(data);
+            },
+            error: function (data) {
+                $('.modal-body').append(document.createElement("p").innerHTML = data);
+                $('#myModal').modal('show');
+                console.log(data);
+            },
+        });
     }
 }

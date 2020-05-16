@@ -83,6 +83,7 @@
             }
         }
         // chiudo la connesione con il server
+        echo $response;
         pg_free_result($result1);
         pg_free_result($result2);
         pg_close($con);
