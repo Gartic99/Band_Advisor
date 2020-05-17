@@ -16,7 +16,7 @@
 a:active{ outline: none;}
 a img {outline : none;}
 img {border : 0;}
-.select{
+select{
     outline: none;
 }
 
