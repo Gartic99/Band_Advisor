@@ -28,9 +28,23 @@
 				};
 		}
 	</script>
-	 
+	 <script>
+        function load(){
+            //true if we are on mobile
+            var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            if(isMobile){
+                document.getElementById("b_submit").style.width = "60%";
+            }
+        }
+    </script>
+	<script>
+		function multiple{
+			submit();
+			load();
+		}
+	</script>
  </head>
- 	<body onload="return submit()">
+ 	<body onload="return multiple();">
 		<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
 			<a class="navbar-brand" href="index.html">
 				<img class="img-responsive" src="assets/BandLogo.png" style="max-width:17vw;height:auto;display:block;">
