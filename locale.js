@@ -113,7 +113,7 @@ function locale_up(){
 
         //create input element email 
         var email = document.createElement("input");
-        email.type = "html";
+        email.type = "email";
         email.id = "email";
         email.name = "l_email";
         email.value = "";
@@ -253,11 +253,13 @@ function validateLForm() {
             data: frm.serialize(),
             success: function (data) {
                 $('.modal-body').append(document.createElement("p").innerHTML = data);
+                $(".modal-body").css('background', 'green');
                 $('#myModal').modal('show');
                 console.log(data);
             },
             error: function (data) {
                 $('.modal-body').append(document.createElement("p").innerHTML = data);
+                $(".modal-body").css('background', 'red');
                 $('#myModal').modal('show');
                 console.log(data);
             },

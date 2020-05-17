@@ -50,6 +50,7 @@
                     if ($results){
                         $response = "<h1> Registrazione completata</h1>
                         <a href=../profilo_band.php>inizia a navigare</a>";
+
                     }
                     pg_free_result($results);
                 } 
