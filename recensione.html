@@ -27,7 +27,7 @@
     </div>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="remove()">Close</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
     <button type="button" class="btn btn-default" type="submit" onclick="fake_submit()">Invia</button>
 </div>
 <script>
@@ -35,10 +35,6 @@
         $("#score").selectpicker();
         
     });
-    function remove() {
-        alert("rimuovo tutto");
-        $("#recensione_form").reset(); 
-    }
     function fake_submit(){
         $(document).ready(function(){
             $("#recensione_form").submit();
@@ -70,7 +66,7 @@
             url: frm.attr('action'),
             data: frm.serialize(),
             success: function (data) {
-                $('form').remove();
+                $('#form').remove();
                 $('.modal-body').append(document.createElement("p").innerHTML = data);
                 $(".modal-body").css('background', 'green');
                 $('#rec_modal').modal('show');
@@ -78,7 +74,7 @@
                 console.log(data);
             },
             error: function (data) {
-                $('.form').remove();
+                $('#form').remove();
                 $('.modal-body').append(document.createElement("p").innerHTML = data);
                 $(".modal-body").css('background', 'red');
                 $('#rec_modal').modal('show');
