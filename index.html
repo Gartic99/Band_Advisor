@@ -38,7 +38,11 @@
         <div class="collapse navbar-collapse" id="navbarsExample04">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
+<<<<<<< HEAD
                 <a class="nav-link" href="" data-toggle="modal" data-target="#rec_modal" onclick="">Scrivi una Recensione<span class="sr-only">(current)</span></a>
+=======
+                <a class="nav-link" href="recensione.html" id="modal_open">Scrivi una Recensione<span class="sr-only">(current)</span></a>
+>>>>>>> 927700251203ccd7676f79efab56d9fc0f3eddf3
             </li>
           </ul>
           <button type="button" class="btn btn-danger" id="Entra" onclick="window.location.href = 'login.html'">Entra</button>
@@ -87,9 +91,17 @@
         </div>
     </section>
     <section>
+        <div id="theModal" class="modal fade text-center">
+            <div class="modal-dialog">
+              <div class="modal-content">
+              </div>
+            </div>
+          </div>
+    </section>
+    <!--<section>
         <div class="modal fade" id="rec_modal" role="dialog">
             <div class="modal-dialog">
-              <!-- Modal content-->
+              <!-- Modal content
                 <div class="modal-content">
                     <div class="modal-header">
                     <h4 class="modal-title">Lascia una recensione</h4>
@@ -124,64 +136,11 @@
                 </div>
             </div>
         </div>
-    </section>
-</body>
-<script>
-    $(document).ready(function(){
-        $("#score").selectpicker();
-        
-    });
-    function remove() {
-        alert("rimuovo tutto");
-        $("#recensione_form").reset(); 
-    }
-    function fake_submit(){
-        $(document).ready(function(){
-            $("#recensione_form").submit();
-        }); 
-    };
-
-    function real_submit(event){
-        $(document).ready(function(){
-            validateLForm()
-        }); 
-        event.preventDefault();
-    };
-
-    function validateLForm() {
-    var from = $("#from_rec").val();
-    var to = $("#to_rec").val();
-    var rec = $("recensione_i").val();
-    
-    var punteggio = $("#score").val().length;  
-
-    if (from == "" || to == "" || rec == "" || punteggio<1) {
-      alert("compila tutti i campi obligatori");
-    }
-    else{
-        var frm = $('#recensione_form');
-        //document.forms["locale_form"].submit();
-        $.ajax({
-            type: frm.attr('method'),
-            url: frm.attr('action'),
-            data: frm.serialize(),
-            success: function (data) {
-                $('form').remove();
-                $('.modal-body').append(document.createElement("p").innerHTML = data);
-                $(".modal-body").css('background', 'green');
-                $('#rec_modal').modal('show');
-                $("#recensione_form").submit();
-                console.log(data);
-            },
-            error: function (data) {
-                $('.form').remove();
-                $('.modal-body').append(document.createElement("p").innerHTML = data);
-                $(".modal-body").css('background', 'red');
-                $('#rec_modal').modal('show');
-                $("#recensione_form").submit();
-                console.log(data);
-            },
+    </section>-->
+    <script>
+        $('#modal_open').on('click', function(e){
+            e.preventDefault();
+            $('#theModal').modal('show').find('.modal-content').load($(this).attr('href'));
         });
-    }
-}
-</script>
+    </script>
+</body>
