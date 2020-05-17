@@ -40,7 +40,7 @@
                 }
                 // invio i dati al db
                 else{
-                    $name=$_POST["nome"];
+                    $name=strtolower($_POST["nome"]);
                     $password=md5($_POST["password"]);
 
                     $genre=implode(";",$_POST['genere']);
@@ -70,7 +70,7 @@
                 }
                 // invio i dati al db
                 else{
-                    $name=$_POST["nome"];
+                    $name=strtolower($_POST["nome"]);
                     $password=md5($_POST["password"]);
                     $genre=implode(";",$_POST['tipo_l']);
                     $fav_music = implode(";",$_POST['mus_pref']);
