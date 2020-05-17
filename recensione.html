@@ -35,10 +35,6 @@
         $("#score").selectpicker();
         
     });
-    function remove() {
-        alert("rimuovo tutto");
-        $("#recensione_form").reset(); 
-    }
     function fake_submit(){
         $('#fake').disabled=true;
         $(document).ready(function(){
@@ -72,7 +68,7 @@
             url: frm.attr('action'),
             data: frm.serialize(),
             success: function (data) {
-                $('form').remove();
+                $('#form').remove();
                 $('.modal-body').append(document.createElement("p").innerHTML = data);
                 $(".modal-body").css('background', 'green');
                 $('#rec_modal').modal('show');
@@ -80,7 +76,7 @@
                 console.log(data);
             },
             error: function (data) {
-                $('.form').remove();
+                $('#form').remove();
                 $('.modal-body').append(document.createElement("p").innerHTML = data);
                 $(".modal-body").css('background', 'red');
                 $('#rec_modal').modal('show');
