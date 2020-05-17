@@ -60,7 +60,8 @@ session_start();
                         </div>
                     </div>
                 </div>
-                <div class="col-auto">
+                <div class="col-3"></div>
+                <div class="col-5">
                     <div class="container">
                         <div class="row">
                             <div class="recensioni">Le tue recensioni</div>
