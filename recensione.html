@@ -28,7 +28,7 @@
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal" onclick="remove()">Close</button>
-    <button type="button" class="btn btn-default" type="submit" onclick="fake_submit()">Invia</button>
+    <button type="button" class="btn btn-default" type="submit" onclick="fake_submit();" id="fake">Invia</button>
 </div>
 <script>
     $(document).ready(function(){
@@ -40,9 +40,11 @@
         $("#recensione_form").reset(); 
     }
     function fake_submit(){
+        $('#fake').disabled=true;
         $(document).ready(function(){
             $("#recensione_form").submit();
         }); 
+        $('#fake').disabled=false;
     };
 
     function real_submit(event){

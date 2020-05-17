@@ -38,9 +38,6 @@ session_start();
           <li class="nav-item active">
                 <a class="nav-link" href="#">Scrivi una Recensione<span class="sr-only">(current)</span></a>
             </li>
-            <li>
-                <a class="nav-link" href="#">Contatta una Band<span class="sr-only">(current)</span></a>
-            </li>
           </ul>
           <a class="nav-link" href="#"> <?php  if (isset($_SESSION[ "username"])) {echo htmlspecialchars($_SESSION["username"]);}?> <span class="sr-only">(current)</span></a>
         </div>
@@ -52,7 +49,7 @@ session_start();
                     <!--<div class="container beta">-->
                         <div class="row">
                             <div class="contattato" style="height: 2.5vh;">
-                                Band che ti hanno contattato
+                                Band
                             </div>
                         </div>
                         <div class="row" style="height: 10vh;" id="RowR"></div>
@@ -60,12 +57,37 @@ session_start();
                             <div class="col">
                                 <!--<img src="assets/Rectangle 11.png" style="width: 80%;height: auto;">-->
                                 <div class="contatti" id="cntcts">
-                                    <a href="#">
-                                        Band di Esempio</br>
-                                    </a>
-                                    <a href="#">
-                                        Band di Esempio 2</br>
-                                    </a>
+                                <?php
+                                        $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
+                                        $user = "postgres";
+                                        $pass = "Quindicimaggio_20";
+                                        $db = "postgres";
+
+                                        //apro la connessione con il db postgress
+                                        $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
+                                        or die ("Could not connect to server\n");
+                                        if (!$con){
+                                            echo "<h1> Impossibile connettersi</h1>";
+                                        }
+                                        
+                                        $name=strtolower($_POST["search"]);
+                                        $q1="select band.nome from band where band.nome=$1";
+                                        $result=pg_query_params($con,$q1,array($name));
+                                        
+                                        if(pg_num_rows($result)==0){
+                                            echo "Nessun Risultato</br>";
+                                        }
+
+                                        while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
+                                            echo '<a href="#">';
+                                            foreach( $line as $colvalue) {
+                                                echo $colvalue ;
+                                            }
+                                            echo '</br>';
+                                            echo '</a>';
+                                            echo "</br>";
+                                        }
+                                    ?> 
                                 </div>
                             </div>
                         </div>
@@ -75,7 +97,7 @@ session_start();
                 <div class="col-lg-4 col-md-12">
                     <!--<div class="container alpha">-->
                         <div class="row" style="height: 2.5vh;" id="RowRec">
-                            <div class="recensioni">Le tue recensioni</div>
+                            <div class="recensioni">Locali</div>
                         </div>
                         <div class="row" style="height: 10vh;" id="'RowP"></div>
                         <div class="row">
@@ -94,9 +116,14 @@ session_start();
                                         if (!$con){
                                             echo "<h1> Impossibile connettersi</h1>";
                                         }
+                                        
+                                        $name=strtolower($_POST["search"]);
+                                        $q1="select locale.nome from locale where locale.nome=$1";
+                                        $result=pg_query_params($con,$q1,array($name));
 
-                                        $q1="select cont from recensione";
-                                        $result=pg_query($con,$q1);
+                                        if(pg_num_rows($result)==0){
+                                            echo "Nessun Risultato</br>";
+                                        }
                                         
                                         while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
                                             echo '<a href="#">';

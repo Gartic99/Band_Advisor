@@ -71,7 +71,7 @@ select{
 }
 
 /* entra button */
-.Entra {
+/*.Entra {
     outline: none!important;
     overflow: visible;
 }
@@ -85,8 +85,12 @@ select{
     font-family: Gilroy Light;
     border-radius: 44px;
     background-color:#FF1744;
+}*/
+.entra{
+    font-family: Gilroy Light;
+    border-radius: 44px;
+    background-color:#FF1744;
 }
-
 /*Search bar things*/
 
 /* bar body */
@@ -124,6 +128,24 @@ select{
     font-family: Gilroy Light;
     color: #7f7f7f;
     opacity: .7;
+}
+
+
+.search2{
+    border-radius: 44px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    background: #fff;
+    border: #000000;
+    border-style: solid;
+    transition: all 0.8s ease;
+    padding:5%;
+    font-size: 3vh;
+}
+.search-button1{
+    border: none;
+    background: none;
+    outline: none!important;
+    cursor: pointer;
 }
 
 
@@ -166,10 +188,10 @@ select{
     border-style: solid;
     border-color: #000000;
     background-color: #ffffff;
-    padding: 4%;
+    padding: 5%;
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
     background: #fff;
-    transition: all 0.5s ease;
+    transition: all 0.8s ease;
 }
 
 /*Common font styles*/
