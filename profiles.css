@@ -107,17 +107,19 @@ a{
 /*lista delle recensioni*/
 .testi {
     position: absolute;
-    top: 20%;
-    left: 10%;
+    top: 5%;
+    left: 5%;
     font-family: Gilroy Light;
     color: #000000;
-    font-size: 1vw; 
+    font-size: 1.5vw; 
+   
 }
 
 /* not yet ready to be used*/
 
-/*
+
 #cntcts{
+    padding: 5%;
     border-radius: 25px;
     border-style: solid;
     border-color: #000000;
@@ -125,8 +127,9 @@ a{
 }
 
 #rvws{
+    padding: 5%;
     border-radius: 25px;
     border-style: solid;
     border-color: #000000;
     background-color: #ffffff;
-}*/
+}

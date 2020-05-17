@@ -28,10 +28,10 @@ session_start();
                 <a class="nav-link" href="#">Scrivi una Recensione<span class="sr-only">(current)</span></a>
             </li>
             <li>
-                <a class="nav-link" href="#">Contatta una BAnd<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Contatta una Band<span class="sr-only">(current)</span></a>
             </li>
           </ul>
-          <a class="nav-link" href="#"> <?php echo htmlspecialchars($_SESSION["username"]); ?> <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#"> <?php  if (isset($_SESSION[ "username"])) {echo htmlspecialchars($_SESSION["username"]);}?> <span class="sr-only">(current)</span></a>
         </div>
     </nav>
     <section class="main">
@@ -47,8 +47,8 @@ session_start();
                         <div class="row" style="height: 10vh;"></div>
                         <div class="row" style="padding-bottom: 20%;">
                             <div class="col">
-                                <img src="assets/Rectangle 11.png" style="width: 80%;height: auto;">
-                                <div class="contatti">
+                                <!--<img src="assets/Rectangle 11.png" style="width: 80%;height: auto;">-->
+                                <div class="contatti" id="cntcts">
                                     <a href="#">
                                         Band di Esempio</br>
                                     </a>
@@ -60,7 +60,7 @@ session_start();
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-auto">
                     <div class="container">
                         <div class="row">
                             <div class="recensioni">Le tue recensioni</div>
@@ -68,8 +68,8 @@ session_start();
                         <div class="row" style="height: 10vh;"></div>
                         <div class="row">
                             <div class="col">
-                                <img src="assets/Rectangle 11.png" style="width: 140%;height: auto;">
-                                <div class="testi">
+                                <!--<img src="assets/Rectangle 11.png" style="width: 80%;height: auto;">-->
+                                <div class="testi" id="rvws">
                                     <a href="#">
                                     Da Peppino:
                                     Fate schifo, chiudete presto!
