@@ -16,6 +16,9 @@
 a:active{ outline: none;}
 a img {outline : none;}
 img {border : 0;}
+.select{
+    outline: none;
+}
 
 /*the whole thing*/
 .main{

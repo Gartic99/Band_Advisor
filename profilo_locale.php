@@ -70,16 +70,33 @@ session_start();
                             <div class="col">
                                 <!--<img src="assets/Rectangle 11.png" style="width: 80%;height: auto;">-->
                                 <div class="testi" id="rvws">
-                                    <a href="#">
-                                    Da Peppino:
-                                    Fate schifo, chiudete presto!
-                                    </br>
-                                    </a>
-                                    <a href="#">
-                                        Da Peppino1:
-                                        Fate schifo, vi auguro il fallimento domani1!1!
-                                        </br>
-                                    </a>
+                                    <?php
+                                        $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
+                                        $user = "postgres";
+                                        $pass = "Quindicimaggio_20";
+                                        $db = "postgres";
+
+                                        //apro la connessione con il db postgress
+                                        $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
+                                        or die ("Could not connect to server\n");
+                                        if (!$con){
+                                            echo "<h1> Impossibile connettersi</h1>";
+                                        }
+
+                                        $q1="select cont from recensione";
+                                        $result=pg_query($con,$q1);
+                                        
+                                        while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
+                                            echo '<a href="#">';
+                                            foreach( $line as $colvalue) {
+                                                echo $colvalue ;
+                                            }
+                                            echo '</br>';
+                                            echo '</a>';
+                                            echo "</br>";
+                                        }
+                                       
+                                    ?>
                                 </div>
                             </div>
                         </div>
