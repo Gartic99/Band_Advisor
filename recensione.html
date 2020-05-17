@@ -12,7 +12,7 @@
             <label class="login-label-secondo">Nome destinatario</label><br>
             <input class="form-input" name="to_rec"></input><br>
             <label class="login-label-secondo">Recensione</label><br>
-            <textarea class="form-input" name="recensione_i" rows="10" cols="30"></textarea><br>
+            <textarea class="form-input md-textarea" name="recensione_i" id="recensione_i"></textarea><br>
             <label class="login-label-secondo">Punteggio</label><br>
             <select name="score" id="score" title="valutazione">
                 <option value="5">5</option>
@@ -33,7 +33,6 @@
 <script>
     $(document).ready(function(){
         $("#score").selectpicker();
-        
     });
     function fake_submit(){
         $('#fake').disabled=true;
