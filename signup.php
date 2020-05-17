@@ -1,4 +1,7 @@
 <?php
+session_start();
+?>
+<?php
     error_reporting(E_ALL | E_STRICT);
     ini_set('display_errors', 1);
 
@@ -75,6 +78,7 @@
                     $fav_music = implode(";",$_POST['mus_pref']);
                     $q3 = 'INSERT INTO locale VALUES($1,$2,$3,$4,$5)';
                     $results = pg_query_params($con, $q3,array($email,$name,$password,$genre,$fav_music));
+                    $_SESSION["username"] = $name;
                     if ($results){
                         echo "<h1> Registrazione completata</h1>
                         <a href=../profilo_locale.php>inizia a navigare</a>";
