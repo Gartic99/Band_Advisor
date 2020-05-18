@@ -79,7 +79,7 @@ session_start();
                                         }
 
                                         while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-                                            echo '<a href="#">';
+                                            echo '<a href="profilo.php?name=band>';
                                             foreach( $line as $colvalue) {
                                                 echo $colvalue ;
                                             }
@@ -126,7 +126,7 @@ session_start();
                                         }
                                         
                                         while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-                                            echo '<a href="#">';
+                                            echo '<a href="profilo.php?name=locale" >';
                                             foreach( $line as $colvalue) {
                                                 echo $colvalue ;
                                             }
