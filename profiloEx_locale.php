@@ -37,23 +37,21 @@ session_start();
           <li class="nav-item active">
                 <a class="nav-link" href="#">Scrivi una Recensione<span class="sr-only">(current)</span></a>
             </li>
+            <li>
+                <a class="nav-link" href="#">Contatta un Locale<span class="sr-only">(current)</span></a>
+            </li>
           </ul>
-          <a class="nav-link" href="#"> <?php  if (isset($_SESSION[ "username"])) {echo htmlspecialchars($_SESSION["username"]);}?> <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#"> <?php  if (isset($_SESSION[ "username"])) {echo htmlspecialchars($_SESSION["username"]);}?> <span class="sr-only">(current)</span></a>
         </div>
     </nav>
     <section class="main">
         <div class="container">
             <div class="row">
-            <div class="col-lg-5 col-md-12">
-                <div class="row">
-                    <div class="contattato" style="height: 12.5vh;">
-                        Band
-                    </div>
-                </div>
-                <div class="row" style="padding-bottom:20%;">
-                    <div class="col">
-                        <div class="contatti" id="cntcts">
-                        <?php
+                <div class="col-lg-5 col-md-12 ">
+                    <div class="row">
+                        <div class="nome" style="height: 12.5vh;" id="RowR">
+                            <?php
+                                $mail=$_GET["mail"];
                                 $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
                                 $user = "postgres";
                                 $pass = "Quindicimaggio_20";
@@ -65,36 +63,25 @@ session_start();
                                 if (!$con){
                                     echo "<h1> Impossibile connettersi</h1>";
                                 }
-                                
-                                $name=strtolower($_POST["search"]);
-                                $q1="select band.nome,band.mail from band where band.nome=$1";
-                                $result=pg_query_params($con,$q1,array($name));
-                                
-                                if(pg_num_rows($result)==0){
-                                    echo "Nessun Risultato</br>";
-                                }
-
-                                while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-                                    echo "<a href='profiloEx_band.php?mail={$line["mail"]}'>";
-                                    echo $line["nome"];
-                                    echo '</br>';
-                                    echo '</a>';
-                                    echo "</br>";
-                                }
-                            ?> 
+                                $q1="select locale.nome from locale where locale.mail=$1";
+                                $result=pg_query_params($con,$q1,array($mail));
+                                $ln=pg_fetch_array($result);
+                                echo "Nome Locale: <br>";
+                                echo $ln["nome"];
+                            ?>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-2 col-md-3"></div>
-            <div class="col-lg-4 col-md-12">
-                    <div class="row" style="height: 12.5vh;" id="RowRec">
-                        <div class="recensioni">Locali</div>
+                <div class="col-lg-2 col-md-3 "></div>
+                <div class="col-lg-4 col-md-12 ">
+                    <div class="row" style="height: 12.5vh;" id="RowP">
+                        <div class="recensioni">Le recensioni</div>
                     </div>
-                    <div class="row">
+                    <div class="row ">
                         <div class="col-lg-12 col-md-12">
                             <div class="testi" id="rvws">
                                 <?php
+                                    $mail=$_GET["mail"];
                                     $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
                                     $user = "postgres";
                                     $pass = "Quindicimaggio_20";
@@ -107,21 +94,30 @@ session_start();
                                         echo "<h1> Impossibile connettersi</h1>";
                                     }
                                     
-                                    $name=strtolower($_POST["search"]);
-                                    $q1="select locale.nome,locale.mail from locale where locale.nome=$1";
-                                    $result=pg_query_params($con,$q1,array($name));
+                                    //TODO: leva il nome come id della rece fra
+                                    //Mi prendo il nome (Di nuovo)
+                                    $q2="select locale.nome from locale where locale.mail=$1";
+                                    $result2=pg_query_params($con,$q2,array($mail));
+                                    $ln=pg_fetch_array($result2);
+
+
+                                    $q1="select cont from recensione where _to=$1";
+                                    $result=pg_query_params($con,$q1,array($ln["nome"]));
 
                                     if(pg_num_rows($result)==0){
-                                        echo "Nessun Risultato</br>";
+                                        echo "Ancora Nessuna Recensione</br>";
                                     }
                                     
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-                                        echo "<a href='profiloEx_locale.php?mail={$line["mail"]}'>";
-                                        echo $line["nome"];
+                                        echo '<a href="#">';
+                                        foreach( $line as $colvalue) {
+                                            echo $colvalue ;
+                                        }
                                         echo '</br>';
                                         echo '</a>';
                                         echo "</br>";
                                     }
+                                    
                                 ?>
                             </div>
                         </div>
@@ -131,3 +127,4 @@ session_start();
         </div>
     </section>
 </body>
+</html>

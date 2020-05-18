@@ -47,10 +47,12 @@
             <a href=../login.html>clicca qui per login
             </a>";
         }*/
-        $qn="select locale.nome from locale where locale.mail=$1";
+        $qn="select locale.nome,locale.mail from locale where locale.mail=$1";
         $resultName = pg_query_params($con,$qn,array($email));
         $ln=pg_fetch_array($resultName,null,PGSQL_ASSOC);
         $_SESSION["username"] = $ln["nome"];
+        $_SESSION["mail"] = $ln["mail"];
+        $_SESSION["type"]="locale";
         header("location: profilo_locale.php"); //carico il profilo dell'utente
 
     }
@@ -67,10 +69,12 @@
             echo "<h1>Errore Password</h1>
             <a href=../login.html>clicca qui per login</a>";
         }*/
-        $qn="select band.nome from band where band.mail=$1";
+        $qn="select band.nome,band.mail from band where band.mail=$1";
         $resultName = pg_query_params($con,$qn,array($email));
         $ln=pg_fetch_array($resultName,null,PGSQL_ASSOC);
         $_SESSION["username"] = $ln["nome"];
+        $_SESSION["mail"] = $ln["mail"];
+        $_SESSION["band"] = "band";
         header("location: profilo_band.php"); //carico il profilo dell'utente
 
     }

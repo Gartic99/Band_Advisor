@@ -24,13 +24,13 @@
 	<link rel="icon" href="assets/B.png">
 
 	<script>
-		function submit(){
+		/*function submit(){
 			document.getElementById("b_submit").onclick = function (){
 				$(document).ready(function(){
 					$(".form-form").submit();
 					}); 
 				};
-		}
+		}*/
 	</script>
 	 <script>
         function load(){
@@ -42,21 +42,16 @@
         }
     </script>
 	<script>
-		function multiple(){
-			submit();
-			load();
-		}
-
 		$(document).ready(function(){
-  			$("#recensione_form").submit(function(event){
+  			$(".form-form").submit(function(event){
    				event.preventDefault();
   			});
 		});
 	</script>
  </head>
- 	<body onload="return multiple();">
+ 	<body ><!--onload="return submit();"-->
 		<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
-			<a class="navbar-brand" href="index.html">
+			<a class="navbar-brand" href="index.php">
 				<img class="img-responsive" src="assets/BandLogo.png" style="max-width:17vw;height:auto;display:block;">
 			</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,7 +79,9 @@
  							<input type="text" value=""  class="form-input" id="nome" name="email" required><br>
  							<label class="login-label-secondo">Password</label><br>
 							<input type="password" value=""  class="form-input" id="password" name="password" required><br><br>
-							<button type="button" class="btn btn-danger entra" id="b_submit" style="width:30%; height: auto;">Entra</button>
+							<!--<button type="button" class="btn btn-danger entra" id="b_submit" style="width:30%; height: auto;">Entra</button>-->
+							<input type="submit" class="btn btn-danger entra" id="b_submit" style="width:30%; height: auto;"></input>
+					
  						</form>
                          <br>
                          
