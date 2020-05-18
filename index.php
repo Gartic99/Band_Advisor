@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,8 +44,13 @@
                 <a class="nav-link" href="recensione.html" id="modal_open">Scrivi una Recensione<span class="sr-only">(current)</span></a>
             </li>
           </ul>
-          <button type="button" class="btn btn-danger mr-sm-2 entra"  onclick="window.location.href = 'login.html'">Entra</button>
-          <button type="button" class="btn btn-danger mr-sm-2 entra"  onclick="window.location.href = 'signup.html'">Registrati</button>
+          <a class="nav-link" href="#"> <?php  
+            if (isset($_SESSION[ "username"])) {echo htmlspecialchars($_SESSION["username"]);}
+            else{
+               echo ("<button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='window.location.href = 'login.html''>Entra</button>");
+               echo ("<button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='window.location.href = 'signup.html''>Registrati</button>");
+            }?> 
+          <span class="sr-only">(current)</span></a>
         </div>
     </nav>
 
@@ -76,16 +84,16 @@
                 <div class="Option_bar">
                     <div class="container">
                         <div class="row justify-content-center">
-                            <div class="col-lg-8 col-md-6 col-sm-6 justify-content-center" id="rec">
+                            <div class="col-lg-auto justify-content-center" id="rec">
                                 <p>
                                     <a href="#" class="btn btn-sq-lg">
                                         <img src="assets/Icons/electric-guitar.png" style="height: auto; width: 100%; padding:1%;"><br/>
                                         Band </br>
                                     </a>
-                                    <a href="#" class="btn btn-sq-lg">
+                                    <!--<a href="#" class="btn btn-sq-lg">
                                         <img src="assets/Icons/microphone.png" style="height: auto; width: 100%; padding:1%;"><br/>
                                         Cantanti </br>
-                                    </a>
+                                    </a>-->
                                     <a href="#" class="btn btn-sq-lg">
                                         <img src="assets/Icons/speaker.png" style="height: auto; width: 100%; padding:1%;"><br/>
                                             Locali  </br> 

@@ -18,15 +18,14 @@ session_start();
             //true if we are on mobile
             var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
             if(isMobile){
-                document.getElementById("RowR").style.height = "2vh";
-                document.getElementById("RowP").style.height = "2vh";
-                document.getElementById("RowRec").style.height = "1vh";
+                document.getElementById("RowR").style.height = "3vh";
+                document.getElementById("RowP").style.height = "3vh";
             }
         }
     </script>
 </head>
 <body onload="load()">
-<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
         <a class="navbar-brand" href="index.html">
             <img class="img-responsive" src="assets/BandLogo.png" style="max-width:17vw;height:auto;display:block;">
         </a>
@@ -48,75 +47,64 @@ session_start();
     <section class="main">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-12">
-                    <!--<div class="container beta">-->
-                        <div class="row">
-                            <div class="contattato" style="height: 2.5vh;">
-                                Locali che ti hanno contattato
+                <div class="col-lg-5 col-md-12 ">
+                    <div class="row">
+                        <div class="contattato" style="height: 12.5vh;" id="RowR">
+                            Locali che ti hanno contattato
+                        </div>
+                    </div>
+                    <div class="row " style="padding-bottom:20%;">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="contatti" id="cntcts">
+                                <a href="#">
+                                    Locali di Esempio</br>
+                                </a>
+                                <a href="#">
+                                    Locali di Esempio 2</br>
+                                </a>
                             </div>
                         </div>
-                        <div class="row" style="height: 10vh;" id="RowR"></div>
-                        <div class="row" style="padding-bottom:20%;">
-                            <div class="col">
-                                <!--<img src="assets/Rectangle 11.png" style="width: 80%;height: auto;">-->
-                                <div class="contatti" id="cntcts">
-                                    <a href="#">
-                                        Locali di Esempio</br>
-                                    </a>
-                                    <a href="#">
-                                        Locali di Esempio 2</br>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    <!--</div>-->
+                    </div>  
                 </div>
-                <div class="col-lg-3 col-md-5"></div>
-                <div class="col-lg-4 col-md-12">
-                    <!--<div class="container alpha">-->
-                        <div class="row" style="height: 2.5vh;" id="RowRec">
-                            <div class="recensioni">Le tue recensioni</div>
-                        </div>
-                        <div class="row" style="height: 10vh;" id="'RowP"></div>
-                        <div class="row">
-                            <div class="col-lg-5">
-                                <!--<img src="assets/Rectangle 11.png" style="width: 80%;height: auto;">-->
-                                <div class="testi" id="rvws">
-                                    <?php
-                                        $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
-                                        $user = "postgres";
-                                        $pass = "Quindicimaggio_20";
-                                        $db = "postgres";
+                <div class="col-lg-2 col-md-3 "></div>
+                <div class="col-lg-4 col-md-12 ">
+                    <div class="row" style="height: 12.5vh;" id="RowP">
+                        <div class="recensioni">Le tue recensioni</div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="testi" id="rvws">
+                                <?php
+                                    $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
+                                    $user = "postgres";
+                                    $pass = "Quindicimaggio_20";
+                                    $db = "postgres";
 
-                                        //apro la connessione con il db postgress
-                                        $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
-                                        or die ("Could not connect to server\n");
-                                        if (!$con){
-                                            echo "<h1> Impossibile connettersi</h1>";
-                                        }
+                                    //apro la connessione con il db postgress
+                                    $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
+                                    or die ("Could not connect to server\n");
+                                    if (!$con){
+                                        echo "<h1> Impossibile connettersi</h1>";
+                                    }
 
-                                        $q1="select cont from recensione";
-                                        $result=pg_query($con,$q1);
-                                        
-                                        while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-                                            echo '<a href="#">';
-                                            foreach( $line as $colvalue) {
-                                                echo $colvalue ;
-                                            }
-                                            echo '</br>';
-                                            echo '</a>';
-                                            echo "</br>";
+                                    $q1="select cont from recensione";
+                                    $result=pg_query($con,$q1);
+                                    
+                                    while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
+                                        echo '<a href="#">';
+                                        foreach( $line as $colvalue) {
+                                            echo $colvalue ;
                                         }
-                                       
-                                    ?>
-                                </div>
+                                        echo '</br>';
+                                        echo '</a>';
+                                        echo "</br>";
+                                    }
+                                    
+                                ?>
                             </div>
                         </div>
-                    <!--</div>-->
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-4"></div>
             </div>
         </div>
     </section>

@@ -80,6 +80,12 @@ a{
     color: #000000;
     font-size: 2vw; 
 }
+/*nome nella pagina di profilo esterno */
+.nome{
+    font-family: Gilroy Semi-Bold;
+    color: #000000;
+    font-size: 2vw; 
+}
 /*contatta*/
 .contatta{
     font-family: Gilroy Semi-Bold;
@@ -95,7 +101,6 @@ a{
     font-size: 2vw; 
 }
 
-/*lista dei contatti*/
 .contatti {
     position: absolute;
     top: 5%;
@@ -104,7 +109,7 @@ a{
     color: #000000;
     font-size: 2vw; 
 }
-/*lista delle recensioni*/
+
 .testi {
     position: absolute;
     top: 5%;
@@ -115,7 +120,8 @@ a{
    
 }
 
-/* not yet ready to be used*/
+
+/* colonne contatti e recensioni dinamiche*/
 
 
 #cntcts{

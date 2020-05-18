@@ -38,10 +38,10 @@ session_start();
                 <a class="nav-link" href="#">Scrivi una Recensione<span class="sr-only">(current)</span></a>
             </li>
             <li>
-                <a class="nav-link" href="#">Contatta una Band<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Contatta un Locale<span class="sr-only">(current)</span></a>
             </li>
           </ul>
-          <a class="nav-link" href="#"> <?php  if (isset($_SESSION[ "username"])) {echo htmlspecialchars($_SESSION["username"]);}?> <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#"> <?php  if (isset($_SESSION[ "username"])) {echo htmlspecialchars($_SESSION["username"]);}?> <span class="sr-only">(current)</span></a>
         </div>
     </nav>
     <section class="main">
@@ -49,27 +49,33 @@ session_start();
             <div class="row">
                 <div class="col-lg-5 col-md-12 ">
                     <div class="row">
-                        <div class="contattato" style="height: 12.5vh;" id="RowR">
-                            Band che ti hanno contattato
+                        <div class="nome" style="height: 12.5vh;" id="RowR">
+                            <?php
+                                $mail=$_GET["mail"];
+                                $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
+                                $user = "postgres";
+                                $pass = "Quindicimaggio_20";
+                                $db = "postgres";
+
+                                //apro la connessione con il db postgress
+                                $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
+                                or die ("Could not connect to server\n");
+                                if (!$con){
+                                    echo "<h1> Impossibile connettersi</h1>";
+                                }
+                                $q1="select band.nome from band where band.mail=$1";
+                                $result=pg_query_params($con,$q1,array($mail));
+                                $ln=pg_fetch_array($result);
+                                echo "Nome Band: <br>";
+                                echo $ln["nome"];
+                            ?>
                         </div>
                     </div>
-                    <div class="row " style="padding-bottom:20%;">
-                        <div class="col-lg-12 col-md-12">
-                            <div class="contatti" id="cntcts">
-                                <a href="#">
-                                    Band di Esempio</br>
-                                </a>
-                                <a href="#">
-                                    Band di Esempio 2</br>
-                                </a>
-                            </div>
-                        </div>
-                    </div>  
                 </div>
                 <div class="col-lg-2 col-md-3 "></div>
                 <div class="col-lg-4 col-md-12 ">
                     <div class="row" style="height: 12.5vh;" id="RowP">
-                        <div class="recensioni">Le tue recensioni</div>
+                        <div class="recensioni">Le recensioni</div>
                     </div>
                     <div class="row ">
                         <div class="col-lg-12 col-md-12">
@@ -87,8 +93,12 @@ session_start();
                                         echo "<h1> Impossibile connettersi</h1>";
                                     }
 
-                                    $q1="select cont from recensione";
-                                    $result=pg_query($con,$q1);
+                                    $q1="select cont from recensione where _to=$1";
+                                    $result=pg_query_params($con,$q1,array($mail));
+
+                                    if(pg_num_rows($result)==0){
+                                        echo "Ancora Nessuna Recensione</br>";
+                                    }
                                     
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
                                         echo '<a href="#">';
@@ -109,3 +119,4 @@ session_start();
         </div>
     </section>
 </body>
+</html>
