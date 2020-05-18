@@ -6,7 +6,7 @@
 </div>
 <div class="modal-body">
     <div id="form">
-        <form class="form-form" id="recensione_form" action="recensione.php" method="POST" onsubmit="real_submit(submit)">
+        <form class="form-form" id="recensione_form" action="recensione.php" method="POST" onsubmit="validateLForm()">
             <label class="login-label-secondo">Tua email</label><br>
             <input class="form-input" name="from_rec" id="from_rec"></input><br>
             <label class="login-label-secondo">Nome destinatario</label><br>
@@ -27,26 +27,28 @@
     </div>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="remove()">Close</button>
-    <button type="button" class="btn btn-default" type="submit" onclick="fake_submit();" id="fake">Invia</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="">Close</button>
+    <button type="button" class="btn btn-default" type="submit" onclick='$("#recensione_form").submit()' id="fake">Invia</button>
 </div>
 <script>
     $(document).ready(function(){
         $("#score").selectpicker();
-    });
+        $("#login").submit(function(event){
+   			event.preventDefault();
+  		});
+	});
+    
     function fake_submit(){
-        $('#fake').disabled=true;
         $(document).ready(function(){
             $("#recensione_form").submit();
         }); 
-        $('#fake').disabled=false;
     };
 
     function real_submit(event){
         $(document).ready(function(){
-            validateLForm()
-        }); 
-        event.preventDefault();
+            validateLForm();
+        });
+        //event.preventDefault();
     };
 
     function validateLForm() {
@@ -71,7 +73,6 @@
                 $('.modal-body').append(document.createElement("p").innerHTML = data);
                 $(".modal-body").css('background', 'green');
                 $('#rec_modal').modal('show');
-                $("#recensione_form").submit();
                 console.log(data);
             },
             error: function (data) {
@@ -79,7 +80,6 @@
                 $('.modal-body').append(document.createElement("p").innerHTML = data);
                 $(".modal-body").css('background', 'red');
                 $('#rec_modal').modal('show');
-                $("#recensione_form").submit();
                 console.log(data);
             },
         });

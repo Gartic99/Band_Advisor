@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
 	<!--For header and fonts-->
 	<link rel="stylesheet" href="common.css"> 
 	<link rel="stylesheet" href="form.css"> 
@@ -11,11 +12,14 @@
 
  	<meta name="google-signin-client_id" content="836928160219-as2iudf75qicjsp6jt12vcfm0ifc3dbr.apps.googleusercontent.com">
  	<!-- Latest compiled and minified CSS -->
- 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
- 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="form.js"></script>
+	 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+	 
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="   crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+	
+	<!--<script type="text/javascript" src="form.js"></script>-->
     <title>Band Advisor</title>
 	<link rel="icon" href="assets/B.png">
 
@@ -38,10 +42,16 @@
         }
     </script>
 	<script>
-		function multiple{
+		function multiple(){
 			submit();
 			load();
 		}
+
+		$(document).ready(function(){
+  			$("#recensione_form").submit(function(event){
+   				event.preventDefault();
+  			});
+		});
 	</script>
  </head>
  	<body onload="return multiple();">
@@ -69,7 +79,7 @@
  				<div class="row " style="height: 50vh;">
  					<div class="col-5">
  						<label class="login-label">Entra</label><br>
- 						<form class="form-form" action="login.php" method="post" id="login">
+ 						<form class="form-form" action="login.php" method="post" id="login" onsubmit="real_submit()">
  							<label class="login-label-secondo" >Email Utente</label><br>
  							<input type="text" value=""  class="form-input" id="nome" name="email" required><br>
  							<label class="login-label-secondo">Password</label><br>
@@ -90,14 +100,72 @@
  								<input class="Entra_button" type="image" onclick="window.location.href = 'signup.html' " src="assets/RegistratiButton.png" style="width: 250%;height: auto;">
  								<!--<Label class="login-label-secondo" onclick="window.location.href = 'signup.html' " style="cursor: pointer; "> Registrati</Label>-->
  							</div>
- 							<div class="col-12"></div>
+ 							<!--<div class="col-12"></div>
  							<div class="col-1 col-md-1"> 
  								<div class="g-signin2" data-onsuccess="onSignIn"></div> 
- 							</div>
+							 </div>
+						-->
  						</div>
  					</div>
  				</div>
  			</div>
- 		</section>
-     </body>
+		</section>
+		<section>
+			<div class="modal fade" id="myModal" role="dialog">
+				<div class="modal-dialog">
+				
+				  <!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+						<h4 class="modal-title">Modal Header</h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+						<div class="modal-body">
+						</div>
+						<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal" onclick="close_modal()">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	 </body>
+	 <script>
+				  
+
+		function real_submit(event){
+        	$(document).ready(function(){
+            	validateLForm();
+			});
+		}
+		function validateLForm() {
+			var nome = $("#nome").val();
+			var password = $("#password").val(); 
+
+			if (nome == "" || password == "") {
+			alert("compila tutti i campi obligatori");
+			}
+			else{
+				var frm = $('#login');
+				$.ajax({
+					type: frm.attr('method'),
+					url: frm.attr('action'),
+					data: frm.serialize(),
+					success: function (data) {
+						$('.modal-body').append(document.createElement("p").innerHTML = data);
+						$('#myModal').modal('show');
+						console.log(data);
+					},
+					error: function (data) {
+						$('.modal-body').append(document.createElement("p").innerHTML = data);
+						$('#myModal').modal('show');
+						console.log(data);
+					},
+				});
+			}
+		}
+		function close_modal(){
+			$('.modal-body').empty();
+		}
+	</script>
  </html>
