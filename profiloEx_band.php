@@ -81,6 +81,7 @@ session_start();
                         <div class="col-lg-12 col-md-12">
                             <div class="testi" id="rvws">
                                 <?php
+                                    $mail=$_GET["mail"];
                                     $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
                                     $user = "postgres";
                                     $pass = "Quindicimaggio_20";
@@ -93,8 +94,17 @@ session_start();
                                         echo "<h1> Impossibile connettersi</h1>";
                                     }
 
+
+                                    //TODO: leva il nome come id della rece fra
+                                    //Mi prendo il nome (Di nuovo)
+                                    $q2="select band.nome from band where band.mail=$1";
+                                    $result2=pg_query_params($con,$q2,array($mail));
+                                    $ln=pg_fetch_array($result2);
+
+
                                     $q1="select cont from recensione where _to=$1";
-                                    $result=pg_query_params($con,$q1,array($mail));
+                                    $result=pg_query_params($con,$q1,array($ln["nome"]));
+
 
                                     if(pg_num_rows($result)==0){
                                         echo "Ancora Nessuna Recensione</br>";
