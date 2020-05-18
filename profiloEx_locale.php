@@ -63,7 +63,7 @@ session_start();
                                 if (!$con){
                                     echo "<h1> Impossibile connettersi</h1>";
                                 }
-                                $q1="select locale.nome from loacle where loacle.mail=$1";
+                                $q1="select locale.nome from locale where locale.mail=$1";
                                 $result=pg_query_params($con,$q1,array($mail));
                                 $ln=pg_fetch_array($result);
                                 echo "Nome Locale: <br>";
