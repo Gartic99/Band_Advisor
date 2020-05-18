@@ -42,6 +42,7 @@ session_start();
             </li>
           </ul>
           <a class="nav-link" href="#"> <?php  if (isset($_SESSION[ "username"])) {echo htmlspecialchars($_SESSION["username"]);}?> <span class="sr-only">(current)</span></a>
+          <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='window.location.href = signup.html'>Logout</button>
         </div>
     </nav>
     <section class="main">

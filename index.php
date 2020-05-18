@@ -44,13 +44,21 @@ session_start();
                 <a class="nav-link" href="recensione.html" id="modal_open">Scrivi una Recensione<span class="sr-only">(current)</span></a>
             </li>
           </ul>
-          <a class="nav-link" href="#"> <?php  
-            if (isset($_SESSION[ "username"])) {echo htmlspecialchars($_SESSION["username"]);}
+          <?php  
+            if (isset($_SESSION[ "username"])) {
+                /*
+                //Disabilitato finché non facciamo logout
+                echo "<a class='nav-link' href='#'>";
+                echo  $_SESSION['username'];
+                echo "<span class='sr-only'>(current)</span></a>";*/
+            }
             else{
-               echo ("<button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='window.location.href = 'login.html''>Entra</button>");
-               echo ("<button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='window.location.href = 'signup.html''>Registrati</button>");
-            }?> 
-          <span class="sr-only">(current)</span></a>
+               /*echo ("<button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='window.location.href = login.html'>Entra</button>");
+               echo ("<button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='window.location.href = signup.html'>Registrati</button>");*/
+            }
+            ?> 
+            <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick="window.location.href ='login.html'">Entra</button>
+            <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='window.location.href = "signup.html"'>Registrati</button>
         </div>
     </nav>
 

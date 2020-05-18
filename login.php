@@ -52,6 +52,7 @@
         $ln=pg_fetch_array($resultName,null,PGSQL_ASSOC);
         $_SESSION["username"] = $ln["nome"];
         $_SESSION["mail"] = $ln["mail"];
+        $_SESSION["type"]="locale";
         header("location: profilo_locale.php"); //carico il profilo dell'utente
 
     }
@@ -73,6 +74,7 @@
         $ln=pg_fetch_array($resultName,null,PGSQL_ASSOC);
         $_SESSION["username"] = $ln["nome"];
         $_SESSION["mail"] = $ln["mail"];
+        $_SESSION["band"] = "band";
         header("location: profilo_band.php"); //carico il profilo dell'utente
 
     }
