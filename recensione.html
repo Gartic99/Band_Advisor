@@ -21,7 +21,6 @@
                 <option value="2">2</option>
                 <option value="1">1</option>
             </select>
-
             <input type="submit" style="display: none;" name="recensione_button"></input>
         </form>
     </div>
@@ -33,23 +32,10 @@
 <script>
     $(document).ready(function(){
         $("#score").selectpicker();
-        $("#login").submit(function(event){
-   			event.preventDefault();
-  		});
+        $(".form-form").submit(function(event){
+                event.preventDefault();
+            });
 	});
-    
-    function fake_submit(){
-        $(document).ready(function(){
-            $("#recensione_form").submit();
-        }); 
-    };
-
-    function real_submit(event){
-        $(document).ready(function(){
-            validateLForm();
-        });
-        //event.preventDefault();
-    };
 
     function validateLForm() {
     var from = $("#from_rec").val();
