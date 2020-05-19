@@ -37,19 +37,32 @@ session_start();
                 $q2="select * from band where mail = $1";
                 $result1 = pg_query_params($con,$q1,array($email));
                 $result2 = pg_query_params($con,$q2,array($email));
+
                 if(($line=pg_fetch_array($result1,null,PGSQL_ASSOC)) || ($line=pg_fetch_array($result2,null,PGSQL_ASSOC)) ){
-                    $response =  "<h1> Già registrato</h1>
+                    $response =  "<h1> Mail già registrata</h1>
                     <a href=../login.html>clicca qui per login</a>";
                 }
+                
+                $nome=strtolower($_POST["nome"]);
+                $q1="select * from locale where nome= $1";
+                $q2="select * from band where nome = $1";
+                $result1 = pg_query_params($con,$q1,array($nome));
+                $result2 = pg_query_params($con,$q2,array($nome));
+
+                if(($line=pg_fetch_array($result1,null,PGSQL_ASSOC)) || ($line=pg_fetch_array($result2,null,PGSQL_ASSOC)) ){
+                    $response =  "<h1> Nome già registrato</h1>
+                    <a href=../login.html>clicca qui per login</a>";
+                }
+
                 // invio i dati al db
                 else{
-                    $name=strtolower($_POST["nome"]);
+                    
                     $password=md5($_POST["password"]);
 
                     $genre=implode(";",$_POST['genere']);
 
                     $q2 = 'INSERT INTO band VALUES($1,$2,$3,$4)';
-                    $results = pg_query_params($con, $q2,array($email,$name,$password,$genre));
+                    $results = pg_query_params($con, $q2,array($email,$nome,$password,$genre));
                     if ($results){
                         $response = "<h1> Registrazione completata</h1>
                         <a href=../profilo_band.php>inizia a navigare</a>";
@@ -68,18 +81,29 @@ session_start();
                 $result2 = pg_query_params($con,$q2,array($email));
 
                 if(($line=pg_fetch_array($result1,null,PGSQL_ASSOC)) || ($line=pg_fetch_array($result2,null,PGSQL_ASSOC)) ){
-                    $response = "<h1> Già registrato</h1>
+                    $response = "<h1> Mail già registrata</h1>
+                    <a href=../login.html>clicca qui per login</a>";
+                }
+
+                $nome=strtolower($_POST["nome"]);
+                $q1="select * from locale where nome= $1";
+                $q2="select * from band where nome = $1";
+                $result1 = pg_query_params($con,$q1,array($nome));
+                $result2 = pg_query_params($con,$q2,array($nome));
+
+                if(($line=pg_fetch_array($result1,null,PGSQL_ASSOC)) || ($line=pg_fetch_array($result2,null,PGSQL_ASSOC)) ){
+                    $response = "<h1> Nome già registrato</h1>
                     <a href=../login.html>clicca qui per login</a>";
                 }
                 // invio i dati al db
                 else{
-                    $name=strtolower($_POST["nome"]);
+                    
                     $password=md5($_POST["password"]);
                     $genre=implode(";",$_POST['tipo_l']);
                     $fav_music = implode(";",$_POST['mus_pref']);
                     $q3 = 'INSERT INTO locale VALUES($1,$2,$3,$4,$5)';
-                    $results = pg_query_params($con, $q3,array($email,$name,$password,$genre,$fav_music));
-                    $_SESSION["username"] = $name;
+                    $results = pg_query_params($con, $q3,array($email,$nome,$password,$genre,$fav_music));
+                    $_SESSION["username"] = $nome;
                     if ($results){
                         $response =  "<h1> Registrazione completata</h1>
                         <a href=../profilo_locale.php>inizia a navigare</a>";
