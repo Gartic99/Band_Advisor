@@ -1,7 +1,7 @@
 <?php
     error_reporting(E_ALL | E_STRICT);
     ini_set('display_errors', 1);
-    if (!(isset($_POST['from_rec']))){
+    if (!(isset($_POST['from_cont']))){
         header("Location: ../index.html");
     }
     else{
@@ -23,7 +23,7 @@
             echo "<h1> Impossibile connettersi<7h1>";
         }
         else{
-            $from=strtolower($_POST["from_rec"]);
+            $from=strtolower($_POST["from_cont"]);
             $q1="select * from locale where mail= $1";
             $q2="select * from band where mail = $1";
             $result1 = pg_query_params($con,$q1,array($from));
@@ -33,9 +33,8 @@
                 <a href=../signup.html>clicca qui per registrarti</a>";
             }
             else{
-                $to=strtolower($_POST["to_rec"]);
-                $recensione=$_POST["recensione_i"];
-                $score=$_POST["score"];
+                $to=strtolower($_POST["to_cont"]);
+                $contatta=$_POST["contatta_i"];
 
                 $q1="select * from locale where nome= $1";
                 $q2="select * from band where nome = $1";
@@ -45,10 +44,10 @@
                     $response =  "<h1>Locale o Band non esistente</h1>";
                 }
                 else{
-                    $q2 = 'INSERT INTO recensione VALUES($1,$2,$3,$4)';
-                    $results = pg_query_params($con, $q2,array($from,$to,$score,$recensione));
+                    $q2 = 'INSERT INTO contatta VALUES($1,$2,$3)';
+                    $results = pg_query_params($con, $q2,array($from,$to,$contatta));
                     if ($results){
-                        $response = "<h1> Recensione inviata</h1>
+                        $response = "<h1> Messaggio inviata</h1>
                         <a href=../index.php>Torna alla Home</a>";
                     }
                 pg_free_result($results);
