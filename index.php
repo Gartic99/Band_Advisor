@@ -120,13 +120,13 @@ session_start();
                 <div class="modal-content">
                 </div>
             </div>
-          </div>
+        </div>
     </section>
     <script>
         $('#modal_open').on('click', function(e){
             e.preventDefault();
             $('#theModal').modal('show').find('.modal-content').load($(this).attr('href'));
-        });
+        });    
     </script>
     <script>
         function validateSearch(){
