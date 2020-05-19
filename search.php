@@ -20,6 +20,10 @@ session_start();
             if(isMobile){
                 document.getElementById("RowR").style.height = "3vh";
                 document.getElementById("RowP").style.height = "3vh";
+                document.getElementById("RowR").style.fontSize = "2vh";
+                document.getElementById("rece").style.fontSize = "2vh";
+                document.getElementById("cntcts").style.fontSize = "2vh";
+                document.getElementById("rvws").style.fontSize = "2vh";
             }
         }
     </script>
@@ -44,14 +48,14 @@ session_start();
     <section class="main">
         <div class="container">
             <div class="row">
-            <div class="col-lg-5 col-md-12">
+            <div class="col-lg-5 col-md-11">
                 <div class="row">
                     <div class="contattato" style="height: 12.5vh;">
                         Band
                     </div>
                 </div>
                 <div class="row" style="padding-bottom:20%;">
-                    <div class="col">
+                    <div class="col-lg-12 col-md-12">
                         <div class="contatti" id="cntcts">
                         <?php
                                 $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
@@ -89,7 +93,7 @@ session_start();
             <div class="col-lg-2 col-md-3"></div>
             <div class="col-lg-4 col-md-12">
                     <div class="row" style="height: 12.5vh;" id="RowRec">
-                        <div class="recensioni">Locali</div>
+                        <div class="recensioni" id="rece">Locali</div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12 col-md-12">

@@ -92,21 +92,21 @@ session_start();
                 <div class="Option_bar">
                     <div class="container">
                         <div class="row justify-content-center">
-                            <div class="col-lg-auto justify-content-center" id="rec">
-                                <p>
-                                    <a href="#" class="btn btn-sq-lg">
+                            <div class="col-lg-6 col-md-5 col-sm-5" id="rec">
+                                
+                                    <button class="btn btn-sq-lg" id="band_button" onclick="window.location.href ='button.php?type=band'">
                                         <img src="assets/Icons/electric-guitar.png" style="height: auto; width: 100%; padding:1%;"><br/>
                                         Band </br>
-                                    </a>
+                                    </button>
                                     <!--<a href="#" class="btn btn-sq-lg">
                                         <img src="assets/Icons/microphone.png" style="height: auto; width: 100%; padding:1%;"><br/>
                                         Cantanti </br>
                                     </a>-->
-                                    <a href="#" class="btn btn-sq-lg">
+                                    <button  class="btn btn-sq-lg" id="locale button" onclick="window.location.href ='button.php?type=locale'">
                                         <img src="assets/Icons/speaker.png" style="height: auto; width: 100%; padding:1%;"><br/>
                                             Locali  </br> 
-                                    </a>
-                                </p>
+                                    </button>
+                                
                             </div>
                         </div>
                     </div>

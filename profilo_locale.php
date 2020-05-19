@@ -4,7 +4,7 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
@@ -18,6 +18,7 @@ session_start();
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script><title>Band Advisor</title>
     
+    <link rel="icon" href="assets/B.png">
     <script>
         function load(){
             //true if we are on mobile
@@ -25,6 +26,10 @@ session_start();
             if(isMobile){
                 document.getElementById("RowR").style.height = "3vh";
                 document.getElementById("RowP").style.height = "3vh";
+                document.getElementById("RowR").style.fontSize = "2vh";
+                document.getElementById("rece").style.fontSize = "2vh";
+                document.getElementById("cntcts").style.fontSize = "2vh";
+                document.getElementById("rvws").style.fontSize = "2vh";
             }
         }
     </script>
@@ -38,12 +43,12 @@ session_start();
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarsExample04">
-        <ul class="navbar-nav mr-auto">
+          <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
                 <a class="nav-link" href="recensione.html" id="modal_open">Scrivi una Recensione<span class="sr-only">(current)</span></a>
             </li>
             <li>
-                <a class="nav-link" href="contatta.html" id="modal_open1">Contatta un Locale<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="contatta.html" id="modal_open1">Contatta una Band<span class="sr-only">(current)</span></a>
             </li>
           </ul>
           <a class="nav-link" href="#"> <?php  if (isset($_SESSION[ "username"])) {echo htmlspecialchars($_SESSION["username"]);}?> <span class="sr-only">(current)</span></a>
@@ -53,13 +58,13 @@ session_start();
     <section class="main">
         <div class="container">
             <div class="row">
-                <div class="col-lg-5 col-md-12 ">
+                <div class="col-lg-5 col-md-11 ">
                     <div class="row">
                         <div class="contattato" style="height: 12.5vh;" id="RowR">
                             Band che ti hanno contattato
                         </div>
                     </div>
-                    <div class="row " style="padding-bottom:20%;">
+                    <div class="row " style="padding-bottom:25%;">
                         <div class="col-lg-12 col-md-12">
                             <div class="contatti" id="cntcts">
                                 <a href="#">
@@ -73,9 +78,9 @@ session_start();
                     </div>  
                 </div>
                 <div class="col-lg-2 col-md-3 "></div>
-                <div class="col-lg-4 col-md-12 ">
+                <div class="col-lg-4 col-md-11">
                     <div class="row" style="height: 12.5vh;" id="RowP">
-                        <div class="recensioni">Le tue recensioni</div>
+                        <div class="recensioni" id="rece">Le tue recensioni</div>
                     </div>
                     <div class="row ">
                         <div class="col-lg-12 col-md-12">
