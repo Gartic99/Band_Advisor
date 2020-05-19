@@ -107,11 +107,11 @@ a{
     left: 5%;
     font-family: Gilroy Light;
     color: #000000;
-    font-size: 2vw; 
+    font-size: 1.5vw; 
 }
 
 .testi {
-    position: absolute;
+    /*position: absolute;*/
     top: 5%;
     left: 5%;
     font-family: Gilroy Light;
@@ -133,7 +133,7 @@ a{
 }
 
 #rvws{
-    padding: 10%;
+    padding: 5%;
     border-radius: 25px;
     border-style: solid;
     border-color: #000000;
