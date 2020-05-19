@@ -117,8 +117,8 @@ session_start();
     <section>
         <div id="theModal" class="modal fade text-center">
             <div class="modal-dialog">
-              <div class="modal-content">
-              </div>
+                <div class="modal-content">
+                </div>
             </div>
           </div>
     </section>
@@ -136,3 +136,4 @@ session_start();
         }
     </script>
 </body>
+
