@@ -47,7 +47,7 @@ session_start();
     <section class="main">
         <div class="container">
             <div class="row">
-                <div class="col-lg-5 col-md-12 ">
+                <div class="col-lg-5 col-md-11 ">
                     <div class="row">
                         <div class="nome" style="height: 12.5vh;" id="RowR">
                             <?php

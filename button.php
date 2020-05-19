@@ -43,79 +43,77 @@ session_start();
     </nav>
     <section class="main">
         <div class="container">
-            <div class="row">
-            <div class="col-lg-12 col-md-12">
-                        <?php
-                                $type=$_GET["type"];
-                                echo "<div class='row'>";
-                                
-                                if($type=="band"){
-                                    echo  "<div class='contattato' style='height: 12.5vh;'>";
-                                    echo      "Band";
-                                    echo  "</div>";
-                                }
-                                else{
-                                  echo  "<div class='contattato' style='height: 12.5vh;'>";
-                                  echo      "Locale";
-                                  echo  "</div>";
-                                }
-                                echo "</div>";
-                                echo "<div class='row' style='padding-bottom:20%;'>";
-                                echo "<div class='col-lg-12 col-md-12'>";
-                                echo "<div class='contatti' id='cntcts'>";
+            <div class="row justify-content-center">
+                <div class="col-lg-12 col-md-12">
+                    <?php
+                        $type=$_GET["type"];
+                        echo "<div class='row justify-content-center'>";
+                        
+                        if($type=="band"){
+                            echo  "<div class='contattato' style='height: 12.5vh;'>";
+                            echo      "Top 10 Band";
+                            echo  "</div>";
+                        }
+                        else{
+                            echo  "<div class='contattato' style='height: 12.5vh;'>";
+                            echo      "Top 10 Locali";
+                            echo  "</div>";
+                        }
+                        echo "</div>";
+                        echo "<div class='row justify-content-center' style='padding-bottom:20%;'>";
+                        echo "<div class='col-lg-12 col-md-12'>";
+                        echo "<div class='contatti' id='cntcts'>";
 
-                                $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
-                                $user = "postgres";
-                                $pass = "Quindicimaggio_20";
-                                $db = "postgres";
+                        $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
+                        $user = "postgres";
+                        $pass = "Quindicimaggio_20";
+                        $db = "postgres";
 
-                                //apro la connessione con il db postgress
-                                $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
-                                or die ("Could not connect to server\n");
-                                if (!$con){
-                                    echo "<h1> Impossibile connettersi</h1>";
-                                }
-                                
-                                $q1="select band.nome,band.mail from band limit 10";
-                                $q2="select locale.nome,locale.mail from locale limit 10";
+                        //apro la connessione con il db postgress
+                        $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
+                        or die ("Could not connect to server\n");
+                        if (!$con){
+                            echo "<h1> Impossibile connettersi</h1>";
+                        }
+                        
+                        $q1="select band.nome,band.mail from band limit 10";
+                        $q2="select locale.nome,locale.mail from locale limit 10";
 
-                                $result1=pg_query($con,$q1);
-                                $result2=pg_query($con,$q2);
+                        $result1=pg_query($con,$q1);
+                        $result2=pg_query($con,$q2);
 
-                                if($type=="band"){
-                                    if(pg_num_rows($result1)==0){
-                                        echo "Nessun Risultato</br>";
-                                    }
-
-
-                                    while( $line = pg_fetch_array( $result1 ,null ,PGSQL_ASSOC) ) {
-                                        echo "<a href='profiloEx_band.php?mail={$line["mail"]}'>";
-                                        echo $line["nome"];
-                                        echo '</br>';
-                                        echo '</a>';
-                                        echo "</br>";
-                                    }
-                                }
-                                else{
-                                    if(pg_num_rows($result2)==0){
-                                        echo "Nessun Risultato</br>";
-                                    }
+                        if($type=="band"){
+                            if(pg_num_rows($result1)==0){
+                                echo "Nessun Risultato</br>";
+                            }
 
 
-                                    while( $line = pg_fetch_array( $result2 ,null ,PGSQL_ASSOC) ) {
-                                        echo "<a href='profiloEx_locale.php?mail={$line["mail"]}'>";
-                                        echo $line["nome"];
-                                        echo '</br>';
-                                        echo '</a>';
-                                        echo "</br>";
-                                    }
-                                }
-                                echo "</div>";
-                                echo "</div>";
-                                echo "</div>";
-                            ?> 
-                        </div>
-                    </div>
+                            while( $line = pg_fetch_array( $result1 ,null ,PGSQL_ASSOC) ) {
+                                echo "<a href='profiloEx_band.php?mail={$line["mail"]}'>";
+                                echo $line["nome"];
+                                echo '</br>';
+                                echo '</a>';
+                                echo "</br>";
+                            }
+                        }
+                        else{
+                            if(pg_num_rows($result2)==0){
+                                echo "Nessun Risultato</br>";
+                            }
+
+
+                            while( $line = pg_fetch_array( $result2 ,null ,PGSQL_ASSOC) ) {
+                                echo "<a href='profiloEx_locale.php?mail={$line["mail"]}'>";
+                                echo $line["nome"];
+                                echo '</br>';
+                                echo '</a>';
+                                echo "</br>";
+                            }
+                        }
+                        echo "</div>";
+                        echo "</div>";
+                        echo "</div>";
+                    ?>   
                 </div>
             </div>
         </div>

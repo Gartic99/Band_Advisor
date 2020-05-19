@@ -102,7 +102,7 @@ a{
 }
 
 .contatti {
-    position: absolute;
+    /*position: absolute;*/
     top: 5%;
     left: 5%;
     font-family: Gilroy Light;
