@@ -50,8 +50,11 @@
         $resultName = pg_query_params($con,$qn,array($email));
         $ln=pg_fetch_array($resultName,null,PGSQL_ASSOC);
         $_SESSION["username"] = $ln["nome"];
+        setcookie("username", $ln["nome"], time() + (86400), "/");
         $_SESSION["mail"] = $ln["mail"];
+        setcookie("mail", $ln["mail"], time() + (86400), "/");
         $_SESSION["type"]="locale";
+        setcookie("type", "locale", time() + (86400), "/");
         echo "<script> window.location.href = '/profilo_locale.php'</script>"; //carico il profilo dell'utente
         die();
 
@@ -75,8 +78,11 @@
         $resultName = pg_query_params($con,$qn,array($email));
         $ln=pg_fetch_array($resultName,null,PGSQL_ASSOC);
         $_SESSION["username"] = $ln["nome"];
+        setcookie("username", $ln["nome"], time() + (86400), "/");
         $_SESSION["mail"] = $ln["mail"];
+        setcookie("mail", $ln["mail"], time() + (86400), "/");
         $_SESSION["band"] = "band";
+        setcookie("type", "band", time() + (86400), "/");
         echo "<script> window.location.href = '/profilo_band.php'</script>"; //carico il profilo dell'utente
 
     }
