@@ -18,8 +18,14 @@ session_start();
             //true if we are on mobile
             var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
             if(isMobile){
-                document.getElementById("RowR").style.height = "3vh";
-                document.getElementById("RowP").style.height = "3vh";
+                document.getElementById("leftLabel").style.height = "3vh";
+                document.getElementById("rightLabel").style.height = "3vh";
+                document.getElementById("leftLabel").style.fontSize = "2vh";
+                document.getElementById("leftLabel").style.padding = "5%";
+                document.getElementById("rightLabel").style.fontSize = "2vh";
+                document.getElementById("rightLabel").style.paddingLeft = "5%";
+                //document.getElementById("cntcts").style.fontSize = "2vh";
+                document.getElementById("rvws").style.fontSize = "2vh";
             }
         }
     </script>
@@ -47,9 +53,9 @@ session_start();
     <section class="main">
         <div class="container">
             <div class="row">
-                <div class="col-lg-5 col-md-11 ">
+                <div class="col-lg-5 col-md-11 " style="padding-bottom:10%;">
                     <div class="row">
-                        <div class="nome" style="height: 12.5vh;" id="RowR">
+                        <div class="nome" style="height: 12.5vh;" id="leftLabel">
                             <?php
                                 $mail=$_GET["mail"];
                                 $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
@@ -74,8 +80,10 @@ session_start();
                 </div>
                 <div class="col-lg-2 col-md-3 "></div>
                 <div class="col-lg-4 col-md-12 ">
-                    <div class="row" style="height: 12.5vh;" id="RowP">
-                        <div class="recensioni">Le recensioni</div>
+                    <div class="row">
+                        <div class="recensioni" id="rightLabel" style="height: 12.5vh;">
+                            Le recensioni
+                        </div>
                     </div>
                     <div class="row ">
                         <div class="col-lg-12 col-md-12">

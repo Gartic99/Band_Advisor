@@ -18,13 +18,19 @@ session_start();
             //true if we are on mobile
             var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
             if(isMobile){
-                document.getElementById("RowR").style.height = "3vh";
-                document.getElementById("RowP").style.height = "3vh";
+                document.getElementById('leftLabel').style.height = "3vh";
+                //document.getElementById('rightLabel').style.height = "3vh";
+                document.getElementById('leftLabel').style.fontSize = "2vh";
+                document.getElementById('leftLabel').style.padding = "10%";
+                //document.getElementById('rightLabel').style.fontSize = "2vh";
+                //document.getElementById('rightLabel').style.paddingLeft = "5%";
+                document.getElementById('cntcts').style.fontSize = "2vh";
+                document.getElementById('rvws').style.fontSize = "2vh";
             }
         }
     </script>
 </head>
-<body onload="load()">
+<body  onload="load()">
     <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
         <a class="navbar-brand" href="index.php">
             <img class="img-responsive" src="assets/BandLogo.png" style="max-width:17vw;height:auto;display:block;">
@@ -50,12 +56,12 @@ session_start();
                         echo "<div class='row justify-content-center'>";
                         
                         if($type=="band"){
-                            echo  "<div class='contattato' style='height: 12.5vh;'>";
+                            echo  "<div class='contattato' style='height: 12.5vh;' id='leftLabel'>";
                             echo      "Top 10 Band";
                             echo  "</div>";
                         }
                         else{
-                            echo  "<div class='contattato' style='height: 12.5vh;'>";
+                            echo  "<div class='contattato' style='height: 12.5vh;' id='leftLabel'>";
                             echo      "Top 10 Locali";
                             echo  "</div>";
                         }

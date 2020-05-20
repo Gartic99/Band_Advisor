@@ -9,7 +9,6 @@ session_start();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
     <link rel="stylesheet" href="profiles.css">
-    <!--<link rel="stylesheet" href="common.css">-->
     <link rel="stylesheet" href="form.css">
     
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="   crossorigin="anonymous"></script>
@@ -24,10 +23,12 @@ session_start();
             //true if we are on mobile
             var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
             if(isMobile){
-                document.getElementById("RowR").style.height = "3vh";
-                document.getElementById("RowP").style.height = "3vh";
-                document.getElementById("RowR").style.fontSize = "2vh";
-                document.getElementById("rece").style.fontSize = "2vh";
+                document.getElementById("leftLabel").style.height = "3vh";
+                document.getElementById("rightLabel").style.height = "3vh";
+                document.getElementById("leftLabel").style.fontSize = "2vh";
+                document.getElementById("leftLabel").style.padding = "5%";
+                document.getElementById("rightLabel").style.fontSize = "2vh";
+                document.getElementById("rightLabel").style.paddingLeft = "5%";
                 document.getElementById("cntcts").style.fontSize = "2vh";
                 document.getElementById("rvws").style.fontSize = "2vh";
             }
@@ -60,11 +61,11 @@ session_start();
             <div class="row">
                 <div class="col-lg-5 col-md-11 ">
                     <div class="row">
-                        <div class="contattato" style="height: 12.5vh;" id="RowR">
+                        <div class="contattato" style="height: 12.5vh;" id="leftLabel">
                             Band che ti hanno contattato
                         </div>
                     </div>
-                    <div class="row " style="padding-bottom:25%;">
+                    <div class="row " style="padding-bottom:0%;">
                         <div class="col-lg-12 col-md-12">
                             <div class="contatti" id="cntcts">
                                 <a href="#">
@@ -79,8 +80,10 @@ session_start();
                 </div>
                 <div class="col-lg-2 col-md-3 "></div>
                 <div class="col-lg-5 col-md-11">
-                    <div class="row" style="height: 12.5vh;" id="RowP">
-                        <div class="recensioni" id="rece">Le tue recensioni</div>
+                    <div class="row">
+                        <div class="recensioni" id="rightLabel" style="height: 12.5vh;">
+                            Le tue recensioni
+                        </div>
                     </div>
                     <div class="row ">
                         <div class="col-lg-12 col-md-12">
