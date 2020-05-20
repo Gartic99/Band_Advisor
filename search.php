@@ -55,8 +55,9 @@ session_start();
                 echo "<button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='logout()'>Logout</button>";
             }
             else{
-               echo ("<button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='window.location.href = login.php'>Entra</button>");
-               echo ("<button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='window.location.href = signup.php'>Registrati</button>");
+            ?>
+                <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick="window.location.href ='login.html'">Entra</button>
+                <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='window.location.href = "signup.html"'>Registrati</button><?php
             }
             ?> 
         </div>
