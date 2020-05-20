@@ -148,4 +148,14 @@ session_start();
             </div>
         </div>
     </section>
+    <script>
+    $(document).ready(function(){
+            if (getCookie("type")=="band" && document.getElementById("nav_nome")!=null){
+                document.getElementById("nav_nome").setAttribute("href", "profilo_band.php");
+            }
+            else if (getCookie("type")=="band" && document.getElementById("nav_nome")!=null){
+                document.getElementById("nav_nome").setAttribute("href", "profilo_locale.php");
+            }
+        });
+    </script>
 </body>
