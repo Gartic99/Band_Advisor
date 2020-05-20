@@ -63,6 +63,9 @@ session_start();
 
                     $q2 = 'INSERT INTO band VALUES($1,$2,$3,$4)';
                     $results = pg_query_params($con, $q2,array($email,$nome,$password,$genre));
+                    setcookie("username", $nome, time() + (86400), "/");
+                    setcookie("mail", $email, time() + (86400), "/");
+                    setcookie("type","band", time() + (86400), "/");
                     if ($results){
                         $response = "<h1> Registrazione completata</h1>
                         <a href=../profilo_band.php>inizia a navigare</a>";
@@ -103,7 +106,9 @@ session_start();
                     $fav_music = implode(";",$_POST['mus_pref']);
                     $q3 = 'INSERT INTO locale VALUES($1,$2,$3,$4,$5)';
                     $results = pg_query_params($con, $q3,array($email,$nome,$password,$genre,$fav_music));
-                    $_SESSION["username"] = $nome;
+                    setcookie("username", $nome, time() + (86400), "/");
+                    setcookie("mail", $email, time() + (86400), "/");
+                    setcookie("type","locale", time() + (86400), "/");
                     if ($results){
                         $response =  "<h1> Registrazione completata</h1>
                         <a href=../profilo_locale.php>inizia a navigare</a>";
