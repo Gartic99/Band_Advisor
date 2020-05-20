@@ -20,8 +20,17 @@ function setCookie(cname,cvalue,exdays) {
     }
     return "";
   }
-  
-  function checkCookie() {
+  function logout(){
+    var user=getCookie("username");
+    var mail=getCookie("mail");
+    if (user != "" || mail!= "") {
+        setCookie("username", "", -1);
+        setCookie("username", "", -1);
+        location.href = '/index.php';
+    }
+
+  }
+  function checkCookieuser() {
     var user=getCookie("username");
     if (user != "") {
       alert("Welcome again " + user);

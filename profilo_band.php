@@ -16,6 +16,7 @@ session_start();
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script><title>Band Advisor</title>
+    <script src="cookie.js"></script>
     
     <link rel="icon" href="assets/B.png">
     <script>
@@ -52,8 +53,8 @@ session_start();
                 <a class="nav-link" href="contatta.html" id="modal_open1">Contatta un Locale<span class="sr-only">(current)</span></a>
             </li>
           </ul>
-          <a class="nav-link" href="#"> <?php  if (isset($_SESSION[ "username"])) {echo htmlspecialchars($_SESSION["username"]);}?> <span class="sr-only">(current)</span></a>
-          <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='window.location.href = signup.html'>Logout</button>
+          <a class="nav-link" href="#"> <?php  if (isset($_COOKIE["username"])) {echo htmlspecialchars($_COOKIE["username"]);}?> <span class="sr-only">(current)</span></a>
+          <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='logout()'>Logout</button>
         </div>
     </nav>
     <section class="main">

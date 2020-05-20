@@ -14,6 +14,7 @@ session_start();
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    <script src="cookie.js"></script>
 
 
     <link rel="stylesheet" href="common.css">
@@ -45,20 +46,22 @@ session_start();
             </li>
           </ul>
           <?php  
-            if (isset($_SESSION[ "username"])) {
-                /*
+            if (isset($_COOKIE["username"])) {
+
                 //Disabilitato finché non facciamo logout
-                echo "<a class='nav-link' href='#'>";
-                echo  $_SESSION['username'];
-                echo "<span class='sr-only'>(current)</span></a>";*/
+                echo "<a class='nav-link' href='#' id ='nav_nome'>";
+                echo htmlspecialchars($_COOKIE["username"]);
+                echo "<span class='sr-only'>(current)</span></a>";
+                echo "<button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='logout()'>Logout</button>";
             }
             else{
-               /*echo ("<button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='window.location.href = login.html'>Entra</button>");
-               echo ("<button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='window.location.href = signup.html'>Registrati</button>");*/
+            ?>
+                <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick="window.location.href ='login.html'">Entra</button>
+                <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='window.location.href = "signup.html"'>Registrati</button><?php
             }
             ?> 
-            <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick="window.location.href ='login.html'">Entra</button>
-            <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='window.location.href = "signup.html"'>Registrati</button>
+            <!--<button type='button' class='btn btn-danger mr-sm-2 entra'  onclick="window.location.href ='login.html'">Entra</button>
+            <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='window.location.href = "signup.html"'>Registrati</button>-->
         </div>
     </nav>
 
@@ -134,6 +137,14 @@ session_start();
             $('#search1').submit();
             }); 
         }
+        $(document).ready(function(){
+            if (getCookie("type")=="band" && document.getElementById("nav_nome")!=null){
+                document.getElementById("nav_nome").setAttribute("href", "profilo_band.php");
+            }
+            else if (getCookie("type")=="band" && document.getElementById("nav_nome")!=null){
+                document.getElementById("nav_nome").setAttribute("href", "profilo_locale.php");
+            }
+        });
     </script>
 </body>
 
