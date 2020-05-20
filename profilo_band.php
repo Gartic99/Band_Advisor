@@ -152,6 +152,7 @@ session_start();
         $('#modal_open').on('click', function(e){
             e.preventDefault();
             $('#theModal').modal('show').find('.modal-content').load($(this).attr('href'));
+
         });
         $('#modal_open1').on('click', function(e){
             e.preventDefault();

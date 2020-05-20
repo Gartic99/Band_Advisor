@@ -2,7 +2,7 @@
 
 <div class="modal-header">
     <h4 class="modal-title">Lascia una recensione</h4>
-    <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+    <button type="button" class="close" data-dismiss="modal" onclick="close_modal()">&times;</button>
 </div>
 <div class="modal-body">
     <div id="form">
@@ -38,38 +38,42 @@
 	});
 
     function validateLForm() {
-    var from = $("#from_rec").val();
-    var to = $("#to_rec").val();
-    var rec = $("recensione_i").val();
-    
-    var punteggio = $("#score").val().length;  
+        var from = $("#from_rec").val();
+        var to = $("#to_rec").val();
+        var rec = $("recensione_i").val();
+        
+        var punteggio = $("#score").val().length;  
 
-    if (from == "" || to == "" || rec == "" || punteggio<1) {
-      alert("compila tutti i campi obligatori");
+        if (from == "" || to == "" || rec == "" || punteggio<1) {
+        alert("compila tutti i campi obligatori");
+        }
+        else{
+            var frm = $('#recensione_form');
+            //document.forms["locale_form"].submit();
+            $.ajax({
+                type: frm.attr('method'),
+                url: frm.attr('action'),
+                data: frm.serialize(),
+                success: function (data) {
+                    $('#form').remove();
+                    $('.modal-body').append(document.createElement("p").innerHTML = data);
+                    $(".modal-body").css('background', 'green');
+                    $('#rec_modal').modal('show');
+                    console.log(data);
+                },
+                error: function (data) {
+                    $('#form').remove();
+                    $('.modal-body').append(document.createElement("p").innerHTML = data);
+                    $(".modal-body").css('background', 'red');
+                    $('#rec_modal').modal('show');
+                    console.log(data);
+                },
+            });
+        }
     }
-    else{
-        var frm = $('#recensione_form');
-        //document.forms["locale_form"].submit();
-        $.ajax({
-            type: frm.attr('method'),
-            url: frm.attr('action'),
-            data: frm.serialize(),
-            success: function (data) {
-                $('#form').remove();
-                $('.modal-body').append(document.createElement("p").innerHTML = data);
-                $(".modal-body").css('background', 'green');
-                $('#rec_modal').modal('show');
-                console.log(data);
-            },
-            error: function (data) {
-                $('#form').remove();
-                $('.modal-body').append(document.createElement("p").innerHTML = data);
-                $(".modal-body").css('background', 'red');
-                $('#rec_modal').modal('show');
-                console.log(data);
-            },
-        });
+    function close_modal(){
+        $('.modal-body').empty();
     }
-}
+
 </script>
 </html>

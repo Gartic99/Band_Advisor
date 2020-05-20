@@ -158,12 +158,6 @@ session_start();
             e.preventDefault();
             $('#theModal').modal('show').find('.modal-content').load($(this).attr('href'));
         });
-        $.get(
-            ".php",
-            function(data) {
-            alert('page content: ' + data);
-        }
-);
 
     </script>
 </body>
