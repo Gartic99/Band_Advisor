@@ -25,7 +25,8 @@ function setCookie(cname,cvalue,exdays) {
     var mail=getCookie("mail");
     if (user != "" || mail!= "") {
         setCookie("username", "", -1);
-        setCookie("username", "", -1);
+        setCookie("mail", "", -1);
+        setCookie("type", "", -1);
         location.href = '/index.php';
     }
 
