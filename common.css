@@ -17,9 +17,8 @@ a:active{ outline: none;}
 a img {outline : none;}
 img {border : 0;}
 select{
-    outline: none;
+    outline: none!important;
 }
-
 /*the whole thing*/
 .main{
     height: 100vh;
