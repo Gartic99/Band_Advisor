@@ -15,7 +15,6 @@
     $user = "postgres";
     $pass = "Quindicimaggio_20";
     $db = "postgres";
-    
     // Apro la connesione con il db Postgres
     $con = pg_connect("host=$host dbname=$db user=$user password=$pass") or die ("Could not connect to server\n");
     
@@ -53,7 +52,10 @@
         $_SESSION["username"] = $ln["nome"];
         $_SESSION["mail"] = $ln["mail"];
         $_SESSION["type"]="locale";
-        header("location: profilo_locale.php"); //carico il profilo dell'utente
+        echo "<script> window.location.href = '/profilo_locale.php'</script>"; //carico il profilo dell'utente
+        die();
+
+        
 
     }
     //verifico che ci siano dei risultati per la band
@@ -75,7 +77,7 @@
         $_SESSION["username"] = $ln["nome"];
         $_SESSION["mail"] = $ln["mail"];
         $_SESSION["band"] = "band";
-        header("location: profilo_band.php"); //carico il profilo dell'utente
+        echo "<script> window.location.href = '/profilo_band.php'</script>"; //carico il profilo dell'utente
 
     }
     else{

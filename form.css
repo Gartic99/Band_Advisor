@@ -21,3 +21,6 @@
 /*.button{
     border-radius: 44px;
 }*/
+textarea {
+  resize: none;
+}

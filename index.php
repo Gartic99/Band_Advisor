@@ -117,16 +117,16 @@ session_start();
     <section>
         <div id="theModal" class="modal fade text-center">
             <div class="modal-dialog">
-              <div class="modal-content">
-              </div>
+                <div class="modal-content">
+                </div>
             </div>
-          </div>
+        </div>
     </section>
     <script>
         $('#modal_open').on('click', function(e){
             e.preventDefault();
             $('#theModal').modal('show').find('.modal-content').load($(this).attr('href'));
-        });
+        });    
     </script>
     <script>
         function validateSearch(){
@@ -136,3 +136,4 @@ session_start();
         }
     </script>
 </body>
+

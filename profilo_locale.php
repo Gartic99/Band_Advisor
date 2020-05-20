@@ -68,12 +68,33 @@ session_start();
                     <div class="row " style="padding-bottom:0%;">
                         <div class="col-lg-12 col-md-12">
                             <div class="contatti" id="cntcts">
-                                <a href="#">
-                                    Band di Esempio</br>
-                                </a>
-                                <a href="#">
-                                    Band di Esempio 2</br>
-                                </a>
+                                <?php
+                                    $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
+                                    $user = "postgres";
+                                    $pass = "Quindicimaggio_20";
+                                    $db = "postgres";
+
+                                    //apro la connessione con il db postgress
+                                    $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
+                                    or die ("Could not connect to server\n");
+                                    if (!$con){
+                                        echo "<h1> Impossibile connettersi</h1>";
+                                    }
+
+                                    $q1="select cont from contatta where _to = $1";
+                                    $result=pg_query_params($con,$q1,array($_SESSION["username"]));
+                                    
+                                    while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
+                                        echo '<a href="#">';
+                                        foreach( $line as $colvalue) {
+                                            echo $colvalue ;
+                                        }
+                                        echo '</br>';
+                                        echo '</a>';
+                                        echo "</br>";
+                                    }
+                                    
+                                ?>
                             </div>
                         </div>
                     </div>  
@@ -100,9 +121,10 @@ session_start();
                                     if (!$con){
                                         echo "<h1> Impossibile connettersi</h1>";
                                     }
+                                    $mail=$_SESSION["mail"];
 
-                                    $q1="select cont from recensione";
-                                    $result=pg_query($con,$q1);
+                                    $q1="select cont from recensione where _to = $1";
+                                    $result=pg_query_params($con,$q1,array($_SESSION["username"]));
                                     
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
                                         echo '<a href="#">';

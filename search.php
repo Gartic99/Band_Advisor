@@ -73,8 +73,8 @@ session_start();
                                 }
                                 
                                 $name=strtolower($_POST["search"]);
-                                $q1="select band.nome,band.mail from band where band.nome=$1";
-                                $result=pg_query_params($con,$q1,array($name));
+                                $q1="SELECT band.nome,band.mail FROM band WHERE band.nome LIKE '%".$name."%'";
+                                $result=pg_query($con,$q1);
                                 
                                 if(pg_num_rows($result)==0){
                                     echo "Nessun Risultato</br>";
@@ -116,8 +116,8 @@ session_start();
                                     }
                                     
                                     $name=strtolower($_POST["search"]);
-                                    $q1="select locale.nome,locale.mail from locale where locale.nome=$1";
-                                    $result=pg_query_params($con,$q1,array($name));
+                                    $q1="SELECT locale.nome,locale.mail FROM locale WHERE locale.nome LIKE '%".$name."%'";
+                                    $result=pg_query($con,$q1);
 
                                     if(pg_num_rows($result)==0){
                                         echo "Nessun Risultato</br>";
