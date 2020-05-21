@@ -73,7 +73,7 @@ session_start();
                         
                         if($type=="band"){
                             echo  "<div class='contattato' style='height: 12.5vh;' id='leftLabel'>";
-                            echo      "Top 10 Band";
+                            echo      "Top 10 Artisti";
                             echo  "</div>";
                         }
                         else{
@@ -109,13 +109,14 @@ session_start();
                                 echo "Nessun Risultato</br>";
                             }
 
-
+                            $x=1;
                             while( $line = pg_fetch_array( $result1 ,null ,PGSQL_ASSOC) ) {
                                 echo "<a href='/profilo/profiloEx_band.php?mail={$line["mail"]}'>";
-                                echo $line["nome"];
+                                echo $x.". ".$line["nome"];
                                 echo '</br>';
                                 echo '</a>';
                                 echo "</br>";
+                                $x++;
                             }
                         }
                         else{
@@ -123,13 +124,14 @@ session_start();
                                 echo "Nessun Risultato</br>";
                             }
 
-
+                            $x=1;
                             while( $line = pg_fetch_array( $result2 ,null ,PGSQL_ASSOC) ) {
                                 echo "<a href='/profilo/profiloEx_locale.php?mail={$line["mail"]}'>";
-                                echo $line["nome"];
+                                echo $x.". ".$line["nome"];
                                 echo '</br>';
                                 echo '</a>';
                                 echo "</br>";
+                                $x++;
                             }
                         }
                         echo "</div>";

@@ -59,7 +59,7 @@ session_start();
     </nav>
     <section class="main">
         <div class="container">
-            <div class="row">
+            <div class="row ">
                 <div class="col-lg-5 col-md-11 ">
                     <div class="row">
                         <div class="contattato" style="height: 12.5vh;" id="leftLabel">
@@ -131,7 +131,7 @@ session_start();
                                     $result=pg_query_params($con,$q1,array($_SESSION["username"]));
 
                                     if(pg_num_rows($result)==0){
-                                        echo "Ancora nessunarecensioner per te ;(</br>";
+                                        echo "Ancora nessuna recensione per te ;(</br>";
                                     }
                                     
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
