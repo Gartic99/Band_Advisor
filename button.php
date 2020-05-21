@@ -44,7 +44,22 @@ session_start();
                 <a class="nav-link" href="#">Scrivi una Recensione<span class="sr-only">(current)</span></a>
             </li>
           </ul>
-          <a class="nav-link" href="#"> <?php  if (isset($_SESSION[ "username"])) {echo htmlspecialchars($_SESSION["username"]);}?> <span class="sr-only">(current)</span></a>
+          
+          <?php  
+            if (isset($_COOKIE["username"])) {
+
+                //Disabilitato finché non facciamo logout
+                echo "<a class='nav-link' href='#' id ='nav_nome'>";
+                echo htmlspecialchars($_COOKIE["username"]);
+                echo "<span class='sr-only'>(current)</span></a>";
+                echo "<button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='logout()'>Logout</button>";
+            }
+            else{
+            ?>
+                <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick="window.location.href ='login.html'">Entra</button>
+                <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='window.location.href = "signup.html"'>Registrati</button><?php
+            }
+            ?> 
         </div>
     </nav>
     <section class="main">
@@ -124,4 +139,14 @@ session_start();
             </div>
         </div>
     </section>
+    <script>
+        $(document).ready(function(){
+            if (getCookie("type")=="band" && document.getElementById("nav_nome")!=null){
+                document.getElementById("nav_nome").setAttribute("href", "profilo_band.php");
+            }
+            else if (getCookie("type")=="locale" && document.getElementById("nav_nome")!=null){
+                document.getElementById("nav_nome").setAttribute("href", "profilo_locale.php");
+            }
+        });
+    </script>
 </body>
