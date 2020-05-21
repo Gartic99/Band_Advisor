@@ -85,6 +85,10 @@ session_start();
 
                                     $q1="select cont from contatta where _to = $1";
                                     $result=pg_query_params($con,$q1,array($_SESSION["username"]));
+
+                                    if(pg_num_rows($result)==0){
+                                        echo "Ancora nessuna band ti ha contattato</br>";
+                                    }
                                     
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
                                         echo '<a href="#">';
@@ -127,6 +131,10 @@ session_start();
 
                                     $q1="select cont from recensione where _to = $1";
                                     $result=pg_query_params($con,$q1,array($_SESSION["username"]));
+
+                                    if(pg_num_rows($result)==0){
+                                        echo "Ancora nessuna recensione per te ;(</br>";
+                                    }
                                     
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
                                         echo '<a href="#">';
