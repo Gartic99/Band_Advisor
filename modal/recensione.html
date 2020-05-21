@@ -1,5 +1,12 @@
 
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>   
 <div class="modal-header">
     <h4 class="modal-title">Lascia una recensione</h4>
     <button type="button" class="close" data-dismiss="modal" onclick="close_modal()">&times;</button>
@@ -10,7 +17,12 @@
             <label class="login-label-secondo">Tua email</label><br>
             <input class="form-input" name="from_rec" id="from_rec"></input><br>
             <label class="login-label-secondo">Nome destinatario</label><br>
-            <input class="form-input" name="to_rec"></input><br>
+            <input class="form-input search-box" autocomplete="off" ></input>
+            <div class="result"></div><br>
+            <div class=" form-input search-box">
+                <input type="text" autocomplete="off" name="to_rec"/>
+                <div class="result"></div>
+            </div>
             <label class="login-label-secondo">Recensione</label><br>
             <textarea class="form-input md-textarea" name="recensione_i" id="recensione_i" rows="7"></textarea><br>
             <label class="login-label-secondo">Punteggio</label><br>
@@ -87,4 +99,28 @@
     });
 
 </script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.search-box input[type="text"]').on("keyup input", function(){
+            /* Get input value on change */
+            var inputVal = $(this).val();
+            var resultDropdown = $(this).siblings(".result");
+            if(inputVal.length){
+                $.get("/modal/livesearch.php", {term: inputVal}).done(function(data){
+                    // Display the returned data in browser
+                    resultDropdown.html(data);
+                });
+            } else{
+                resultDropdown.empty();
+            }
+        });
+        
+        // Set search input value on click of result item
+        $(document).on("click", ".result p", function(){
+            $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+            $(this).parent(".result").empty();
+        });
+    });
+    </script>
+</body>
 </html>
