@@ -18,6 +18,7 @@ session_start();
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     <script src="cookie.js"></script>
+   
     <title>Band Advisor</title>
     <link rel="icon" href="assets/B.png">
     <script>
@@ -68,7 +69,6 @@ session_start();
                 <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick="window.location.href ='login.html'">Entra</button>
                 <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='window.location.href = "signup.html"'>Registrati</button><?php
             }
-            ?> 
             ?> 
         </div>
     </nav>
@@ -157,6 +157,16 @@ session_start();
                 </div>
             </div>
         </div>
+        <div class="card" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+        </div>
+</div>
+    </div>
     </section>
     <section>
         <div id="theModal" class="modal fade text-center">

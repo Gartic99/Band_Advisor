@@ -52,7 +52,7 @@ session_start();
                 echo "<a class='nav-link' href='#' id ='nav_nome'>";
                 echo htmlspecialchars($_COOKIE["username"]);
                 echo "<span class='sr-only'>(current)</span></a>";
-                echo "<button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='logout()'>Logout</button>";
+                echo "<button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='logout()' id='logout'>Logout</button>";
             }
             else{
             ?>
@@ -144,6 +144,20 @@ session_start();
             else if (getCookie("type")=="band" && document.getElementById("nav_nome")!=null){
                 document.getElementById("nav_nome").setAttribute("href", "profilo_locale.php");
             }
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#logout").click(function(){
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'logout.php',
+                    success: function(data) {
+                        alert("Hai correttamente eseguito il logout!");
+                    }
+                });
+            });
         });
     </script>
 </body>
