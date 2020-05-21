@@ -8,7 +8,11 @@
             <label class="login-label-secondo">Tua email</label><br>
             <input class="form-input" name="from_cont" id="from_cont"></input><br>
             <label class="login-label-secondo">Nome destinatario</label><br>
-            <input class="form-input" name="to_cont"></input><br>
+            <!--<input class="form-input" name="to_cont"></input><br>-->
+            <div class="search-box ">
+                <input type="text" class="form-input" autocomplete="off" name="to_rec"/>
+                <div class="result list-group"></div>
+            </div>
             <label class="login-label-secondo">Messaggio</label><br>
             <textarea class="form-input md-textarea" name="contatta_i" id="contatta_i" rows="7"></textarea>
             <input type="submit" style="display: none;" name="contatta_button"></input>
@@ -71,6 +75,29 @@
             }
             $("#from_cont").val(mail);
         }
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.search-box input[type="text"]').on("keyup input", function(){
+            /* Get input value on change */
+            var inputVal = $(this).val();
+            var resultDropdown = $(this).siblings(".result");
+            if(inputVal.length){
+                $.get("/modal/livesearch.php", {term: inputVal}).done(function(data){
+                    // Display the returned data in browser
+                    resultDropdown.html(data);
+                });
+            } else{
+                resultDropdown.empty();
+            }
+        });
+        
+        // Set search input value on click of result item
+        $(document).on("click", ".result p", function(){
+            $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+            $(this).parent(".result").empty();
+        });
     });
 </script>
 </html>

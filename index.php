@@ -22,6 +22,7 @@ session_start();
     <link rel="icon" href="/assets/B.png">
     <title>Band Advisor</title>
     <script>
+        //@ sourceURL = your_injected_file.js
         function load(){
             //true if we are on mobile
             var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
