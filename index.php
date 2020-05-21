@@ -146,19 +146,5 @@ session_start();
             }
         });
     </script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $("#logout").click(function(){
-
-                $.ajax({
-                    type: 'POST',
-                    url: 'logout.php',
-                    success: function(data) {
-                        alert("Hai correttamente eseguito il logout!");
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 
