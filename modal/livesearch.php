@@ -28,9 +28,11 @@
         // Check number of rows in the result set
         if(pg_num_rows($result) > 0 || pg_num_rows($result1)>0){
             // Fetch result rows as an associative array
+            echo "<h4>Band</h4>";
             while($row = pg_fetch_array($result,null ,PGSQL_ASSOC)){
                 echo "<p>" . $row["nomeb"] . "</p>";
             }
+            echo "<h4>Locali</h4>";
             while($row = pg_fetch_array($result1,null ,PGSQL_ASSOC)){
                 echo "<p>" . $row["nomel"] . "</p>";
             }
