@@ -172,7 +172,7 @@ session_start();
             if (getCookie("type")=="band" && document.getElementById("nav_nome")!=null){
                 document.getElementById("nav_nome").setAttribute("href", "profilo_band.php");
             }
-            else if (getCookie("type")=="band" && document.getElementById("nav_nome")!=null){
+            else if (getCookie("type")=="locale" && document.getElementById("nav_nome")!=null){
                 document.getElementById("nav_nome").setAttribute("href", "profilo_locale.php");
             }
         });
