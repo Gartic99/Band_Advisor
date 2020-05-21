@@ -74,9 +74,9 @@ session_start();
     <section class="main">
         <div class="container">
             <div class="row">
-                <div class="col-lg-5 col-md-12"  style="padding-bottom:15%;">
+            <div class="col-lg-5 col-md-12"  style="padding-bottom:15%;">
                     <div class="row">
-                        <div class="nome" style="height: 12.5vh;" id="leftLabel">
+                    <div class="nome" style="height: 12.5vh;" id="leftLabel">
                             <?php
                                 $mail=$_GET["mail"];
                                 $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
@@ -101,7 +101,7 @@ session_start();
                 </div>
                 <div class="col-lg-2 col-md-3 "></div>
                 <div class="col-lg-4 col-md-12 ">
-                    <div class="row" >
+                <div class="row" >
                         <div class="recensioni" style="height: 12.5vh;" id="rightLabel">
                             Le recensioni
                         </div>
@@ -176,7 +176,7 @@ session_start();
             if (getCookie("type")=="band" && document.getElementById("nav_nome")!=null){
                 document.getElementById("nav_nome").setAttribute("href", "profilo_band.php");
             }
-            else if (getCookie("type")=="band" && document.getElementById("nav_nome")!=null){
+            else if (getCookie("type")=="locale" && document.getElementById("nav_nome")!=null){
                 document.getElementById("nav_nome").setAttribute("href", "profilo_locale.php");
             }
         });

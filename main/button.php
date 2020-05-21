@@ -7,12 +7,13 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="profiles.css">
+    <link rel="stylesheet" href="/profilo/profiles.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script src="/js/cookie.js"></script>
     <title>Band Advisor</title>
-    <link rel="icon" href="assets/B.png">
+    <link rel="icon" href="/assets/B.png">
     <script>
         function load(){
             //true if we are on mobile
@@ -32,8 +33,8 @@ session_start();
 </head>
 <body  onload="load()">
     <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
-        <a class="navbar-brand" href="index.php">
-            <img class="img-responsive" src="assets/BandLogo.png" style="max-width:17vw;height:auto;display:block;">
+        <a class="navbar-brand" href="/index.php">
+            <img class="img-responsive" src="/assets/BandLogo.png" style="max-width:17vw;height:auto;display:block;">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -56,8 +57,8 @@ session_start();
             }
             else{
             ?>
-                <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick="window.location.href ='login.html'">Entra</button>
-                <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='window.location.href = "signup.html"'>Registrati</button><?php
+                <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick="window.location.href ='/login/login.html'">Entra</button>
+                <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='window.location.href = "/signup/signup.html"'>Registrati</button><?php
             }
             ?> 
         </div>
@@ -110,7 +111,7 @@ session_start();
 
 
                             while( $line = pg_fetch_array( $result1 ,null ,PGSQL_ASSOC) ) {
-                                echo "<a href='profiloEx_band.php?mail={$line["mail"]}'>";
+                                echo "<a href='/profilo/profiloEx_band.php?mail={$line["mail"]}'>";
                                 echo $line["nome"];
                                 echo '</br>';
                                 echo '</a>';
@@ -124,7 +125,7 @@ session_start();
 
 
                             while( $line = pg_fetch_array( $result2 ,null ,PGSQL_ASSOC) ) {
-                                echo "<a href='profiloEx_locale.php?mail={$line["mail"]}'>";
+                                echo "<a href='/profilo/profiloEx_locale.php?mail={$line["mail"]}'>";
                                 echo $line["nome"];
                                 echo '</br>';
                                 echo '</a>';
@@ -142,10 +143,10 @@ session_start();
     <script>
         $(document).ready(function(){
             if (getCookie("type")=="band" && document.getElementById("nav_nome")!=null){
-                document.getElementById("nav_nome").setAttribute("href", "profilo_band.php");
+                document.getElementById("nav_nome").setAttribute("href", "/profilo/profilo_band.php");
             }
             else if (getCookie("type")=="locale" && document.getElementById("nav_nome")!=null){
-                document.getElementById("nav_nome").setAttribute("href", "profilo_locale.php");
+                document.getElementById("nav_nome").setAttribute("href", "/profilo/profilo_locale.php");
             }
         });
     </script>
