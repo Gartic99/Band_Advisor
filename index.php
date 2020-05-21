@@ -14,12 +14,12 @@ session_start();
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-    <script src="cookie.js"></script>
+    <script src="/js/cookie.js"></script>
 
 
-    <link rel="stylesheet" href="common.css">
-    <link rel="stylesheet" href="form.css">
-    <link rel="icon" href="assets/B.png">
+    <link rel="stylesheet" href="/style/common.css">
+    <link rel="stylesheet" href="/style/form.css">
+    <link rel="icon" href="/assets/B.png">
     <title>Band Advisor</title>
     <script>
         function load(){
@@ -33,8 +33,8 @@ session_start();
 </head>
 <body onload="return load();">
     <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
-        <a class="navbar-brand" href="index.php">
-            <img class="img-responsive" src="assets/BandLogo.png" style="max-width:17vw;height:auto;display:block;">
+        <a class="navbar-brand" href="/index.php">
+            <img class="img-responsive" src="/assets/BandLogo.png" style="max-width:17vw;height:auto;display:block;">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -42,7 +42,7 @@ session_start();
         <div class="collapse navbar-collapse" id="navbarsExample04">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="recensione.html" id="modal_open">Scrivi una Recensione<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/modal/recensione.html" id="modal_open">Scrivi una Recensione<span class="sr-only">(current)</span></a>
             </li>
           </ul>
           <?php  
@@ -56,12 +56,12 @@ session_start();
             }
             else{
             ?>
-                <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick="window.location.href ='login.html'">Entra</button>
-                <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='window.location.href = "signup.html"'>Registrati</button><?php
+                <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick="window.location.href ='/login/login.html'">Entra</button>
+                <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='window.location.href = "/signup/signup.html"'>Registrati</button><?php
             }
             ?> 
-            <!--<button type='button' class='btn btn-danger mr-sm-2 entra'  onclick="window.location.href ='login.html'">Entra</button>
-            <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='window.location.href = "signup.html"'>Registrati</button>-->
+            <!--<button type='button' class='btn btn-danger mr-sm-2 entra'  onclick="window.location.href ='/login/login.html'">Entra</button>
+            <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='window.location.href = "/signup/signup.html"'>Registrati</button>-->
         </div>
     </nav>
 
@@ -71,9 +71,9 @@ session_start();
             <div class="row" style="height: 25vh;">
             </div>
             <div class="row justify-content-center">   
-                <form class="search-form col-7" action="search.php" id="search1" method="POST">
+                <form class="search-form col-7" action="/main/search.php" id="search1" method="POST">
                     <div class="row" style="height:8vh;" id="searchRow">
-                        <input type="image" src="assets/tools-and-utensils.svg" class="search-button" onclick="validateSearch() ">
+                        <input type="image" src="/assets/tools-and-utensils.svg" class="search-button" onclick="validateSearch() ">
                         <input type="text" value="" placeholder="Cosa stai cercando?" class="search-input" name="search"><br>
                     </div>
                 </form>
@@ -97,16 +97,16 @@ session_start();
                         <div class="row justify-content-center">
                             <div class="col-lg-6 col-md-5 col-sm-5" id="rec">
                                 
-                                    <button class="btn btn-sq-lg" id="band_button" onclick="window.location.href ='button.php?type=band'">
-                                        <img src="assets/Icons/electric-guitar.png" style="height: auto; width: 100%; padding:1%;"><br/>
+                                    <button class="btn btn-sq-lg" id="band_button" onclick="window.location.href ='/main/button.php?type=band'">
+                                        <img src="/assets/Icons/electric-guitar.png" style="height: auto; width: 100%; padding:1%;"><br/>
                                         Band </br>
                                     </button>
                                     <!--<a href="#" class="btn btn-sq-lg">
-                                        <img src="assets/Icons/microphone.png" style="height: auto; width: 100%; padding:1%;"><br/>
+                                        <img src="/assets/Icons/microphone.png" style="height: auto; width: 100%; padding:1%;"><br/>
                                         Cantanti </br>
                                     </a>-->
-                                    <button  class="btn btn-sq-lg" id="locale button" onclick="window.location.href ='button.php?type=locale'">
-                                        <img src="assets/Icons/speaker.png" style="height: auto; width: 100%; padding:1%;"><br/>
+                                    <button  class="btn btn-sq-lg" id="locale button" onclick="window.location.href ='/main/button.php?type=locale'">
+                                        <img src="/assets/Icons/speaker.png" style="height: auto; width: 100%; padding:1%;"><br/>
                                             Locali  </br> 
                                     </button>
                                 
@@ -139,10 +139,10 @@ session_start();
         }
         $(document).ready(function(){
             if (getCookie("type")=="band" && document.getElementById("nav_nome")!=null){
-                document.getElementById("nav_nome").setAttribute("href", "profilo_band.php");
+                document.getElementById("nav_nome").setAttribute("href", "/profilo/profilo_band.php");
             }
             else if (getCookie("type")=="locale" && document.getElementById("nav_nome")!=null){
-                document.getElementById("nav_nome").setAttribute("href", "profilo_locale.php");
+                document.getElementById("nav_nome").setAttribute("href", "/profilo/profilo_locale.php");
             }
         });
     </script>

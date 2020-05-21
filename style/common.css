@@ -1,0 +1,221 @@
+/*definizione dei font usati nel sito*/
+@font-face {
+    font-family: "Gilroy Bold";
+    src: url("/assets/Fonts/EM-Gilroy/Gilroy-Bold.ttf") format("opentype");
+}
+    
+@font-face {
+    font-family: "Gilroy Medium";
+    src:url("/assets/Fonts/EM-Gilroy/Gilroy-Medium.ttf") format("opentype");
+}
+@font-face {
+    font-family: "Gilroy Light";
+    src:url("/assets/Fonts/EM-Gilroy/Gilroy-Light.ttf") format("opentype");
+}
+
+a:active{ outline: none;}
+a img {outline : none;}
+img {border : 0;}
+select{
+    outline: none!important;
+}
+/*the whole thing*/
+.main{
+    height: 100vh;
+    background: #ffffff;
+    background-image: url(/assets/crowd_in_front_of_people_playi.png);
+    background-size: cover;
+    background-position: center;
+    width: auto;
+
+}
+.login{
+    height: 100vh;
+    background: #ffffff;
+    background-image: url(/assets/people_watching_concert_during.png);
+    background-size: cover;
+    background-position: center;
+    width: auto;
+}
+
+/* header */
+.header{
+    position: -webkit-sticky;
+    position: sticky;
+    background-color: #ffffff;
+    padding-bottom: 3%;
+}
+
+/* Band Advisor Logo */
+.logo{
+    padding-right: 12%;
+    padding-left:12% ;
+    padding-top: 5%;
+    padding-bottom: 0%;
+}
+
+
+/*Right side buttons */
+
+.top{
+    padding-top: 3%;
+}
+
+/* recensione button */
+.Recensione_button{
+	overflow: visible;
+  	background: none;
+  	outline: none!important;
+  	cursor: pointer;  
+}
+
+/* entra button */
+/*.Entra {
+    outline: none!important;
+    overflow: visible;
+}
+.Entra_Button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#Entra{
+    font-family: Gilroy Light;
+    border-radius: 44px;
+    background-color:#FF1744;
+}*/
+.entra{
+    font-family: Gilroy Light;
+    border-radius: 44px;
+    background-color:#FF1744;
+}
+/*Search bar things*/
+
+/* bar body */
+.search-form {
+    border-radius: 44px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    background: #fff;
+    border: #000000;
+    border-style: solid;
+    transition: all 0.8s ease;
+  }
+/* magnifier lens*/
+.search-button{
+    height: 100%;
+    padding:1vw;
+    width: auto;
+    border: none;
+    background: none;
+    outline: none!important;
+    cursor: pointer;
+}
+/* input area */
+.search-input {
+    height: 100%;
+    width: auto;
+    padding: 2.5%;
+    font-size: 1.5vw;
+    background: none;
+    color: #5a6674;
+    border: none;
+    appearance: none;
+    outline: none;
+  }
+  input::placeholder {
+    font-family: Gilroy Light;
+    color: #7f7f7f;
+    opacity: .7;
+}
+
+
+.search2{
+    border-radius: 44px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    background: #fff;
+    border: #000000;
+    border-style: solid;
+    transition: all 0.8s ease;
+    padding:5%;
+    font-size: 3vh;
+}
+.search-button1{
+    border: none;
+    background: none;
+    outline: none!important;
+    cursor: pointer;
+}
+
+
+/* Main bar */
+
+
+
+/* white rectangle */
+#tab{
+    padding-top: 20%;
+    padding-left: 10%;
+    width: 100%;
+    height: auto;
+}
+
+.Option_bar{
+   
+    width: 100%;
+    height: auto;
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
+/* buttons*/
+.Option_bar .btn{
+    font-family: Gilroy Bold;
+    color: #000000;
+}
+.btn-sq-lg {
+    width: 100px !important;
+    height: 100px !important;
+}
+/* main rectangle*/
+#rec{
+    /*disegnato a mano con tanta cura*/
+    border-radius: 25px;
+    border-style: solid;
+    border-color: #000000;
+    background-color: #ffffff;
+    padding: 5%;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    background: #fff;
+    transition: all 0.8s ease;
+}
+
+/*Common font styles*/
+
+
+/*some fonts styles*/
+.login-label{
+    font-family: Gilroy Medium;
+    color: #000000;
+    font-size: 2.5rem;
+}
+.login-label-secondo{
+    font-family: Gilroy Light;
+    color: #000000;
+    font-size: 1.8rem;
+}
+
+
+.form-control:focus {
+    box-shadow: none;
+  }
+  
+  .form-control-underlined {
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-radius: 0;
+    padding-left: 0;
+  }
