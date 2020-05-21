@@ -56,12 +56,11 @@ function locale_up(){
         hidden_b.style = "display:none";
 
 
-        var l_registrati = document.createElement("input");
-        l_registrati.className = "Entra_button";
-        l_registrati.type = "image";
-        l_registrati.name = "l_registrationButton"
-        l_registrati.src = "//assets/Rectangle 4.png";
+        var l_registrati = document.createElement("button");
+        l_registrati.className = "btn btn-danger mr-sm-2 entra";
+        l_registrati.type = "button";
         l_registrati.style = "width: 140%;height: auto;";
+        l_registrati.innerHTML="Entra"
         l_registrati.onclick = function (){
             $(document).ready(function(){
                 $(".form-form").submit();

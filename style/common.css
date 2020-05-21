@@ -213,9 +213,15 @@ select{
     box-shadow: none;
   }
   
-  .form-control-underlined {
+.form-control-underlined {
     border-width: 0;
     border-bottom-width: 1px;
     border-radius: 0;
     padding-left: 0;
-  }
+}
+
+/*Registrati Button*/
+.registrati{
+    font-family: Gilroy Light;
+    border-radius: 44px;
+}
