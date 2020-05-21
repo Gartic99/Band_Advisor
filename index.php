@@ -27,6 +27,7 @@ session_start();
             var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
             if(isMobile){
                 document.getElementById("searchRow").style.height = "5vh";
+                document.getElementById("searchtext").style.fontSize = "2vh";
             }
         }
     </script>
@@ -74,7 +75,7 @@ session_start();
                 <form class="search-form col-7" action="/main/search.php" id="search1" method="POST">
                     <div class="row" style="height:8vh;" id="searchRow">
                         <input type="image" src="/assets/tools-and-utensils.svg" class="search-button" onclick="validateSearch() ">
-                        <input type="text" value="" placeholder="Cosa stai cercando?" class="search-input" name="search"><br>
+                        <input type="text" value="" placeholder="Cosa stai cercando?" class="search-input" name="search" id="searchtext"><br>
                     </div>
                 </form>
             </div>
