@@ -16,7 +16,7 @@
     
     if(isset($_REQUEST["term"])){
         // Prepare a select statement
-        $q = "SELECT nome FROM band WHERE band.nome LIKE $1";
+        $q = "SELECT distinct band.nome as nomeb,locale.nome as nomel FROM band,locale WHERE band.nome LIKE $1 or locale.nome LIKE $1";
         $term=$_REQUEST["term"].'%';
         $result=pg_query_params($con,$q,array($term));
 
@@ -25,8 +25,9 @@
         // Check number of rows in the result set
         if(pg_num_rows($result) > 0){
             // Fetch result rows as an associative array
-            while($row = pg_fetch_array($result, PG_ASSOC)){
-                echo "<p>" . $row["nome"] . "</p>";
+            while($row = pg_fetch_array($result,null ,PGSQL_ASSOC)){
+                echo "<p>" . $row["nomeb"] . "</p>";
+                echo "<p>" . $row["nomel"] . "</p>";
             }
         } else{
             echo "<p>No matches found</p>";
