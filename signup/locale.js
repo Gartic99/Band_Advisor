@@ -241,11 +241,7 @@ function validateLForm() {
     var password2 = $("#password2").val();
     
 
-<<<<<<< HEAD
-    if (l_email == "" || nome == "" || password == "") {
-=======
-    if (l_email == "" || nome == "" || password == "" || password2 == "" || tipo_l<1 || mus_pref<1) {
->>>>>>> d19b02a583d739646477fba78ea8b61dbdd26f96
+    if (l_email == "" || nome == "" || password == "" || password2 == "" ) {
       alert("compila tutti i campi obligatori");
     }
     else if (password.localeCompare(password2)!=0){

@@ -206,11 +206,7 @@ function validateForm() {
     var password2 = $("#password2").val();
 
 
-<<<<<<< HEAD
-    if (b_email == "" || nome == "" || password == "") {
-=======
-    if (b_email == "" || nome == "" || password == "" || password2 == "" || genere<1) {
->>>>>>> d19b02a583d739646477fba78ea8b61dbdd26f96
+    if (b_email == "" || nome == "" || password == "" || password2 == "") {
       alert("compila tutti i campi obligatori");
       //return false;
     }
