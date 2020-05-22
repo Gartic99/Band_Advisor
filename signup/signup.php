@@ -100,7 +100,7 @@ session_start();
                 if(($line=pg_fetch_array($result1,null,PGSQL_ASSOC)) || ($line=pg_fetch_array($result2,null,PGSQL_ASSOC)) ){
                     $response = "<h1> Nome già registrato</h1>
                     <a href=../login/login.html>clicca qui per login</a>";
-                    exit(  "<h1> Nome già registrato</h1>
+                    exit( "<h1> Nome già registrato</h1>
                     <a href=../login/login.html>clicca qui per login</a>");
                 }
                 // invio i dati al db

@@ -193,7 +193,7 @@ function band_up(){
     f.appendChild(document.createElement("br"));
     f.appendChild(genere);
     f.appendChild(hidden_b);
-    row.appendChild(col_4);
+    //row.appendChild(col_4);
     row.appendChild(col_2);
     row.appendChild(col_3);
     col_3.appendChild(b_registrati);

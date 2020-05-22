@@ -228,7 +228,7 @@ function locale_up(){
         f.appendChild(document.createElement("br"));
         f.appendChild(musica_preferita);
         f.appendChild(hidden_b);
-        row.appendChild(col_4);
+        //row.appendChild(col_4);
         row.appendChild(col_2);
         row.appendChild(col_3);
         col_3.appendChild(l_registrati);
