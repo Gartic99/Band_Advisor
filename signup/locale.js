@@ -84,6 +84,12 @@ function locale_up(){
         l_email.className = "login-label-secondo";
         l_email.innerHTML = "Email";
 
+
+        //create label email locale
+        var l_email2 = document.createElement("label");
+        l_email2.className = "login-label-secondo";
+        l_email2.innerHTML = "Conferma Email";
+
         //create label password locale
         var l_password = document.createElement("label");
         l_password.className = "login-label-secondo";
@@ -121,7 +127,15 @@ function locale_up(){
         email.id = "email";
         email.name = "l_email";
         email.value = "";
-        email.className = "form-input";
+        email.className = "form-input";    
+
+        //create input element email 
+        var email2 = document.createElement("input");
+        email2.type = "email";
+        email2.id = "email2";
+        email2.name = "l_email2";
+        email2.value = "";
+        email2.className = "form-input";
 
         //create input element password
         var password = document.createElement("input");
@@ -213,6 +227,10 @@ function locale_up(){
         f.appendChild(document.createElement("br"));
         f.appendChild(email);
         f.appendChild(document.createElement("br"));
+        f.appendChild(l_email2);
+        f.appendChild(document.createElement("br"));
+        f.appendChild(email2);
+        f.appendChild(document.createElement("br"));
         f.appendChild(l_password);
         f.appendChild(document.createElement("br"));
         f.appendChild(password);
@@ -246,7 +264,8 @@ function locale_up(){
 
 // script per verificare i valori della form
 function validateLForm() {
-    var l_email = $("#l_email").val();
+    var l_email = $("#email").val();
+    var l_email2 = $("#email2").val();
     var nome = $("#nome").val();
     var password = $("#password").val();
     var password2 = $("#password2").val();
@@ -260,6 +279,12 @@ function validateLForm() {
     }
     else if (password.localeCompare(password2)!=0){
         alert("le due password sono diverse");
+    }
+    else if (l_email2.localeCompare(l_email)!=0){
+        alert("le due email sono diverse");
+    }
+    else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(l_email))){
+        alert("non hai immesso una email");
     }
     else{
         var frm = $('#locale_form');

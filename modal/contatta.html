@@ -39,6 +39,9 @@
         if (from == "" || to == "" || rec == "") {
         alert("compila tutti i campi obligatori");
         }
+        else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(l_email))){
+            alert("non hai immesso una email");
+        }
         else{
             var frm = $('#contatta_form');
             //document.forms["locale_form"].submit();
