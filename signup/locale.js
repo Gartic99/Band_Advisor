@@ -102,7 +102,7 @@ function locale_up(){
         //create label musica preferita locale
         var l_musica_p = document.createElement("label");
         l_musica_p.className = "login-label-secondo";
-        l_musica_p.innerHTML = "Musica Preferita";
+        l_musica_p.innerHTML = "Musica Preferita (Fino a due scelte)";
 
     //************************ creo input ***************************/
         //create input element nome
@@ -142,10 +142,16 @@ function locale_up(){
     //************************ creo input ***************************/
 
         //create drop down tipo locale 
-        var tipo_locale=document.createElement("select");
-        tipo_locale.className="form-control";
+        var tipo_locale = document.createElement("select");
+        tipo_locale.name="tipo_l[]";
         tipo_locale.id="tipo_l";
-        tipo_locale.name="tipo_l";
+        $(document).ready(function(){
+            $("#tipo_l").selectpicker();
+        })
+        tipo_locale.setAttribute("multiple", "multiple");
+        tipo_locale.setAttribute("data-live-search","true");
+        tipo_locale.setAttribute("title","imposta il tipo di locale");
+        tipo_locale.setAttribute("data-size","5");
 
         
         var option=document.createElement("option");
@@ -167,11 +173,16 @@ function locale_up(){
 
 
         //create drop down musica preferita 
-       
-        var musica_preferita=document.createElement("select");
-        musica_preferita.className="form-control";
+        var musica_preferita = document.createElement("select");
+        musica_preferita.name="mus_pref[]";
         musica_preferita.id="mus_pref";
-        musica_preferita.name="mus_pref";
+        $(document).ready(function(){
+            $("#mus_pref").selectpicker();
+        })
+        musica_preferita.setAttribute("multiple", "multiple");
+        musica_preferita.setAttribute("data-live-search","true");
+        musica_preferita.setAttribute("title","genere che preferisci");
+        musica_preferita.setAttribute("data-size","5");
 
         var optionD=document.createElement("option");
         optionD.value= "Rock";
@@ -240,8 +251,11 @@ function validateLForm() {
     var password = $("#password").val();
     var password2 = $("#password2").val();
     
+    var tipo_l = $("#tipo_l").val().length;
+    var mus_pref = $("#mus_pref").val().length;   
+    if (tipo_l>2 || mus_pref>2) alert("al massimo 2 generi musicali o tipo locale");
 
-    if (l_email == "" || nome == "" || password == "" || password2 == "" ) {
+    if (l_email == "" || nome == "" || password == "" || password2 == "" || tipo_l<1||mus_pref<1) {
       alert("compila tutti i campi obligatori");
     }
     else if (password.localeCompare(password2)!=0){

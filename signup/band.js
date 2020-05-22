@@ -95,7 +95,7 @@ function band_up(){
         //creo label musica preferita band
         var l_musica_p = document.createElement("label");
         l_musica_p.className = "login-label-secondo";
-        l_musica_p.innerHTML = "Genere Musicale";
+        l_musica_p.innerHTML = "Genere Musicale (Fino a due scelte)";
 
     //************************ creo input ***************************/
         //creo input element nome
@@ -132,28 +132,37 @@ function band_up(){
     //************************ creo input ***************************/
 
         //creo drop down musica preferita 
-
-        var dropdown=document.createElement("select");
-        dropdown.className="form-control";
-        dropdown.id="genere";
-        dropdown.name="genere";
-
+        var genere = document.createElement("select");
+        genere.name="genere[]";
+        genere.id="genere";
+        $(document).ready(function(){
+            $("#genere").selectpicker();
+        })
+        genere.setAttribute("multiple", "multiple");
+        genere.setAttribute("data-live-search","true");
+        genere.setAttribute("title","imposta genere musicale");
+        genere.setAttribute("data-size","5");
+        
 
         var optionC=document.createElement("option");
+        //option.className="selectpicker";
         optionC.value= "Rock";
         optionC.innerHTML="Rock";
+        //$(option).selectpicker();
 
         var optionD=document.createElement("option");
+        //option.className="selectpicker";
         optionD.value= "Pop";
         optionD.innerHTML="Pop";
 
         var optionE=document.createElement("option");
+        //option.className="selectpicker";
         optionE.value= "Rap";
         optionE.innerHTML="Rap";
 
-        dropdown.appendChild(optionC);
-        dropdown.appendChild(optionD);
-        dropdown.appendChild(optionE);
+        genere.appendChild(optionC);
+        genere.appendChild(optionD);
+        genere.appendChild(optionE);
         
         
 
@@ -182,7 +191,7 @@ function band_up(){
     f.appendChild(document.createElement("br"));
     f.appendChild(l_musica_p);
     f.appendChild(document.createElement("br"));
-    f.appendChild(dropdown);
+    f.appendChild(genere);
     f.appendChild(hidden_b);
     row.appendChild(col_4);
     row.appendChild(col_2);
@@ -205,8 +214,10 @@ function validateForm() {
     var password = $("#password").val();
     var password2 = $("#password2").val();
 
+    var genere = $("#genere").val().length;
+    if (genere>2) alert("al massimo 2 generi musicali");
 
-    if (b_email == "" || nome == "" || password == "" || password2 == "") {
+    if (b_email == "" || nome == "" || password == "" || password2 == "" ||genere<1) {
       alert("compila tutti i campi obligatori");
       //return false;
     }
