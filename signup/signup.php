@@ -41,6 +41,8 @@ session_start();
                 if(($line=pg_fetch_array($result1,null,PGSQL_ASSOC)) || ($line=pg_fetch_array($result2,null,PGSQL_ASSOC)) ){
                     $response =  "<h1> Mail già registrata</h1>
                     <a href=../login/login.html>clicca qui per login</a>";
+                    exit("<h1> Mail già registrata</h1>
+                    <a href=../login/login.html>clicca qui per login</a>");
                 }
                 
                 $nome=strtolower($_POST["nome"]);
@@ -52,6 +54,8 @@ session_start();
                 if(($line=pg_fetch_array($result1,null,PGSQL_ASSOC)) || ($line=pg_fetch_array($result2,null,PGSQL_ASSOC)) ){
                     $response =  "<h1> Nome già registrato</h1>
                     <a href=../login/login.html>clicca qui per login</a>";
+                    exit("<h1> Nome già registrato</h1>
+                    <a href=../login/login.html>clicca qui per login</a>");
                 }
 
                 // invio i dati al db
@@ -59,7 +63,7 @@ session_start();
                     
                     $password=md5($_POST["password"]);
 
-                    $genre=implode(";",$_POST['genere']);
+                    $genre=$_POST['genere'];
 
                     $q2 = 'INSERT INTO band VALUES($1,$2,$3,$4)';
                     $results = pg_query_params($con, $q2,array($email,$nome,$password,$genre));
@@ -72,6 +76,8 @@ session_start();
                 } 
             }
             else{
+
+                //Viene dal for dei locali
                 // verifico che l'email non sia già presente nel db
                 
                 $email=strtolower($_POST["l_email"]);
@@ -83,6 +89,8 @@ session_start();
                 if(($line=pg_fetch_array($result1,null,PGSQL_ASSOC)) || ($line=pg_fetch_array($result2,null,PGSQL_ASSOC)) ){
                     $response = "<h1> Mail già registrata</h1>
                     <a href=../login/login.html>clicca qui per login</a>";
+                    exit("<h1> Mail già registrata</h1>
+                    <a href=../login/login.html>clicca qui per login</a>");
                 }
 
                 $nome=strtolower($_POST["nome"]);
@@ -94,13 +102,15 @@ session_start();
                 if(($line=pg_fetch_array($result1,null,PGSQL_ASSOC)) || ($line=pg_fetch_array($result2,null,PGSQL_ASSOC)) ){
                     $response = "<h1> Nome già registrato</h1>
                     <a href=../login/login.html>clicca qui per login</a>";
+                    exit("<h1> Nome già registrato</h1>
+                    <a href=../login/login.html>clicca qui per login</a>");
                 }
                 // invio i dati al db
                 else{
                     
                     $password=md5($_POST["password"]);
-                    $genre=implode(";",$_POST['tipo_l']);
-                    $fav_music = implode(";",$_POST['mus_pref']);
+                    $genre=$_POST['tipo_l'];
+                    $fav_music = $_POST['mus_pref'];
                     $q3 = 'INSERT INTO locale VALUES($1,$2,$3,$4,$5)';
                     $results = pg_query_params($con, $q3,array($email,$nome,$password,$genre,$fav_music));
                     $_SESSION["username"] = $nome;

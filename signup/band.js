@@ -120,37 +120,28 @@ function band_up(){
     //************************ creo input ***************************/
 
         //creo drop down musica preferita 
-        var genere = document.createElement("select");
-        genere.name="genere[]";
-        genere.id="genere";
-        $(document).ready(function(){
-            $("#genere").selectpicker();
-        })
-        genere.setAttribute("multiple", "multiple");
-        genere.setAttribute("data-live-search","true");
-        genere.setAttribute("title","imposta genere musicale");
-        genere.setAttribute("data-size","5");
-        
+
+        var dropdown=document.createElement("select");
+        dropdown.className="form-control";
+        dropdown.id="genere";
+        dropdown.name="genere";
+
 
         var optionC=document.createElement("option");
-        //option.className="selectpicker";
         optionC.value= "Rock";
         optionC.innerHTML="Rock";
-        //$(option).selectpicker();
 
         var optionD=document.createElement("option");
-        //option.className="selectpicker";
         optionD.value= "Pop";
         optionD.innerHTML="Pop";
 
         var optionE=document.createElement("option");
-        //option.className="selectpicker";
         optionE.value= "Rap";
         optionE.innerHTML="Rap";
 
-        genere.appendChild(optionC);
-        genere.appendChild(optionD);
-        genere.appendChild(optionE);
+        dropdown.appendChild(optionC);
+        dropdown.appendChild(optionD);
+        dropdown.appendChild(optionE);
         
         
 
@@ -176,7 +167,7 @@ function band_up(){
     f.appendChild(document.createElement("br"));
     f.appendChild(l_musica_p);
     f.appendChild(document.createElement("br"));
-    f.appendChild(genere);
+    f.appendChild(dropdown);
     f.appendChild(hidden_b);
     row.appendChild(col_4);
     row.appendChild(col_2);
@@ -198,10 +189,8 @@ function validateForm() {
     var nome = $("#nome").val();
     var password = $("password").val();
 
-    var genere = $("#genere").val().length;
-    if (genere>2) alert("al massimo 2 generi musicali");
 
-    if (b_email == "" || nome == "" || password == "" || genere<1) {
+    if (b_email == "" || nome == "" || password == "") {
       alert("compila tutti i campi obligatori");
       //return false;
     }

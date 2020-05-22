@@ -131,16 +131,10 @@ function locale_up(){
     //************************ creo input ***************************/
 
         //create drop down tipo locale 
-        var tipo_locale = document.createElement("select");
-        tipo_locale.name="tipo_l[]";
+        var tipo_locale=document.createElement("select");
+        tipo_locale.className="form-control";
         tipo_locale.id="tipo_l";
-        $(document).ready(function(){
-            $("#tipo_l").selectpicker();
-        })
-        tipo_locale.setAttribute("multiple", "multiple");
-        tipo_locale.setAttribute("data-live-search","true");
-        tipo_locale.setAttribute("title","imposta il tipo di locale");
-        tipo_locale.setAttribute("data-size","5");
+        tipo_locale.name="tipo_l";
 
         
         var option=document.createElement("option");
@@ -162,16 +156,11 @@ function locale_up(){
 
 
         //create drop down musica preferita 
-        var musica_preferita = document.createElement("select");
-        musica_preferita.name="mus_pref[]";
+       
+        var musica_preferita=document.createElement("select");
+        musica_preferita.className="form-control";
         musica_preferita.id="mus_pref";
-        $(document).ready(function(){
-            $("#mus_pref").selectpicker();
-        })
-        musica_preferita.setAttribute("multiple", "multiple");
-        musica_preferita.setAttribute("data-live-search","true");
-        musica_preferita.setAttribute("title","genere che preferisci");
-        musica_preferita.setAttribute("data-size","5");
+        musica_preferita.name="mus_pref";
 
         var optionD=document.createElement("option");
         optionD.value= "Rock";
@@ -236,11 +225,8 @@ function validateLForm() {
     var nome = $("#nome").val();
     var password = $("password").val();
     
-    var tipo_l = $("#tipo_l").val().length;
-    var mus_pref = $("#mus_pref").val().length;   
-    if (tipo_l>2 || mus_pref>2) alert("al massimo 2 generi musicali o tipo locale");
 
-    if (l_email == "" || nome == "" || password == "" || tipo_l<1 || mus_pref<1) {
+    if (l_email == "" || nome == "" || password == "") {
       alert("compila tutti i campi obligatori");
     }
     else{
