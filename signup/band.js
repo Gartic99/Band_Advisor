@@ -87,6 +87,11 @@ function band_up(){
         l_password.className = "login-label-secondo";
         l_password.innerHTML = "Password";
 
+        //creo label password band conferma
+        var l_password2 = document.createElement("label");
+        l_password2.className = "login-label-secondo";
+        l_password2.innerHTML = "Conferma Password";
+
         //creo label musica preferita band
         var l_musica_p = document.createElement("label");
         l_musica_p.className = "login-label-secondo";
@@ -116,6 +121,13 @@ function band_up(){
         password.name = "password";
         password.value = "";
         password.className = "form-input";
+
+        var password2 = document.createElement("input");
+        password2.type = "password";
+        password2.id = "password2";
+        password2.name = "password2";
+        password2.value = "";
+        password2.className = "form-input";
 
     //************************ creo input ***************************/
 
@@ -164,6 +176,9 @@ function band_up(){
     f.appendChild(l_password);
     f.appendChild(document.createElement("br"));
     f.appendChild(password);
+    f.appendChild(l_password2);
+    f.appendChild(document.createElement("br"));
+    f.appendChild(password2);
     f.appendChild(document.createElement("br"));
     f.appendChild(l_musica_p);
     f.appendChild(document.createElement("br"));
@@ -187,12 +202,20 @@ function band_up(){
 function validateForm() {
     var b_email = $("#b_email").val();
     var nome = $("#nome").val();
-    var password = $("password").val();
+    var password = $("#password").val();
+    var password2 = $("#password2").val();
 
 
+<<<<<<< HEAD
     if (b_email == "" || nome == "" || password == "") {
+=======
+    if (b_email == "" || nome == "" || password == "" || password2 == "" || genere<1) {
+>>>>>>> d19b02a583d739646477fba78ea8b61dbdd26f96
       alert("compila tutti i campi obligatori");
       //return false;
+    }
+    else if (password.localeCompare(password2)!=0){
+        alert("le due password sono diverse");
     }
     else{
         var frm = $('#band_form');

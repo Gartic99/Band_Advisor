@@ -89,6 +89,11 @@ function locale_up(){
         l_password.className = "login-label-secondo";
         l_password.innerHTML = "Password";
 
+        //create label password locale
+        var l_password2 = document.createElement("label");
+        l_password2.className = "login-label-secondo";
+        l_password2.innerHTML = " Conferma Password";
+
         //create labelt ip locale
         var l_tipo_locale = document.createElement("label");
         l_tipo_locale.className = "login-label-secondo";
@@ -117,7 +122,6 @@ function locale_up(){
         email.name = "l_email";
         email.value = "";
         email.className = "form-input";
-        email.attributes["required"] = "";
 
         //create input element password
         var password = document.createElement("input");
@@ -126,8 +130,15 @@ function locale_up(){
         password.name = "password";
         password.value = "";
         password.className = "form-input";
-        password.attributes["required"] = "";
+        
 
+        //create input element password
+        var password2 = document.createElement("input");
+        password2.type = "password";
+        password2.id = "password2";
+        password2.name = "password2";
+        password2.value = "";
+        password2.className = "form-input";
     //************************ creo input ***************************/
 
         //create drop down tipo locale 
@@ -194,6 +205,9 @@ function locale_up(){
         f.appendChild(l_password);
         f.appendChild(document.createElement("br"));
         f.appendChild(password);
+        f.appendChild(l_password2);
+        f.appendChild(document.createElement("br"));
+        f.appendChild(password2);
         f.appendChild(document.createElement("br"));
         f.appendChild(l_tipo_locale);
         f.appendChild(document.createElement("br"));
@@ -223,11 +237,19 @@ function locale_up(){
 function validateLForm() {
     var l_email = $("#l_email").val();
     var nome = $("#nome").val();
-    var password = $("password").val();
+    var password = $("#password").val();
+    var password2 = $("#password2").val();
     
 
+<<<<<<< HEAD
     if (l_email == "" || nome == "" || password == "") {
+=======
+    if (l_email == "" || nome == "" || password == "" || password2 == "" || tipo_l<1 || mus_pref<1) {
+>>>>>>> d19b02a583d739646477fba78ea8b61dbdd26f96
       alert("compila tutti i campi obligatori");
+    }
+    else if (password.localeCompare(password2)!=0){
+        alert("le due password sono diverse");
     }
     else{
         var frm = $('#locale_form');

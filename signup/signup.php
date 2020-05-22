@@ -69,7 +69,7 @@ session_start();
                     $results = pg_query_params($con, $q2,array($email,$nome,$password,$genre));
                     if ($results){
                         $response = "<h1> Registrazione completata</h1>
-                        <a href=../profilo/profilo_band.php>inizia a navigare</a>";
+                        <a href=../profilo/login.html>inizia a navigare</a>";
 
                     }
                     pg_free_result($results);
@@ -116,7 +116,7 @@ session_start();
                     $_SESSION["username"] = $nome;
                     if ($results){
                         $response =  "<h1> Registrazione completata</h1>
-                        <a href=../profilo/profilo_locale.php>inizia a navigare</a>";
+                        <a href=../profilo/login.html>inizia a navigare</a>";
                     }
                     pg_free_result($results);
                 } 
