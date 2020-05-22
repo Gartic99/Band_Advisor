@@ -72,26 +72,20 @@ session_start();
         <div class="container">
             <div class="row" style="height: 25vh;">
             </div>
-            <div class="row justify-content-center">   
+            <div class="row justify-content-center search-box">   
                 <form class="search-form col-7" action="/main/search.php" id="search1" method="POST">
                     <div class="row" style="height:8vh;" id="searchRow">
                         <input type="image" src="/assets/tools-and-utensils.svg" class="search-button" onclick="validateSearch()">
                         <input type="text" value="" placeholder="Cosa stai cercando?" class="search-input" name="search" id="searchtext"><br>
                     </div>
+                    <!--<div class="result" id="result"></div>-->
                 </form>
+
             </div>
-            <!--<div class="row justify-content-center border">
-                <form action="">
-                    <div class="form-row border">
-                        <div class="col-2">
-                            <button type="submit" class="btn btn-primary mb-2">Search</button>
-                        </div>
-                        <div class="col-10">
-                            <input type="text"value="" placeholder="Cosa stai cercando?" class="search2">
-                        </div>
-                    </div>
-                </form>
-            </div>-->
+            <div class="row">
+               
+            </div>
+           
             <div class="row" style="height: 6vh;"></div>
             <div class="row justify-content-center">
                 <div class="Option_bar">
@@ -146,6 +140,28 @@ session_start();
             else if (getCookie("type")=="locale" && document.getElementById("nav_nome")!=null){
                 document.getElementById("nav_nome").setAttribute("href", "/profilo/profilo_locale.php");
             }
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('.search-box input[type="text"]').on("keyup input", function(){
+                /* Get input value on change */
+                var inputVal = $(this).val();
+                var resultDropdown = $(this).siblings(".result");
+                if(inputVal.length){
+                    $.get("/modal/livesearch.php", {term: inputVal}).done(function(data){
+                        //alert(data);
+                        $(".result").html(data);
+                    });
+                } else{
+                    resultDropdown.empty();
+                }
+            });
+            // Set search input value on click of result item
+            $(document).on("click", ".result p", function(){
+                $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+                $(this).parent(".result").empty();
+            });
         });
     </script>
 </body>
