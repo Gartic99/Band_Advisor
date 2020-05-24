@@ -71,6 +71,7 @@ session_start();
                         <div class="col-lg-12 col-md-12">
                             <div class="contatti" id="cntcts">
                                 <?php
+                                   // include "/config/config.php";
                                     $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
                                     $user = "postgres";
                                     $pass = "Quindicimaggio_20";
@@ -83,7 +84,7 @@ session_start();
                                         echo "<h1> Impossibile connettersi</h1>";
                                     }
 
-                                    $q1="select cont from contatta where _to = $1";
+                                    $q1="select band.nome as nome,contatta.cont as cont,band.mail as mail from contatta,band where contatta._to=$1 and band.mail=contatta._from";
                                     $result=pg_query_params($con,$q1,array($_SESSION["username"]));
 
                                     if(pg_num_rows($result)==0){
@@ -91,10 +92,9 @@ session_start();
                                     }
                                     
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-                                        echo '<a href="#">';
-                                        foreach( $line as $colvalue) {
-                                            echo $colvalue ;
-                                        }
+                                        echo "<a href='/profilo/profiloEx_band.php?mail={$line["mail"]}'>";
+                                        echo "{$line["nome"]} ti scrive: </br>";
+                                        echo  $line["cont"];
                                         echo '</br>';
                                         echo '</a>';
                                         echo "</br>";

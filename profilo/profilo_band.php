@@ -82,7 +82,7 @@ session_start();
                                         echo "<h1> Impossibile connettersi</h1>";
                                     }
 
-                                    $q1="select cont from contatta where _to=$1";
+                                    $q1="select locale.nome as nome,contatta.cont as cont,locale.mail as mail from contatta,locale where contatta._to=$1 and locale.mail=contatta._from";
                                     $result=pg_query_params($con,$q1,array($_SESSION["username"]));
 
                                     if(pg_num_rows($result)==0){
@@ -90,10 +90,9 @@ session_start();
                                     }
                                     
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-                                        echo '<a href="#">';
-                                        foreach( $line as $colvalue) {
-                                            echo $colvalue ;
-                                        }
+                                        echo "<a href='/profilo/profiloEx_locale.php?mail={$line["mail"]}'>";
+                                        echo "{$line["nome"]} ti scrive: </br>";
+                                        echo  $line["cont"];
                                         echo '</br>';
                                         echo '</a>';
                                         echo "</br>";
