@@ -10,7 +10,7 @@
             <label class="login-label-secondo">Nome destinatario</label><br>
             <!--<input class="form-input" name="to_cont"></input><br>-->
             <div class="search-box ">
-                <input type="text" class="form-input" autocomplete="off" name="to_rec"/>
+                <input type="text" class="form-input" autocomplete="off" name="to_cont"/>
                 <div class="result list-group"></div>
             </div>
             <label class="login-label-secondo">Messaggio</label><br>
@@ -38,6 +38,9 @@
 
         if (from == "" || to == "" || rec == "") {
         alert("compila tutti i campi obligatori");
+        }
+        else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(l_email))){
+            alert("non hai immesso una email");
         }
         else{
             var frm = $('#contatta_form');
