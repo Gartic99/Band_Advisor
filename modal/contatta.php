@@ -33,7 +33,7 @@
                 <a href=../signup/signup.html>clicca qui per registrarti</a>";
             }
             else{
-                $to=strtolower($_POST["to_cont"]);
+                $to=strtolower($_POST["to_rec"]);
                 $contatta=$_POST["contatta_i"];
 
                 $q1="select * from locale where nome= $1";
