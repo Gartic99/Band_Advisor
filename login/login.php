@@ -20,7 +20,7 @@
     
 
     
-    $email=strtolower($_POST["email"]);
+    $email=trim(strtolower($_POST["email"]));
     $password=$_POST["password"];
     //ricerco la password nel db corrispondente alla email
     $q1="select band.password from band where band.mail=$1 and password=$2";

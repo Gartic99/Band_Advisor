@@ -11,12 +11,7 @@ session_start();
     }
     // inizio invio i dati del form nel db
     else{
-        /*$host = "rogue.db.elephantsql.com";
-        $user = "mffqfyag";
-        $pass = "sCmWtk6dBysXWEn3IqvDDZtgvjcARlhs";
-        $db = "mffqfyag"; old db*/
-
-
+      
         $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
         $user = "postgres";
         $pass = "Quindicimaggio_20";
@@ -32,7 +27,7 @@ session_start();
             //verifico se i dati arrivano dal form delle band
             if (isset($_POST['b_email'])){
                 // verifico che l'email non sia già presente nel db
-                $email=strtolower($_POST["b_email"]);
+                $email=trim(strtolower($_POST["b_email"]));
                 $q1="select * from locale where mail= $1";
                 $q2="select * from band where mail = $1";
                 $result1 = pg_query_params($con,$q1,array($email));
@@ -45,7 +40,7 @@ session_start();
                     <a href=../login/login.html>clicca qui per login</a>");
                 }
                 
-                $nome=strtolower($_POST["nome"]);
+                $nome=trim(strtolower($_POST["nome"]));
                 $q1="select * from locale where nome= $1";
                 $q2="select * from band where nome = $1";
                 $result1 = pg_query_params($con,$q1,array($nome));
@@ -78,7 +73,7 @@ session_start();
             else{
                 // verifico che l'email non sia già presente nel db
                 
-                $email=strtolower($_POST["l_email"]);
+                $email=trim(strtolower($_POST["l_email"]));
                 $q1="select * from locale where mail= $1";
                 $q2="select * from band where mail = $1";
                 $result1 = pg_query_params($con,$q1,array($email));
@@ -91,7 +86,7 @@ session_start();
                     <a href=../login/login.html>clicca qui per login</a>");
                 }
 
-                $nome=strtolower($_POST["nome"]);
+                $nome=trim(strtolower($_POST["nome"]));
                 $q1="select * from locale where nome= $1";
                 $q2="select * from band where nome = $1";
                 $result1 = pg_query_params($con,$q1,array($nome));
