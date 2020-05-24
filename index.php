@@ -18,6 +18,7 @@ session_start();
 
 
     <link rel="stylesheet" href="/style/common.css">
+    <link rel="stylesheet" href="/style/index.css">
     <link rel="stylesheet" href="/style/form.css">
     <link rel="icon" href="/assets/B.png">
     <title>Band Advisor</title>
