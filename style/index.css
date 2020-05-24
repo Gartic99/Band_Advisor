@@ -1,0 +1,83 @@
+/* Main container */
+.main{
+    height: 100vh;
+    background: #ffffff;
+    background-image: url(/assets/crowd_in_front_of_people_playi.png);
+    background-size: cover;
+    background-position: center;
+    width: auto;
+
+}
+/* Search bar */
+
+/* bar body */
+.search-form {
+    border-radius: 44px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    background: #fff;
+    border: #000000;
+    border-style: solid;
+    transition: all 0.8s ease;
+  }
+/* magnifier lens*/
+.search-button{
+    height: 100%;
+    padding:1vw;
+    width: auto;
+    border: none;
+    background: none;
+    outline: none!important;
+    cursor: pointer;
+}
+/* input area */
+.search-input {
+    height: 100%;
+    width: auto;
+    padding: 2.5%;
+    font-size: 1.5vw;
+    background: none;
+    color: #5a6674;
+    border: none;
+    appearance: none;
+    outline: none;
+  }
+  input::placeholder {
+    font-family: Gilroy Light;
+    color: #7f7f7f;
+    opacity: .7;
+}
+
+/* Main bar */
+
+.Option_bar{
+    width: 100%;
+    height: auto;
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
+/* buttons*/
+.Option_bar .btn{
+    font-family: Gilroy Bold;
+    color: #000000;
+}
+.btn-sq-lg {
+    width: 100px !important;
+    height: 100px !important;
+}
+
+/* main rectangle*/
+#rec{
+    /*disegnato a mano con tanta cura*/
+    border-radius: 25px;
+    border-style: solid;
+    border-color: #000000;
+    background-color: #ffffff;
+    padding: 5%;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    background: #fff;
+    transition: all 0.8s ease;
+}
