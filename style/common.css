@@ -12,6 +12,10 @@
     font-family: "Gilroy Light";
     src:url("/assets/Fonts/EM-Gilroy/Gilroy-Light.ttf") format("opentype");
 }
+@font-face {
+    font-family: "Gilroy Semi-Bold";
+    src: url("/assets/Fonts/EM-Gilroy/Gilroy-SemiBold.ttf") format("opentype");
+}   
 
 /* Proprietà comuni */
 
