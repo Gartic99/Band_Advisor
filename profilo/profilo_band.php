@@ -52,6 +52,9 @@ session_start();
             <li>
                 <a class="nav-link" href="/modal/contatta.html" id="modal_open1">Contatta un Locale<span class="sr-only">(current)</span></a>
             </li>
+            <li>
+                <a class="nav-link" href="/modal/edit.html" id="modal_open2">Edit<span class="sr-only">(current)</span></a>
+            </li>
           </ul>
           <a class="nav-link" href="#"> <?php  if (isset($_COOKIE["username"])) {echo htmlspecialchars($_COOKIE["username"]);}?> <span class="sr-only">(current)</span></a>
           <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='logout()'>Logout</button>
@@ -169,6 +172,12 @@ session_start();
             e.preventDefault();
             $('#theModal').modal('show').find('.modal-content').load($(this).attr('href'));
         });
+
+        $('#modal_open2').on('click', function(e){
+            e.preventDefault();
+            $('#theModal').modal('show').find('.modal-content').load($(this).attr('href'));
+        });
+
         
 
     </script>

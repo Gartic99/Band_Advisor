@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>   
+<div class="modal-header">
+    <h4 class="modal-title">Edit del profilo</h4>
+    <button type="button" class="close" data-dismiss="modal" onclick="close_modal()">&times;</button>
+</div>
+<div class="modal-body">
+    <div id="form">
+        <form class="form-form" id="edit_form" action="/modal/edit.php" method="POST" onsubmit="validateLForm()">
+            <label class="login-label-secondo">Descrizione</label><br>
+            <textarea class="form-input md-textarea" name="edit_desc" id="edit_desc" rows="7" style="padding:5%"></textarea><br>
+            <label class="login-label-secondo">Upload image</label><br>
+            <input type="file" id="profile_img" name="profile_img"></input>
+            <input type="submit" style="display: none;" name="edti_button"></input>
+        </form>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-default" type="submit" onclick='$("#edit_form").submit()' id="fake">Invia</button>
+</div>
+<script>
+    $(document).ready(function(){
+        $("#score").selectpicker();
+        $(".form-form").submit(function(event){
+                event.preventDefault();
+            });
+	});
+
+    function validateLForm() {
+        var desc = $("#edit_desc").val();
+        var img = $("#profile_img").val();
+        var mail = getCookie("mail");
+        if (desc == "") {
+        alert("compila tutti i campi obligatori");
+        }
+        else{
+            var frm = $('#edit_form');
+            var form_data = new FormData(frm);
+            //document.forms["locale_form"].submit();
+            $.ajax({
+                type: frm.attr('method'),
+                url: frm.attr('action'),
+                data: form_data,
+                success: function (data) {
+                    $('#form').remove();
+                    $('.modal-body').append(document.createElement("p").innerHTML = data);
+                    $(".modal-body").css('background', 'green');
+                    $('#rec_modal').modal('show');
+                    console.log(data);
+                },
+                error: function (data) {
+                    $('#form').remove();
+                    $('.modal-body').append(document.createElement("p").innerHTML = data);
+                    $(".modal-body").css('background', 'red');
+                    $('#rec_modal').modal('show');
+                    console.log(data);
+                },
+            });
+        }
+    }
+    function close_modal(){
+        $('.modal-body').empty();
+    }
+
+</script>
+</body>
+</html>
