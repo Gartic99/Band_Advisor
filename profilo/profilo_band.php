@@ -126,7 +126,8 @@ session_start();
                                         echo "<h1> Impossibile connettersi</h1>";
                                     }
 
-                                    $q1="select cont from recensione where _to=$1";
+                                    //$q1="select cont from recensione where _to=$1";
+                                    $q1="select recensione._from as nome,recensione.cont as cont,recensione.rating as stelle from recensione where recensione._to=$1";
                                     $result=pg_query_params($con,$q1,array($_SESSION["username"]));
 
                                     if(pg_num_rows($result)==0){
@@ -135,9 +136,8 @@ session_start();
                                     
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
                                         echo '<a href="#">';
-                                        foreach( $line as $colvalue) {
-                                            echo $colvalue ;
-                                        }
+                                        echo "{$line["nome"]} valuta: {$line["stelle"]}/5";
+                                        echo "{$line["cont"]}";
                                         echo '</br>';
                                         echo '</a>';
                                         echo "</br>";
