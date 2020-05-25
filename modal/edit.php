@@ -23,9 +23,10 @@
             //controllo se email nel db
             $q="select img,_desc from img_profili where mail = $1";
             $result = pg_query_params($con,$q,array($_COOKIE["mail"]));
-            if ((pg_fetch_array($result,null,PGSQL_ASSOC))){
-                $data = pg_unescape_bytea(pg_fetch_array($result,null,PGSQL_ASSOC)['img']); 
-                $desc = pg_fetch_array($result,null,PGSQL_ASSOC)['_desc'];
+            if ( pg_num_rows($result)>0){
+                $line=pg_fetch_array($result,null,PGSQL_ASSOC);
+                $data = pg_unescape_bytea($line['img']); 
+                $desc = $line['_desc'];
             }
 
             if (!(empty($_FILES['profile_img']['name']))){
@@ -46,16 +47,17 @@
             $q1 = 'INSERT INTO img_profili VALUES($1,$2,$3)';
             $results = pg_query_params($con, $q1,array($_COOKIE["mail"],$encode,$desc));
 
-
+            /*
             //TEST//
             // Get the bytea data
             $res = pg_query("SELECT img FROM img_profili WHERE  mail='ac_dc@gmail.com'");  
             $raw = pg_fetch_result($res, 'img');
 
             // Convert to binary and send to the browser
-            header('Content-type: image/jpeg');
+            //header('Content-type: image/jpeg');
             $img64 = pg_unescape_bytea($raw);
-            echo "<img src='data:image/jpeg;base64, $img64' width=300>";
+            // /echo "<img src='data:image/jpeg;base64, $img64' width=300>";
+            */
         }
     }
 /*$target_dir = "uploads/";
