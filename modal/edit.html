@@ -36,15 +36,12 @@
 
     function validateLForm() {
         var desc = $("#edit_desc").val();
-        var img = $("#profile_img").val();
-        var mail = getCookie("mail");
         if (desc == "") {
         alert("compila tutti i campi obligatori");
         }
         else{
             var frm = $('#edit_form');
             var form_data = new FormData(document.getElementById("edit_form"));
-            //document.forms["locale_form"].submit();
             $.ajax({
                 type: frm.attr('method'),
                 url: frm.attr('action'),
