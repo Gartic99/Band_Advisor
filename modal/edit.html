@@ -43,12 +43,14 @@
         }
         else{
             var frm = $('#edit_form');
-            var form_data = new FormData(frm);
+            var form_data = new FormData(document.getElementById("edit_form"));
             //document.forms["locale_form"].submit();
             $.ajax({
                 type: frm.attr('method'),
                 url: frm.attr('action'),
                 data: form_data,
+                processData: false,
+                contentType: false,
                 success: function (data) {
                     $('#form').remove();
                     $('.modal-body').append(document.createElement("p").innerHTML = data);
