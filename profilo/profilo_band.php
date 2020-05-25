@@ -62,6 +62,46 @@ session_start();
     </nav>
     <section class="main">
         <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5">
+                    <?php
+                        $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
+                        $user = "postgres";
+                        $pass = "Quindicimaggio_20";
+                        $db = "postgres";
+
+                        //apro la connessione con il db postgress
+                        $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
+                        or die ("Could not connect to server\n");
+                        if (!$con){
+                            echo "<h1> Impossibile connettersi</h1>";
+                        }
+                        $q="SELECT img,_desc FROM img_profili WHERE mail=$1";
+                        $result = pg_query_params($con,$q,array($_COOKIE["mail"])); 
+
+                        if(pg_num_rows($result)==0){
+                            echo "<img src='../assets/social-media.png' width=300>";
+                        }
+                        else{
+                            $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC);
+                            $raw = $line["img"];
+                            if($raw==null){
+                                echo "<img src='../assets/social-media.png' width=300>";
+                            }
+                            else{
+                                // Convert to binary and send to the browser
+                                //header('Content-type: image/jpeg');
+                                $img64 = pg_unescape_bytea($raw);
+                                echo "<img src='data:image/jpeg;base64, $img64' width=300>";
+                            }
+                            if($line["_desc"]!=null){
+                                echo "Descrizione di {$_COOKIE["username"]}</br>";
+                                echo $line["_desc"];
+                            }
+                        }
+                    ?>
+                </div>
+            </div>
             <div class="row ">
                 <div class="col-lg-5 col-md-11 ">
                     <div class="row">
@@ -139,7 +179,7 @@ session_start();
                                     
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
                                         echo '<a href="#">';
-                                        echo "{$line["nome"]} valuta: {$line["stelle"]}/5";
+                                        echo "<h3>{$line["nome"]}</h3> valuta:</br> {$line["stelle"]}/5 stelle </br>";
                                         echo "{$line["cont"]}";
                                         echo '</br>';
                                         echo '</a>';
