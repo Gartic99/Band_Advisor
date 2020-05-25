@@ -22,36 +22,42 @@
                 echo "<h1> Impossibile connettersi<7h1>";
             }
             else{
-                $q="select * from band where mail = $1";
+                //controllo se email nel db
+                $q="select img,_desc from img_profili where mail = $1";
                 $result = pg_query_params($con,$q,array($_COOKIE["mail"]));
-
-                if((pg_fetch_array($result,null,PGSQL_ASSOC))){
-                    $q="select * from band where mail = $1";
+                if ((pg_fetch_array($result,null,PGSQL_ASSOC))){
+                    $encode = pg_fetch_array($result,null,PGSQL_ASSOC)[0]; 
+                    $desc = pg_fetch_array($result,null,PGSQL_ASSOC)[1];
                 }
 
-                $fileName = $_FILES["profile_img"]['tmp_name'];; 
-                
-                $data = file_get_contents($fileName);
-                
-                // Escape the binary data
-                //$escaped = pg_escape_bytea($data);
-                $escaped=base64_encode($data);
+                if (isset($_FILES["profile_img"])){
+                    $fileName = $_FILES["profile_img"]['tmp_name'];; 
+                    
+                    $data = file_get_contents($fileName);
+                    
+                    // encoded binary data
+                    $encode=base64_encode($data);
+                }
+                else if (isset($_POST["edit_desc"])){
+                    $desc = pg_fetch_array($result,null,PGSQL_ASSOC)[1];    
+                }
                 
                 // Insert it into the database
                 $q1 = 'INSERT INTO img_profili VALUES($1,$2,$3)';
-                $results = pg_query_params($con, $q1,array($_COOKIE["mail"],$escaped,$_POST["edit_desc"]));
+                $results = pg_query_params($con, $q1,array($_COOKIE["mail"],$encode,$desc));
 
-
+                
+                //TEST//
                 // Get the bytea data
-                $res = pg_query("SELECT img FROM img_profili WHERE  email='ac_dc@gmail.com'");  
+                $res = pg_query("SELECT img FROM img_profili WHERE  mail='ac_dc@gmail.com'");  
                 $raw = pg_fetch_result($res, 'img');
 
                 // Convert to binary and send to the browser
                 header('Content-type: image/jpeg');
-                echo base64_decode($raw);
+                $img64 = pg_unescape_bytea($raw);
+                echo "<img src='data:image/jpeg;base64, $img64' width=300>";
             }
-        }
-            
+        }        
     }
 /*$target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
