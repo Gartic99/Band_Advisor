@@ -18,12 +18,14 @@
             echo "<h1> Impossibile connettersi<7h1>";
         }
         else{
+            $data = null;
+            $desc = null;
             //controllo se email nel db
             $q="select img,_desc from img_profili where mail = $1";
             $result = pg_query_params($con,$q,array($_COOKIE["mail"]));
             if ((pg_fetch_array($result,null,PGSQL_ASSOC))){
-                $data = pg_unescape_bytea(pg_fetch_array($result,null,PGSQL_ASSOC)[0]); 
-                $desc = pg_fetch_array($result,null,PGSQL_ASSOC)[1];
+                $data = pg_unescape_bytea(pg_fetch_array($result,null,PGSQL_ASSOC)['img']); 
+                $desc = pg_fetch_array($result,null,PGSQL_ASSOC)['_desc'];
             }
 
             if (!(empty($_FILES['profile_img']['name']))){
@@ -32,7 +34,7 @@
                 // encoded binary data
             }
             if (isset($_POST["edit_desc"])){
-                $desc = pg_fetch_array($result,null,PGSQL_ASSOC)[1];    
+                $desc = $_POST["edit_desc"];
             }
             
             $encode=base64_encode($data);
