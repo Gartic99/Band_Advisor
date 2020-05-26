@@ -45,8 +45,7 @@
                     $q2 = 'INSERT INTO recensione VALUES($1,$2,$3,$4)';
                     $results = pg_query_params($con, $q2,array($from,$to,$score,$recensione));
                     if ($results){
-                        $response = "<h1> Recensione inviata</h1>
-                        <a href=../index.php>Torna alla Home</a>";
+                        $response = "<h1> Recensione inviata</h1>";
                     }
                 pg_free_result($results);
                 }
@@ -69,8 +68,7 @@
                             $q2 = 'INSERT INTO recensione VALUES($1,$2,$3,$4)';
                             $results = pg_query_params($con, $q2,array($from,$to,$score,$recensione));
                             if ($results){
-                                $response = "<h1> Recensione inviata</h1>
-                                <a href=../index.php>Torna alla Home</a>";
+                                $response = "<h1> Recensione inviata</h1>";
                             }
                         pg_free_result($results);
                         }
