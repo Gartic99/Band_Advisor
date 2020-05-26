@@ -39,7 +39,7 @@
         if (from == "" || to == "" || rec == "") {
         alert("compila tutti i campi obligatori");
         }
-        else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(l_email))){
+        else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(from))){
             alert("non hai immesso una email");
         }
         else{
@@ -77,7 +77,7 @@
                     mail = mail.concat(getCookie("mail").charAt(i));
             }*/
             mail = getCookie("mail").replace(/^\++|\++$/g, '')
-            $("#from_rec").val(mail);
+            $("#from_cont").val(mail);
         }
     });
 </script>
