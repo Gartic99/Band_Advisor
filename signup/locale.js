@@ -110,6 +110,7 @@ function locale_up(){
         var l_musica_p = document.createElement("label");
         l_musica_p.className = "login-label-secondo";
         l_musica_p.innerHTML = "Musica Preferita (Fino a due scelte)";
+        l_musica_p.style.padding="5%";
 
     //************************ creo input ***************************/
         //create input element nome

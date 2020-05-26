@@ -18,8 +18,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     <script type="text/javascript" src="/signup/locale.js"></script>
     <script type="text/javascript" src="/signup/band.js"></script>
+    <script>
+        function load(){
+            //true if we are on mobile
+            var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            if(isMobile){
+				document.getElementById("locale_up").style.width = "100%";
+                document.getElementById("band_up").style.width = "100%";
+                document.getElementById("login").style.height="150vh";
+            }
+		}
+    </script>
 </head>
-<body>
+<body onload="load()">
     <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
         <a class="navbar-brand" href="/index.php">
             <img class="img-responsive" src="/assets/BandLogo.png" style="max-width:17vw;height:auto;display:block;">
@@ -35,14 +46,14 @@
           </ul>
         </div>
     </nav>
-    <section class="login">
+    <section class="login" id="login">
         <div class="container">
             <div class="row " id="space" style="height: 10vh;">
                 <div class="col">
                 </div>
             </div>
             <div class="row" style="height: 60vh;">
-                <div class="col-6 " id="sostituto">
+                <div class="col-lg-6 col-md-12 " id="sostituto">
                     <div id = "dynamic">
                         <label class="login-label">Registrati</label><br> 
                         <div class="container">
@@ -55,13 +66,13 @@
                                     <label class="login-label-secondo" style="font-size: 2.5rem;">Sei una band o un locale?</label>
                                 </div>
                                 <div class="col-lg-5 col-md-6 ">
-                                    <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick="locale_up()" style="width: 130%;height: auto;">Locale</button>
+                                    <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick="locale_up()" style="width: 130%;height: auto;"id="locale_up">Locale</button>
                                 </div>
                                 <div class="col-lg-1 col-md-2" style="height: 5vh;">
 
                                 </div>
                                 <div class="col-lg-5 col-md-6 ">
-                                    <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick="band_up()"  style="width: 130%; height: auto;">Band/Artista</button>
+                                    <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick="band_up()"  style="width: 130%; height: auto;" id="band_up">Band/Artista</button>
                                 </div>
                             </div>
                         </div>
