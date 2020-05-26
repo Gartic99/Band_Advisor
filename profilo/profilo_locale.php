@@ -53,13 +53,69 @@ session_start();
             <li>
                 <a class="nav-link" href="/modal/contatta.html" id="modal_open1">Contatta una Band<span class="sr-only">(current)</span></a>
             </li>
+            <li>
+                <a class="nav-link" href="/modal/edit.html" id="modal_open2">Edit<span class="sr-only">(current)</span></a>
+            </li>
           </ul>
-          <a class="nav-link" href="#" id="nav_nome"> <?php  if (isset($_COOKIE["username"])) {echo htmlspecialchars($_COOKIE["username"]);}?> <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/profilo/profilo_locale.php" id="nav_nome"> <?php  if (isset($_COOKIE["username"])) {echo htmlspecialchars($_COOKIE["username"]);}?> <span class="sr-only">(current)</span></a>
           <button type='button' class='btn btn-danger mr-sm-2 entra'  onclick='logout()'>Logout</button>
         </div>
     </nav>
     <section class="main">
         <div class="container">
+            <?php
+                    $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
+                    $user = "postgres";
+                    $pass = "Quindicimaggio_20";
+                    $db = "postgres";
+
+                    //apro la connessione con il db postgress
+                    $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
+                    or die ("Could not connect to server\n");
+                    if (!$con){
+                        echo "<h1> Impossibile connettersi</h1>";
+                    }
+                    $q="SELECT img,_desc FROM img_profili WHERE mail=$1";
+                    $result = pg_query_params($con,$q,array($_COOKIE["mail"])); 
+
+                    if(pg_num_rows($result)==0){
+                        echo "<div class='row justify-content-center'>";
+                        echo "<img src='../assets/social-media.png' width=300  id='pro_pic'>";
+                        echo "</div>";
+                    }
+                    else{
+                        $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC);
+                        $raw = $line["img"];
+                        if($raw==null){
+                            echo "<div class='row justify-content-center'>";
+                            echo "<img src='../assets/social-media.png' width=300 id='pro_pic'>";
+                            echo "</div>";
+                        }
+                        else{
+                            // Convert to binary and send to the browser
+                            //header('Content-type: image/jpeg');
+                            $img64 = pg_unescape_bytea($raw);
+                            echo "<div class='row justify-content-center'>";
+                            echo "<img src='data:image/jpeg;base64, $img64' width=300  id='pro_pic'>";
+                            echo "</div>";
+                        }
+                        if($line["_desc"]!=null){
+                            echo "<div class='row'>";
+                            echo "<div class='contattato' style='height: 12.5vh;' id='centralLabel'>";
+                            echo "Descrizione di {$_COOKIE["username"]}</br>";
+                            echo "</div>";
+                            //echo ""
+                            echo "<div class='col-lg-12 col-md-12'>";
+                            
+                            echo "<div id='desc'>";
+                            echo $line["_desc"];
+                            echo "</div>";
+                            echo "</div>";
+                            echo "</div>";
+                            
+                        }
+                    }
+            ?>
             <div class="row">
                 <div class="col-lg-5 col-md-11 ">
                     <div class="row">
@@ -168,6 +224,11 @@ session_start();
             $('#theModal').modal('show').find('.modal-content').load($(this).attr('href'));
         });
         $('#modal_open1').on('click', function(e){
+            e.preventDefault();
+            $('#theModal').modal('show').find('.modal-content').load($(this).attr('href'));
+        });
+
+        $('#modal_open2').on('click', function(e){
             e.preventDefault();
             $('#theModal').modal('show').find('.modal-content').load($(this).attr('href'));
         });
