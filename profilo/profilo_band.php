@@ -8,8 +8,9 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
-    <link rel="stylesheet" href="/profilo/profiles.css">
+    <link rel="stylesheet" href="/style/common.css">
     <link rel="stylesheet" href="/style/form.css">
+    <link rel="stylesheet" href="/profilo/profiles.css">
     
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="   crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -25,13 +26,20 @@ session_start();
             var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
             if(isMobile){
                 document.getElementById("leftLabel").style.height = "3vh";
-                document.getElementById("rightLabel").style.height = "3vh";
                 document.getElementById("leftLabel").style.fontSize = "2vh";
                 document.getElementById("leftLabel").style.padding = "5%";
+
+                document.getElementById("rightLabel").style.height = "3vh";
                 document.getElementById("rightLabel").style.fontSize = "2vh";
                 document.getElementById("rightLabel").style.paddingLeft = "5%";
+
+                document.getElementById("centralLabel").style.height = "3vh";
+                document.getElementById("centralLabel").style.fontSize = "2vh";
+                document.getElementById("centralLabel").style.paddingLeft = "5%";
+
                 document.getElementById("cntcts").style.fontSize = "2vh";
                 document.getElementById("rvws").style.fontSize = "2vh";
+                document.getElementById("desc").style.fontSize = "2vh";
             }
         }
     </script>
@@ -62,46 +70,58 @@ session_start();
     </nav>
     <section class="main">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-5">
-                    <?php
-                        $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
-                        $user = "postgres";
-                        $pass = "Quindicimaggio_20";
-                        $db = "postgres";
+            <?php
+                $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
+                $user = "postgres";
+                $pass = "Quindicimaggio_20";
+                $db = "postgres";
 
-                        //apro la connessione con il db postgress
-                        $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
-                        or die ("Could not connect to server\n");
-                        if (!$con){
-                            echo "<h1> Impossibile connettersi</h1>";
-                        }
-                        $q="SELECT img,_desc FROM img_profili WHERE mail=$1";
-                        $result = pg_query_params($con,$q,array($_COOKIE["mail"])); 
+                //apro la connessione con il db postgress
+                $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
+                or die ("Could not connect to server\n");
+                if (!$con){
+                    echo "<h1> Impossibile connettersi</h1>";
+                }
+                $q="SELECT img,_desc FROM img_profili WHERE mail=$1";
+                $result = pg_query_params($con,$q,array($_COOKIE["mail"])); 
 
-                        if(pg_num_rows($result)==0){
-                            echo "<img src='../assets/social-media.png' width=300>";
-                        }
-                        else{
-                            $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC);
-                            $raw = $line["img"];
-                            if($raw==null){
-                                echo "<img src='../assets/social-media.png' width=300>";
-                            }
-                            else{
-                                // Convert to binary and send to the browser
-                                //header('Content-type: image/jpeg');
-                                $img64 = pg_unescape_bytea($raw);
-                                echo "<img src='data:image/jpeg;base64, $img64' width=300>";
-                            }
-                            if($line["_desc"]!=null){
-                                echo "Descrizione di {$_COOKIE["username"]}</br>";
-                                echo $line["_desc"];
-                            }
-                        }
-                    ?>
-                </div>
-            </div>
+                if(pg_num_rows($result)==0){
+                    echo "<div class='row justify-content-center'>";
+                    echo "<img src='../assets/social-media.png' width=300  id='pro_pic'>";
+                    echo "</div>";
+                }
+                else{
+                    $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC);
+                    $raw = $line["img"];
+                    if($raw==null){
+                        echo "<div class='row justify-content-center'>";
+                        echo "<img src='../assets/social-media.png' width=300 id='pro_pic'>";
+                        echo "</div>";
+                    }
+                    else{
+                        // Convert to binary and send to the browser
+                        //header('Content-type: image/jpeg');
+                        $img64 = pg_unescape_bytea($raw);
+                        echo "<div class='row justify-content-center'>";
+                        echo "<img src='data:image/jpeg;base64, $img64' width=300  id='pro_pic'>";
+                        echo "</div>";
+                    }
+                    if($line["_desc"]!=null){
+                        echo "<div class='row'>";
+                        echo "<div class='col-lg-12 col-md-12'>";
+                        echo "<div class='contattato' style='height: 7.5vh;' id='centralLabel'>";
+                        echo "Descrizione di {$_COOKIE["username"]}</br>";
+                        echo "</div>";
+                        echo "<div id='desc'>";
+                        echo $line["_desc"];
+                        echo "</div>";
+                        echo "</div>";
+                        echo "</div>";
+                        
+                    }
+                }
+            ?>
+
             <div class="row ">
                 <div class="col-lg-5 col-md-11 ">
                     <div class="row">
