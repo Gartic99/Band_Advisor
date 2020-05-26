@@ -73,6 +73,7 @@
                     $('.modal-body').append(document.createElement("p").innerHTML = data);
                     $(".modal-body").css('background', 'green');
                     $('#rec_modal').modal('show');
+                    $('#fake').remove();
                     console.log(data);
                 },
                 error: function (data) {
@@ -80,6 +81,7 @@
                     $('.modal-body').append(document.createElement("p").innerHTML = data);
                     $(".modal-body").css('background', 'red');
                     $('#rec_modal').modal('show');
+                    $('#fake').remove();
                     console.log(data);
                 },
             });
