@@ -7,7 +7,7 @@ session_start();
 
     //reindirizzo alla main page nel caso in cui il php non venga chiamato dal form
     if (!(isset($_POST['b_email'])||isset($_POST['l_email']))){
-        header("Location: ../index.html");
+        header("Location: ../index.php");
     }
     // inizio invio i dati del form nel db
     else{

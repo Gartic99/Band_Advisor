@@ -1,5 +1,8 @@
 <?php
 session_start();
+if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
+    header("Location: ../index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
