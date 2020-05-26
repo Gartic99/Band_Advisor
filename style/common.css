@@ -28,6 +28,14 @@ select{
 
 
 .login{
+    height: 120vh;
+    background: #ffffff;
+    background-image: url(/assets/people_watching_concert_during.png);
+    background-size: cover;
+    background-position: center;
+    width: auto;
+}
+#cont{
     height: 100vh;
     background: #ffffff;
     background-image: url(/assets/people_watching_concert_during.png);

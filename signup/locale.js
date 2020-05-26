@@ -7,6 +7,7 @@ function locale_up(){
     //************************ creo tutti le rows e cols ***************/
         // creo il container
         var container = document.createElement("container");
+        container.id="cont";
         // creo la row
         var row = document.createElement("div");
         row.className = "row";
@@ -215,10 +216,7 @@ function locale_up(){
         musica_preferita.appendChild(optionF);
         
     // add all elements to the form
-        container.appendChild(row);
-        row.appendChild(col_1);
-        col_1.appendChild(locale);
-        col_1.appendChild(f);
+        
         f.appendChild(l_nome_locale);
         f.appendChild(document.createElement("br"));
         f.appendChild(nome_locale);
@@ -247,14 +245,20 @@ function locale_up(){
         f.appendChild(musica_preferita);
         f.appendChild(hidden_b);
         //row.appendChild(col_4);
+        col_1.appendChild(locale);
+        col_1.appendChild(f);
+        col_3.appendChild(l_registrati);
+        row.appendChild(col_1);
         row.appendChild(col_2);
         row.appendChild(col_3);
-        col_3.appendChild(l_registrati);
+       
+        container.appendChild(row);
+       
 
 
 
     // aggiungo gli elementi nel DOM
-        $("#sostituto").append(row);   //uso jQuery 
+        $("#sostituto").append(container);   //uso jQuery 
         //tentativi di modal
         
        

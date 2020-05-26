@@ -7,6 +7,7 @@ function band_up(){
     //************************ creo tutti le rows e cols ***************/
         // creo il container
         var container = document.createElement("container");
+        container.id="cont";
         // creo la row
         var row = document.createElement("div");
         row.className = "row";
@@ -182,10 +183,9 @@ function band_up(){
 
 
     // aggiungo tutti gli elementi alla form
-    container.appendChild(row);
-    row.appendChild(col_1);
-    col_1.appendChild(band);
-    col_1.appendChild(f);
+    
+   
+    
     f.appendChild(l_nome_band);
     f.appendChild(document.createElement("br"));
     f.appendChild(nome_band);
@@ -209,14 +209,20 @@ function band_up(){
     f.appendChild(document.createElement("br"));
     f.appendChild(genere);
     f.appendChild(hidden_b);
+  
+    col_1.appendChild(band);
+    col_1.appendChild(f);
+    col_3.appendChild(b_registrati);
+    row.appendChild(col_1);
     //row.appendChild(col_4);
     row.appendChild(col_2);
     row.appendChild(col_3);
-    col_3.appendChild(b_registrati);
+    
+    container.appendChild(row);
 
    
     // aggiungo la form dentro il body
-    $("#sostituto").append(row);   //using jQuery
+    $("#sostituto").append(container);   //using jQuery
 
     
     
@@ -244,7 +250,7 @@ function validateForm() {
     else if (b_email.localeCompare(b_email2)!=0){
         alert("le due email sono diverse");
     }
-    else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(l_email))){
+    else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(b_email))){
         alert("non hai immesso una email");
     }
     else{

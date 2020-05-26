@@ -1,6 +1,6 @@
 /* Main container */
 .main{
-    height: 100%;
+    height: 100vh;
     background: #ffffff;
     background-image: url(/assets/crowd_in_front_of_people_playi.png);
     background-size: cover;
