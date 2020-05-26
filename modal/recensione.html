@@ -71,7 +71,6 @@
                 success: function (data) {
                     $('#form').remove();
                     $('.modal-body').append(document.createElement("p").innerHTML = data);
-                    $(".modal-body").css('background', 'green');
                     $('#rec_modal').modal('show');
                     $('#fake').remove();
                     console.log(data);
