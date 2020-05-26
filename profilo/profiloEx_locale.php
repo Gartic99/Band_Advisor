@@ -85,6 +85,11 @@ session_start();
                     if (!$con){
                         echo "<h1> Impossibile connettersi</h1>";
                     }
+
+                    $q1="select locale.nome from locale where locale.mail=$1";
+                    $result=pg_query_params($con,$q1,array($_GET["mail"]));
+                    $nome=pg_fetch_array($result)["nome"];
+
                     $q="SELECT img,_desc FROM img_profili WHERE mail=$1";
                     $result = pg_query_params($con,$q,array($_GET["mail"])); 
 
@@ -99,6 +104,9 @@ session_start();
                         if($raw==null){
                             echo "<div class='row justify-content-center'>";
                             echo "<img src='../assets/social-media.png' width=300 id='pro_pic'>";
+                            echo "<div class='contattato' style='height: 12.5vh;' id='centralLabel'>";
+                            echo "{$nome}</br>";
+                            echo "</div>";
                             echo "</div>";
                         }
                         else{
@@ -108,14 +116,14 @@ session_start();
                             echo "<div class='row justify-content-center'>";
                             echo "<img src='data:image/jpeg;base64, $img64' width=300  id='pro_pic'>";
                             echo "</div>";
+                            echo "<div class='contattato' style='height: 12.5vh;' id='centralLabel'>";
+                            echo "{$nome}</br>";
+                            echo "</div>";
                         }
                         if($line["_desc"]!=null){
                             echo "<div class='row'>";
                             echo "<div class='contattato' style='height: 12.5vh;' id='centralLabel'>";
-                            $q1="select locale.nome from locale where locale.mail=$1";
-                            $result=pg_query_params($con,$q1,array($_GET["mail"]));
-                            $ln=pg_fetch_array($result);
-                            echo "Descrizione di {$ln["nome"]}</br>";
+                            echo "Descrizione di {$nome}</br>";
                             echo "</div>";
                             //echo ""
                             echo "<div class='col-lg-12 col-md-12'>";
@@ -130,7 +138,7 @@ session_start();
                     }
             ?>
             <div class="row">
-            <div class="col-lg-5 col-md-12"  style="padding-bottom:15%;">
+            <div class="col-lg-12 col-md-12"  style="padding-bottom:15%;">
                     <div class="row">
                     <!--<div class="nome" style="height: 12.5vh;" id="leftLabel">
                             <?php
