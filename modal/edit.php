@@ -34,7 +34,7 @@
               } else {
                 exit("<h2>Il file caricato non è un'immagine.</h2>");
               }
-              if ($_FILES["profile_img"]["size"] > 500000) {
+              if ($_FILES["profile_img"]["size"] > 5000000) {
                 exit( "<h2>Il file è troppo grande</h2>"); 
               }
               $imageFileType=strtolower(pathinfo($_FILES["profile_img"]["name"],PATHINFO_EXTENSION));
