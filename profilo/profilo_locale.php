@@ -96,7 +96,7 @@ session_start();
                             //header('Content-type: image/jpeg');
                             $img64 = pg_unescape_bytea($raw);
                             echo "<div class='row justify-content-center'>";
-                            echo "<img src='data:image/jpeg;base64, $img64' width=300  id='pro_pic'>";
+                            echo "<img src='data:image/jpeg;base64, $img64' width=300px height=300px  id='pro_pic'>";
                             echo "</div>";
                         }
                         if($line["_desc"]!=null){

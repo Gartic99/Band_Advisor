@@ -103,7 +103,7 @@ session_start();
                         $raw = $line["img"];
                         if($raw==null){
                             echo "<div class='row justify-content-center'>";
-                            echo "<img src='../assets/social-media.png' width=300 id='pro_pic'>";
+                            echo "<img src='../assets/social-media.png' width=300px height=300px id='pro_pic'>";
                             echo "<div class='contattato' style='height: 12.5vh;' id='centralLabel'>";
                             echo "{$nome}</br>";
                             echo "</div>";
@@ -114,7 +114,7 @@ session_start();
                             //header('Content-type: image/jpeg');
                             $img64 = pg_unescape_bytea($raw);
                             echo "<div class='row justify-content-center'>";
-                            echo "<img src='data:image/jpeg;base64, $img64' width=300  id='pro_pic'>";
+                            echo "<img src='data:image/jpeg;base64, $img64' width=300px height=300px  id='pro_pic'>";
                             echo "</div>";
                             echo "<div class='contattato' style='height: 12.5vh;' id='centralLabel'>";
                             echo "{$nome}</br>";
