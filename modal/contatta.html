@@ -39,7 +39,7 @@
         if (from == "" || to == "" || rec == "") {
         alert("compila tutti i campi obligatori");
         }
-        else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(l_email))){
+        else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(from))){
             alert("non hai immesso una email");
         }
         else{
@@ -72,11 +72,12 @@
     $(document).ready(function(){
         if (getCookie("mail")!= ""){
             var mail = "";
-            for (var i = 0; i < getCookie("mail").length; i++) {
+            /*for (var i = 0; i < getCookie("mail").length; i++) {
                 if (getCookie("mail").charAt(i)!='+')
                     mail = mail.concat(getCookie("mail").charAt(i));
-            }
-            $("#from_cont").val(mail);
+            }*/
+            mail = (getCookie("mail").replace(/^\++|\++$/g, '')).trim();
+            $("#from_rec").val(mail);
         }
     });
 </script>

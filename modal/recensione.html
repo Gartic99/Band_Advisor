@@ -92,10 +92,11 @@
     $(document).ready(function(){
         if (getCookie("mail")!= ""){
             var mail = "";
-            for (var i = 0; i < getCookie("mail").length; i++) {
+            /*for (var i = 0; i < getCookie("mail").length; i++) {
                 if (getCookie("mail").charAt(i)!='+')
                     mail = mail.concat(getCookie("mail").charAt(i));
-            }
+            }*/
+            mail = (getCookie("mail").replace(/^\++|\++$/g, '')).trim();
             $("#from_rec").val(mail);
         }
     });
