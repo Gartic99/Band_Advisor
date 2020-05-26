@@ -30,8 +30,8 @@
             $result2 = pg_query_params($con,$q2,array($from));
             
             if(!(($line=pg_fetch_array($result1,null,PGSQL_ASSOC)) || ($line=pg_fetch_array($result2,null,PGSQL_ASSOC)))){
-                $to=strtolower($_POST["to_rec"]);
-                $recensione=$_POST["recensione_i"];
+                $to=strip_tags(trim(strtolower($_POST["to_rec"])));
+                $recensione=strip_tags(trim($_POST["recensione_i"]));
                 $score=$_POST["score"];
 
                 $q1="select * from locale where nome= $1";
@@ -54,8 +54,8 @@
             else{
                 if (isset($_COOKIE["mail"])){
                     if (strcmp((string)$_COOKIE["mail"],(string)$from)){
-                        $to=strtolower($_POST["to_rec"]);
-                        $recensione=$_POST["recensione_i"];
+                        $to=strip_tags(trim(strtolower($_POST["to_rec"])));
+                        $recensione=strip_tags(trim($_POST["recensione_i"]));
                         $score=$_POST["score"];
 
                         $q1="select * from locale where nome= $1";

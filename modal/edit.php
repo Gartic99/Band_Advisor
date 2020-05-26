@@ -46,7 +46,7 @@
               echo "<h2>Foto Aggiornata</h2>";
           }
           if ($_POST["edit_desc"]!=""){
-              $desc = $_POST["edit_desc"];
+              $desc = strip_tags(trim($_POST["edit_desc"]));
               echo "<h2>Descrizione Aggiornata</h2>" ;
           }
           $encode=base64_encode($data);
