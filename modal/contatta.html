@@ -76,8 +76,8 @@
                 if (getCookie("mail").charAt(i)!='+')
                     mail = mail.concat(getCookie("mail").charAt(i));
             }*/
-            mail = getCookie("mail").replace(/^\++|\++$/g, '')
-            $("#from_cont").val(mail);
+            mail = (getCookie("mail").replace(/^\++|\++$/g, '')).trim();
+            $("#from_rec").val(mail);
         }
     });
 </script>

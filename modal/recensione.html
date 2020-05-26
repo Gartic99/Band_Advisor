@@ -96,7 +96,7 @@
                 if (getCookie("mail").charAt(i)!='+')
                     mail = mail.concat(getCookie("mail").charAt(i));
             }*/
-            mail = getCookie("mail").replace(/^\++|\++$/g, '')
+            mail = (getCookie("mail").replace(/^\++|\++$/g, '')).trim();
             $("#from_rec").val(mail);
         }
     });
