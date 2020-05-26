@@ -33,8 +33,8 @@
                 <a href=../signup/signup.html>clicca qui per registrarti</a>";
             }
             else{
-                $to=strtolower($_POST["to_cont"]);
-                $contatta=$_POST["contatta_i"];
+                $to=strip_tags(trim(strtolower($_POST["to_cont"])));
+                $contatta=strip_tags(trim($_POST["contatta_i"]));
 
                 $q1="select * from locale where nome= $1";
                 $q2="select * from band where nome = $1";
