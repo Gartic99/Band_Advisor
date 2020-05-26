@@ -18,93 +18,45 @@
             echo "<h1> Impossibile connettersi<7h1>";
         }
         else{
-            $data = null;
-            $desc = null;
-            //controllo se email nel db
-            $q="select img,_desc from img_profili where mail = $1";
-            $result = pg_query_params($con,$q,array($_COOKIE["mail"]));
-            if ( pg_num_rows($result)>0){
-                $line=pg_fetch_array($result,null,PGSQL_ASSOC);
-                $data = pg_unescape_bytea($line['img']); 
-                $desc = $line['_desc'];
-            }
-
-            if (!(empty($_FILES['profile_img']['name']))){
-                $fileName = $_FILES["profile_img"]['tmp_name'];
-                $data = file_get_contents($fileName);
-                // encoded binary data
-            }
-            if (isset($_POST["edit_desc"])){
-                $desc = $_POST["edit_desc"];
-            }
-            
-            $encode=base64_encode($data);
-            // rimozione della riga
-            $q1 = "delete from img_profili where mail = $1";
-            pg_query_params($con, $q1,array($_COOKIE["mail"]));
-            
-            // Insert it into the database
-            $q1 = 'INSERT INTO img_profili VALUES($1,$2,$3)';
-            $results = pg_query_params($con, $q1,array($_COOKIE["mail"],$encode,$desc));
-
-            /*
-            //TEST//
-            // Get the bytea data
-            $res = pg_query("SELECT img FROM img_profili WHERE  mail='ac_dc@gmail.com'");  
-            $raw = pg_fetch_result($res, 'img');
-
-            // Convert to binary and send to the browser
-            //header('Content-type: image/jpeg');
-            $img64 = pg_unescape_bytea($raw);
-            // /echo "<img src='data:image/jpeg;base64, $img64' width=300>";
-            */
+          $data = null;
+          $desc = null;
+          //controllo se email nel db
+          $q="select img,_desc from img_profili where mail = $1";
+          $result = pg_query_params($con,$q,array($_COOKIE["mail"]));
+          if (pg_num_rows($result)>0){
+              $line=pg_fetch_array($result,null,PGSQL_ASSOC);
+              $data = base64_decode(pg_unescape_bytea($line['img'])); 
+              $desc = $line['_desc'];
+          }
+          if ( $_FILES['profile_img']['size']>0 ){
+              $check = getimagesize($_FILES["profile_img"]["tmp_name"]);
+              if($check !== false) {
+              } else {
+                exit("<h2>Il file caricato non è un'immagine.</h2>");
+              }
+              if ($_FILES["profile_img"]["size"] > 500000) {
+                exit( "<h2>Il file è troppo grande</h2>"); 
+              }
+              $imageFileType=strtolower(pathinfo($_FILES["profile_img"]["name"],PATHINFO_EXTENSION));
+              if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" ) {
+                exit ("<h2>Solo immagini JPG, JPEG, PNG sono permesse.</h2>");
+              }
+              $fileName = $_FILES["profile_img"]['tmp_name'];
+              $data = file_get_contents($fileName);
+              echo "<h2>Foto Aggiornata</h2>";
+          }
+          if ($_POST["edit_desc"]!=""){
+              $desc = $_POST["edit_desc"];
+              echo "<h2>Descrizione Aggiornata</h2>" ;
+          }
+          $encode=base64_encode($data);
+          // rimozione della riga
+          $q1 = "delete from img_profili where mail = $1";
+          pg_query_params($con, $q1,array($_COOKIE["mail"]));
+          
+          // Insert it into the database
+          $q1 = 'INSERT INTO img_profili VALUES($1,$2,$3)';
+          $results = pg_query_params($con, $q1,array($_COOKIE["mail"],$encode,$desc));
         }
     }
-/*$target_dir = "uploads/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
-// Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
-  $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-  if($check !== false) {
-    echo "File is an image - " . $check["mime"] . ".";
-    $uploadOk = 1;
-  } else {
-    echo "File is not an image.";
-    $uploadOk = 0;
-  }
-}
-
-// Check if file already exists
-if (file_exists($target_file)) {
-  echo "Sorry, file already exists.";
-  $uploadOk = 0;
-}
-
-// Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000) {
-  echo "Sorry, your file is too large.";
-  $uploadOk = 0;
-}
-
-// Allow certain file formats
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif" ) {
-  echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-  $uploadOk = 0;
-}
-
-// Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-  echo "Sorry, your file was not uploaded.";
-// if everything is ok, try to upload file
-} else {
-  if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-    echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-  } else {
-    echo "Sorry, there was an error uploading your file.";
-  }
-}*/
 ?>

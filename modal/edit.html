@@ -37,8 +37,8 @@
     function validateLForm() {
         var desc = $("#edit_desc").val();
         var file = $("#profile_img")
-        if (desc == "" || file.lenght == 0) {
-        alert("compila tutti i campi obligatori");
+        if (desc == "" && file.lenght == 0) {
+            alert("compila tutti i campi obligatori");
         }
         else if(file.length>1){
             alert("seleziona solo un file");

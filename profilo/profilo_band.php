@@ -108,10 +108,12 @@ session_start();
                     }
                     if($line["_desc"]!=null){
                         echo "<div class='row'>";
-                        echo "<div class='col-lg-12 col-md-12'>";
                         echo "<div class='contattato' style='height: 12.5vh;' id='centralLabel'>";
                         echo "Descrizione di {$_COOKIE["username"]}</br>";
                         echo "</div>";
+                        //echo ""
+                        echo "<div class='col-lg-12 col-md-12'>";
+                        
                         echo "<div id='desc'>";
                         echo $line["_desc"];
                         echo "</div>";
