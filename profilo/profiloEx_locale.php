@@ -209,7 +209,7 @@ session_start();
 
 
                                     $q1="select recensione._from as nome,recensione.cont as cont,recensione.rating as stelle from recensione where recensione._to=$1";
-                                    $result=pg_query_params($con,$q1,array($_SESSION["username"]));
+                                    $result=pg_query_params($con,$q1,array($ln["nome"]));
 
                                     if(pg_num_rows($result)==0){
                                         echo "Ancora nessuna recensione per te ;(</br>";
