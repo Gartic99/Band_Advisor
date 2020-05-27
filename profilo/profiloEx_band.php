@@ -210,7 +210,7 @@ session_start();
                                     
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
                                         echo '<a href="#">';
-                                        echo "<h3>{$line["nome"]}</h3> valuta:</br> {$line["stelle"]}/5 stelle </br>";
+                                        echo "<h4>{$line["nome"]}</h4> valuta:</br> {$line["stelle"]}/5 stelle </br>";
                                         echo "{$line["cont"]}";
                                         echo '</br>';
                                         echo '</a>';
