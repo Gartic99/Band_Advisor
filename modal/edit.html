@@ -91,32 +91,35 @@
 
 </script>
 <script>
+    /* Ci prendiamo l'immagine caricata*/
     document.getElementById("profile_img").onchange = function(e) {
             var img = new Image();
             img.onload = draw;
             img.onerror = failed;
             img.src = URL.createObjectURL(this.files[0]);
         };
+        /*Funzione chiamata da onchange di sopra serve a disgnare il frame*/
         function draw() {
             var canvas = document.getElementById('canvas');
             canvas.width = this.width;
             canvas.height = this.height;
             var ctx = canvas.getContext('2d');
-            ctx.drawImage(this, 0,0);
-            const cropper = new Cropper(canvas, {
+            ctx.drawImage(this, 0,0); //Disegno il frame
+            const cropper = new Cropper(canvas, { //uso la libreria Cropperjs per il resize dell'immagine nel frame
                 aspectRatio: 1 / 1,
                 crop(event) {
                 },
             });
-            document.getElementById('crop_button').addEventListener('click', function(){
+            document.getElementById('crop_button').addEventListener('click', function(){ //salvo il risultato nel div
                 var imgurl =  cropper.getCroppedCanvas().toDataURL();
                 var img = document.createElement("img");
                 img.src = imgurl;
                 $("#canvas").hide;
-                document.getElementById("cropped_result").appendChild(img);
+                document.getElementById("cropped_result").appendChild(img); //E mo?!
             });
         }
-        function failed() {
+        //Error handler
+        function failed() { 
             console.error("The provided file couldn't be loaded as an Image media");
         }
 </script>
