@@ -103,8 +103,9 @@ session_start();
                             echo "<h1> Impossibile connettersi</h1>";
                         }
                         
-                        $q1="select band.nome,band.mail from band limit 10";
-                        $q2="select locale.nome,locale.mail from locale limit 10";
+                        //Lenzerini sii fiero di me
+                        $q1="select band.nome,band.mail,trunc(avg(rating),1) as media from band,recensione where recensione._to=band.nome group by mail,nome order by media desc limit 10";
+                        $q2="select locale.nome,locale.mail,trunc(avg(rating),1) as media from locale,recensione where recensione._to=locale.nome group by mail,nome order by media desc limit 10";
 
                         $result1=pg_query($con,$q1);
                         $result2=pg_query($con,$q2);
@@ -117,7 +118,7 @@ session_start();
                             $x=1;
                             while( $line = pg_fetch_array( $result1 ,null ,PGSQL_ASSOC) ) {
                                 echo "<a href='/profilo/profiloEx_band.php?mail={$line["mail"]}'>";
-                                echo $x.". ".$line["nome"];
+                                echo $x.". ".$line["nome"]."         con la media di {$line['media']}/5 stelle";
                                 echo '</br>';
                                 echo '</a>';
                                 echo "</br>";
@@ -132,7 +133,7 @@ session_start();
                             $x=1;
                             while( $line = pg_fetch_array( $result2 ,null ,PGSQL_ASSOC) ) {
                                 echo "<a href='/profilo/profiloEx_locale.php?mail={$line["mail"]}'>";
-                                echo $x.". ".$line["nome"];
+                                echo $x.". ".$line["nome"]."         con la media di {$line['media']}/5 stelle";
                                 echo '</br>';
                                 echo '</a>';
                                 echo "</br>";
