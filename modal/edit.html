@@ -26,7 +26,7 @@
             <input type="file" id="profile_img" name="profile_img"></input>
             <input type="submit" style="display: none;" name="edti_button"></input>
             <canvas id= "canvas"></canvas>
-            <button id='crop_button'>Fine Crop</button>
+            <button id='crop_button' style="display: none;">Fine Crop</button>
             <div id="cropped_result"></div> 
         </form>
     </div>
@@ -101,6 +101,7 @@
         /*Funzione chiamata da onchange di sopra serve a disgnare il frame*/
         function draw() {
             var canvas = document.getElementById('canvas');
+            $("#crop_button").removeAttr("style");
             canvas.width = this.width;
             canvas.height = this.height;
             var ctx = canvas.getContext('2d');
