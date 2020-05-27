@@ -55,7 +55,7 @@
                 success: function (data) {
                     $('#form').remove();
                     $('.modal-body').append(document.createElement("p").innerHTML = data);
-                    $(".modal-body").css('background', 'green');
+                    $('#fake').remove();
                     $('#rec_modal').modal('show');
                     console.log(data);
                 },
