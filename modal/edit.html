@@ -28,6 +28,13 @@
 </div>
 <script>
     $(document).ready(function(){
+        if ($("#desc")!= ""){
+            var desc = $("#desc").html();
+            alert(desc);
+            $("#edit_desc").val(desc);
+        }
+    });
+    $(document).ready(function(){
         $("#score").selectpicker();
         $(".form-form").submit(function(event){
                 event.preventDefault();
