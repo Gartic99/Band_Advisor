@@ -104,7 +104,7 @@ session_start();
 
                 if(pg_num_rows($result)==0){
                     echo "<div class='row justify-content-center'>";
-                    echo "<img src='../assets/social-media.png' width=300  id='pro_pic'>";
+                    echo "<img src='../assets/social-media.png' width=200vh height=200vh  id='pro_pic'>";
                     echo "</div>";
                 }
                 else{
@@ -112,7 +112,7 @@ session_start();
                     $raw = $line["img"];
                     if($raw==null){
                         echo "<div class='row justify-content-center'>";
-                        echo "<img src='../assets/social-media.png' width=300 id='pro_pic'>";
+                        echo "<img src='../assets/social-media.png' width=200vh height=200vh id='pro_pic'>";
                         echo "</div>";
                     }
                     else{
@@ -120,7 +120,7 @@ session_start();
                         //header('Content-type: image/jpeg');
                         $img64 = pg_unescape_bytea($raw);
                         echo "<div class='row justify-content-center'>";
-                        echo "<img src='data:image/jpeg;base64, $img64' width=300px height=300px  id='pro_pic'>";
+                        echo "<img src='data:image/jpeg;base64, $img64' width=200vh height=200vh  id='pro_pic'>";
                         echo "</div>";
                     }
                     if($line["_desc"]!=null){
@@ -210,7 +210,7 @@ session_start();
                                     
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
                                         echo '<a href="#">';
-                                        echo "<h4>{$line["nome"]}</h4> valuta:</br> {$line["stelle"]}/5 stelle </br>";
+                                        echo "<h3>{$line["nome"]}</h3> valuta:</br> {$line["stelle"]}/5 stelle </br>";
                                         echo "{$line["cont"]}";
                                         echo '</br>';
                                         echo '</a>';
