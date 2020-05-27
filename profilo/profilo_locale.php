@@ -29,13 +29,27 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
             var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
             if(isMobile){
                 document.getElementById("leftLabel").style.height = "3vh";
-                document.getElementById("rightLabel").style.height = "3vh";
                 document.getElementById("leftLabel").style.fontSize = "2vh";
                 document.getElementById("leftLabel").style.padding = "5%";
+
+                document.getElementById("rightLabel").style.height = "3vh";
                 document.getElementById("rightLabel").style.fontSize = "2vh";
                 document.getElementById("rightLabel").style.paddingLeft = "5%";
+
+                //Controlliamo se è stata inserita una recensione
+                if(document.getElementById("centralLabel")){
+                    document.getElementById("centralLabel").style.height = "3vh";
+                    document.getElementById("centralLabel").style.fontSize = "2vh";
+                    document.getElementById("centralLabel").style.paddingLeft = "5%";
+                    document.getElementById("desc").style.fontSize = "2vh"
+                }
+
                 document.getElementById("cntcts").style.fontSize = "2vh";
                 document.getElementById("rvws").style.fontSize = "2vh";
+                ;
+
+                document.getElementById("pro_pic").style.width="15vh";
+                document.getElementById("pro_pic").style.height="15vh";
             }
         }
     </script>

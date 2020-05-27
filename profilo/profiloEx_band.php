@@ -25,14 +25,28 @@ session_start();
             //true if we are on mobile
             var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
             if(isMobile){
-                document.getElementById("leftLabel").style.height = "3vh";
-                document.getElementById("rightLabel").style.height = "3vh";
+                /*document.getElementById("leftLabel").style.height = "3vh";
                 document.getElementById("leftLabel").style.fontSize = "2vh";
-                document.getElementById("leftLabel").style.padding = "5%";
+                document.getElementById("leftLabel").style.padding = "5%";*/
+
+                document.getElementById("rightLabel").style.height = "3vh";
                 document.getElementById("rightLabel").style.fontSize = "2vh";
                 document.getElementById("rightLabel").style.paddingLeft = "5%";
-                //document.getElementById("cntcts").style.fontSize = "2vh";
+
+                //Controlliamo se è stata inserita una recensione
+                if(document.getElementById("centralLabel")){
+                    document.getElementById("centralLabel").style.height = "3vh";
+                    document.getElementById("centralLabel").style.fontSize = "2vh";
+                    document.getElementById("centralLabel").style.paddingLeft = "5%";
+                    document.getElementById("desc").style.fontSize = "2vh"
+                }
+
+                /*document.getElementById("cntcts").style.fontSize = "2vh";*/
                 document.getElementById("rvws").style.fontSize = "2vh";
+                
+
+                document.getElementById("pro_pic").style.width="15vh";
+                document.getElementById("pro_pic").style.height="15vh";
             }
         }
     </script>
@@ -73,66 +87,66 @@ session_start();
     </nav>
     <section class="main">
         <div class="container">
-        <?php
-                    $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
-                    $user = "postgres";
-                    $pass = "Quindicimaggio_20";
-                    $db = "postgres";
+            <?php
+                include  '../config/config.php';
+                $host = constant("DB_HOST");
+                $user = constant("DB_USER");
+                $pass = constant("DB_PASSWORD");
+                $db =   constant("DB_NAME");
+                //apro la connessione con il db postgress
+                $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
+                or die ("Could not connect to server\n");
+                if (!$con){
+                    echo "<h1> Impossibile connettersi</h1>";
+                }
+                $q="SELECT img,_desc FROM img_profili WHERE mail=$1";
+                $result = pg_query_params($con,$q,array($_GET["mail"])); 
 
-                    //apro la connessione con il db postgress
-                    $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
-                    or die ("Could not connect to server\n");
-                    if (!$con){
-                        echo "<h1> Impossibile connettersi</h1>";
-                    }
-                    $q="SELECT img,_desc FROM img_profili WHERE mail=$1";
-                    $result = pg_query_params($con,$q,array($_GET["mail"])); 
-
-                    if(pg_num_rows($result)==0){
+                if(pg_num_rows($result)==0){
+                    echo "<div class='row justify-content-center'>";
+                    echo "<img src='../assets/social-media.png' width=300  id='pro_pic'>";
+                    echo "</div>";
+                }
+                else{
+                    $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC);
+                    $raw = $line["img"];
+                    if($raw==null){
                         echo "<div class='row justify-content-center'>";
-                        echo "<img src='../assets/social-media.png' width=300  id='pro_pic'>";
+                        echo "<img src='../assets/social-media.png' width=300 id='pro_pic'>";
                         echo "</div>";
                     }
                     else{
-                        $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC);
-                        $raw = $line["img"];
-                        if($raw==null){
-                            echo "<div class='row justify-content-center'>";
-                            echo "<img src='../assets/social-media.png' width=300 id='pro_pic'>";
-                            echo "</div>";
-                        }
-                        else{
-                            // Convert to binary and send to the browser
-                            //header('Content-type: image/jpeg');
-                            $img64 = pg_unescape_bytea($raw);
-                            echo "<div class='row justify-content-center'>";
-                            echo "<img src='data:image/jpeg;base64, $img64' width=300px height=300px  id='pro_pic'>";
-                            echo "</div>";
-                        }
-                        if($line["_desc"]!=null){
-                            echo "<div class='row'>";
-                            echo "<div class='contattato' style='height: 12.5vh;' id='centralLabel'>";
-                            $q1="select band.nome from band where band.mail=$1";
-                            $result=pg_query_params($con,$q1,array($_GET["mail"]));
-                            $ln=pg_fetch_array($result);
-                            echo "Descrizione di {$ln["nome"]}</br>";
-                            echo "</div>";
-                            //echo ""
-                            echo "<div class='col-lg-12 col-md-12'>";
-                            
-                            echo "<div id='desc'>";
-                            echo $line["_desc"];
-                            echo "</div>";
-                            echo "</div>";
-                            echo "</div>";
-                            
-                        }
+                        // Convert to binary and send to the browser
+                        //header('Content-type: image/jpeg');
+                        $img64 = pg_unescape_bytea($raw);
+                        echo "<div class='row justify-content-center'>";
+                        echo "<img src='data:image/jpeg;base64, $img64' width=300px height=300px  id='pro_pic'>";
+                        echo "</div>";
                     }
+                    if($line["_desc"]!=null){
+                        echo "<div class='row' style='padding-bottom:10%'>";
+                        echo "<div class='contattato' style='height: 10.5vh;' id='centralLabel'>";
+                        $q1="select band.nome from band where band.mail=$1";
+                        $result=pg_query_params($con,$q1,array($_GET["mail"]));
+                        $ln=pg_fetch_array($result);
+                        echo "Descrizione di {$ln["nome"]}</br>";
+                        echo "</div>";
+                        //echo ""
+                        echo "<div class='col-lg-12 col-md-12'>";
+                        
+                        echo "<div id='desc'>";
+                        echo $line["_desc"];
+                        echo "</div>";
+                        echo "</div>";
+                        echo "</div>";
+                        
+                    }
+                }
             ?>
             <div class="row">
-                <div class="col-lg-5 col-md-12 " style="padding-bottom:15%;">
+                <!--<div class="col-lg-5 col-md-12 " style="padding-bottom:15%;">
                     <div class="row">
-                        <!--<div class="nome" style="height: 12.5vh;" id="leftLabel">
+                        <div class="nome" style="height: 12.5vh;" id="leftLabel">
                             <?php
                                 $mail=$_GET["mail"];
                                 $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
@@ -152,17 +166,17 @@ session_start();
                                 echo "Nome Band: <br>";
                                 echo $ln["nome"];
                             ?>
-                        </div>-->
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-2 col-md-3 "></div>
-                <div class="col-lg-4 col-md-12 ">
+                </div>-->
+                <!--<div class="col-lg-2 col-md-3 "></div>-->
+                <div class="col-lg-12 col-md-12 ">
                     <div class="row">
                         <div class="recensioni" id="rightLabel" style="height: 12.5vh;">
                             Le recensioni
                         </div>
                     </div>
-                    <div class="row ">
+                    <div class="row" style="padding-bottom:15%;">
                         <div class="col-lg-12 col-md-12">
                             <div class="testi" id="rvws">
                                 <?php
