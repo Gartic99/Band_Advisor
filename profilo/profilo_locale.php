@@ -202,7 +202,8 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                                     }
                                     $mail=$_SESSION["mail"];
 
-                                    $q1="select cont from recensione where _to = $1";
+                                    
+                                    $q1="select recensione._from as nome,recensione.cont as cont,recensione.rating as stelle from recensione where recensione._to=$1";
                                     $result=pg_query_params($con,$q1,array($_SESSION["username"]));
 
                                     if(pg_num_rows($result)==0){
@@ -211,9 +212,8 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                                     
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
                                         echo '<a href="#">';
-                                        foreach( $line as $colvalue) {
-                                            echo $colvalue ;
-                                        }
+                                        echo "<h3>{$line["nome"]}</h3> valuta:</br> {$line["stelle"]}/5 stelle </br>";
+                                        echo "{$line["cont"]}";
                                         echo '</br>';
                                         echo '</a>';
                                         echo "</br>";
