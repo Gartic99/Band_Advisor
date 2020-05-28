@@ -33,6 +33,9 @@ session_start();
                 document.getElementById("rightLabel").style.fontSize = "2vh";
                 document.getElementById("rightLabel").style.paddingLeft = "5%";
 
+                document.getElementById("nameLabel").style.height = "5vh";
+                document.getElementById("nameLabel").style.fontSize = "2vh";
+
                 //Controlliamo se è stata inserita una recensione
                 if(document.getElementById("centralLabel")){
                     document.getElementById("centralLabel").style.height = "3vh";
@@ -87,7 +90,7 @@ session_start();
     </nav>
     <section class="main">
         <div class="container">
-        <?php
+            <?php
                 $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
                 $user = "postgres";
                 $pass = "Quindicimaggio_20";
@@ -111,6 +114,9 @@ session_start();
                     echo "<div class='row justify-content-center'>";
                     echo "<img src='../assets/social-media.png' width=200vh height=200vh  id='pro_pic'>";
                     echo "</div>";
+                    echo "<div class='contattato row justify-content-center' style='height: 12.5vh;' id='nameLabel'>";
+                    echo "{$nome}</br>";
+                    echo "</div>";
                 }
                 else{
                     $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC);
@@ -118,9 +124,8 @@ session_start();
                     if($raw==null){
                         echo "<div class='row justify-content-center'>";
                         echo "<img src='../assets/social-media.png' width=200vh height=200vh id='pro_pic'>";
-                        echo "<div class='contattato' style='height: 12.5vh;' id='centralLabel'>";
+                        echo "<div class='contattato row justify-content-center' style='height: 12.5vh;' id='nameLabel'>";
                         echo "{$nome}</br>";
-                        echo "</div>";
                         echo "</div>";
                     }
                     else{
@@ -130,7 +135,7 @@ session_start();
                         echo "<div class='row justify-content-center'>";
                         echo "<img src='data:image/jpeg;base64, $img64' width=200vh height=200vh  id='pro_pic'>";
                         echo "</div>";
-                        echo "<div class='contattato' style='height: 12.5vh;' id='centralLabel'>";
+                        echo "<div class='contattato row justify-content-center' style='height: 12.5vh;' id='nameLabel'>";
                         echo "{$nome}</br>";
                         echo "</div>";
                     }
@@ -152,7 +157,7 @@ session_start();
                 }
             ?>
             <div class="row">
-            <!--<div class="col-lg-12 col-md-12"  style="padding-bottom:15%;">
+                <!--<div class="col-lg-12 col-md-12"  style="padding-bottom:15%;">
                     <div class="row">
                         <div class="nome" style="height: 12.5vh;" id="leftLabel">
                             <?php
@@ -179,12 +184,12 @@ session_start();
                 </div>-->
                 <!--<div class="col-lg-2 col-md-3 "></div>-->
                 <div class="col-lg-12 col-md-12 ">
-                <div class="row" >
+                    <div class="row" >
                         <div class="recensioni" style="height: 12.5vh;" id="rightLabel">
                             Le recensioni
                         </div>
                     </div>
-                    <div class="row ">
+                    <div class="row">
                         <div class="col-lg-12 col-md-12">
                             <div class="testi" id="rvws">
                                 <?php
@@ -215,21 +220,26 @@ session_start();
                                         echo "Ancora nessuna recensione per te ;(</br>";
                                     }
                                     
+
+                                    $iter=0; //Teniamo il conto per una vista migliore
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
+                                        if($iter>0){
+                                            echo "</br>";
+                                        }
                                         echo '<a href="#">';
                                         echo "<h4>{$line["nome"]}</h4> valuta:</br> {$line["stelle"]}/5 stelle </br>";
                                         echo "{$line["cont"]}";
                                         echo '</br>';
                                         echo '</a>';
-                                        echo "</br>";
+                                        $iter++;
                                     }
-                                    
                                 ?>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="row" style="height:10vh;"></div>
         </div>
     </section>
     <section>

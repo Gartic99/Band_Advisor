@@ -44,12 +44,12 @@ select{
 .login-label{
     font-family: Gilroy Medium;
     color: #000000;
-    font-size: 5vh;
+    font-size: 2rem;
 }
 .login-label-secondo{
     font-family: Gilroy Light;
     color: #000000;
-    font-size: 3vh;
+    font-size: 1rem;
 }
 
 

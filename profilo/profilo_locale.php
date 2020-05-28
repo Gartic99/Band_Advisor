@@ -36,6 +36,8 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                 document.getElementById("rightLabel").style.fontSize = "2vh";
                 document.getElementById("rightLabel").style.paddingLeft = "5%";
 
+                
+
                 //Controlliamo se è stata inserita una recensione
                 if(document.getElementById("centralLabel")){
                     document.getElementById("centralLabel").style.height = "3vh";
@@ -99,6 +101,9 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                         echo "<div class='row justify-content-center'>";
                         echo "<img src='../assets/social-media.png' width=200vh height=200vh id='pro_pic'>";
                         echo "</div>";
+                        echo "<div class='contattato row justify-content-center' style='height: 12.5vh;' id='nameLabel'>";
+                        echo "{$_COOKIE["username"]}</br>";
+                        echo "</div>";
                     }
                     else{
                         $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC);
@@ -106,6 +111,9 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                         if($raw==null){
                             echo "<div class='row justify-content-center'>";
                             echo "<img src='../assets/social-media.png' width=200vh height=200vh id='pro_pic'>";
+                            echo "</div>";
+                            echo "<div class='contattato row justify-content-center' style='height: 12.5vh;' id='nameLabel'>";
+                            echo "{$_COOKIE["username"]}</br>";
                             echo "</div>";
                         }
                         else{
@@ -115,13 +123,15 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                             echo "<div class='row justify-content-center'>";
                             echo "<img src='data:image/jpeg;base64, $img64' width=200vh height=200vh  id='pro_pic'>";
                             echo "</div>";
+                            echo "<div class='contattato row justify-content-center' style='height: 12.5vh;' id='nameLabel'>";
+                            echo "{$_COOKIE["username"]}</br>";
+                            echo "</div>";
                         }
                         if($line["_desc"]!=null){
                             echo "<div class='row'>";
                             echo "<div class='contattato' style='height: 12.5vh;' id='centralLabel'>";
-                            echo "Descrizione di {$_COOKIE["username"]}</br>";
+                            echo "La tua descrizione</br>";
                             echo "</div>";
-                            //echo ""
                             echo "<div class='col-lg-12 col-md-12'>";
                             
                             echo "<div id='desc'>";
@@ -210,13 +220,17 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                                         echo "Ancora nessuna recensione per te ;(</br>";
                                     }
                                     
+                                    $iter=0; //Teniamo il conto per una vista migliore
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
+                                        if($iter>0){
+                                            echo "</br>";
+                                        }
                                         echo '<a href="#">';
                                         echo "<h4>{$line["nome"]}</h4> valuta:</br> {$line["stelle"]}/5 stelle </br>";
                                         echo "{$line["cont"]}";
                                         echo '</br>';
                                         echo '</a>';
-                                        echo "</br>";
+                                        $iter++;
                                     }
                                     
                                 ?>

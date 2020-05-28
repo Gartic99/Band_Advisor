@@ -33,6 +33,9 @@ session_start();
                 document.getElementById("rightLabel").style.fontSize = "2vh";
                 document.getElementById("rightLabel").style.paddingLeft = "5%";
 
+                document.getElementById("nameLabel").style.height = "5vh";
+                document.getElementById("nameLabel").style.fontSize = "2vh";
+
                 //Controlliamo se è stata inserita una recensione
                 if(document.getElementById("centralLabel")){
                     document.getElementById("centralLabel").style.height = "3vh";
@@ -99,12 +102,20 @@ session_start();
                 if (!$con){
                     echo "<h1> Impossibile connettersi</h1>";
                 }
+
+                $q1="select band.nome from band where band.mail=$1";
+                $result=pg_query_params($con,$q1,array($_GET["mail"]));
+                $nome=pg_fetch_array($result)["nome"];
+
                 $q="SELECT img,_desc FROM img_profili WHERE mail=$1";
                 $result = pg_query_params($con,$q,array($_GET["mail"])); 
 
                 if(pg_num_rows($result)==0){
                     echo "<div class='row justify-content-center'>";
                     echo "<img src='../assets/social-media.png' width=200vh height=200vh  id='pro_pic'>";
+                    echo "</div>";
+                    echo "<div class='row justify-content-center contattato' style='height: 12.5vh;' id='nameLabel'>";
+                    echo "{$nome}</br>";
                     echo "</div>";
                 }
                 else{
@@ -114,6 +125,9 @@ session_start();
                         echo "<div class='row justify-content-center'>";
                         echo "<img src='../assets/social-media.png' width=200vh height=200vh id='pro_pic'>";
                         echo "</div>";
+                        echo "<div class='row justify-content-center contattato' style='height: 12.5vh;' id='nameLabel'>";
+                        echo "{$nome}</br>";
+                        echo "</div>";
                     }
                     else{
                         // Convert to binary and send to the browser
@@ -121,6 +135,9 @@ session_start();
                         $img64 = pg_unescape_bytea($raw);
                         echo "<div class='row justify-content-center'>";
                         echo "<img src='data:image/jpeg;base64, $img64' width=200vh height=200vh  id='pro_pic'>";
+                        echo "</div>";
+                        echo "<div class='row justify-content-center contattato' style='height: 12.5vh;' id='nameLabel'>";
+                        echo "{$nome}</br>";
                         echo "</div>";
                     }
                     if($line["_desc"]!=null){
@@ -208,13 +225,17 @@ session_start();
                                         echo "Ancora nessuna recensione per te ;(</br>";
                                     }
                                     
+                                    $iter=0; //Teniamo il conto per una vista migliore
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
+                                        if($iter>0){
+                                            echo "</br>";
+                                        }
                                         echo '<a href="#">';
-                                        echo "<h3>{$line["nome"]}</h3> valuta:</br> {$line["stelle"]}/5 stelle </br>";
+                                        echo "<h4>{$line["nome"]}</h4> valuta:</br> {$line["stelle"]}/5 stelle </br>";
                                         echo "{$line["cont"]}";
                                         echo '</br>';
                                         echo '</a>';
-                                        echo "</br>";
+                                        $iter++;
                                     }
                                     
                                 ?>

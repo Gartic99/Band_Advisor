@@ -30,8 +30,8 @@ session_start();
             if(isMobile){
                // const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
                // const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-                document.getElementById("searchRow").style.height = "10vw";
-                document.getElementById("searchtext").style.fontSize = "3vw";
+                document.getElementById("searchRow").style.height = "2.5rem";
+                document.getElementById("searchtext").style.fontSize = "1rem";
             }
         }
     </script>
