@@ -28,10 +28,10 @@ session_start();
             //true if we are on mobile
             var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
             if(isMobile){
-                const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-                const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-                document.getElementById("searchRow").style.height = "5vh";
-                document.getElementById("searchtext").style.fontSize = "1.5vh";
+               // const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+               // const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+                document.getElementById("searchRow").style.height = "10vw";
+                document.getElementById("searchtext").style.fontSize = "3vw";
             }
         }
     </script>
