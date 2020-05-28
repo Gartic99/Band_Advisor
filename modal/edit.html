@@ -40,6 +40,8 @@
         if ($("#desc")!= ""){
             var desc = $("#desc").html().trim();
             $("#edit_desc").val(desc);
+            $("#edit_desc").attr("style","opacity:.72");
+            
         }
     });
     $(document).ready(function(){
@@ -125,7 +127,9 @@
         }
 </script>
 <script>
-   
+    document.onkeydown = function (e) {
+        $("#edit_desc").attr("style","opacity:1");
+    };
 </script>
 </body>
 </html>
