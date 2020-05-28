@@ -28,6 +28,8 @@ session_start();
             //true if we are on mobile
             var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
             if(isMobile){
+                const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+                const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
                 document.getElementById("searchRow").style.height = "5vh";
                 document.getElementById("searchtext").style.fontSize = "1.5vh";
             }
@@ -145,9 +147,6 @@ session_start();
     </script>
     <script>
         $(document).ready(function(){
-            var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-            var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-            $("html, body").css({"width":w,"height":h});
             $('.search-box input[type="text"]').on("keyup input", function(){
                 /* Get input value on change */
                 var inputVal = $(this).val();
@@ -169,8 +168,23 @@ session_start();
         });
     </script>
     <script>
-        $(function() {
-           
+       $(document).ready(function () {
+            'use strict';
+
+            var orientationChange = function () {
+            var $element = $('#search_1');
+            $element.css('height', '100vh'); // Change this to your own original vh value.
+            $element.css('height', $element.height() + 'px');
+            };
+
+            var s = screen;
+            var o = s.orientation || s.msOrientation || s.mozOrientation;
+            o.addEventListener('change', function () {
+            setTimeout(function () {
+                orientationChange();
+            }, 250);
+            }, false);
+            orientationChange();
         });
     </script>
 </body>

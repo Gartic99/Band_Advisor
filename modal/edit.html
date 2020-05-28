@@ -25,10 +25,12 @@
             <label class="login-label-secondo">Upload image</label><br>
             <input type="file" id="profile_img" name="profile_img"></input>
             <input type="submit" style="display: none;" name="edti_button"></input>
-            <canvas id= "canvas"></canvas>
-            <button id='crop_button' style="display: none;">Fine Crop</button>
-            <div id="cropped_result"></div> 
-        </form>
+            <div class="wrapper">
+                <canvas id= "canvas"></canvas>
+                <button id='crop_button' style="display: none;" type="button">Fine Crop</button>
+            </div>
+            <div id="cropped_result" style="width: 1vh;height: 1vh;"></div>
+        </form> 
     </div>
 </div>
 <div class="modal-footer">
@@ -63,7 +65,12 @@
         }
         else{
             var frm = $('#edit_form');
-            var form_data = new FormData(document.getElementById("edit_form"));
+            var form_data = new FormData();
+
+            form_data.append("edit_desc",desc);
+            form_data.append("profile_img",localStorage.getItem("img").toBlob);
+
+            getCroppedImage(form_data);
             $.ajax({
                 type: frm.attr('method'),
                 url: frm.attr('action'),
@@ -109,16 +116,19 @@
             var ctx = canvas.getContext('2d');
             ctx.drawImage(this, 0,0); //Disegno il frame
             const cropper = new Cropper(canvas, { //uso la libreria Cropperjs per il resize dell'immagine nel frame
-                aspectRatio: 1 / 1,
+                aspectRatio: 1,
                 crop(event) {
                 },
             });
-            document.getElementById('crop_button').addEventListener('click', function(){ //salvo il risultato nel div
+
+            document.getElementById('crop_button').addEventListener('click',function(){
+                //$("#canvas").attr("style","display:none;");
                 var imgurl =  cropper.getCroppedCanvas().toDataURL();
                 var img = document.createElement("img");
                 img.src = imgurl;
-                $("#canvas").hide;
+                $(".wrapper").hide();
                 document.getElementById("cropped_result").appendChild(img); //E mo?!
+                localStorage.setItem("img",cropper.getCroppedCanvas());
             });
         }
         //Error handler
@@ -130,6 +140,13 @@
     document.onkeydown = function (e) {
         $("#edit_desc").attr("style","opacity:1");
     };
+</script>
+<script>
+     function getCroppedImage(formData){ //salvo il risultato nel div
+        var imgurl =  cropper.getCroppedCanvas().toBlob(function (blob) {
+            formData.append('file', blob, "profile_img");      
+        }); 
+    }
 </script>
 </body>
 </html>
