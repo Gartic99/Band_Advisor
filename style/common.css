@@ -87,5 +87,5 @@ select{
 /* No sliding bar on list*/
 .list-group{
     outline: none;
-    overflow: hidden;
+    overflow-x: hidden;
 }
