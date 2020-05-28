@@ -20,7 +20,7 @@
             <!--<input class="form-input search-box" autocomplete="off" ></input>-->
             <div class="search-box ">
                 <input type="text" class="form-input" autocomplete="off" name="to_rec"/>
-                <div class="result list-group" style="outline: none;"></div>
+                <div class="result list-group" style="overflow: hidden;"></div>
             </div>
             <label class="login-label-secondo">Recensione</label><br>
             <textarea class="form-input md-textarea" name="recensione_i" id="recensione_i" rows="7" style="padding:5%"></textarea><br>
@@ -123,6 +123,15 @@
             $(this).parent(".result").empty();
         });
     });
+</script>
+<script>
+   
+        var user=getCookie("username");
+        if(user==""){
+            alert("Devi essere loggato per fare una recensione");
+            window.location.href = "https://bandadvisor.it/login/login.html";
+        }
+    
 </script>
 </body>
 </html>
