@@ -84,8 +84,3 @@ select{
     border-radius: 44px;
     background-color:#FF1744;
 }
-/* No sliding bar on list*/
-.list-group{
-    outline: none;
-    overflow-x: hidden;
-}
