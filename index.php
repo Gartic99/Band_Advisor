@@ -145,6 +145,9 @@ session_start();
     </script>
     <script>
         $(document).ready(function(){
+            var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+            var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+            $("html, body").css({"width":w,"height":h});
             $('.search-box input[type="text"]').on("keyup input", function(){
                 /* Get input value on change */
                 var inputVal = $(this).val();
@@ -163,6 +166,11 @@ session_start();
                 $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
                 $(this).parent(".result").empty();
             });
+        });
+    </script>
+    <script>
+        $(function() {
+           
         });
     </script>
 </body>
