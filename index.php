@@ -30,8 +30,8 @@ session_start();
             if(isMobile){
                // const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
                // const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-                document.getElementById("searchRow").style.height = "3rem";
-                document.getElementById("searchtext").style.fontSize = ".75rem";
+                document.getElementById("searchRow").style.height = "2.5rem";
+                document.getElementById("searchtext").style.fontSize = ".6rem";
             }
         }
     </script>
@@ -94,7 +94,7 @@ session_start();
                 <div class="Option_bar">
                     <div class="container">
                         <div class="row justify-content-center">
-                            <div class="col-lg-6 col-md-5 col-sm-5" id="rec">
+                            <div class="col-lg-6 col-md-12 col-sm-12" id="rec">
                                 
                                     <button class="btn btn-sq-lg" id="band_button" onclick="window.location.href ='/main/button.php?type=band'">
                                         <img src="/assets/Icons/electric-guitar.png" style="height: auto; width: 100%; padding:1%;"><br/>
