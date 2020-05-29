@@ -13,6 +13,7 @@
 
         
         include  '../config/config.php';
+        include  '../config/utils.php';
         $host = constant("DB_HOST");
         $user = constant("DB_USER");
         $pass = constant("DB_PASSWORD");
@@ -76,6 +77,9 @@
                         $result3 = pg_query_params($con,$q3,array($from,$to));
                         if(!(($line=pg_fetch_array($result1,null,PGSQL_ASSOC)) || ($line=pg_fetch_array($result2,null,PGSQL_ASSOC)))){
                             $response =  "<h1>Locale o Band non esistente</h1>";
+                        }
+                        else if(strcmp(trim((string)getMail($to)),(string)trim($from))==0){
+                            $response="<h1>Abbiamo deciso che scriversi una recensione da soli non è il massimo</h1>";
                         }
                         else if(pg_num_rows($result3)>0){
                             $q3="update recensione set(_from,_to,rating,cont)=($1,$2,$3,$4) where _from=$1 and _to=$2";
