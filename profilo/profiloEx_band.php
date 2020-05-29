@@ -137,7 +137,7 @@ session_start();
                         echo "<div class='row justify-content-center'>";
                         echo "<img src='data:image/jpeg;base64, $img64' width=200vh height=200vh  id='pro_pic'>";
                         echo "</div>";
-                        echo "<div class='row justify-content-center contattato' style='height: 12.5vh;' id='nameLabel'>";
+                        echo "<div class='row justify-content-center contattato' style='height: 8.5vh;' id='nameLabel'>";
                         echo "{$nome}</br>";
                         echo "</div>";
                     }

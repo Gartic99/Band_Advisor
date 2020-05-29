@@ -119,7 +119,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                         echo "<div class='row justify-content-center'>";
                         echo "<img src='data:image/jpeg;base64, $img64' width=200vh height=200vh  id='pro_pic'>";
                         echo "</div>";
-                        echo "<div class='contattato row justify-content-center' style='height: 12.5vh;' id='nameLabel'>";
+                        echo "<div class='contattato row justify-content-center' style='height: 8.5vh;' id='nameLabel'>";
                         echo "{$_COOKIE["username"]}</br>";
                         echo "</div>";
                     }
@@ -128,7 +128,8 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                         echo "<div class='contattato' style='height: 12.5vh;' id='centralLabel'>";
                         echo "La tua descrizione</br>";
                         echo "</div>";
-                        echo "<div class='contattato row justify-content-center' style='height: 12.5vh;' id='nameLabel'>";
+                        echo "<div class='col-lg-12 col-md-12'>";
+                        
                         echo "<div id='desc'>";
                         echo $line["_desc"];
                         echo "</div>";
@@ -237,7 +238,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                     </div>
                 </div>
             </div>
-            <div class="row" style="height:10vh;"></div>
+           <!-- <div class="row" style="height:10vh;"></div>-->
         </div>
     </section>
     <section>
