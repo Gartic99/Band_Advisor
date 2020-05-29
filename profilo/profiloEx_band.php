@@ -168,7 +168,7 @@ session_start();
                             <?php
                                 $mail=$_GET["mail"];
                                 
-                                include  '../config/config.php';
+                                //include  '../config/config.php';
                                 $host = constant("DB_HOST");
                                 $user = constant("DB_USER");
                                 $pass = constant("DB_PASSWORD");
@@ -202,7 +202,7 @@ session_start();
                                 <?php
                                     $mail=$_GET["mail"];
                                     
-                                    include  '../config/config.php';
+                                    //include  '../config/config.php';
                                     $host = constant("DB_HOST");
                                     $user = constant("DB_USER");
                                     $pass = constant("DB_PASSWORD");
@@ -235,15 +235,22 @@ session_start();
                                         if($iter>0){
                                             echo "</br>";
                                         }
-                                        echo '<a href="#">';
+                                        if(isBand($line["nome"])){
+                                            echo "<a href='/profilo/profiloEx_band.php?mail={$line["nome"]}'>";
+                                        }else{
+                                            echo "<a href='/profilo/profiloEx_locale.php?mail={$line["nome"]}'>";
+                                        }
+                                        
                                         $stars= "<h4>{$line["nome"]}</h4>";
+                                        
                                         for($i=0;$i<intval($line["stelle"]);$i++){
                                             $stars.="<span class='fa fa-star checked'></span>";
                                         }
+                                        
                                         echo $stars."</br>";
+                                        echo '</a>';
                                         echo "{$line["cont"]}";
                                         echo '</br>';
-                                        echo '</a>';
                                         $iter++;
                                     }
                                     

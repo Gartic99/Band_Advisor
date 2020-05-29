@@ -107,7 +107,7 @@ session_start();
 
                 $q1="select locale.nome from locale where locale.mail=$1";
                 $result=pg_query_params($con,$q1,array($_GET["mail"]));
-                $nome=pg_fetch_array($result)["nome"];
+                $nome=(pg_fetch_array($result))["nome"];
 
                 $q="SELECT img,_desc FROM img_profili WHERE mail=$1";
                 $result = pg_query_params($con,$q,array($_GET["mail"])); 
@@ -165,7 +165,7 @@ session_start();
                             <?php
                                 $mail=$_GET["mail"];
                                 
-                                include  '../config/config.php';
+                                //include  '../config/config.php';
                                 $host = constant("DB_HOST");
                                 $user = constant("DB_USER");
                                 $pass = constant("DB_PASSWORD");
@@ -198,7 +198,7 @@ session_start();
                             <div class="testi" id="rvws">
                                 <?php
                                     $mail=$_GET["mail"];
-                                    include  '../config/config.php';
+                                    //include  '../config/config.php';
                                     $host = constant("DB_HOST");
                                     $user = constant("DB_USER");
                                     $pass = constant("DB_PASSWORD");
@@ -231,15 +231,22 @@ session_start();
                                         if($iter>0){
                                             echo "</br>";
                                         }
-                                        echo '<a href="#">';
+                                        if(isBand($line["nome"])){
+                                            echo "<a href='/profilo/profiloEx_band.php?mail={$line["nome"]}'>";
+                                        }else{
+                                            echo "<a href='/profilo/profiloEx_locale.php?mail={$line["nome"]}'>";
+                                        }
+                                        
                                         $stars= "<h4>{$line["nome"]}</h4>";
+                                        
                                         for($i=0;$i<intval($line["stelle"]);$i++){
                                             $stars.="<span class='fa fa-star checked'></span>";
                                         }
+                                        
                                         echo $stars."</br>";
+                                        echo '</a>';
                                         echo "{$line["cont"]}";
                                         echo '</br>';
-                                        echo '</a>';
                                         $iter++;
                                     }
                                 ?>
