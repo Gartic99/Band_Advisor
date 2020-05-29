@@ -54,7 +54,6 @@
                     $q2 = 'INSERT INTO contatta VALUES($1,$2,$3)';
                     $results = pg_query_params($con, $q2,array($from,$to,$contatta));
                     if ($results){
-                        
                         $response = "<h1> Messaggio inviato </h1>";
                     }
                 pg_free_result($results);

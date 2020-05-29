@@ -38,10 +38,19 @@
 
                 $q1="select * from locale where nome= $1";
                 $q2="select * from band where nome = $1";
+                $q3="select * from recensione where _from=$1 and _to=$2";
                 $result1 = pg_query_params($con,$q1,array($to));
                 $result2 = pg_query_params($con,$q2,array($to));
+                $result3 = pg_query_params($con,$q3,array($from,$to));
                 if(!(($line=pg_fetch_array($result1,null,PGSQL_ASSOC)) || ($line=pg_fetch_array($result2,null,PGSQL_ASSOC)))){
                     $response =  "<h1>Locale o Band non esistente</h1>";
+                }
+                else if(pg_num_rows($result3)>0){
+                    $q3="update recensione set(_from,_to,rating,cont)=($1,$2,$3,$4) where from=$1 and _to=$2";
+                    $results = pg_query_params($con, $q3,array($from,$to,$score,$recensione));
+                    if ($results){
+                        $response="<h1>Aggiornata la tua vecchia recensione</h1>";
+                    } 
                 }
                 else{
                     $q2 = 'INSERT INTO recensione VALUES($1,$2,$3,$4)';
@@ -61,10 +70,19 @@
 
                         $q1="select * from locale where nome= $1";
                         $q2="select * from band where nome = $1";
+                        $q3="select * from recensione where _from=$1 and _to=$2";
                         $result1 = pg_query_params($con,$q1,array($to));
                         $result2 = pg_query_params($con,$q2,array($to));
+                        $result3 = pg_query_params($con,$q3,array($from,$to));
                         if(!(($line=pg_fetch_array($result1,null,PGSQL_ASSOC)) || ($line=pg_fetch_array($result2,null,PGSQL_ASSOC)))){
                             $response =  "<h1>Locale o Band non esistente</h1>";
+                        }
+                        else if(pg_num_rows($result3)>0){
+                            $q3="update recensione set(_from,_to,rating,cont)=($1,$2,$3,$4) where _from=$1 and _to=$2";
+                            $results = pg_query_params($con, $q3,array($from,$to,$score,$recensione));
+                            if ($results){
+                                $response="<h1>Aggiornata la tua vecchia recensione</h1>";
+                            } 
                         }
                         else{
                             $q2 = 'INSERT INTO recensione VALUES($1,$2,$3,$4)';
