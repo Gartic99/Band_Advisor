@@ -65,7 +65,7 @@ session_start();
     <section class="main">
         <div class="container">
             <div class="row">
-            <div class="col-lg-5 col-md-11">
+            <div class="col-lg-5 col-md-12">
                 <div class="row">
                     <div class="contattato" style="height: 12.5vh;" id="leftLabel">
                         Band
@@ -74,7 +74,20 @@ session_start();
                 <div class="row" style="padding-bottom:20%;">
                     <div class="col-lg-12 col-md-12">
                         <div class="contatti" id="cntcts">
-                        <?php
+                            <?php   
+
+                                if(empty((string) $_POST["search"])){
+                                    echo "ciao";
+                                    header("Location: https://bandadvisor.it");
+                                }
+                                if("" === trim((string) $_POST['search'])){
+                                    echo "ciaone";
+                                    header("Location: https://bandadvisor.it");
+                                }   
+                                if(!isset($_POST["search"])){
+                                    header("Location: https://bandadvisor.it");
+                                } 
+
                                 $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
                                 $user = "postgres";
                                 $pass = "Quindicimaggio_20";
@@ -108,7 +121,7 @@ session_start();
                 </div>
             </div>
             <div class="col-lg-2 col-md-3"></div>
-            <div class="col-lg-4 col-md-12">
+            <div class="col-lg-5 col-md-12">
                     <div class="row">
                         <div class="recensioni" id="rightLabel" style="height: 12.5vh;">
                             Locali

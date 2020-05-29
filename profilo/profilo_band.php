@@ -232,6 +232,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                     </div>
                 </div>
             </div>
+            <div class="row" style="height:10vh;"></div>
         </div>
     </section>
     <section>

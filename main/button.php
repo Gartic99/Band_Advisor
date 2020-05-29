@@ -77,12 +77,12 @@ session_start();
                         echo "<div class='row justify-content-center'>";
                         
                         if($type=="band"){
-                            echo  "<div class='contattato' style='height: 12.5vh;' id='leftLabel'>";
+                            echo  "<div class='contattato' style='height: 12.5vh;' id='leftLabel' style='font-family:Gilroy Bold'>";
                             echo      "Top 10 Artisti";
                             echo  "</div>";
                         }
                         else{
-                            echo  "<div class='contattato' style='height: 12.5vh;' id='leftLabel'>";
+                            echo  "<div class='contattato' style='height: 12.5vh;' id='leftLabel' style='font-family:Gilroy Bold'>";
                             echo      "Top 10 Locali";
                             echo  "</div>";
                         }
@@ -117,10 +117,12 @@ session_start();
 
                             $x=1;
                             while( $line = pg_fetch_array( $result1 ,null ,PGSQL_ASSOC) ) {
-                                echo "<a href='/profilo/profiloEx_band.php?mail={$line["mail"]}'>";
-                                echo $x.". ".$line["nome"]."         con la media di {$line['media']}/5 stelle";
-                                echo '</br>';
+                                echo "<h2>".$x.". ";
+                                echo "<a href='/profilo/profiloEx_band.php?mail={$line["mail"]}' style='font-family:Gilroy Medium'>";
+                                echo $line["nome"]."</h2>"; 
                                 echo '</a>';
+                                echo "con la media di {$line['media']}/5 stelle";
+                                echo "</br>";
                                 echo "</br>";
                                 $x++;
                             }
@@ -132,10 +134,12 @@ session_start();
 
                             $x=1;
                             while( $line = pg_fetch_array( $result2 ,null ,PGSQL_ASSOC) ) {
-                                echo "<a href='/profilo/profiloEx_locale.php?mail={$line["mail"]}'>";
-                                echo $x.". ".$line["nome"]."         con la media di {$line['media']}/5 stelle";
-                                echo '</br>';
+                                echo "<h2>".$x.". ";
+                                echo "<a href='/profilo/profiloEx_locale.php?mail={$line["mail"]}' style='font-family:Gilroy Medium'>";
+                                echo $line["nome"]."</h2>"; 
                                 echo '</a>';
+                                echo "con la media di {$line['media']}/5 stelle";
+                                echo "</br>";
                                 echo "</br>";
                                 $x++;
                             }

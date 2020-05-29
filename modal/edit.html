@@ -34,7 +34,7 @@
     </div>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="reload()">Close</button>
     <button type="button" class="btn btn-default" type="submit" onclick='$("#edit_form").submit()' id="fake">Invia</button>
 </div>
 <script>
@@ -150,6 +150,11 @@
             formData.append('file', blob, "profile_img");      
         }); 
     }*/
+</script>
+<script>
+    function reload(){
+        location.reload();
+    }
 </script>
 </body>
 </html>
