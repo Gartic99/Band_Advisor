@@ -39,7 +39,8 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                 document.getElementById("rightLabel").style.fontSize = "2vh";
                 document.getElementById("rightLabel").style.paddingLeft = "5%";
 
-                
+                document.getElementById("nameLabel").style.height = "5vh";
+                document.getElementById("nameLabel").style.fontSize = "2vh";
 
                 //Controlliamo se è stata inserita una recensione
                 if(document.getElementById("centralLabel")){
