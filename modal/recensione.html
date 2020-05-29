@@ -20,7 +20,7 @@
             <label class="login-label-secondo">Nome destinatario</label><br>
             <!--<input class="form-input search-box" autocomplete="off" ></input>-->
             <div class="search-box ">
-                <input type="text" class="form-input" autocomplete="off" name="to_rec"/>
+                <input type="text" class="form-input" autocomplete="off" name="to_rec" id="to_rec"/>
                 <div class="result list-group" style="overflow-x: hidden;"></div>
             </div>
             <label class="login-label-secondo">Recensione</label><br>
@@ -126,13 +126,12 @@
         });
         // Set search input value on click of result item
         $(document).on("click", ".result p", function(){
-            $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+            $(this).parents(".search-box").find('input[type="text"]').val($(this).text().trim());
             $(this).parent(".result").empty();
         });
     });
 </script>
 <script>
-   
         var user=getCookie("username");
         if(user==""){
             alert("Devi essere loggato per fare una recensione");
