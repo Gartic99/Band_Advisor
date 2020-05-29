@@ -31,7 +31,7 @@ session_start();
                // const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
                // const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
                 document.getElementById("searchRow").style.height = "2.5rem";
-                document.getElementById("searchtext").style.fontSize = ".6rem";
+                document.getElementById("searchtext").style.fontSize = "3vw";
             }
         }
     </script>
@@ -76,7 +76,7 @@ session_start();
             <div class="row" style="height: 25vh;">
             </div>
             <div class="row justify-content-center search-box">   
-                <form class="search-form col-7" action="/main/search.php" id="search1" method="POST">
+                <form class="search-form col-8" action="/main/search.php" id="search1" method="POST">
                     <div class="row" style="height:8vh;" id="searchRow">
                         <input type="image" src="/assets/tools-and-utensils.svg" class="search-button" onclick="validateSearch()" id="lens">
                         <input type="text" value="" placeholder="Cosa stai cercando?" class="search-input" name="search" id="searchtext"><br>
