@@ -13,6 +13,7 @@
 
         
         include  '../config/config.php';
+        include  '../config/utils.php';
         $host = constant("DB_HOST");
         $user = constant("DB_USER");
         $pass = constant("DB_PASSWORD");
@@ -20,6 +21,9 @@
         //apro la connessione con il db postgress
         $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
         or die ("Could not connect to server\n");
+        $to=strip_tags(trim(strtolower($_POST["to_cont"])));
+        $contatta=strip_tags(trim($_POST["contatta_i"]));
+
         if (!$con){
             echo "<h1> Impossibile connettersi<7h1>";
         }
@@ -34,8 +38,7 @@
                 <a href=../signup/signup.html>clicca qui per registrarti</a>";
             }
             else{
-                $to=strip_tags(trim(strtolower($_POST["to_cont"])));
-                $contatta=strip_tags(trim($_POST["contatta_i"]));
+               
 
                 $q1="select * from locale where nome= $1";
                 $q2="select * from band where nome = $1";
@@ -44,11 +47,15 @@
                 if(!(($line=pg_fetch_array($result1,null,PGSQL_ASSOC)) || ($line=pg_fetch_array($result2,null,PGSQL_ASSOC)))){
                     $response =  "<h1>Locale o Band non esistente</h1>";
                 }
+                else if( (isBand(getMail($to)) && isBand($_COOKIE["mail"])) || ( !isBand(getMail($to)) && !isBand($_COOKIE["mail"]))){
+                    $response =  "<h1>Non puoi mandare contattare un membro di Bandadvisor con il tuo stesso ruolo</h1>";
+                }
                 else{
                     $q2 = 'INSERT INTO contatta VALUES($1,$2,$3)';
                     $results = pg_query_params($con, $q2,array($from,$to,$contatta));
                     if ($results){
-                        $response = "<h1> Messaggio inviato</h1>";
+                        
+                        $response = "<h1> Messaggio inviato </h1>";
                     }
                 pg_free_result($results);
                 }
