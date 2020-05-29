@@ -31,7 +31,7 @@ session_start();
                // const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
                // const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
                 document.getElementById("searchRow").style.height = "2.5rem";
-                document.getElementById("searchtext").style.fontSize = "1rem";
+                document.getElementById("searchtext").style.fontSize = "3vw";
             }
         }
     </script>
@@ -76,7 +76,7 @@ session_start();
             <div class="row" style="height: 25vh;">
             </div>
             <div class="row justify-content-center search-box">   
-                <form class="search-form col-7" action="/main/search.php" id="search1" method="POST">
+                <form class="search-form col-8" action="/main/search.php" id="search1" method="POST">
                     <div class="row" style="height:8vh;" id="searchRow">
                         <input type="image" src="/assets/tools-and-utensils.svg" class="search-button" onclick="validateSearch()" id="lens">
                         <input type="text" value="" placeholder="Cosa stai cercando?" class="search-input" name="search" id="searchtext"><br>
@@ -94,7 +94,7 @@ session_start();
                 <div class="Option_bar">
                     <div class="container">
                         <div class="row justify-content-center">
-                            <div class="col-lg-6 col-md-5 col-sm-5" id="rec">
+                            <div class="col-lg-6 col-md-12 col-sm-12" id="rec">
                                 
                                     <button class="btn btn-sq-lg" id="band_button" onclick="window.location.href ='/main/button.php?type=band'">
                                         <img src="/assets/Icons/electric-guitar.png" style="height: auto; width: 100%; padding:1%;"><br/>
