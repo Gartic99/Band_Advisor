@@ -200,7 +200,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                             <div class="testi" id="rvws">
                                 <?php
                                     
-                                     
+                                    include  '../config/utils.php';
                                     $host = constant("DB_HOST");
                                     $user = constant("DB_USER");
                                     $pass = constant("DB_PASSWORD");
