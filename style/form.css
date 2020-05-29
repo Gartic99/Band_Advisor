@@ -30,3 +30,6 @@ textarea {
   overflow:scroll;
   -webkit-overflow-scrolling: touch;
 }
+.checked{
+  color:#FF1744;
+}

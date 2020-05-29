@@ -8,6 +8,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/profilo/profiles.css">
     <!--<link rel="stylesheet" href="/style/common.css">-->
     <link rel="stylesheet" href="/style/form.css">
@@ -227,7 +228,11 @@ session_start();
                                             echo "</br>";
                                         }
                                         echo '<a href="#">';
-                                        echo "<h4>{$line["nome"]}</h4> valuta:</br> {$line["stelle"]}/5 stelle </br>";
+                                        $stars= "<h4>{$line["nome"]}</h4>";
+                                        for($i=0;$i<intval($line["stelle"]);$i++){
+                                            $stars.="<span class='fa fa-star checked'></span>";
+                                        }
+                                        echo $stars."</br>";
                                         echo "{$line["cont"]}";
                                         echo '</br>';
                                         echo '</a>';

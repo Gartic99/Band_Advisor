@@ -11,6 +11,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/style/common.css">
     <link rel="stylesheet" href="/style/form.css">
     <link rel="stylesheet" href="/profilo/profiles.css">
@@ -118,7 +119,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                         echo "<div class='row justify-content-center'>";
                         echo "<img src='data:image/jpeg;base64, $img64' width=200vh height=200vh  id='pro_pic'>";
                         echo "</div>";
-                        echo "<div class='contattato row justify-content-center' style='height: 12.5vh;' id='nameLabel'>";
+                        echo "<div class='contattato row justify-content-center' style='height: 8.5vh;' id='nameLabel'>";
                         echo "{$_COOKIE["username"]}</br>";
                         echo "</div>";
                     }
@@ -127,7 +128,8 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                         echo "<div class='contattato' style='height: 12.5vh;' id='centralLabel'>";
                         echo "La tua descrizione</br>";
                         echo "</div>";
-                        echo "<div class='contattato row justify-content-center' style='height: 12.5vh;' id='nameLabel'>";
+                        echo "<div class='col-lg-12 col-md-12'>";
+                        
                         echo "<div id='desc'>";
                         echo $line["_desc"];
                         echo "</div>";
@@ -219,7 +221,11 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                                             echo "</br>";
                                         }
                                         echo '<a href="#">';
-                                        echo "<h4>{$line["nome"]}</h4> valuta:</br> {$line["stelle"]}/5 stelle </br>";
+                                        $stars= "<h4>{$line["nome"]}</h4>";
+                                        for($i=0;$i<intval($line["stelle"]);$i++){
+                                            $stars.="<span class='fa fa-star checked'></span>";
+                                        }
+                                        echo $stars."</br>";
                                         echo "{$line["cont"]}";
                                         echo '</br>';
                                         echo '</a>';
@@ -232,7 +238,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                     </div>
                 </div>
             </div>
-            <div class="row" style="height:10vh;"></div>
+           <!-- <div class="row" style="height:10vh;"></div>-->
         </div>
     </section>
     <section>
