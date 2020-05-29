@@ -1,16 +1,17 @@
 <?php
     //include "/config/config.php";
     if (!empty($_POST)) {
-        echo("sono io");
         /*move_uploaded_file($_FILES["profile_img"]["tmp_name"], $_FILES["file"]["name"]);
 
         $bin_string = file_get_contents($_FILES["profile_img"]["name"]);
         $hex_string = base64_encode($bin_string);*/
 
-        $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
-        $user = "postgres";
-        $pass = "Quindicimaggio_20";
-        $db = "postgres";
+        
+        include  '../config/config.php';
+        $host = constant("DB_HOST");
+        $user = constant("DB_USER");
+        $pass = constant("DB_PASSWORD");
+        $db =   constant("DB_NAME");
 
         //apro la connessione con il db postgress
         $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
@@ -19,7 +20,6 @@
             echo "<h1> Impossibile connettersi<7h1>";
         }
         else{
-          echo("sono io2");
           $data = null;
           $desc = null;
           //controllo se email nel db
@@ -27,11 +27,10 @@
           $result = pg_query_params($con,$q,array($_COOKIE["mail"]));
           if (pg_num_rows($result)>0){
               $line=pg_fetch_array($result,null,PGSQL_ASSOC);
-              $data = /*base64_decode*/pg_unescape_bytea($line['img']); 
+              $data = pg_unescape_bytea($line['img']); 
               $desc = $line['_desc'];
           }
           if ($_POST["profile_img"]){//$_FILES['profile_img']['size']>0 ){
-            echo("sono io3");
             /*$check = getimagesize($_POST["profile_img"]/*$_FILES["profile_img"]["tmp_name"]);
               if($check !== false) {
               } else {

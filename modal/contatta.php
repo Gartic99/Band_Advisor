@@ -11,11 +11,12 @@
         $db = "mffqfyag"; old db*/
 
 
-        $host = "database-1.csh3ixzgt0vm.eu-west-3.rds.amazonaws.com";
-        $user = "postgres";
-        $pass = "Quindicimaggio_20";
-        $db = "postgres";
-
+        
+        include  '../config/config.php';
+        $host = constant("DB_HOST");
+        $user = constant("DB_USER");
+        $pass = constant("DB_PASSWORD");
+        $db =   constant("DB_NAME");
         //apro la connessione con il db postgress
         $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
         or die ("Could not connect to server\n");
