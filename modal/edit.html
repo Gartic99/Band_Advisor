@@ -56,41 +56,32 @@
     function validateLForm() {
         var desc = $("#edit_desc").val();
         var file= $("#profile_img");
-    
-        if (desc == "" && file.lenght == 0) {
-            alert("compila tutti i campi obligatori");
-        }
-        else if(file.length>1){
-            alert("seleziona solo un file");
-        }
-        else{
-            var frm = $('#edit_form');
-            var form_data = new FormData();
+        var frm = $('#edit_form');
+        var form_data = new FormData();
 
-            form_data.append("edit_desc",desc);
-            form_data.append("profile_img",sessionStorage.getItem("img"));
-            $.ajax({
-                type: frm.attr('method'),
-                url: frm.attr('action'),
-                data: form_data,
-                processData: false,
-                contentType: false,
-                success: function (data) {
-                    $('#form').remove();
-                    $('.modal-body').append(document.createElement("p").innerHTML = data);
-                    $('#fake').remove();
-                    $('#rec_modal').modal('show');
-                    console.log(data);
-                },
-                error: function (data) {
-                    $('#form').remove();
-                    $('.modal-body').append(document.createElement("p").innerHTML = data);
-                    $(".modal-body").css('background', 'red');
-                    $('#rec_modal').modal('show');
-                    console.log(data);
-                },
-            });
-        }
+        form_data.append("edit_desc",desc);
+        form_data.append("profile_img",sessionStorage.getItem("img"));
+        $.ajax({
+            type: frm.attr('method'),
+            url: frm.attr('action'),
+            data: form_data,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                $('#form').remove();
+                $('.modal-body').append(document.createElement("p").innerHTML = data);
+                $('#fake').remove();
+                $('#rec_modal').modal('show');
+                console.log(data);
+            },
+            error: function (data) {
+                $('#form').remove();
+                $('.modal-body').append(document.createElement("p").innerHTML = data);
+                $(".modal-body").css('background', 'red');
+                $('#rec_modal').modal('show');
+                console.log(data);
+            },
+        });
     }
     function close_modal(){
         $('.modal-body').empty();
@@ -101,6 +92,7 @@
     /* Ci prendiamo l'immagine caricata*/
     document.getElementById("profile_img").onchange = function(e) {
             $(".wrapper").show();
+            debugger;
             var img = new Image();
             img.onload = draw;
             img.onerror = failed;
@@ -127,6 +119,7 @@
         }
         //Error handler
         function failed() { 
+            alert("errore carica un'altra immagine");
             console.error("The provided file couldn't be loaded as an Image media");
         }
 </script>
