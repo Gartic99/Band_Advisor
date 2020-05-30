@@ -81,7 +81,7 @@
             $("#from_cont").val(mail);
         }
         var res=window.location.href.split("?");
-        if (res.lenght>1){
+        if (res.length>1){
             var mail=res[1].split("=");
             var name=mail[1];
             var finale="";
@@ -93,7 +93,7 @@
                     finale = data;
                     console.log(typeof finale);
                     console.log(data);
-                    //alert(finale);
+                    alert(finale);
                     $("#to_cont").val(finale.trim());
                 },
                 error: function (data) {

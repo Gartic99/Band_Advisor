@@ -92,7 +92,6 @@
     /* Ci prendiamo l'immagine caricata*/
     document.getElementById("profile_img").onchange = function(e) {
             $(".wrapper").show();
-            debugger;
             var img = new Image();
             img.onload = draw;
             img.onerror = failed;
