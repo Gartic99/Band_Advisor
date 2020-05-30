@@ -51,8 +51,8 @@
                     $response =  "<h1>Non puoi mandare contattare un membro di Bandadvisor con il tuo stesso ruolo</h1>";
                 }
                 else{
-                    $q2 = 'INSERT INTO contatta VALUES($1,$2,$3)';
-                    $results = pg_query_params($con, $q2,array($from,$to,$contatta));
+                    $q2 = 'INSERT INTO contatta VALUES($1,$2,$3,$4)';
+                    $results = pg_query_params($con, $q2,array($from,$to,$contatta,date("Y-m-d H:i:s")));
                     if ($results){
                         $response = "<h1> Messaggio inviato </h1>";
                     }

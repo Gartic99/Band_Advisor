@@ -156,8 +156,6 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                         <div class="col-lg-12 col-md-12">
                             <div class="contatti" id="cntcts">
                                 <?php
-                                    
-                                     
                                     $host = constant("DB_HOST");
                                     $user = constant("DB_USER");
                                     $pass = constant("DB_PASSWORD");
@@ -170,7 +168,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                                         echo "<h1> Impossibile connettersi</h1>";
                                     }
 
-                                    $q1="select locale.nome as nome,contatta.cont as cont,locale.mail as mail from contatta,locale where contatta._to=$1 and locale.mail=contatta._from";
+                                    $q1="select distinct locale.nome as nome from contatta,locale where contatta._to=$1 and locale.mail=contatta._from";
                                     $result=pg_query_params($con,$q1,array($_SESSION["username"]));
 
                                     if(pg_num_rows($result)==0){
@@ -178,9 +176,9 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                                     }
                                     
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-                                        echo "<a href='/profilo/profiloEx_locale.php?mail={$line["mail"]}'>";
-                                        echo "{$line["nome"]} ti scrive: </br>";
-                                        echo  $line["cont"];
+                                        echo "<h4>Ti scrive: </h4>";
+                                        echo "<a href='/modal/messaggi_band.php' id='modal_open3'>";
+                                        echo "{$line["nome"]}</br>";
                                         echo '</br>';
                                         echo '</a>';
                                         echo "</br>";
@@ -277,6 +275,10 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
         });
 
         $('#modal_open2').on('click', function(e){
+            e.preventDefault();
+            $('#theModal').modal('show').find('.modal-content').load($(this).attr('href'));
+        });
+        $('#modal_open3').on('click', function(e){
             e.preventDefault();
             $('#theModal').modal('show').find('.modal-content').load($(this).attr('href'));
         });

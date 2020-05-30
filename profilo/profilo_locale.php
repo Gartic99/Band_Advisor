@@ -182,9 +182,9 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                                     }
                                     
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-                                        echo "<a href='/profilo/profiloEx_band.php?mail={$line["mail"]}'>";
-                                        echo "{$line["nome"]} ti scrive: </br>";
-                                        echo  $line["cont"];
+                                        echo "<h4>Ti scrive</h4>";
+                                        echo "<a href='/modal/messaggi_locale.php' id='modal_open3'>";
+                                        echo "{$line["nome"]}</br>";
                                         echo '</br>';
                                         echo '</a>';
                                         echo "</br>";
@@ -282,6 +282,10 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
         });
 
         $('#modal_open2').on('click', function(e){
+            e.preventDefault();
+            $('#theModal').modal('show').find('.modal-content').load($(this).attr('href'));
+        });
+        $('#modal_open3').on('click', function(e){
             e.preventDefault();
             $('#theModal').modal('show').find('.modal-content').load($(this).attr('href'));
         });
