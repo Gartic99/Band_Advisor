@@ -25,7 +25,7 @@
             <label class="login-label-secondo">Upload image</label><br>
             <input type="file" id="profile_img" name="profile_img"></input>
             <input type="submit" style="display: none;" name="edit_button"></input>
-            <div class="wrapper">
+            <div class="wrapper" id="wrapper">
                 <canvas id= "canvas"></canvas>
                 <button id='crop_button' style="display: none;" type="button">Fine Crop</button>
             </div>
@@ -114,6 +114,7 @@
             document.getElementById('crop_button').addEventListener('click',function(){
                 $(".wrapper").hide();
                 sessionStorage.setItem("img",cropper.getCroppedCanvas().toDataURL("image/jpeg").replace(/^data:image\/(png|jpeg);base64,/, ""));
+                cropper.destroy();
             });
         }
         //Error handler
