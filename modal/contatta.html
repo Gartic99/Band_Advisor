@@ -88,7 +88,7 @@
             $.ajax({
                 type: "POST",
                 url: '../config/utils.php',
-                data: {action: 'getName', arguments: name},
+                data: {action: 'getNameString', arguments: name},
                 success: function (data) {
                     finale = data;
                     console.log(typeof finale);
