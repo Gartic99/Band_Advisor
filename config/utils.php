@@ -1,4 +1,14 @@
 <?php
+    include  '../config/config.php';
+    if(isset($_POST['action']) && !empty($_POST['action'])) {
+        $action = $_POST['action'];
+        switch($action) {
+            case 'isBand' : isBand($_POST['arguments']);break;
+            case 'getMail' : getMail($_POST['arguments']);break;
+            case 'getName' : getName($_POST['arguments']);break;
+            // ...etc...
+        }
+    }
     function isBand($band){
         $host = constant("DB_HOST");
         $user = constant("DB_USER");
@@ -37,14 +47,14 @@
         $result=pg_query_params($con,$q1,array($band));
         
         if(pg_num_rows($result)>0){
-           return pg_fetch_array( $result ,null ,PGSQL_ASSOC)["mail"];
+           echo pg_fetch_array( $result ,null ,PGSQL_ASSOC)["mail"];
         }
 
         $q2="SELECT locale.mail FROM locale WHERE locale.nome=$1";
         $result2=pg_query_params($con,$q2,array($band));
         
         if(pg_num_rows($result2)>0){
-           return pg_fetch_array( $result2 ,null ,PGSQL_ASSOC)["mail"];
+           echo pg_fetch_array( $result2 ,null ,PGSQL_ASSOC)["mail"];
         }
     }
     function getName($band){
@@ -62,20 +72,22 @@
         
         $arg=$_POST["arguments"];
         if(empty($arg)){
-            return "Caio";
+            echo "Caio";
         }
         $q1="SELECT band.nome FROM band WHERE band.mail=$1";
-        $result=pg_query_params($con,$q1,array($_POST["arguments"][0]));
+        $result=pg_query_params($con,$q1,array($_POST["arguments"]));
         
         if(pg_num_rows($result)>0){
-           return pg_fetch_array( $result ,null ,PGSQL_ASSOC)["nome"];
+            $nome = pg_fetch_array( $result ,null ,PGSQL_ASSOC)["nome"];
+            echo "".$nome;
         }
 
         $q2="SELECT locale.nome FROM locale WHERE locale.mail=$1";
-        $result2=pg_query_params($con,$q2,array($_POST["arguments"][0]));
+        $result2=pg_query_params($con,$q2,array($_POST["arguments"]));
         
         if(pg_num_rows($result2)>0){
-           return pg_fetch_array( $result2 ,null ,PGSQL_ASSOC)["nome"];
+            $nome = pg_fetch_array( $result2 ,null ,PGSQL_ASSOC)["nome"];
+            echo "".$nome;
         }
     }
     
