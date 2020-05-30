@@ -300,7 +300,6 @@ function validateLForm() {
             data: frm.serialize(),
             success: function (data) {
                 $('.modal-body').append(document.createElement("p").innerHTML = data);
-                $(".modal-body").css('background', 'green');
                 $('#myModal').modal('show');
                 console.log(data);
             },
