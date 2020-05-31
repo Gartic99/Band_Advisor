@@ -46,12 +46,11 @@
               //$fileName = $_FILES["profile_img"]['tmp_name'];
               //$data = file_get_contents($fileName);
               $data = $_POST["profile_img"];
-              echo "<h2>Foto Aggiornata</h2>";
+              
           }
           if ($_POST["edit_desc"]!=""){
               $desc = strip_tags(trim($_POST["edit_desc"]));
-              echo "<h2>Descrizione Aggiornata</h2>" ;
-          }
+              
           //$encode=base64_encode($data);
           // rimozione della riga
           $q1 = "delete from img_profili where mail = $1";
@@ -60,6 +59,9 @@
           // Insert it into the database
           $q1 = 'INSERT INTO img_profili VALUES($1,$2,$3)';
           $results = pg_query_params($con, $q1,array($_COOKIE["mail"],$data,$desc));
+
+          echo "<h2>Profilo aggiornato</h2>";
         }
+      }  
     }
 ?>
