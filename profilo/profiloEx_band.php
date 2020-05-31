@@ -67,17 +67,17 @@ session_start();
             <img class="img-responsive" src="/assets/BandLogo.png" style="max-width:17vw;height:auto;display:block;">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarsExample04">
-          <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-                <a class="nav-link" href="/modal/recensione.html" id="modal_open">Scrivi una Recensione<span class="sr-only">(current)</span></a>
-            </li>
-            <li>
-                <a class="nav-link" href="/modal/contatta.html" id="modal_open1">Contatta la Band<span class="sr-only">(current)</span></a>
-            </li>
-          </ul>
+            <ul class="navbar-nav mr-auto" >
+                <li class="nav-item active">
+                    <a class="nav-link" href="/modal/recensione.html" id="modal_open">Scrivi una Recensione<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/modal/contatta.html" id="modal_open1">Contatta la Band<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
           <?php  
             if (isset($_COOKIE["username"])) {
 
@@ -294,10 +294,11 @@ session_start();
 
         $(document).ready(function(){
             if (getCookie("type")=="band" && document.getElementById("nav_nome")!=null){
-                document.getElementById("nav_nome").setAttribute("href", "/profilo/profilo_band.php");
+                $("#nav_nome").attr("href", "/profilo/profilo_band.php");
+                $(".nav-item").remove();
             }
             else if (getCookie("type")=="locale" && document.getElementById("nav_nome")!=null){
-                document.getElementById("nav_nome").setAttribute("href", "/profilo/profilo_locale.php");
+                $("#nav_nome").attr("href", "/profilo/profilo_locale.php");
             }
         });
 

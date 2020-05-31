@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <?php
 session_start();
 ?>
@@ -99,7 +100,7 @@ session_start();
                 if(!isset($_GET["name"])){
                     header("Location:../index.php");
                 }
-                
+
                 include  '../config/utils.php';
                 $host = constant("DB_HOST");
                 $user = constant("DB_USER");
@@ -291,6 +292,7 @@ session_start();
             }
             else if (getCookie("type")=="locale" && document.getElementById("nav_nome")!=null){
                 document.getElementById("nav_nome").setAttribute("href", "/profilo/profilo_locale.php");
+                $(".nav-item").remove();
             }
         });
     </script>
