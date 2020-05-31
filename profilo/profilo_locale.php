@@ -241,9 +241,9 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                                             echo "</br>";
                                         }
                                         if(isBand($line["nome"])){
-                                            echo "<a href='/profilo/profiloEx_band.php?mail={$line["nome"]}'>";
+                                            echo "<a href='/profilo/profiloEx_band.php?name={$nome}'>";
                                         }else{
-                                            echo "<a href='/profilo/profiloEx_locale.php?mail={$line["nome"]}'>";
+                                            echo "<a href='/profilo/profiloEx_locale.php?name={$nome}'>";
                                         }
                                         
                                         $stars= "<h4>{$nome}</h4>";

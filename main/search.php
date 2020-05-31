@@ -111,7 +111,8 @@ session_start();
                                 }
 
                                 while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-                                    echo "<a href='/profilo/profiloEx_band.php?mail={$line["mail"]}'>";
+                                    $nome=getName($line["mail"]);
+                                    echo "<a href='/profilo/profiloEx_band.php?mail={$nome}'>";
                                     echo $line["nome"];
                                     echo '</br>';
                                     echo '</a>';
@@ -154,7 +155,8 @@ session_start();
                                     }
                                     
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-                                        echo "<a href='/profilo/profiloEx_locale.php?mail={$line["mail"]}'>";
+                                        $nome=getName($line["mail"]);
+                                        echo "<a href='/profilo/profiloEx_locale.php?mail={$nome}'>";
                                         echo $line["nome"];
                                         echo '</br>';
                                         echo '</a>';

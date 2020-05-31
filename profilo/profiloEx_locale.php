@@ -110,11 +110,11 @@ session_start();
                 }
 
                 $q1="select locale.nome from locale where locale.mail=$1";
-                $result=pg_query_params($con,$q1,array($_GET["mail"]));
+                $result=pg_query_params($con,$q1,array(getMail($_GET["name"])));
                 $nome=(pg_fetch_array($result))["nome"];
 
                 $q="SELECT img,_desc FROM img_profili WHERE mail=$1";
-                $result = pg_query_params($con,$q,array($_GET["mail"])); 
+                $result = pg_query_params($con,$q,array(getMail($_GET["name"]))); 
 
                 if(pg_num_rows($result)==0){
                     echo "<div class='row justify-content-center'>";
@@ -167,7 +167,7 @@ session_start();
                     <div class="row">
                         <div class="nome" style="height: 12.5vh;" id="leftLabel">
                             <?php
-                                $mail=$_GET["mail"];
+                                $mail=getMail($_GET["name"]);
                                 
                                 //include  '../config/config.php';
                                 $host = constant("DB_HOST");
@@ -201,7 +201,7 @@ session_start();
                         <div class="col-lg-12 col-md-12">
                             <div class="testi" id="rvws">
                                 <?php
-                                    $mail=$_GET["mail"];
+                                    $mail=getMail($_GET["name"]);
                                     //include  '../config/config.php';
                                     //include  '../config/utils.php';
                                     $host = constant("DB_HOST");
@@ -238,9 +238,9 @@ session_start();
                                             echo "</br>";
                                         }
                                         if(isBand($line["nome"])){
-                                            echo "<a href='/profilo/profiloEx_band.php?mail={$line["nome"]}'>";
+                                            echo "<a href='/profilo/profiloEx_band.php?name={$nome}'>";
                                         }else{
-                                            echo "<a href='/profilo/profiloEx_locale.php?mail={$line["nome"]}'>";
+                                            echo "<a href='/profilo/profiloEx_locale.php?name={$nome}'>";
                                         }
                                         
                                         $stars= "<h4>{$nome}</h4>";
@@ -255,6 +255,7 @@ session_start();
                                         echo '</br>';
                                         $iter++;
                                     }
+                                    
                                 ?>
                             </div>
                         </div>
