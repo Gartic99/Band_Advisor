@@ -9,6 +9,10 @@ session_start();
     <meta name="keywords" content="bandadvisor band emergenti locali">
     <meta name="author" content="Ghenadie Artic,Marco Calamo">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    
+    <!-- Google Index Verification -->
+    <meta name="google-site-verification" content="aqksowhR4CMGpoNHD1zI-vqWzeK1CmZOEbbNfTgYAGc" />
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
 
