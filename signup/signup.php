@@ -35,8 +35,6 @@ session_start();
                 $result2 = pg_query_params($con,$q2,array($email));
 
                 if(($line=pg_fetch_array($result1,null,PGSQL_ASSOC)) || ($line=pg_fetch_array($result2,null,PGSQL_ASSOC)) ){
-                    $response =  "<h1> Mail già registrata</h1>
-                    <a href=../login/login.html>clicca qui per login</a>";
                     exit( "<h1> Mail già registrata</h1>
                     <a href=../login/login.html>clicca qui per login</a>");
                 }
@@ -48,8 +46,6 @@ session_start();
                 $result2 = pg_query_params($con,$q2,array($nome));
 
                 if(($line=pg_fetch_array($result1,null,PGSQL_ASSOC)) || ($line=pg_fetch_array($result2,null,PGSQL_ASSOC)) ){
-                    $response =  "<h1> Nome già registrato</h1>
-                    <a href=../login/login.html>clicca qui per login</a>";
                     exit("<h1> Nome già registrato</h1>
                     <a href=../login/login.html>clicca qui per login</a>");
                 }
@@ -64,8 +60,7 @@ session_start();
                     $q2 = 'INSERT INTO band VALUES($1,$2,$3,$4)';
                     $results = pg_query_params($con, $q2,array($email,$nome,$password,$genre));
                     if ($results){
-                        $response = "<h1> Registrazione completata</h1>
-                        <a href=../login/login.html>inizia a navigare</a>";
+                        $response = "<h1> Registrazione completata</h1>";
 
                     }
                     pg_free_result($results);
@@ -81,8 +76,6 @@ session_start();
                 $result2 = pg_query_params($con,$q2,array($email));
 
                 if(($line=pg_fetch_array($result1,null,PGSQL_ASSOC)) || ($line=pg_fetch_array($result2,null,PGSQL_ASSOC)) ){
-                    $response = "<h1> Mail già registrata</h1>
-                    <a href=../login/login.html>clicca qui per login</a>";
                     exit( "<h1> Mail già registrata</h1>
                     <a href=../login/login.html>clicca qui per login</a>");
                 }
@@ -94,8 +87,6 @@ session_start();
                 $result2 = pg_query_params($con,$q2,array($nome));
 
                 if(($line=pg_fetch_array($result1,null,PGSQL_ASSOC)) || ($line=pg_fetch_array($result2,null,PGSQL_ASSOC)) ){
-                    $response = "<h1> Nome già registrato</h1>
-                    <a href=../login/login.html>clicca qui per login</a>";
                     exit( "<h1> Nome già registrato</h1>
                     <a href=../login/login.html>clicca qui per login</a>");
                 }
@@ -107,7 +98,7 @@ session_start();
                     $fav_music = implode(";",$_POST['mus_pref']);
                     $q3 = 'INSERT INTO locale VALUES($1,$2,$3,$4,$5)';
                     $results = pg_query_params($con, $q3,array($email,$nome,$password,$genre,$fav_music));
-                    $_SESSION["username"] = $nome;
+                    //$_SESSION["username"] = $nome;
                     if ($results){
                         $response =  "<h1> Registrazione completata</h1>
                         <a href=../login/login.html>inizia a navigare</a>";
