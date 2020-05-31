@@ -157,7 +157,7 @@ session_start();
                                     
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
                                         $nome=getName($line["mail"]);
-                                        echo "<a href='/profilo/profiloEx_locale.php?mail={$nome}'>";
+                                        echo "<a href='/profilo/profiloEx_locale.php?name={$nome}'>";
                                         echo $line["nome"];
                                         echo '</br>';
                                         echo '</a>';
