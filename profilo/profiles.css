@@ -139,6 +139,11 @@ a{
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
     transition: all 0.5s ease;
 }
+#pro_pic_def{
+    border-radius:50%;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.5s ease;
+}
 /* Temp */
 .entra{
     font-family: Gilroy Light;

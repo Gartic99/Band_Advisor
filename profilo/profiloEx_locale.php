@@ -48,9 +48,13 @@ session_start();
                 /*document.getElementById("cntcts").style.fontSize = "2vh";*/
                 document.getElementById("rvws").style.fontSize = "2vh";
             
-
-                document.getElementById("pro_pic").style.width="15vh";
-                document.getElementById("pro_pic").style.height="15vh";
+                if(document.getElementById("pro_pic")){
+                    document.getElementById("pro_pic").style.width="15vh";
+                    document.getElementById("pro_pic").style.height="15vh";
+                }else{
+                    document.getElementById("pro_pic_def").style.width="15vh";
+                    document.getElementById("pro_pic_def").style.height="15vh";
+                }
             }
         }
     </script>
@@ -114,7 +118,7 @@ session_start();
 
                 if(pg_num_rows($result)==0){
                     echo "<div class='row justify-content-center'>";
-                    echo "<img src='../assets/social-media.png' width=200vh height=200vh  id='pro_pic'>";
+                    echo "<img src='../assets/social-media.png' width=200vh height=200vh  id='pro_pic_def'>";
                     echo "</div>";
                     echo "<div class='contattato row justify-content-center' style='height: 12.5vh;' id='nameLabel'>";
                     echo "{$nome}</br>";
@@ -125,7 +129,7 @@ session_start();
                     $raw = $line["img"];
                     if($raw==null){
                         echo "<div class='row justify-content-center'>";
-                        echo "<img src='../assets/social-media.png' width=200vh height=200vh id='pro_pic'>";
+                        echo "<img src='../assets/social-media.png' width=200vh height=200vh id='pro_pic_def'>";
                         echo "<div class='contattato row justify-content-center' style='height: 12.5vh;' id='nameLabel'>";
                         echo "{$nome}</br>";
                         echo "</div>";
