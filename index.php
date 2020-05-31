@@ -93,8 +93,8 @@ session_start();
             <div class="row justify-content-center">
                 <div class="Option_bar">
                     <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-6 col-md-12 col-sm-12" id="rec">
+                        <div class="row justify-content-center" id="rec">
+                            <!--<div class="col-lg-6 col-md-6 col-sm-12" id="rec">-->
                                 
                                     <button class="btn btn-sq-lg" id="band_button" onclick="window.location.href ='/main/button.php?type=band'">
                                         <img src="/assets/Icons/electric-guitar.png" style="height: auto; width: 100%; padding:1%;"><br/>
@@ -109,7 +109,7 @@ session_start();
                                             Locali  </br> 
                                     </button>
                                 
-                            </div>
+                            <!--</div>-->
                         </div>
                     </div>
                 </div>
