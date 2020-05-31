@@ -236,6 +236,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                                     
                                     $iter=0; //Teniamo il conto per una vista migliore
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
+                                        $nome=getName($line["nome"]);
                                         if($iter>0){
                                             echo "</br>";
                                         }
@@ -245,7 +246,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                                             echo "<a href='/profilo/profiloEx_locale.php?mail={$line["nome"]}'>";
                                         }
                                         
-                                        $stars= "<h4>{$line["nome"]}</h4>";
+                                        $stars= "<h4>{$nome}</h4>";
                                         
                                         for($i=0;$i<intval($line["stelle"]);$i++){
                                             $stars.="<span class='fa fa-star checked'></span>";
