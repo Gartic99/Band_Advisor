@@ -279,7 +279,7 @@ function validateLForm() {
     var mus_pref = $("#mus_pref").val().length;   
     if (tipo_l>2 || mus_pref>2) alert("al massimo 2 generi musicali o tipo locale");
 
-    if (l_email == "" || nome == "" || password == "" || password2 == "" || tipo_l<1||mus_pref<1) {
+    else if (l_email == "" || nome == "" || password == "" || password2 == "" || tipo_l<1||mus_pref<1) {
       alert("compila tutti i campi obligatori");
     }
     else if (password.localeCompare(password2)!=0){

@@ -240,7 +240,7 @@ function validateForm() {
     var genere = $("#genere").val().length;
     if (genere>2) alert("al massimo 2 generi musicali");
 
-    if (b_email == "" || nome == "" || password == "" || password2 == "" ||genere<1) {
+    else if (b_email == "" || nome == "" || password == "" || password2 == "" ||genere<1) {
       alert("compila tutti i campi obligatori");
       //return false;
     }

@@ -36,7 +36,7 @@
          }
          
          while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-            echo  '<h6>'.$line["data"].'</h6>';
+            echo  '<h6>'.$line["data "].'</h6>';
              echo  '<h6>'.$line["cont"].'</h6>';
              echo "</br>";
          }
