@@ -60,7 +60,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
         }
     </script>
 </head>
-<body onload="load()">
+<body onload="load();">
     <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
         <a class="navbar-brand" href="/index.php">
             <img class="img-responsive" src="/assets/BandLogo.png" style="max-width:17vw;height:auto;display:block;">
@@ -88,7 +88,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
         <div class="container">
             <?php
                     
-                    include  '../config/config.php';
+                    include  '../config/utils.php';
                     $host = constant("DB_HOST");
                     $user = constant("DB_USER");
                     $pass = constant("DB_PASSWORD");
@@ -208,7 +208,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                                 <?php
                                     
                                     //include  '../config/config.php';
-                                    include  '../config/utils.php';
+                                    //include  '../config/utils.php';
                                     $host = constant("DB_HOST");
                                     $user = constant("DB_USER");
                                     $pass = constant("DB_PASSWORD");
@@ -291,3 +291,4 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
         });
     </script>
 </body>
+</html>

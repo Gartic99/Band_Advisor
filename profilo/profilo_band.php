@@ -50,7 +50,6 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
 
                 document.getElementById("cntcts").style.fontSize = "2vh";
                 document.getElementById("rvws").style.fontSize = "2vh";
-                ;
 
                 document.getElementById("pro_pic").style.width="15vh";
                 document.getElementById("pro_pic").style.height="15vh";
@@ -58,7 +57,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
         }
     </script>
 </head>
-<body onload="load()">
+<body onload="load();">
     <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
         <a class="navbar-brand" href="/index.php">
             <img class="img-responsive" src="/assets/BandLogo.png" style="max-width:17vw;height:auto;display:block;">
@@ -85,8 +84,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
     <section class="main">
         <div class="container">
             <?php
-                
-                include  '../config/config.php';
+                include  '../config/utils.php';
                 $host = constant("DB_HOST");
                 $user = constant("DB_USER");
                 $pass = constant("DB_PASSWORD");
@@ -104,6 +102,9 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                 if(pg_num_rows($result)==0){
                     echo "<div class='row justify-content-center'>";
                     echo "<img src='../assets/social-media.png' width=200vh height=200vh  id='pro_pic'>";
+                    echo "</div>";
+                    echo "<div class='contattato row justify-content-center' style='height: 12.5vh;' id='nameLabel'>";
+                    echo "{$_COOKIE["username"]}</br>";
                     echo "</div>";
                 }
                 else{
@@ -201,7 +202,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                             <div class="testi" id="rvws">
                                 <?php
                                     
-                                    include  '../config/utils.php';
+                                    //include  '../config/utils.php';
                                     $host = constant("DB_HOST");
                                     $user = constant("DB_USER");
                                     $pass = constant("DB_PASSWORD");
@@ -224,6 +225,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                                     
                                     $iter=0; //Teniamo il conto per una vista migliore
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
+                                        $nome=getName($line["nome"]);
                                         if($iter>0){
                                             echo "</br>";
                                         }
@@ -233,7 +235,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                                             echo "<a href='/profilo/profiloEx_locale.php?mail={$line["nome"]}'>";
                                         }
                                         
-                                        $stars= "<h4>{$line["nome"]}</h4>";
+                                        $stars= "<h4>{$nome}</h4>";
                                         
                                         for($i=0;$i<intval($line["stelle"]);$i++){
                                             $stars.="<span class='fa fa-star checked'></span>";
@@ -285,3 +287,4 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
 
     </script>
 </body>
+</html>

@@ -92,7 +92,7 @@ session_start();
     <section class="main">
         <div class="container">
             <?php
-                include  '../config/config.php';
+                include  '../config/utils.php';
                 $host = constant("DB_HOST");
                 $user = constant("DB_USER");
                 $pass = constant("DB_PASSWORD");
@@ -203,7 +203,7 @@ session_start();
                                     $mail=$_GET["mail"];
                                     
                                     //include  '../config/config.php';
-                                    include  '../config/utils.php';
+                                    //include  '../config/utils.php';
                                     $host = constant("DB_HOST");
                                     $user = constant("DB_USER");
                                     $pass = constant("DB_PASSWORD");

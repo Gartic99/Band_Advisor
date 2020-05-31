@@ -48,7 +48,7 @@
                     $response =  "<h1>Locale o Band non esistente</h1>";
                 }
                 else if( (isBand(getMail($to)) && isBand($_COOKIE["mail"])) || ( !isBand(getMail($to)) && !isBand($_COOKIE["mail"]))){
-                    $response =  "<h1>Non puoi mandare contattare un membro di Bandadvisor con il tuo stesso ruolo</h1>";
+                    $response =  "<h1>Non puoi contattare un membro di Bandadvisor con il tuo stesso ruolo</h1>";
                 }
                 else{
                     $q2 = 'INSERT INTO contatta VALUES($1,$2,$3,$4)';
