@@ -97,7 +97,7 @@ session_start();
                         echo "<div class='contatti' id='cntcts'>";
 
                         
-                        include  '../config/config.php';
+                        include  '../config/utils.php';
                         $host = constant("DB_HOST");
                         $user = constant("DB_USER");
                         $pass = constant("DB_PASSWORD");
@@ -125,7 +125,8 @@ session_start();
                             $x=1;
                             while( $line = pg_fetch_array( $result1 ,null ,PGSQL_ASSOC) ) {
                                 echo "<h2>".$x.". ";
-                                echo "<a href='/profilo/profiloEx_band.php?mail={$line["mail"]}' style='font-family:Gilroy Medium'>";
+                                $nome=getName($line["mail"]);
+                                echo "<a href='/profilo/profiloEx_band.php?name={$nome}' style='font-family:Gilroy Medium'>";
                                 echo $line["nome"]."</h2>"; 
                                 echo '</a>';
                                 echo "{$line['media']} "."<span class='fa fa-star checked'></span>";
@@ -142,7 +143,8 @@ session_start();
                             $x=1;
                             while( $line = pg_fetch_array( $result2 ,null ,PGSQL_ASSOC) ) {
                                 echo "<h2>".$x.". ";
-                                echo "<a href='/profilo/profiloEx_locale.php?mail={$line["mail"]}' style='font-family:Gilroy Medium'>";
+                                $nome=getName($line["mail"]);
+                                echo "<a href='/profilo/profiloEx_locale.php?name={$nome}' style='font-family:Gilroy Medium'>";
                                 echo $line["nome"]."</h2>"; 
                                 echo '</a>';
                                 echo "{$line['media']}"."<span class='fa fa-star checked'></span>";
