@@ -96,6 +96,9 @@ session_start();
     <section class="main">
         <div class="container">
             <?php
+                if(!isset($_GET["name"])){
+                    header("Location: https://bandadvisor.it");
+                }
                 include  '../config/utils.php';
                 $host = constant("DB_HOST");
                 $user = constant("DB_USER");
@@ -136,7 +139,6 @@ session_start();
                     }
                     else{
                         // Convert to binary and send to the browser
-                        //header('Content-type: image/jpeg');
                         $img64 = pg_unescape_bytea($raw);
                         echo "<div class='row justify-content-center'>";
                         echo "<img src='data:image/jpeg;base64, $img64' width=200vh height=200vh  id='pro_pic'>";
