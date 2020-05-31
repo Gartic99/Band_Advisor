@@ -81,7 +81,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                 <a class="nav-link" href="/modal/contatta.html" id="modal_open1">Contatta una Band<span class="sr-only">(current)</span></a>
             </li>
             <li>
-                <a class="nav-link" href="/modal/edit.html" id="modal_open2">Edit<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/modal/edit.html" id="modal_open2">Aggiorna Profilo<span class="sr-only">(current)</span></a>
             </li>
           </ul>
           <a class="nav-link" href="/profilo/profilo_locale.php" id="nav_nome"> <?php  if (isset($_COOKIE["username"])) {echo htmlspecialchars($_COOKIE["username"]);}?> <span class="sr-only">(current)</span></a>
