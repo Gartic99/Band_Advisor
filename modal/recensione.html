@@ -108,26 +108,10 @@
             $("#from_rec").val(mail);
         }
         var res=window.location.href.split("?");
-        if (res.lenght>1){
+        if (res.length>1){
             var mail=res[1].split("=");
-            var name=mail[1];
-            var finale="";
-            $.ajax({
-                type: "POST",
-                url: '../config/utils.php',
-                data: {action: 'getName', arguments: name},
-                success: function (data) {
-                    finale = data;
-                    console.log(typeof finale);
-                    console.log(data);
-                    //alert(finale);
-                    $("#to_rec").val(finale.trim());
-                },
-                error: function (data) {
-                    alert("Err");
-                    console.log(data);
-                }
-            });
+            var name=decodeURI(mail[1]);
+            $("#to_rec").val(name.trim());
         }
     });
 

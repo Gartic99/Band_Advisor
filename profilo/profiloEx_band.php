@@ -99,7 +99,7 @@ session_start();
         <div class="container">
             <?php
                 if(!isset($_GET["name"])){
-                    header("Location: https://bandadvisor.it");
+                    header("Location:../index.php");
                 }
                 include  '../config/utils.php';
                 $host = constant("DB_HOST");

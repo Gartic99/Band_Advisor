@@ -89,7 +89,8 @@ session_start();
                                 } 
 
                                 
-                                include  '../config/config.php';
+                                //include  '../config/config.php';
+                                include '../config/utils.php';
                                 $host = constant("DB_HOST");
                                 $user = constant("DB_USER");
                                 $pass = constant("DB_PASSWORD");
@@ -112,7 +113,7 @@ session_start();
 
                                 while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
                                     $nome=getName($line["mail"]);
-                                    echo "<a href='/profilo/profiloEx_band.php?mail={$nome}'>";
+                                    echo "<a href='/profilo/profiloEx_band.php?name={$nome}'>";
                                     echo $line["nome"];
                                     echo '</br>';
                                     echo '</a>';
