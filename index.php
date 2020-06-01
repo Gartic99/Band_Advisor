@@ -26,7 +26,7 @@ session_start();
         "@type": "ListItem",
         "position": 2,
         "name": "Signup",
-        "item": "https://example.com/signup/signup.html"
+        "item": "https://bandadvisor.it/signup/signup.html"
       }]
     }
     </script>
