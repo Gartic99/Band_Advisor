@@ -76,15 +76,15 @@ session_start();
                         <div class="contatti" id="cntcts">
                             <?php   
 
-                                if(empty((string) $_POST["search"])){
+                                if(empty((string) $_GET["search"])){
                                     echo "ciao";
                                     header("Location: https://bandadvisor.it");
                                 }
-                                if("" === trim((string) $_POST['search'])){
+                                if("" === trim((string) $_GET['search'])){
                                     echo "ciaone";
                                     header("Location: https://bandadvisor.it");
                                 }   
-                                if(!isset($_POST["search"])){
+                                if(!isset($_GET["search"])){
                                     header("Location: https://bandadvisor.it");
                                 } 
 
@@ -103,7 +103,7 @@ session_start();
                                     echo "<h1> Impossibile connettersi</h1>";
                                 }
                                 
-                                $name=trim(strtolower($_POST["search"]));
+                                $name=trim(strtolower($_GET["search"]));
                                 $q1="SELECT band.nome,band.mail FROM band WHERE lower(band.nome) LIKE '%".$name."%'";
                                 $result=pg_query($con,$q1);
                                 
@@ -147,7 +147,7 @@ session_start();
                                         echo "<h1> Impossibile connettersi</h1>";
                                     }
                                     
-                                    $name=strtolower($_POST["search"]);
+                                    $name=strtolower($_GET["search"]);
                                     $q1="SELECT locale.nome,locale.mail FROM locale WHERE lower(locale.nome) LIKE '%".$name."%'";
                                     $result=pg_query($con,$q1);
 

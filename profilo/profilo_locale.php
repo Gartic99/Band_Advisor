@@ -91,7 +91,9 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
     <section class="main">
         <div class="container">
             <?php
-                    
+                    if(!isset($_COOKIE["mail"])||!isset($_COOKIE["username"])){
+                        header("Location: ../index.php");
+                    }
                     include  '../config/utils.php';
                     $host = constant("DB_HOST");
                     $user = constant("DB_USER");

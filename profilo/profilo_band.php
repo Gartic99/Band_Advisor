@@ -12,7 +12,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <link rel="stylesheet" href="/style/common.css">
     <link rel="stylesheet" href="/style/form.css">
     <link rel="stylesheet" href="/profilo/profiles.css">
@@ -40,6 +40,10 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
 
                 document.getElementById("nameLabel").style.height = "5vh";
                 document.getElementById("nameLabel").style.fontSize = "2vh";
+
+                document.getElementById("genreLabel").style.height = "5vh";
+                document.getElementById("genreLabel").style.fontSize = "2vh";
+                document.getElementById("genreLabel").style.paddingLeft = "5%";
 
                 //Controlliamo se è stata inserita una recensione
                 if(document.getElementById("centralLabel")){
@@ -90,6 +94,9 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
     <section class="main">
         <div class="container">
             <?php
+                if(!isset($_COOKIE["mail"])||!isset($_COOKIE["username"])){
+                    header("Location: ../index.php");
+                }
                 include  '../config/utils.php';
                 $host = constant("DB_HOST");
                 $user = constant("DB_USER");
@@ -141,7 +148,6 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                         echo "La tua descrizione</br>";
                         echo "</div>";
                         echo "<div class='col-lg-12 col-md-12'>";
-                        
                         echo "<div id='desc'>";
                         echo $line["_desc"];
                         echo "</div>";
@@ -150,6 +156,14 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                         
                     }
                 }
+                echo "</br>";
+                $q3="select genre from band where mail=$1";
+                $result = pg_query_params($con,$q3,array($_COOKIE["mail"])); 
+                echo "<div class='contattato row ' style='height: 12.5vh;' id='genreLabel'>";
+                $genre=pg_fetch_array($result,null,PGSQL_ASSOC)["genre"];
+                echo "I tuoi generi:</br> {$genre}</br>";
+                echo "</div>";
+                echo "</br>";
             ?>
 
             <div class="row ">
@@ -260,7 +274,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                     </div>
                 </div>
             </div>
-           <!-- <div class="row" style="height:10vh;"></div>-->
+           <div class="row" style="height:10vh;"></div>
         </div>
     </section>
     <section>
