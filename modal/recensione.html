@@ -48,6 +48,13 @@
     <button type="button" class="btn btn-default" type="submit" onclick='$("#recensione_form").submit()' id="fake">Invia</button>
 </div>
 <script>
+    var user=getCookie("username");
+    if(user==""){
+        alert("Devi essere loggato per fare una recensione");
+        window.location.href = "../login/login.html";
+    } 
+</script>
+<script>
     $(document).ready(function(){
         $("#score").selectpicker();
         $(".form-form").submit(function(event){
@@ -137,14 +144,6 @@
             $(this).parent(".result").empty();
         });
     });
-</script>
-<script>
-        var user=getCookie("username");
-        if(user==""){
-            alert("Devi essere loggato per fare una recensione");
-            window.location.href = "../login/login.html";
-        }
-    
 </script>
 </body>
 </html>
