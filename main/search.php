@@ -112,8 +112,8 @@ session_start();
                                 }
 
                                 while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-                                    $nome=getName($line["mail"]);
-                                    echo "<a href='/profilo/profiloEx_band.php?name={$nome}'>";
+                                    $id=getId($line["mail"]);
+                                    echo "<a href='/profilo/profiloEx_band.php?id={$id}'>";
                                     echo $line["nome"];
                                     echo '</br>';
                                     echo '</a>';
@@ -148,7 +148,7 @@ session_start();
                                     }
                                     
                                     $name=strtolower($_POST["search"]);
-                                    $q1="SELECT locale.nome,locale.mail FROM locale WHERE locale.nome LIKE '%".$name."%'";
+                                    $q1="SELECT locale.nome,locale.mail FROM locale WHERE lower(locale.nome) LIKE '%".$name."%'";
                                     $result=pg_query($con,$q1);
 
                                     if(pg_num_rows($result)==0){
@@ -156,8 +156,8 @@ session_start();
                                     }
                                     
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-                                        $nome=getName($line["mail"]);
-                                        echo "<a href='/profilo/profiloEx_locale.php?name={$nome}'>";
+                                        $id=getId($line["mail"]);
+                                        echo "<a href='/profilo/profiloEx_locale.php?id={$id}'>";
                                         echo $line["nome"];
                                         echo '</br>';
                                         echo '</a>';

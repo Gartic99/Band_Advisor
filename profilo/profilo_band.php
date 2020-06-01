@@ -12,6 +12,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <link rel="stylesheet" href="/style/common.css">
     <link rel="stylesheet" href="/style/form.css">
     <link rel="stylesheet" href="/profilo/profiles.css">
@@ -230,14 +231,15 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                                     
                                     $iter=0; //Teniamo il conto per una vista migliore
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
+                                        $id=getId($line["nome"]);
                                         $nome=getName($line["nome"]);
                                         if($iter>0){
                                             echo "</br>";
                                         }
                                         if(isBand($line["nome"])){
-                                            echo "<a href='/profilo/profiloEx_band.php?name={$nome}'>";
+                                            echo "<a href='/profilo/profiloEx_band.php?id={$id}'>";
                                         }else{
-                                            echo "<a href='/profilo/profiloEx_locale.php?name={$nome}'>";
+                                            echo "<a href='/profilo/profiloEx_locale.php?id={$id}'>";
                                         }
                                         
                                         $stars= "<h4>{$nome}</h4>";
@@ -252,7 +254,6 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                                         echo '</br>';
                                         $iter++;
                                     }
-                                    
                                 ?>
                             </div>
                         </div>

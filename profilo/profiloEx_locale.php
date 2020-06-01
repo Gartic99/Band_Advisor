@@ -97,7 +97,7 @@ session_start();
     <section class="main">
         <div class="container">
             <?php
-                if(!isset($_GET["name"])){
+                if(!isset($_GET["id"])){
                     header("Location:../index.php");
                 }
 
@@ -115,11 +115,11 @@ session_start();
                 }
 
                 $q1="select locale.nome from locale where locale.mail=$1";
-                $result=pg_query_params($con,$q1,array(getMail($_GET["name"])));
+                $result=pg_query_params($con,$q1,array(getMailFromId($_GET["id"])));
                 $nome=(pg_fetch_array($result))["nome"];
 
                 $q="SELECT img,_desc FROM img_profili WHERE mail=$1";
-                $result = pg_query_params($con,$q,array(getMail($_GET["name"]))); 
+                $result = pg_query_params($con,$q,array(getMailFromId($_GET["id"]))); 
 
                 if(pg_num_rows($result)==0){
                     echo "<div class='row justify-content-center'>";
@@ -171,7 +171,7 @@ session_start();
                     <div class="row">
                         <div class="nome" style="height: 12.5vh;" id="leftLabel">
                             <?php
-                                $mail=getMail($_GET["name"]);
+                                $mail=getMailFromId($_GET["id"]);
                                 
                                 //include  '../config/config.php';
                                 $host = constant("DB_HOST");
@@ -205,7 +205,7 @@ session_start();
                         <div class="col-lg-12 col-md-12">
                             <div class="testi" id="rvws">
                                 <?php
-                                    $mail=getMail($_GET["name"]);
+                                    $mail=getMailFromId($_GET["id"]);
                                     //include  '../config/config.php';
                                     //include  '../config/utils.php';
                                     $host = constant("DB_HOST");
@@ -237,14 +237,15 @@ session_start();
 
                                     $iter=0; //Teniamo il conto per una vista migliore
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
+                                        $id=getId($line["nome"]);
                                         $nome=getName($line["nome"]);
                                         if($iter>0){
                                             echo "</br>";
                                         }
                                         if(isBand($line["nome"])){
-                                            echo "<a href='/profilo/profiloEx_band.php?name={$nome}'>";
+                                            echo "<a href='/profilo/profiloEx_band.php?id={$id}'>";
                                         }else{
-                                            echo "<a href='/profilo/profiloEx_locale.php?name={$nome}'>";
+                                            echo "<a href='/profilo/profiloEx_locale.php?id={$id}'>";
                                         }
                                         
                                         $stars= "<h4>{$nome}</h4>";

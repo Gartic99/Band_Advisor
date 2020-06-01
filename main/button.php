@@ -126,7 +126,8 @@ session_start();
                             while( $line = pg_fetch_array( $result1 ,null ,PGSQL_ASSOC) ) {
                                 echo "<h2>".$x.". ";
                                 $nome=getName($line["mail"]);
-                                echo "<a href='/profilo/profiloEx_band.php?name={$nome}' style='font-family:Gilroy Medium'>";
+                                $id=getId($line["mail"]);
+                                echo "<a href='/profilo/profiloEx_band.php?id={$id}' style='font-family:Gilroy Medium'>";
                                 echo $line["nome"]."</h2>"; 
                                 echo '</a>';
                                 echo "{$line['media']} "."<span class='fa fa-star checked'></span>";
@@ -144,7 +145,8 @@ session_start();
                             while( $line = pg_fetch_array( $result2 ,null ,PGSQL_ASSOC) ) {
                                 echo "<h2>".$x.". ";
                                 $nome=getName($line["mail"]);
-                                echo "<a href='/profilo/profiloEx_locale.php?name={$nome}' style='font-family:Gilroy Medium'>";
+                                $id=getId($line["mail"]);
+                                echo "<a href='/profilo/profiloEx_locale.php?id={$id}' style='font-family:Gilroy Medium'>";
                                 echo $line["nome"]."</h2>"; 
                                 echo '</a>';
                                 echo "{$line['media']}"."<span class='fa fa-star checked'></span>";

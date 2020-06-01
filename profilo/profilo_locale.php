@@ -236,14 +236,15 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                                     
                                     $iter=0; //Teniamo il conto per una vista migliore
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
+                                        $id=getId($line["nome"]);
                                         $nome=getName($line["nome"]);
                                         if($iter>0){
                                             echo "</br>";
                                         }
                                         if(isBand($line["nome"])){
-                                            echo "<a href='/profilo/profiloEx_band.php?name={$nome}'>";
+                                            echo "<a href='/profilo/profiloEx_band.php?id={$id}'>";
                                         }else{
-                                            echo "<a href='/profilo/profiloEx_locale.php?name={$nome}'>";
+                                            echo "<a href='/profilo/profiloEx_locale.php?id={$id}'>";
                                         }
                                         
                                         $stars= "<h4>{$nome}</h4>";
@@ -258,7 +259,6 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                                         echo '</br>';
                                         $iter++;
                                     }
-                                    
                                 ?>
                             </div>
                         </div>

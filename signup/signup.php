@@ -60,7 +60,8 @@ session_start();
                     $q2 = 'INSERT INTO band VALUES($1,$2,$3,$4,$5)';
                     $results = pg_query_params($con, $q2,array($email,$nome,$password,$genre,md5($nome)));
                     if ($results){
-                        $response = "<h1> Registrazione completata</h1>";
+                        $response = "<h1> Registrazione completata</h1>
+                        <a href=../login/login.html>clicca qui per login</a>";
 
                     }
                     pg_free_result($results);

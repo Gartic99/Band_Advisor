@@ -17,13 +17,13 @@
     
     
     if(isset($_REQUEST["term"])){
-        $result=pg_query($con, "SELECT nome FROM band where nome=''");
-        $result1=pg_query($con, "SELECT nome FROM band where nome=''");
+        $result=pg_query($con, "SELECT nome FROM band where lower(nome)=''");
+        $result1=pg_query($con, "SELECT nome FROM band where lower(nome)=''");
         // Prepare a select statement
         /*$q = "SELECT distinct band.nome as nomeb,locale.nome as nomel FROM band,locale WHERE band.nome LIKE $1 or locale.nome LIKE $1";*/
-        $q = "SELECT distinct band.nome as nomeb from band where band.nome like $1";
-        $q1 = "SELECT distinct locale.nome as nomel from locale where locale.nome like $1";
-        $term='%'.$_REQUEST["term"].'%';
+        $q = "SELECT distinct band.nome as nomeb from band where lower(band.nome) like $1";
+        $q1 = "SELECT distinct locale.nome as nomel from locale where lower(locale.nome) like $1";
+        $term='%'.strtolower($_REQUEST["term"]).'%';
         if ($_COOKIE["type"]=="locale"){
             $result=pg_query_params($con,$q,array($term));
         }
@@ -37,13 +37,13 @@
             // Fetch result rows as an associative array
             echo "<h4>Band</h4>";
             while($row = pg_fetch_array($result,null ,PGSQL_ASSOC)){
-                echo "<p>" . $row["nomeb"] . "</p>";
+                echo "<p style='cursor:pointer;'>" . $row["nomeb"] . "</p>";
             }
         }
         else if (pg_num_rows($result1)>0){
             echo "<h4>Locali</h4>";
             while($row = pg_fetch_array($result1,null ,PGSQL_ASSOC)){
-                echo "<p>" . $row["nomel"] . "</p>";
+                echo "<p style='cursor:pointer;'>" . $row["nomel"] . "</p>";
             }
         } 
         else{
