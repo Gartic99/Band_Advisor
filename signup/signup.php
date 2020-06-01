@@ -57,8 +57,8 @@ session_start();
 
                     $genre=implode(";",$_POST['genere']);
 
-                    $q2 = 'INSERT INTO band VALUES($1,$2,$3,$4)';
-                    $results = pg_query_params($con, $q2,array($email,$nome,$password,$genre));
+                    $q2 = 'INSERT INTO band VALUES($1,$2,$3,$4,$5)';
+                    $results = pg_query_params($con, $q2,array($email,$nome,$password,$genre,md5($nome)));
                     if ($results){
                         $response = "<h1> Registrazione completata</h1>";
 
@@ -96,8 +96,8 @@ session_start();
                     $password=md5($_POST["password"]);
                     $genre=implode(";",$_POST['tipo_l']);
                     $fav_music = implode(";",$_POST['mus_pref']);
-                    $q3 = 'INSERT INTO locale VALUES($1,$2,$3,$4,$5)';
-                    $results = pg_query_params($con, $q3,array($email,$nome,$password,$genre,$fav_music));
+                    $q3 = 'INSERT INTO locale VALUES($1,$2,$3,$4,$5,$6)';
+                    $results = pg_query_params($con, $q3,array($email,$nome,$password,$genre,$fav_music,md5($nome)));
                     //$_SESSION["username"] = $nome;
                     if ($results){
                         $response =  "<h1> Registrazione completata</h1>

@@ -23,7 +23,7 @@
         /*$q = "SELECT distinct band.nome as nomeb,locale.nome as nomel FROM band,locale WHERE band.nome LIKE $1 or locale.nome LIKE $1";*/
         $q = "SELECT distinct band.nome as nomeb from band where band.nome like $1";
         $q1 = "SELECT distinct locale.nome as nomel from locale where locale.nome like $1";
-        $term=strtolower('%'.$_REQUEST["term"].'%');
+        $term='%'.$_REQUEST["term"].'%';
         if ($_COOKIE["type"]=="locale"){
             $result=pg_query_params($con,$q,array($term));
         }

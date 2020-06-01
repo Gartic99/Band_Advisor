@@ -21,14 +21,14 @@
         //apro la connessione con il db postgress
         $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
         or die ("Could not connect to server\n");
-        $to=strip_tags(trim(strtolower($_POST["to_cont"])));
+        $to=strip_tags(trim($_POST["to_cont"]));
         $contatta=strip_tags(trim($_POST["contatta_i"]));
 
         if (!$con){
             echo "<h1> Impossibile connettersi<7h1>";
         }
         else{
-            $from=strtolower($_POST["from_cont"]);
+            $from=strtolower(strip_tags($_POST["from_cont"]));
             $q1="select * from locale where mail= $1";
             $q2="select * from band where mail = $1";
             $result1 = pg_query_params($con,$q1,array($from));

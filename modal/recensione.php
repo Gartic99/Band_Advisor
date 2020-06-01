@@ -26,14 +26,14 @@
             echo "<h1> Impossibile connettersi<7h1>";
         }
         else{
-            $from=strtolower($_POST["from_rec"]);
+            $from=strip_tags(strtolower($_POST["from_rec"]));
             $q1="select * from locale where mail= $1";
             $q2="select * from band where mail = $1";
             $result1 = pg_query_params($con,$q1,array($from));
             $result2 = pg_query_params($con,$q2,array($from));
             
             if(!(($line=pg_fetch_array($result1,null,PGSQL_ASSOC)) || ($line=pg_fetch_array($result2,null,PGSQL_ASSOC)))){
-                $to=strip_tags(trim(strtolower($_POST["to_rec"])));
+                $to=strip_tags(trim($_POST["to_rec"]));
                 $recensione=strip_tags(trim($_POST["recensione_i"]));
                 $score=$_POST["score"];
 
@@ -65,7 +65,7 @@
             else{
                 if (isset($_COOKIE["mail"])){
                     if (strcmp((string)$_COOKIE["mail"],(string)$from)){
-                        $to=strip_tags(trim(strtolower($_POST["to_rec"])));
+                        $to=strip_tags(trim($_POST["to_rec"]));
                         $recensione=strip_tags(trim($_POST["recensione_i"]));
                         $score=$_POST["score"];
 
