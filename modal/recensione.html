@@ -51,8 +51,8 @@
     $(document).ready(function(){
         $("#score").selectpicker();
         $(".form-form").submit(function(event){
-                event.preventDefault();
-            });
+            event.preventDefault();
+        });
 	});
 
     function validateLForm() {
@@ -142,7 +142,7 @@
         var user=getCookie("username");
         if(user==""){
             alert("Devi essere loggato per fare una recensione");
-            window.location.href = "https://bandadvisor.it/login/login.html";
+            window.location.href = "../login/login.html";
         }
     
 </script>
