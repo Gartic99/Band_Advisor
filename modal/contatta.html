@@ -81,9 +81,9 @@
             $("#from_cont").val(mail);
         }
         var res=window.location.href.split("?");
-        if (res.length>1){
-            var mail=res[1].split("=");
-            var name=decodeURI(mail[1]);
+        var get=res[1].split("=");
+        if (res.length>1 && get[0]=="name"){
+            var name=decodeURI(get[1]);
             $("#to_cont").val(name.trim());
         }
     });
