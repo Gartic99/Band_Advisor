@@ -60,7 +60,9 @@
         var form_data = new FormData();
 
         form_data.append("edit_desc",desc);
-        form_data.append("profile_img",sessionStorage.getItem("img"));
+        if(!($("#profile_img").get(0).files.length==0)){
+            form_data.append("profile_img",sessionStorage.getItem("img"));
+        }
         $.ajax({
             type: frm.attr('method'),
             url: frm.attr('action'),
@@ -115,13 +117,15 @@
 
             document.getElementById('crop_button').addEventListener('click',function(){
                 $(".wrapper").hide();
-                if(this.files[0]){
+                //if(this.files[0]){
                     sessionStorage.setItem("img",cropper.getCroppedCanvas().toDataURL("image/jpeg").replace(/^data:image\/(png|jpeg);base64,/, ""));
                     cropper.destroy();
-                }else{
+                /*}else{
+                    alert("else");
                     sessionStorage.removeItem("img");
                     cropper.destroy();
-                }
+                }*/
+                //cropper.destroy();
             });
         }
         //Error handler

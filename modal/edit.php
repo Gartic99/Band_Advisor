@@ -30,7 +30,7 @@
               $data = pg_unescape_bytea($line['img']); 
               $desc = $line['_desc'];
           }
-          if ($_POST["profile_img"]){//$_FILES['profile_img']['size']>0 ){
+          if (isset($_POST["profile_img"])){//$_FILES['profile_img']['size']>0 ){
             /*$check = getimagesize($_POST["profile_img"]/*$_FILES["profile_img"]["tmp_name"]);
               if($check !== false) {
               } else {
