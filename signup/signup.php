@@ -39,7 +39,7 @@ session_start();
                     <a href=../login/login.html>clicca qui per login</a>");
                 }
                 
-                $nome=strip_tags(trim(strtolower($_POST["nome"])));
+                $nome=strip_tags(trim($_POST["nome"]));
                 $q1="select * from locale where nome= $1";
                 $q2="select * from band where nome = $1";
                 $result1 = pg_query_params($con,$q1,array($nome));
@@ -80,7 +80,7 @@ session_start();
                     <a href=../login/login.html>clicca qui per login</a>");
                 }
 
-                $nome=strip_tags(trim(strtolower($_POST["nome"])));
+                $nome=strip_tags(trim($_POST["nome"]));
                 $q1="select * from locale where nome= $1";
                 $q2="select * from band where nome = $1";
                 $result1 = pg_query_params($con,$q1,array($nome));

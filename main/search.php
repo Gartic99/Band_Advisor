@@ -103,8 +103,8 @@ session_start();
                                     echo "<h1> Impossibile connettersi</h1>";
                                 }
                                 
-                                $name=strtolower($_POST["search"]);
-                                $q1="SELECT band.nome,band.mail FROM band WHERE band.nome LIKE '%".$name."%'";
+                                $name=trim(strtolower($_POST["search"]));
+                                $q1="SELECT band.nome,band.mail FROM band WHERE lower(band.nome) LIKE '%".$name."%'";
                                 $result=pg_query($con,$q1);
                                 
                                 if(pg_num_rows($result)==0){
