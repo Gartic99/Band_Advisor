@@ -24,6 +24,14 @@
     <button type="button" class="btn btn-default" type="submit" onclick='$("#contatta_form").submit()' id="fake">Invia</button>
 </div>
 <script>
+    var user=getCookie("username");
+    if(user==""){
+        alert("Devi essere loggato per fare una recensione");
+        window.location.href = "../login/login.html";
+    }
+</script>
+
+<script>
     $(document).ready(function(){
         $("#score").selectpicker();
         $(".form-form").submit(function(event){
@@ -117,6 +125,5 @@
         alert("Devi essere loggato per scrivere un messaggio");
         window.location.href = "https://bandadvisor.it/login/login.html";
     }
-
 </script>
 </html>
