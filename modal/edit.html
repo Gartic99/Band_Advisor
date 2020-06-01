@@ -91,11 +91,13 @@
 <script>
     /* Ci prendiamo l'immagine caricata*/
     document.getElementById("profile_img").onchange = function(e) {
-            $(".wrapper").show();
-            var img = new Image();
-            img.onload = draw;
-            img.onerror = failed;
-            img.src = URL.createObjectURL(this.files[0]);
+            if(this.files[0]){
+                $(".wrapper").show();
+                var img = new Image();
+                img.onload = draw;
+                img.onerror = failed;
+                img.src = URL.createObjectURL(this.files[0]);
+            }
         };
         /*Funzione chiamata da onchange di sopra serve a disgnare il frame*/
         function draw() {
@@ -113,8 +115,13 @@
 
             document.getElementById('crop_button').addEventListener('click',function(){
                 $(".wrapper").hide();
-                sessionStorage.setItem("img",cropper.getCroppedCanvas().toDataURL("image/jpeg").replace(/^data:image\/(png|jpeg);base64,/, ""));
-                cropper.destroy();
+                if(this.files[0]){
+                    sessionStorage.setItem("img",cropper.getCroppedCanvas().toDataURL("image/jpeg").replace(/^data:image\/(png|jpeg);base64,/, ""));
+                    cropper.destroy();
+                }else{
+                    sessionStorage.removeItem("img");
+                    cropper.destroy();
+                }
             });
         }
         //Error handler
