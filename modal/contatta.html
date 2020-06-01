@@ -111,5 +111,12 @@
         });
     });
 </script>
+<script>
+    var user=getCookie("username");
+    if(user==""){
+        alert("Devi essere loggato per fare una recensione");
+        window.location.href = "https://bandadvisor.it/login/login.html";
+    }
 
+</script>
 </html>
