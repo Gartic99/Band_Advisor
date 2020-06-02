@@ -14,7 +14,7 @@
                 <div class="result list-group" style="overflow-x: hidden;"></div>
             </div>
             <label class="login-label-secondo">Messaggio</label><br>
-            <textarea class="form-input md-textarea" name="contatta_i" id="contatta_i" rows="7"></textarea>
+            <textarea class="form-input md-textarea" name="contatta_i" id="contatta_i" rows="7" style="padding:5%;"></textarea>
             <input type="submit" style="display: none;" name="contatta_button"></input>
         </form>
     </div>
@@ -43,7 +43,7 @@
         var from = $("#from_cont").val();
         var to = $("#to_cont").val();
         var rec = $("contatta_i").val(); 
-
+        rec=$.trim(rec);
         if (from == "" || to == "" || rec == "") {
         alert("compila tutti i campi obligatori");
         }

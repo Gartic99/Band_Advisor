@@ -25,20 +25,20 @@
             </div>
             <label class="login-label-secondo">Recensione</label><br>
             <textarea class="form-input md-textarea" name="recensione_i" id="recensione_i" rows="7" style="padding:5%"></textarea><br>
-            <label class="login-label-secondo">Punteggio</label><br>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
             
-            <select name="score" id="score" title="valutazione">
-                <option value="5">5</option>
-                <option value="4">4</option>
-                <option value="3">3</option>
-                <option value="2">2</option>
-                <option value="1">1</option>
-            </select>
+            <label class="login-label-secondo">Punteggio</label><br>
+            <div class="form-row">
+                <select class="col-6 mb-2" name="score" id="score" title="valutazione" onchange="stars()">
+                    <option value="5">5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>
+                </select>
+                <div class="col-1"></div>
+                <div class="col-5"id="stelle">
+                </div>
+            </div>
             <input type="submit" style="display: none;" name="recensione_button"></input>
         </form>
     </div>
@@ -66,10 +66,13 @@
         var from = $("#from_rec").val();
         var to = $("#to_rec").val();
         var rec = $("recensione_i").val();
+        rec=$.trim(rec);
+        
         
         var punteggio = $("#score").val().length;  
 
-        if (from == "" || to == "" || rec == "" || punteggio<1) {
+        if (from == "" || to == "" || rec == "" ||  punteggio<1) {
+        $("recnsione_i").val("");
         alert("compila tutti i campi obligatori");
         }
         else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(from))){
@@ -144,6 +147,20 @@
             $(this).parent(".result").empty();
         });
     });
+</script>
+<script>
+    function stars(){
+        var holder=document.getElementById("stelle");
+
+        holder.innerHTML="";
+        var cap=$("#score").val();
+        for(i=0;i<cap;i++){
+            var star = document.createElement("span");
+            star.className="fa fa-star checked";
+            holder.appendChild(star);
+        }
+    }
+
 </script>
 </body>
 </html>
