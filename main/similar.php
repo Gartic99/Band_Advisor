@@ -118,11 +118,23 @@ session_start();
                         
                         //Lenzerini sii fiero di me
                         $gen=explode(",",$_COOKIE["genre"]);
-                        $q1="select band.nome,band.mail,band.genre1,band.genre2,trunc(avg(rating),1) as media from band,recensione where recensione._to=band.nome and band.genre1 in ($1,$2) or (band.genre2!=null and band.genre2 in ($1,$2)) group by mail,nome order by media desc limit 10";
-                        $q2="select locale.nome,locale.mail,locale.fav_music,trunc(avg(rating),1) as media from locale,recensione where recensione._to=locale.nome and locale.fav_music1 in ($1,$2)  group by mail,nome order by media desc limit 10";
+                        $q1="select band.nome,band.mail,band.genre1,band.genre2,trunc(avg(rating),1) as media from band,recensione 
+                        where recensione._to=band.nome and band.genre1 in ($1,$2) or (band.genre2!=null and band.genre2 in ($1,$2))
+                        group by mail,nome order by media desc limit 10";
+                        $q2="select locale.nome,locale.mail,locale.fav_music1,locale.fav_music2,trunc(avg(rating),1) as media from locale,recensione 
+                        where recensione._to=locale.nome and locale.fav_music1 in ($1,$2)  or (locale.fav_music2!=null and locale.fav_music2 in ($1,$2))  
+                        group by mail,nome order by media desc limit 10";
 
-                        $result1=pg_query($con,$q1);
-                        $result2=pg_query($con,$q2);
+                        if(isset($gen[1])){
+                            echo "multiple";
+                            $result1=pg_query_params($con,$q1,array($gen[0],$gen[1]));
+                            $result2=pg_query_params($con,$q2,array($gen[0],$gen[1]));
+                        }else{
+                            echo "single";
+                            $result1=pg_query_params($con,$q1,array($gen[0],$gen[0]));
+                            $result2=pg_query_params($con,$q2,array($gen[0],$gen[0]));
+                        }
+                        
 
                         if($type=="band"){
                             if(pg_num_rows($result2)==0){

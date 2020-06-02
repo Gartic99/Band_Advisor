@@ -58,9 +58,10 @@
         $_SESSION["type"]="locale";
         setcookie("type", "locale", time() + (86400), "/");
         $_SESSION["genre"]=$ln["genre1"].",".$ln["genre2"];
-        setcookie("genre", $ln["genre1"].",".$ln["genre2"], time() + (86400), "/");
+        $genre=$ln["genre1"].",".$ln["genre2"];
+        setcookie("genre",$genre, time() + (86400), "/");
         
-        echo "<script> window.location.href = '/profilo/profilo_locale.php'</script>"; //carico il profilo dell'utente
+        echo "<script> window.location.href = '/profilo/profilo_locale.php'</script>"; //carico il profilo dell'utente'
         die();
 
         
@@ -88,8 +89,9 @@
         setcookie("mail", $ln["mail"], time() + (86400), "/");
         $_SESSION["band"] = "band";
         setcookie("type", "band", time() + (86400), "/");
-        $_SESSION["genre"]==$ln["genre1"].",".$ln["genre2"];
-        setcookie("genre",$ln["genre1"], time() + (86400), "/");
+        $_SESSION["genre"]=$ln["genre1"].",".$ln["genre2"];
+        $genre=$ln["genre1"].",".$ln["genre2"];
+        setcookie("genre",$genre, time() + (86400), "/");
         echo "<script> window.location.href = '/profilo/profilo_band.php'</script>"; //carico il profilo dell'utente
 
     }
