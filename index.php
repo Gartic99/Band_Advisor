@@ -24,7 +24,7 @@ session_start();
     <link rel="stylesheet" href="/style/common.css">
     <link rel="stylesheet" href="/style/index.css">
     <link rel="stylesheet" href="/style/form.css">
-    <link rel="icon" href="/assets/B.png">
+    <link rel="icon" href="/assets/B.jpg">
     <title>Band Advisor</title>
     <script>
         //@ sourceURL = your_injected_file.js
