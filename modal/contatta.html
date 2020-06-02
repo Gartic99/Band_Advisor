@@ -42,7 +42,7 @@
     function validateLForm() {
         var from = $("#from_cont").val();
         var to = $("#to_cont").val();
-        var rec = $("contatta_i").val(); 
+        var rec = $("#contatta_i").val(); 
         rec=$.trim(rec);
         if (from == "" || to == "" || rec == "") {
         alert("compila tutti i campi obligatori");
@@ -88,12 +88,14 @@
             mail = (getCookie("mail").replace(/^\++|\++$/g, '')).trim();
             $("#from_cont").val(mail);
         }
-        var res=window.location.href.split("&");
-        var get=res[1].split("=");
-        if (res.length>1 && get[0]=="name"){
-            var name=decodeURI(get[1]);
-            $("#to_cont").val(name.trim());
-        }
+        try{
+            var res=window.location.href.split("&");
+            var get=res[1].split("=");
+            if (res.length>1 && get[0]=="name"){
+                var name=decodeURI(get[1]);
+                $("#to_cont").val(name.trim());
+            }
+        }catch(err){}
     });
 </script>
 <script type="text/javascript">

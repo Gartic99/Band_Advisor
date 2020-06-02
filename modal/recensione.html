@@ -65,9 +65,8 @@
     function validateLForm() {
         var from = $("#from_rec").val();
         var to = $("#to_rec").val();
-        var rec = $("recensione_i").val();
-        rec=$.trim(rec);
-        
+        var rec = $("#recensione_i").val();
+        rec = $.trim(rec);
         
         var punteggio = $("#score").val().length;  
 
@@ -118,11 +117,16 @@
             mail = (getCookie("mail").replace(/^\++|\++$/g, '')).trim();
             $("#from_rec").val(mail);
         }
-        var res=window.location.href.split("&");
-        var get=res[1].split("=");
-        if (res.length>1 && get[0]=="name"){
-            var name=decodeURI(get[1]);
-            $("#to_rec").val(name.trim());
+        try{
+            var res=window.location.href.split("&");
+            var get=res[1].split("=");
+            if (res.length>1 && get[0]=="name"){
+                var name=decodeURI(get[1]);
+                $("#to_rec").val(name.trim());
+            }
+        }
+        catch(err){
+
         }
     });
 
