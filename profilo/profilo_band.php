@@ -193,36 +193,25 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                     <div class="row " style="padding-bottom:0%;">
                         <div class="col-lg-12 col-md-12">
                             <div class="contatti" id="cntcts">
-                                <?php
-                                    $host = constant("DB_HOST");
-                                    $user = constant("DB_USER");
-                                    $pass = constant("DB_PASSWORD");
-                                    $db =   constant("DB_NAME");
-
-                                    //apro la connessione con il db postgress
-                                    $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
-                                    or die ("Could not connect to server\n");
-                                    if (!$con){
-                                        echo "<h1> Impossibile connettersi</h1>";
-                                    }
-
-                                    $q1="select locale.nome,locale.id from contatta,locale where contatta._to=$1 and locale.mail=contatta._from group by nome,id";
-                                    $result=pg_query_params($con,$q1,array($_SESSION["username"]));
-
-                                    if(pg_num_rows($result)==0){
-                                        echo "Ancora nessun locale ti ha contattato</br>";
-                                    }
-                                    else{
-                                        while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-                                            $from=$line["id"];
-                                            echo "<a href='/modal/messaggi_band.php?from=$from' class='modal_open3'>";
-                                            echo "{$line["nome"]}";
-                                            echo '</a>';
-                                            echo "</br>";
-                                        }
-                                    }
-                                    
-                                ?>
+                                <script>
+                                function doAjax() {
+                                    $.ajax({
+                                        type: 'GET',
+                                        url: 'update_mess.php',
+                                        data: '',
+                                        success: function (data) {
+                                            $('#cntcts').empty();
+                                            $('#cntcts').append(document.createElement("p").innerHTML = data);
+                                            console.log(data);
+                                            setTimeout(doAjax, 3000);
+                                        },
+                                        error: function (data) {
+                                            console.log(data);
+                                        },
+                                    });
+                                };
+                                setTimeout(doAjax, 1);
+                                </script>
                             </div>
                         </div>
                     </div>  
@@ -237,55 +226,25 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                     <div class="row ">
                         <div class="col-lg-12 col-md-12">
                             <div class="testi" id="rvws">
-                                <?php
-                                    
-                                    //include  '../config/utils.php';
-                                    $host = constant("DB_HOST");
-                                    $user = constant("DB_USER");
-                                    $pass = constant("DB_PASSWORD");
-                                    $db =   constant("DB_NAME");
-
-                                    //apro la connessione con il db postgress
-                                    $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
-                                    or die ("Could not connect to server\n");
-                                    if (!$con){
-                                        echo "<h1> Impossibile connettersi</h1>";
-                                    }
-
-                                    //$q1="select cont from recensione where _to=$1";
-                                    $q1="select recensione._from as nome,recensione.cont as cont,recensione.rating as stelle from recensione where recensione._to=$1";
-                                    $result=pg_query_params($con,$q1,array($_SESSION["username"]));
-
-                                    if(pg_num_rows($result)==0){
-                                        echo "Ancora nessuna recensione per te ;(</br>";
-                                    }
-                                    
-                                    $iter=0; //Teniamo il conto per una vista migliore
-                                    while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-                                        $id=trim((string)getId($line["nome"]));
-                                        $nome=getName($line["nome"]);
-                                        if($iter>0){
-                                            echo "</br>";
-                                        }
-                                        if(isBand($line["nome"])){
-                                            echo "<a href='/profilo/profiloEx_band.php?id={$id}&name=$nome'>";
-                                        }else{
-                                            echo "<a href='/profilo/profiloEx_locale.php?id={$id}&name=$nome'>";
-                                        }
-                                        
-                                        $stars= "<h4>{$nome}</h4>";
-                                        
-                                        for($i=0;$i<intval($line["stelle"]);$i++){
-                                            $stars.="<span class='fa fa-star checked'></span>";
-                                        }
-                                        
-                                        echo $stars."</br>";
-                                        echo '</a>';
-                                        echo "{$line["cont"]}";
-                                        echo '</br>';
-                                        $iter++;
-                                    }
-                                ?>
+                                <script>
+                                    function doAjax1() {
+                                        $.ajax({
+                                            type: 'GET',
+                                            url: 'update_rec.php',
+                                            data: '',
+                                            success: function (data) {
+                                                $('#rvws').empty();
+                                                $('#rvws').append(document.createElement("p").innerHTML = data);
+                                                console.log(data);
+                                                setTimeout(doAjax, 3000);
+                                            },
+                                            error: function (data) {
+                                                console.log(data);
+                                            },
+                                        });
+                                    };
+                                    setTimeout(doAjax1, 1);
+                                </script>
                             </div>
                         </div>
                     </div>
@@ -314,10 +273,6 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
         });
 
         $('#modal_open2').on('click', function(e){
-            e.preventDefault();
-            $('#theModal').modal('show').find('.modal-content').load($(this).attr('href'));
-        });
-        $('.modal_open3').on('click', function(e){
             e.preventDefault();
             $('#theModal').modal('show').find('.modal-content').load($(this).attr('href'));
         });
