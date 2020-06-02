@@ -43,7 +43,7 @@ session_start();
 <body onload="return load();">
     <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
         <a class="navbar-brand" href="/index.php">
-            <img class="img-responsive" src="/assets/BandLogo.png" style="max-width:17vw;height:auto;display:block;">
+            <img class="img-responsive" src="/assets/BandLogo.png" alt="Il nostro logo" style="max-width:17vw;height:auto;display:block;">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -98,7 +98,7 @@ session_start();
                         <div class="row justify-content-center">
                             <div class="col-lg-6 col-md-12 col-sm-12" id="rec">
                                 <button class="btn btn-sq-lg" id="band_button" onclick="window.location.href ='/main/button.php?type=band'">
-                                    <img src="/assets/Icons/electric-guitar.png" style="height: auto; width: 100%; padding:1%;"><br/>
+                                    <img src="/assets/Icons/electric-guitar.png" alt="Bottone Band" style="height: auto; width: 100%; padding:1%;"><br/>
                                     Band </br>
                                 </button>
                                 <!--<a href="#" class="btn btn-sq-lg">
@@ -106,7 +106,7 @@ session_start();
                                     Cantanti </br>
                                 </a>-->
                                 <button  class="btn btn-sq-lg" id="locale button" onclick="window.location.href ='/main/button.php?type=locale'">
-                                    <img src="/assets/Icons/speaker.png" style="height: auto; width: 100%; padding:1%;"><br/>
+                                    <img src="/assets/Icons/speaker.png"  alt="Bottone Locale" style="height: auto; width: 100%; padding:1%;"><br/>
                                         Locali  </br> 
                                 </button>
                             </div>
