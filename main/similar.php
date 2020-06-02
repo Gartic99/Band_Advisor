@@ -85,16 +85,23 @@ session_start();
                             header("Location: ../index.php");
                         }
                         $type=$_COOKIE["type"];
+                        $gen=explode(",",$_COOKIE["genre"]);
                         echo "<div class='row justify-content-center'>";
                         
                         if($type=="band"){
                             echo  "<div class='contattato' style='height: 12.5vh;' id='leftLabel' style='font-family:Gilroy Bold'>";
-                            echo      "Top 10 Locali con genere preferito {$_COOKIE["genre"]}";
+                            echo      "Top 10 Locali con genere preferito {$gen[0]}";
+                            if (isset($gen[1])){
+                                echo $gen[1];
+                            }
                             echo  "</div>";
                         }
                         else{
                             echo  "<div class='contattato' style='height: 12.5vh;' id='leftLabel' style='font-family:Gilroy Bold'>";
-                            echo      "Top 10 Band con genere preferito {$_COOKIE["genre"]}";
+                            echo      "Top 10 Band con genere preferito {$gen[0]}";
+                            if (isset($gen[1])){
+                                echo $gen[1];
+                            }
                             echo  "</div>";
                         }
                         echo "</div>";
@@ -117,7 +124,6 @@ session_start();
                         }
                         
                         //Lenzerini sii fiero di me
-                        $gen=explode(",",$_COOKIE["genre"]);
                         $q1="select band.nome,band.mail,band.genre1,band.genre2,trunc(avg(rating),1) as media from band,recensione 
                         where recensione._to=band.nome and (band.genre1 in ($1,$2) or (band.genre2!='' and band.genre2 in ($1,$2)))
                         group by mail,nome order by media desc limit 10";
