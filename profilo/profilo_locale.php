@@ -220,17 +220,18 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                                         echo "<h1> Impossibile connettersi</h1>";
                                     }
 
-                                    $q1="select band.nome as nome,contatta.cont as cont,band.mail as mail from contatta,band where contatta._to=$1 and band.mail=contatta._from";
+                                    $q1="select band.nome from contatta,band where contatta._to=$1 and band.mail=contatta._from group by nome";
                                     $result=pg_query_params($con,$q1,array($_SESSION["username"]));
 
                                     if(pg_num_rows($result)==0){
                                         echo "Ancora nessuna band ti ha contattato</br>";
                                     }
                                     
+                                    echo "<h4>Ti scrive</h4>";
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-                                        echo "<h4>Ti scrive</h4>";
-                                        echo "<a href='/modal/messaggi_locale.php' id='modal_open3'>";
-                                        echo "{$line["nome"]}</br>";
+                                        $from=$line["nome"];
+                                        echo "<a href='/modal/messaggi_locale.php?from=$from' class='modal_open3'>";
+                                        echo "{$from}</br>";
                                         echo '</br>';
                                         echo '</a>';
                                         echo "</br>";
@@ -332,7 +333,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
             e.preventDefault();
             $('#theModal').modal('show').find('.modal-content').load($(this).attr('href'));
         });
-        $('#modal_open3').on('click', function(e){
+        $('.modal_open3').on('click', function(e){
             e.preventDefault();
             $('#theModal').modal('show').find('.modal-content').load($(this).attr('href'));
         });

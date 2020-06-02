@@ -14,7 +14,7 @@
 <div class="modal-body">
     <div>
         <?php
-        include  '../config/config.php';
+        include  '../config/utils.php';
         $host = constant("DB_HOST");
         $user = constant("DB_USER");
         $pass = constant("DB_PASSWORD");
@@ -26,18 +26,20 @@
         if (!$con){
             echo "<h1> Impossibile connettersi</h1>";
         }
-        
-        $q1="select band.nome as nome,contatta.cont as cont,band.mail as mail from contatta,band where contatta._to=$1 and band.mail=contatta._from";
-        $result=pg_query_params($con,$q1,array($_COOKIE["username"]));
+        $from=getMail($_GET["from"]);
+        $q1="select cont,data
+        from contatta as c join band as b on c._from = b.mail
+        where b.mail=$1 and c._to =$2";
+        $result=pg_query_params($con,$q1,array($from,$_COOKIE["username"]));
         
         if(pg_num_rows($result)==0){
             echo "Ancora nessuna band ti ha contattato</br>";
         }
         
         while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-            echo  '<h6>'.$line["data"].'</h6>';
-             echo  '<h6>'.$line["cont"].'</h6>';
-             echo "</br>";
+            echo '<h6>'.$line["data"].'</h6>';
+            echo '<h6>'.$line["cont"].'</h6>';
+            echo "</br>";
         }
         ?>  
     </div>

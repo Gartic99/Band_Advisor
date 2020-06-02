@@ -206,20 +206,21 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                                         echo "<h1> Impossibile connettersi</h1>";
                                     }
 
-                                    $q1="select distinct locale.nome as nome from contatta,locale where contatta._to=$1 and locale.mail=contatta._from";
+                                    $q1="select locale.nome from contatta,locale where contatta._to=$1 and locale.mail=contatta._from group by nome";
                                     $result=pg_query_params($con,$q1,array($_SESSION["username"]));
 
                                     if(pg_num_rows($result)==0){
                                         echo "Ancora nessun locale ti ha contattato</br>";
                                     }
-                                    
-                                    while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
+                                    else{
                                         echo "<h4>Ti scrive: </h4>";
-                                        echo "<a href='/modal/messaggi_band.php' id='modal_open3'>";
-                                        echo "{$line["nome"]}</br>";
-                                        echo '</br>';
-                                        echo '</a>';
-                                        echo "</br>";
+                                        while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
+                                            $from=$line["nome"];
+                                            echo "<a href='/modal/messaggi_band.php?from=$from' class='modal_open3'>";
+                                            echo "{$from}";
+                                            echo '</a>';
+                                            echo "</br>";
+                                        }
                                     }
                                     
                                 ?>
@@ -317,7 +318,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
             e.preventDefault();
             $('#theModal').modal('show').find('.modal-content').load($(this).attr('href'));
         });
-        $('#modal_open3').on('click', function(e){
+        $('.modal_open3').on('click', function(e){
             e.preventDefault();
             $('#theModal').modal('show').find('.modal-content').load($(this).attr('href'));
         });

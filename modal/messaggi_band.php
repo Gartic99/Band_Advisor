@@ -14,7 +14,7 @@
 <div class="modal-body">
     <div>
         <?php
-         include  '../config/config.php';
+         include  '../config/utils.php';
                                      
          $host = constant("DB_HOST");
          $user = constant("DB_USER");
@@ -27,9 +27,11 @@
          if (!$con){
              echo "<h1> Impossibile connettersi</h1>";
          }
-
-         $q1="select locale.nome as nome,contatta.cont as cont,contatta.data as data,locale.mail as mail from contatta,locale where contatta._to=$1 and locale.mail=contatta._from";
-         $result=pg_query_params($con,$q1,array($_COOKIE["username"]));
+         $from=getMail($_GET["from"]);
+         $q1="select cont,data
+         from contatta as c join locale as b on c._from = b.mail
+         where b.mail=$1 and c._to =$2";
+         $result=pg_query_params($con,$q1,array($from,$_COOKIE["username"]));
 
          if(pg_num_rows($result)==0){
              echo "Ancora nessun locale ti ha contattato</br>";
@@ -45,7 +47,7 @@
     </div>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="close_modal()">Close</button>
 </div>
 <script>
     function close_modal(){
