@@ -10,7 +10,7 @@ session_start();
     <meta name="author" content="Ghenadie Artic,Marco Calamo">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5">
     
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="   crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="   crossorigin="anonymous"></script>
 
     <!-- Google Index Verification -->
     <meta name="google-site-verification" content="aqksowhR4CMGpoNHD1zI-vqWzeK1CmZOEbbNfTgYAGc" />
@@ -24,7 +24,7 @@ session_start();
     <link rel="stylesheet" href="/style/common.css">
     <link rel="stylesheet" href="/style/index.css">
     <link rel="stylesheet" href="/style/form.css">
-    <link rel="icon" href="/assets/B.jpg">
+    <link rel="icon" href="/assets/B.png">
     <title>Band Advisor</title>
     <script>
         //@ sourceURL = your_injected_file.js
