@@ -247,6 +247,9 @@ function validateForm() {
     else if (password.localeCompare(password2)!=0){
         alert("le due password sono diverse");
     }
+    else if(!(/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,32}$/.test(password))){
+        alert("La password deve contenere almeno 8 caratteri alfanumerici di cui almeno uno maiuscolo, uno minuscolo")
+    }
     else if (b_email.localeCompare(b_email2)!=0){
         alert("le due email sono diverse");
     }

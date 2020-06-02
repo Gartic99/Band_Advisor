@@ -282,8 +282,8 @@ function validateLForm() {
     else if (l_email == "" || nome == "" || password == "" || password2 == "" || tipo_l<1||mus_pref<1) {
       alert("compila tutti i campi obligatori");
     }
-    else if(!(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!#$%&\(\)\*+,\-./:;<=>?@\[\\\]^_{|}~])(?=.{6,})"/.test(password))){
-        alert("La password deve contenere almeno 6 caratteri alfanumerici di cui almeno uno maiuscolo, uno minuscolo e almeno un segno di punteggiatura(come ? e &)")
+    else if(!(/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,32}$/.test(password))){
+        alert("La password deve contenere almeno 8 caratteri alfanumerici di cui almeno uno maiuscolo, uno minuscolo")
     }
     else if (password.localeCompare(password2)!=0){
         alert("le due password sono diverse");

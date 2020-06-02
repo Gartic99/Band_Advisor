@@ -52,6 +52,7 @@
                 }
                 else{
                     $q2 = 'INSERT INTO contatta VALUES($1,$2,$3,$4)';
+                    date_default_timezone_set('CET');
                     $results = pg_query_params($con, $q2,array($from,$to,$contatta,date("Y-m-d H:i:s")));
                     if ($results){
                         $response = "<h1> Messaggio inviato </h1>";
