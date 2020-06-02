@@ -88,7 +88,7 @@
             mail = (getCookie("mail").replace(/^\++|\++$/g, '')).trim();
             $("#from_cont").val(mail);
         }
-        var res=window.location.href.split("?");
+        var res=window.location.href.split("&");
         var get=res[1].split("=");
         if (res.length>1 && get[0]=="name"){
             var name=decodeURI(get[1]);

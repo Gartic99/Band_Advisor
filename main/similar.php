@@ -32,7 +32,7 @@ session_start();
                 document.getElementById('leftLabel').style.height = "1rem";
                 //document.getElementById('rightLabel').style.height = "3vh";
                 document.getElementById('leftLabel').style.fontSize = "2rem";
-                document.getElementById('leftLabel').style.padding = "5rem";
+                document.getElementById('leftLabel').style.padding = "15%";
                 //document.getElementById('rightLabel').style.fontSize = "2vh";
                 //document.getElementById('rightLabel').style.paddingLeft = "5%";
                 document.getElementById('cntcts').style.fontSize = "1rem";
@@ -78,20 +78,20 @@ session_start();
             <div class="row justify-content-center">
                 <div class="col-lg-12 col-md-12">
                     <?php
-                        if(!isset($_GET["type"])){
+                        if(!isset($_COOKIE["type"])){
                             header("Location: ../index.php");
                         }
-                        $type=$_GET["type"];
+                        $type=$_COOKIE["type"];
                         echo "<div class='row justify-content-center'>";
                         
                         if($type=="band"){
                             echo  "<div class='contattato' style='height: 12.5vh;' id='leftLabel' style='font-family:Gilroy Bold'>";
-                            echo      "Top 10 Artisti";
+                            echo      "Top 10 Locali con genere preferito {$_COOKIE["genre"]}";
                             echo  "</div>";
                         }
                         else{
                             echo  "<div class='contattato' style='height: 12.5vh;' id='leftLabel' style='font-family:Gilroy Bold'>";
-                            echo      "Top 10 Locali";
+                            echo      "Top 10 Band con genere preferito {$_COOKIE["genre"]}";
                             echo  "</div>";
                         }
                         echo "</div>";
@@ -114,23 +114,23 @@ session_start();
                         }
                         
                         //Lenzerini sii fiero di me
-                        $q1="select band.nome,band.mail,trunc(avg(rating),1) as media from band,recensione where recensione._to=band.nome group by mail,nome order by media desc limit 10";
-                        $q2="select locale.nome,locale.mail,trunc(avg(rating),1) as media from locale,recensione where recensione._to=locale.nome group by mail,nome order by media desc limit 10";
+                        $q1="select band.nome,band.mail,band.genre,trunc(avg(rating),1) as media from band,recensione where recensione._to=band.nome and band.genre='{$_COOKIE["genre"]}' group by mail,nome order by media desc limit 10";
+                        $q2="select locale.nome,locale.mail,locale.fav_music,trunc(avg(rating),1) as media from locale,recensione where recensione._to=locale.nome and locale.fav_music='{$_COOKIE["genre"]}' group by mail,nome order by media desc limit 10";
 
                         $result1=pg_query($con,$q1);
                         $result2=pg_query($con,$q2);
 
                         if($type=="band"){
-                            if(pg_num_rows($result1)==0){
+                            if(pg_num_rows($result2)==0){
                                 echo "Nessun Risultato</br>";
                             }
 
                             $x=1;
-                            while( $line = pg_fetch_array( $result1 ,null ,PGSQL_ASSOC) ) {
+                            while( $line = pg_fetch_array( $result2 ,null ,PGSQL_ASSOC) ) {
                                 echo "<h2>".$x.". ";
                                 $nome=getName($line["mail"]);
-                                $id=trim((string)getId($line["mail"]));
-                                echo "<a href='/profilo/profiloEx_band.php?id={$id}"."&name={$nome}' style='font-family:Gilroy Medium'>";
+                                $id=getId($line["mail"]);
+                                echo "<a href='/profilo/profiloEx_locale.php?id={$id}' style='font-family:Gilroy Medium'>";
                                 echo $line["nome"]."</h2>"; 
                                 echo '</a>';
                                 echo "{$line['media']} "."<span class='fa fa-star checked'></span>";
@@ -140,16 +140,16 @@ session_start();
                             }
                         }
                         else{
-                            if(pg_num_rows($result2)==0){
+                            if(pg_num_rows($result1)==0){
                                 echo "Nessun Risultato</br>";
                             }
 
                             $x=1;
-                            while( $line = pg_fetch_array( $result2 ,null ,PGSQL_ASSOC) ) {
+                            while( $line = pg_fetch_array( $result1 ,null ,PGSQL_ASSOC) ) {
                                 echo "<h2>".$x.". ";
                                 $nome=getName($line["mail"]);
-                                $id=trim((string)getId($line["mail"]));
-                                echo "<a href='/profilo/profiloEx_locale.php?id={$id}&name={$nome}' style='font-family:Gilroy Medium'>";
+                                $id=getId($line["mail"]);
+                                echo "<a href='/profilo/profiloEx_band.php?id={$id}' style='font-family:Gilroy Medium'>";
                                 echo $line["nome"]."</h2>"; 
                                 echo '</a>';
                                 echo "{$line['media']}"."<span class='fa fa-star checked'></span>";

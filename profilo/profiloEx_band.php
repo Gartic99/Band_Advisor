@@ -38,6 +38,10 @@ session_start();
                 document.getElementById("nameLabel").style.height = "5vh";
                 document.getElementById("nameLabel").style.fontSize = "2vh";
 
+                document.getElementById("genreLabel").style.height = "5vh";
+                document.getElementById("genreLabel").style.fontSize = "2vh";
+                document.getElementById("genreLabel").style.paddingLeft = "5%";
+
                 //Controlliamo se è stata inserita una recensione
                 if(document.getElementById("centralLabel")){
                     document.getElementById("centralLabel").style.height = "3vh";
@@ -149,6 +153,16 @@ session_start();
                         echo "{$nome}</br>";
                         echo "</div>";
                     }
+
+                    echo "</br>";
+                    $q3="select genre from band where mail=$1";
+                    $result = pg_query_params($con,$q3,array(getMailFromId($_GET["id"]))); 
+                    echo "<div class='contattato row ' style='height: 12.5vh;' id='genreLabel'>";
+                    $genre=pg_fetch_array($result,null,PGSQL_ASSOC)["genre"];
+                    echo "Generi preferiti:</br> {$genre}</br>";
+                    echo "</div>";
+                    echo "</br>";
+
                     if($line["_desc"]!=null){
                         echo "<div class='row' style='padding-bottom:10%'>";
                         echo "<div class='contattato' style='height: 10.5vh;' id='centralLabel'>";
@@ -241,15 +255,15 @@ session_start();
                                     
                                     $iter=0; //Teniamo il conto per una vista migliore
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-                                        $id=getId($line["nome"]);
+                                        $id=trim((string)getId($line["nome"]));
                                         $nome=getName($line["nome"]);
                                         if($iter>0){
                                             echo "</br>";
                                         }
                                         if(isBand($line["nome"])){
-                                            echo "<a href='/profilo/profiloEx_band.php?id={$id}'>";
+                                            echo "<a href='/profilo/profiloEx_band.php?id={$id}&name=$nome'>";
                                         }else{
-                                            echo "<a href='/profilo/profiloEx_locale.php?id={$id}'>";
+                                            echo "<a href='/profilo/profiloEx_locale.php?id={$id}&name=$nome'>";
                                         }
                                         
                                         $stars= "<h4>{$nome}</h4>";
@@ -264,7 +278,6 @@ session_start();
                                         echo '</br>';
                                         $iter++;
                                     }
-                                    
                                 ?>
                             </div>
                         </div>
@@ -296,6 +309,7 @@ session_start();
             if (getCookie("type")=="band" && document.getElementById("nav_nome")!=null){
                 $("#nav_nome").attr("href", "/profilo/profilo_band.php");
                 $(".nav-item").remove();
+                $(".nav-link").remove();
             }
             else if (getCookie("type")=="locale" && document.getElementById("nav_nome")!=null){
                 $("#nav_nome").attr("href", "/profilo/profilo_locale.php");

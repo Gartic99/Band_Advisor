@@ -103,7 +103,7 @@ session_start();
                                     echo "<h1> Impossibile connettersi</h1>";
                                 }
                                 
-                                $name=trim(strtolower($_GET["search"]));
+                                $name=trim(strtolower((string)$_GET["search"]));
                                 $q1="SELECT band.nome,band.mail FROM band WHERE lower(band.nome) LIKE '%".$name."%'";
                                 $result=pg_query($con,$q1);
                                 
@@ -112,8 +112,8 @@ session_start();
                                 }
 
                                 while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-                                    $id=getId($line["mail"]);
-                                    echo "<a href='/profilo/profiloEx_band.php?id={$id}'>";
+                                    $id=trim((string)getId($line["mail"]));
+                                    echo "<a href='/profilo/profiloEx_band.php?id={$id}"."&name={$line["nome"]}'>";
                                     echo $line["nome"];
                                     echo '</br>';
                                     echo '</a>';
@@ -147,7 +147,7 @@ session_start();
                                         echo "<h1> Impossibile connettersi</h1>";
                                     }
                                     
-                                    $name=strtolower($_GET["search"]);
+                                    $name=trim(strtolower((string) $_GET["search"]));
                                     $q1="SELECT locale.nome,locale.mail FROM locale WHERE lower(locale.nome) LIKE '%".$name."%'";
                                     $result=pg_query($con,$q1);
 
@@ -156,8 +156,8 @@ session_start();
                                     }
                                     
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-                                        $id=getId($line["mail"]);
-                                        echo "<a href='/profilo/profiloEx_locale.php?id={$id}'>";
+                                        $id=trim((string)getId($line["mail"]));
+                                        echo "<a href='/profilo/profiloEx_locale.php?id={$id}"."&name={$line["nome"]}'>";
                                         echo $line["nome"];
                                         echo '</br>';
                                         echo '</a>';

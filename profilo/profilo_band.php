@@ -84,6 +84,9 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                 <a class="nav-link" href="/modal/contatta.html" id="modal_open1">Contatta un Locale<span class="sr-only">(current)</span></a>
             </li>
             <li>
+                <a class="nav-link" href="../main/similar.php">Cerca un locale affine<span class="sr-only">(current)</span></a>
+            </li>
+            <li>
                 <a class="nav-link" href="/modal/edit.html" id="modal_open2">Aggiorna Profilo<span class="sr-only">(current)</span></a>
             </li>
           </ul>
@@ -119,6 +122,14 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                     echo "<div class='contattato row justify-content-center' style='height: 12.5vh;' id='nameLabel'>";
                     echo "{$_COOKIE["username"]}</br>";
                     echo "</div>";
+                    echo "</br>";
+                    $q3="select genre from band where band.mail=$1";
+                    $result = pg_query_params($con,$q3,array($_COOKIE["mail"])); 
+                    echo "<div class='contattato row ' style='height: 12.5vh;' id='genreLabel'>";
+                    $genre=pg_fetch_array($result,null,PGSQL_ASSOC)["genre"];
+                    echo "I tuoi generi:</br> {$genre}</br>";
+                    echo "</div>";
+                    echo "</br>";
                 }
                 else{
                     $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC);
@@ -142,6 +153,14 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                         echo "{$_COOKIE["username"]}</br>";
                         echo "</div>";
                     }
+                    echo "</br>";
+                    $q3="select genre from band where mail=$1";
+                    $result = pg_query_params($con,$q3,array($_COOKIE["mail"])); 
+                    echo "<div class='contattato row ' style='height: 12.5vh;' id='genreLabel'>";
+                    $genre=pg_fetch_array($result,null,PGSQL_ASSOC)["genre"];
+                    echo "I tuoi generi:</br> {$genre}</br>";
+                    echo "</div>";
+                    echo "</br>";
                     if($line["_desc"]!=null){
                         echo "<div class='row'>";
                         echo "<div class='contattato' style='height: 12.5vh;' id='centralLabel'>";
@@ -156,14 +175,6 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                         
                     }
                 }
-                echo "</br>";
-                $q3="select genre from band where mail=$1";
-                $result = pg_query_params($con,$q3,array($_COOKIE["mail"])); 
-                echo "<div class='contattato row ' style='height: 12.5vh;' id='genreLabel'>";
-                $genre=pg_fetch_array($result,null,PGSQL_ASSOC)["genre"];
-                echo "I tuoi generi:</br> {$genre}</br>";
-                echo "</div>";
-                echo "</br>";
             ?>
 
             <div class="row ">
@@ -245,15 +256,15 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                                     
                                     $iter=0; //Teniamo il conto per una vista migliore
                                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-                                        $id=getId($line["nome"]);
+                                        $id=trim((string)getId($line["nome"]));
                                         $nome=getName($line["nome"]);
                                         if($iter>0){
                                             echo "</br>";
                                         }
                                         if(isBand($line["nome"])){
-                                            echo "<a href='/profilo/profiloEx_band.php?id={$id}'>";
+                                            echo "<a href='/profilo/profiloEx_band.php?id={$id}&name=$nome'>";
                                         }else{
-                                            echo "<a href='/profilo/profiloEx_locale.php?id={$id}'>";
+                                            echo "<a href='/profilo/profiloEx_locale.php?id={$id}&name=$nome'>";
                                         }
                                         
                                         $stars= "<h4>{$nome}</h4>";
