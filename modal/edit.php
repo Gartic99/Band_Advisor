@@ -50,6 +50,7 @@
           }
           if ($_POST["edit_desc"]!=""){
               $desc = strip_tags(trim($_POST["edit_desc"]));
+          }
               
           //$encode=base64_encode($data);
           // rimozione della riga
@@ -62,6 +63,5 @@
 
           echo "<h2>Profilo aggiornato</h2>";
         }
-      }  
     }
 ?>
