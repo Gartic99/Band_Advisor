@@ -133,11 +133,14 @@ session_start();
                     echo "{$nome}</br>";
                     echo "</div>";
                     echo "</br>";
-                    $q3="select fav_music as genre from locale where locale.mail=$1";
-                    $result = pg_query_params($con,$q3,array(getMailFromId($_GET["id"]))); 
+                    $q3="select fav_music1 as genre1,fav_music2 as genre2 from locale where locale.mail=$1";
+                    $result = pg_query_params($con,$q3,array(getMailFromId($_GET["id"])));
                     echo "<div class='contattato row ' style='height: 12.5vh;' id='genreLabel'>";
-                    $genre=pg_fetch_array($result,null,PGSQL_ASSOC)["genre"];
-                    echo "Generi preferiti:</br> {$genre}</br>";
+                    $genre=pg_fetch_array($result,null,PGSQL_ASSOC);
+                    echo "Generi Suonati:</br> {$genre["genre1"]}";
+                    if ($genre["genre2"]!=null){
+                        echo $genre["genre2"];
+                    }
                     echo "</div>";
                     echo "</br>";
                 }
@@ -163,11 +166,14 @@ session_start();
                     }
 
                     echo "</br>";
-                    $q3="select fav_music as genre from locale where locale.mail=$1";
-                    $result = pg_query_params($con,$q3,array(getMailFromId($_GET["id"]))); 
+                    $q3="select fav_music1 as genre1,fav_music2 as genre2 from locale where locale.mail=$1";
+                    $result = pg_query_params($con,$q3,array(getMailFromId($_GET["id"])));
                     echo "<div class='contattato row ' style='height: 12.5vh;' id='genreLabel'>";
-                    $genre=pg_fetch_array($result,null,PGSQL_ASSOC)["genre"];
-                    echo "Generi preferiti:</br> {$genre}</br>";
+                    $genre=pg_fetch_array($result,null,PGSQL_ASSOC);
+                    echo "Generi Suonati:</br> {$genre["genre1"]}";
+                    if ($genre["genre2"]!=null){
+                        echo $genre["genre2"];
+                    }
                     echo "</div>";
                     echo "</br>";
 

@@ -117,8 +117,9 @@ session_start();
                         }
                         
                         //Lenzerini sii fiero di me
-                        $q1="select band.nome,band.mail,band.genre,trunc(avg(rating),1) as media from band,recensione where recensione._to=band.nome and band.genre='{$_COOKIE["genre"]}' group by mail,nome order by media desc limit 10";
-                        $q2="select locale.nome,locale.mail,locale.fav_music,trunc(avg(rating),1) as media from locale,recensione where recensione._to=locale.nome and locale.fav_music='{$_COOKIE["genre"]}' group by mail,nome order by media desc limit 10";
+                        $gen=explode(",",$_COOKIE["genre"]);
+                        $q1="select band.nome,band.mail,band.genre1,band.genre2,trunc(avg(rating),1) as media from band,recensione where recensione._to=band.nome and band.genre1 in ($1,$2) or (band.genre2!=null and band.genre2 in ($1,$2)) group by mail,nome order by media desc limit 10";
+                        $q2="select locale.nome,locale.mail,locale.fav_music,trunc(avg(rating),1) as media from locale,recensione where recensione._to=locale.nome and locale.fav_music1 in ($1,$2)  group by mail,nome order by media desc limit 10";
 
                         $result1=pg_query($con,$q1);
                         $result2=pg_query($con,$q2);

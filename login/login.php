@@ -48,7 +48,7 @@
             <a href=../login/login.html>clicca qui per login
             </a>";
         }*/
-        $qn="select locale.nome,locale.mail,locale.fav_music as genre from locale where locale.mail=$1";
+        $qn="select locale.nome,locale.mail,locale.fav_music1 as genre1,locale.fav_music2 as genre2 from locale where locale.mail=$1";
         $resultName = pg_query_params($con,$qn,array($email));
         $ln=pg_fetch_array($resultName,null,PGSQL_ASSOC);
         $_SESSION["username"] = $ln["nome"];
@@ -57,8 +57,8 @@
         setcookie("mail", $ln["mail"], time() + (86400), "/");
         $_SESSION["type"]="locale";
         setcookie("type", "locale", time() + (86400), "/");
-        $_SESSION["genre"]=$ln["genre"];
-        setcookie("genre", $ln["genre"], time() + (86400), "/");
+        $_SESSION["genre"]=$ln["genre1"].",".$ln["genre2"];
+        setcookie("genre", $ln["genre1"].",".$ln["genre2"], time() + (86400), "/");
         
         echo "<script> window.location.href = '/profilo/profilo_locale.php'</script>"; //carico il profilo dell'utente
         die();
@@ -79,7 +79,7 @@
             echo "<h1>Errore Password</h1>
             <a href=../login/login.html>clicca qui per login</a>";
         }*/
-        $qn="select band.nome,band.mail,band.genre from band where band.mail=$1";
+        $qn="select band.nome,band.mail,band.genre1,band.genre2 from band where band.mail=$1";
         $resultName = pg_query_params($con,$qn,array($email));
         $ln=pg_fetch_array($resultName,null,PGSQL_ASSOC);
         $_SESSION["username"] = $ln["nome"];
@@ -88,8 +88,8 @@
         setcookie("mail", $ln["mail"], time() + (86400), "/");
         $_SESSION["band"] = "band";
         setcookie("type", "band", time() + (86400), "/");
-        $_SESSION["genre"]=$ln["genre"];
-        setcookie("genre",$ln["genre"], time() + (86400), "/");
+        $_SESSION["genre"]==$ln["genre1"].",".$ln["genre2"];
+        setcookie("genre",$ln["genre1"], time() + (86400), "/");
         echo "<script> window.location.href = '/profilo/profilo_band.php'</script>"; //carico il profilo dell'utente
 
     }

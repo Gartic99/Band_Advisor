@@ -124,11 +124,14 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                         echo "{$_COOKIE["username"]}</br>";
                         echo "</div>";
                         echo "</br>";
-                        $q3="select fav_music as genre from locale where mail=$1";
+                        $q3="select fav_music1 as genre1,fav_music2 as genre2 from locale where mail=$1";
                         $result = pg_query_params($con,$q3,array($_COOKIE["mail"])); 
                         echo "<div class='contattato row ' style='height: 12.5vh;' id='genreLabel'>";
-                        $genre=pg_fetch_array($result,null,PGSQL_ASSOC)["genre"];
-                        echo "I tuoi generi:</br> {$genre}</br>";
+                        $genre=pg_fetch_array($result,null,PGSQL_ASSOC);
+                        echo "I tuoi generi:</br> {$genre["genre1"]}";
+                        if ($genre["genre2"]!=null){
+                            echo $genre["genre2"];
+                        }
                         echo "</div>";
                         echo "</br>";
                     }
@@ -154,11 +157,15 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                             echo "{$_COOKIE["username"]}</br>";
                             echo "</div>";
                             echo "</br>";
-                            $q3="select fav_music as genre from locale where locale.mail=$1";
+                            
+                            $q3="select fav_music1 as genre1,fav_music2 as genre2 from locale where mail=$1";
                             $result = pg_query_params($con,$q3,array($_COOKIE["mail"])); 
                             echo "<div class='contattato row ' style='height: 12.5vh;' id='genreLabel'>";
-                            $genre=pg_fetch_array($result,null,PGSQL_ASSOC)["genre"];
-                            echo "I tuoi generi:</br> {$genre}</br>";
+                            $genre=pg_fetch_array($result,null,PGSQL_ASSOC);
+                            echo "I tuoi generi:</br> {$genre["genre1"]}";
+                            if ($genre["genre2"]!=null){
+                                echo $genre["genre2"];
+                            }
                             echo "</div>";
                             echo "</br>";
                         }

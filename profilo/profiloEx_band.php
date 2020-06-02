@@ -131,6 +131,16 @@ session_start();
                     echo "<div class='row justify-content-center contattato' style='height: 12.5vh;' id='nameLabel'>";
                     echo "{$nome}</br>";
                     echo "</div>";
+                    $q3="select genre1,genre2 from band where mail=$1";
+                    $result = pg_query_params($con,$q3,array(getMailFromId($_GET["id"])));
+                    echo "<div class='contattato row ' style='height: 12.5vh;' id='genreLabel'>";
+                    $genre=pg_fetch_array($result,null,PGSQL_ASSOC);
+                    echo "Generi Suonati:</br> {$genre["genre1"]}";
+                    if ($genre["genre2"]!=null){
+                        echo $genre["genre2"];
+                    }
+                    echo "</div>";
+                    echo "</br>";
                 }
                 else{
                     $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC);
@@ -155,11 +165,14 @@ session_start();
                     }
 
                     echo "</br>";
-                    $q3="select genre from band where mail=$1";
-                    $result = pg_query_params($con,$q3,array(getMailFromId($_GET["id"]))); 
+                    $q3="select genre1,genre2 from band where mail=$1";
+                    $result = pg_query_params($con,$q3,array(getMailFromId($_GET["id"])));
                     echo "<div class='contattato row ' style='height: 12.5vh;' id='genreLabel'>";
-                    $genre=pg_fetch_array($result,null,PGSQL_ASSOC)["genre"];
-                    echo "Generi preferiti:</br> {$genre}</br>";
+                    $genre=pg_fetch_array($result,null,PGSQL_ASSOC);
+                    echo "Generi Suonati:</br> {$genre["genre1"]}";
+                    if ($genre["genre2"]!=null){
+                        echo $genre["genre2"];
+                    }
                     echo "</div>";
                     echo "</br>";
 
