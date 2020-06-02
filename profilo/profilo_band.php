@@ -206,18 +206,17 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                                         echo "<h1> Impossibile connettersi</h1>";
                                     }
 
-                                    $q1="select locale.nome from contatta,locale where contatta._to=$1 and locale.mail=contatta._from group by nome";
+                                    $q1="select locale.nome,locale.id from contatta,locale where contatta._to=$1 and locale.mail=contatta._from group by nome,id";
                                     $result=pg_query_params($con,$q1,array($_SESSION["username"]));
 
                                     if(pg_num_rows($result)==0){
                                         echo "Ancora nessun locale ti ha contattato</br>";
                                     }
                                     else{
-                                        echo "<h4>Ti scrive: </h4>";
                                         while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-                                            $from=$line["nome"];
+                                            $from=$line["id"];
                                             echo "<a href='/modal/messaggi_band.php?from=$from' class='modal_open3'>";
-                                            echo "{$from}";
+                                            echo "{$line["nome"]}";
                                             echo '</a>';
                                             echo "</br>";
                                         }

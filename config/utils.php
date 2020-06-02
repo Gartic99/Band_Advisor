@@ -8,6 +8,7 @@
             case 'getMail' : getMail($_POST['arguments']);break;
             case 'getName' : getName($_POST['arguments']);break;
             case 'getNameString' : getNameString($_POST['arguments']);break;
+            case 'getMailFromId' : getMailFromId($$_POST['arguments']);break;
         }
     }
     function isBand($band){

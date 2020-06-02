@@ -220,23 +220,21 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                                         echo "<h1> Impossibile connettersi</h1>";
                                     }
 
-                                    $q1="select band.nome from contatta,band where contatta._to=$1 and band.mail=contatta._from group by nome";
+                                    $q1="select band.nome,band.id from contatta,band where contatta._to=$1 and band.mail=contatta._from group by nome,id";
                                     $result=pg_query_params($con,$q1,array($_SESSION["username"]));
 
                                     if(pg_num_rows($result)==0){
                                         echo "Ancora nessuna band ti ha contattato</br>";
                                     }
-                                    
-                                    echo "<h4>Ti scrive</h4>";
-                                    while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-                                        $from=$line["nome"];
-                                        echo "<a href='/modal/messaggi_locale.php?from=$from' class='modal_open3'>";
-                                        echo "{$from}</br>";
-                                        echo '</br>';
-                                        echo '</a>';
-                                        echo "</br>";
+                                    else{
+                                        while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
+                                            $from=$line["id"];
+                                            echo "<a href='/modal/messaggi_locale.php?from=$from' class='modal_open3'>";
+                                            echo "{$line["nome"]}";
+                                            echo '</a>';
+                                            echo "</br>";
+                                        }
                                     }
-                                    
                                 ?>
                             </div>
                         </div>

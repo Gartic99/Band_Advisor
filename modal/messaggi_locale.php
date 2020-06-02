@@ -26,7 +26,7 @@
         if (!$con){
             echo "<h1> Impossibile connettersi</h1>";
         }
-        $from=getMail($_GET["from"]);
+        $from=getMailfromId($_GET["from"]);
         $q1="select cont,data
         from contatta as c join band as b on c._from = b.mail
         where b.mail=$1 and c._to =$2";

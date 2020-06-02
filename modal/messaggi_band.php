@@ -14,34 +14,33 @@
 <div class="modal-body">
     <div>
         <?php
-         include  '../config/utils.php';
-                                     
-         $host = constant("DB_HOST");
-         $user = constant("DB_USER");
-         $pass = constant("DB_PASSWORD");
-         $db =   constant("DB_NAME");
+            include  '../config/utils.php';                          
+            $host = constant("DB_HOST");
+            $user = constant("DB_USER");
+            $pass = constant("DB_PASSWORD");
+            $db =   constant("DB_NAME");
 
-         //apro la connessione con il db postgress
-         $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
-         or die ("Could not connect to server\n");
-         if (!$con){
-             echo "<h1> Impossibile connettersi</h1>";
-         }
-         $from=getMail($_GET["from"]);
-         $q1="select cont,data
-         from contatta as c join locale as b on c._from = b.mail
-         where b.mail=$1 and c._to =$2";
-         $result=pg_query_params($con,$q1,array($from,$_COOKIE["username"]));
+            //apro la connessione con il db postgress
+            $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
+            or die ("Could not connect to server\n");
+            if (!$con){
+                echo "<h1> Impossibile connettersi</h1>";
+            }
+            $from=getMailfromID($_GET["from"]);
+            $q1="select cont,data
+            from contatta as c join locale as b on c._from = b.mail
+            where b.mail=$1 and c._to =$2";
+            $result=pg_query_params($con,$q1,array($from,$_COOKIE["username"]));
 
-         if(pg_num_rows($result)==0){
-             echo "Ancora nessun locale ti ha contattato</br>";
-         }
-         
-         while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-            echo  '<h6>'.$line["data"].'</h6>';
-             echo  '<h6>'.$line["cont"].'</h6>';
-             echo "</br>";
-         }
+            if(pg_num_rows($result)==0){
+                echo "Ancora nessun locale ti ha contattato</br>";
+            }
+            
+            while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
+                echo  '<h6>'.$line["data"].'</h6>';
+                echo  '<h6>'.$line["cont"].'</h6>';
+                echo "</br>";
+            }
          
         ?>  
     </div>
