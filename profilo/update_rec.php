@@ -12,38 +12,74 @@
     if (!$con){
         echo "<h1> Impossibile connettersi</h1>";
     }
+    $type=$_COOKIE["type"];
+    if ($type=='band'){
+        //$q1="select cont from recensione where _to=$1";
+        $q1="select recensione._from as nome,recensione.cont as cont,recensione.rating as stelle from recensione where recensione._to=$1";
+        $result=pg_query_params($con,$q1,array($_COOKIE["username"]));
 
-    //$q1="select cont from recensione where _to=$1";
-    $q1="select recensione._from as nome,recensione.cont as cont,recensione.rating as stelle from recensione where recensione._to=$1";
-    $result=pg_query_params($con,$q1,array($_COOKIE["username"]));
-
-    if(pg_num_rows($result)==0){
-        echo "Ancora nessuna recensione per te ;(</br>";
+        if(pg_num_rows($result)==0){
+            echo "Ancora nessuna recensione per te ;(</br>";
+        }
+        
+        $iter=0; //Teniamo il conto per una vista migliore
+        while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
+            $id=trim((string)getId($line["nome"]));
+            $nome=getName($line["nome"]);
+            if($iter>0){
+                echo "</br>";
+            }
+            if(isBand($line["nome"])){
+                echo "<a href='/profilo/profiloEx_band.php?id={$id}&name=$nome'>";
+            }else{
+                echo "<a href='/profilo/profiloEx_locale.php?id={$id}&name=$nome'>";
+            }
+            
+            $stars= "<h4>{$nome}</h4>";
+            
+            for($i=0;$i<intval($line["stelle"]);$i++){
+                $stars.="<span class='fa fa-star checked'></span>";
+            }
+            
+            echo $stars."</br>";
+            echo '</a>';
+            echo "{$line["cont"]}";
+            echo '</br>';
+            $iter++;
+        }
     }
-    
-    $iter=0; //Teniamo il conto per una vista migliore
-    while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-        $id=trim((string)getId($line["nome"]));
-        $nome=getName($line["nome"]);
-        if($iter>0){
-            echo "</br>";
-        }
-        if(isBand($line["nome"])){
-            echo "<a href='/profilo/profiloEx_band.php?id={$id}&name=$nome'>";
-        }else{
-            echo "<a href='/profilo/profiloEx_locale.php?id={$id}&name=$nome'>";
+    else if ($type=='locale'){
+        $q1="select recensione._from as nome,recensione.cont as cont,recensione.rating as stelle from recensione where recensione._to=$1";
+        $result=pg_query_params($con,$q1,array($_COOKIE["username"]));
+
+        if(pg_num_rows($result)==0){
+            echo "Ancora nessuna recensione per te ;(</br>";
         }
         
-        $stars= "<h4>{$nome}</h4>";
-        
-        for($i=0;$i<intval($line["stelle"]);$i++){
-            $stars.="<span class='fa fa-star checked'></span>";
+        $iter=0; //Teniamo il conto per una vista migliore
+        while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
+            $id=trim((string)getId($line["nome"]));
+            $nome=getName($line["nome"]);
+            if($iter>0){
+                echo "</br>";
+            }
+            if(isBand($line["nome"])){
+                echo "<a href='/profilo/profiloEx_band.php?id={$id}&name=$nome'>";
+            }else{
+                echo "<a href='/profilo/profiloEx_locale.php?id={$id}&name=$nome'>";
+            }
+            
+            $stars= "<h4>{$nome}</h4>";
+            
+            for($i=0;$i<intval($line["stelle"]);$i++){
+                $stars.="<span class='fa fa-star checked'></span>";
+            }
+            
+            echo $stars."</br>";
+            echo '</a>';
+            echo "{$line["cont"]}";
+            echo '</br>';
+            $iter++;
         }
-        
-        echo $stars."</br>";
-        echo '</a>';
-        echo "{$line["cont"]}";
-        echo '</br>';
-        $iter++;
     }
 ?>
