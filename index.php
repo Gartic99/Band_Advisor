@@ -82,7 +82,7 @@ session_start();
             <div class="row justify-content-center search-box">   
                 <form class="search-form col-8" action="/main/search.php" id="search1" method="GEt">
                     <div class="row" style="height:8vh;" id="searchRow">
-                        <input type="image" src="/assets/tools-and-utensils.svg" class="search-button" onclick="validateSearch()" id="lens">
+                        <input type="image" src="/assets/tools-and-utensils.svg" alt="Bottone Ricerca" class="search-button" onclick="validateSearch()" id="lens">
                         <input type="text" value="" placeholder="Cosa stai cercando?" class="search-input" name="search" id="searchtext"><br>
                     </div>
                 </form>
