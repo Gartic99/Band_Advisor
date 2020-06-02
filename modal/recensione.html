@@ -15,18 +15,21 @@
 <div class="modal-body">
     <div id="form">
         <form class="form-form" id="recensione_form" action="/modal/recensione.php" method="POST" onsubmit="validateLForm()">
-            <label class="login-label-secondo">Tua email</label><br>
-            <input class="form-input" name="from_rec" id="from_rec"></input><br>
-            <label class="login-label-secondo">Nome destinatario</label><br>
-            <!--<input class="form-input search-box" autocomplete="off" ></input>-->
-            <div class="search-box ">
-                <input type="text" class="form-input" autocomplete="off" name="to_rec" id="to_rec"/>
-                <div class="result list-group" style="overflow-x: hidden;"></div>
-            </div>
-            <label class="login-label-secondo">Recensione</label><br>
-            <textarea class="form-input md-textarea" name="recensione_i" id="recensione_i" rows="7" style="padding:5%"></textarea><br>
-            
-            <label class="login-label-secondo">Punteggio</label><br>
+            <label class="login-label-secondo">Tua email<br>
+                <input class="form-input" name="from_rec" id="from_rec"></input>
+            </label><br>
+            <label class="login-label-secondo">Nome destinatario<br>
+                <!--<input class="form-input search-box" autocomplete="off" ></input>-->
+                <div class="search-box ">
+                    <input type="text" class="form-input" autocomplete="off" name="to_rec" id="to_rec"/>
+                    <div class="result list-group" style="overflow-x: hidden;"></div>
+                </div>
+            </label>
+            <label class="login-label-secondo">Recensione<br>
+                <textarea class="form-input md-textarea" name="recensione_i" id="recensione_i" rows="7" style="padding:5%"></textarea>
+            </label>
+            <br>
+            <label class="login-label-secondo">Punteggio<br></label>
             <div class="form-row">
                 <select class="col-6 mb-2" name="score" id="score" title="valutazione" onchange="stars()">
                     <option value="5">5</option>

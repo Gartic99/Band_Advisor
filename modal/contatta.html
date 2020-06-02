@@ -5,16 +5,19 @@
 <div class="modal-body">
     <div id="form">
         <form class="form-form" id="contatta_form" action="/modal/contatta.php" method="POST" onsubmit="validateLForm()">
-            <label class="login-label-secondo">Tua email</label><br>
-            <input class="form-input" name="from_cont" id="from_cont"></input><br>
-            <label class="login-label-secondo">Nome destinatario</label><br>
-            <!--<input class="form-input" name="to_cont"></input><br>-->
-            <div class="search-box ">
-                <input type="text" class="form-input" autocomplete="off" name="to_cont" id="to_cont"/>
-                <div class="result list-group" style="overflow-x: hidden;"></div>
-            </div>
-            <label class="login-label-secondo">Messaggio</label><br>
-            <textarea class="form-input md-textarea" name="contatta_i" id="contatta_i" rows="7" style="padding:5%;"></textarea>
+            <label class="login-label-secondo">Tua email<br>
+                <input class="form-input" name="from_cont" id="from_cont"></input>
+            </label><br>
+            <label class="login-label-secondo">Nome destinatario<br>
+                <!--<input class="form-input" name="to_cont"></input><br>-->
+                <div class="search-box ">
+                    <input type="text" class="form-input" autocomplete="off" name="to_cont" id="to_cont"/>
+                    <div class="result list-group" style="overflow-x: hidden;"></div>
+                </div>
+            </label>
+            <label class="login-label-secondo">Messaggio<br>
+                <textarea class="form-input md-textarea" name="contatta_i" id="contatta_i" rows="7" style="padding:5%;"></textarea>
+            </label>
             <input type="submit" style="display: none;" name="contatta_button"></input>
         </form>
     </div>

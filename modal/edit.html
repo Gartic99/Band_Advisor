@@ -20,10 +20,12 @@
 <div class="modal-body">
     <div id="form">
         <form class="form-form" id="edit_form" action="/modal/edit.php" method="POST" onsubmit="validateLForm()">
-            <label class="login-label-secondo">Descrizione</label><br>
+            <label class="login-label-secondo">Descrizione<br>
             <textarea class="form-input md-textarea" name="edit_desc" id="edit_desc" rows="7" style="padding:5%"></textarea><br>
-            <label class="login-label-secondo">Upload image</label><br>
+            </label>
+            <label class="login-label-secondo">Upload image<br>
             <input type="file" id="profile_img" name="profile_img"></input>
+            </label>
             <input type="submit" style="display: none;" name="edit_button"></input>
             <div class="wrapper" id="wrapper">
                 <canvas id= "canvas"></canvas>
