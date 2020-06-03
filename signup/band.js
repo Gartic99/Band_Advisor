@@ -60,7 +60,7 @@ function band_up(){
         b_registrati.className = "btn btn-danger mr-sm-2 entra";
         b_registrati.type = "button";
         b_registrati.style = "width: 140%;height: auto;";
-        b_registrati.innerHTML="Entra"
+        b_registrati.innerHTML="Registrati"
         b_registrati.onclick = function (){
             $(document).ready(function(){
                 $(".form-form").submit();

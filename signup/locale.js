@@ -61,7 +61,7 @@ function locale_up(){
         l_registrati.className = "btn btn-danger mr-sm-2 entra";
         l_registrati.type = "button";
         l_registrati.style = "width: 140%;height: auto;";
-        l_registrati.innerHTML="Entra"
+        l_registrati.innerHTML="Registrati"
         l_registrati.onclick = function (){
             $(document).ready(function(){
                 $(".form-form").submit();
