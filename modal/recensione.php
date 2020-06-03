@@ -5,14 +5,6 @@
         header("Location: ../index.php");
     }
     else{
-        /*$host = "rogue.db.elephantsql.com";
-        $user = "mffqfyag";
-        $pass = "sCmWtk6dBysXWEn3IqvDDZtgvjcARlhs";
-        $db = "mffqfyag"; old db*/
-
-
-        
-        //include  '../config/config.php';
         include  '../config/utils.php';
         $host = constant("DB_HOST");
         $user = constant("DB_USER");

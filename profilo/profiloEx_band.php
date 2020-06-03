@@ -6,7 +6,10 @@ session_start();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Il primo sito che mette in diretto contatto artisti emergenti e locali">
+    <meta name="keywords" content="bandadvisor band emergenti locali">
+    <meta name="author" content="Ghenadie Artic,Marco Calamo">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -231,9 +234,6 @@ session_start();
                             <div class="testi" id="rvws">
                                 <?php
                                     $mail=getMailFromId($_GET["id"]);
-                                    
-                                    //include  '../config/config.php';
-                                    //include  '../config/utils.php';
                                     $host = constant("DB_HOST");
                                     $user = constant("DB_USER");
                                     $pass = constant("DB_PASSWORD");
@@ -247,8 +247,6 @@ session_start();
                                     }
 
 
-                                    //TODO: leva il nome come id della rece fra
-                                    //Mi prendo il nome (Di nuovo)
                                     $q2="select band.nome from band where band.mail=$1";
                                     $result2=pg_query_params($con,$q2,array($mail));
                                     $ln=pg_fetch_array($result2);
