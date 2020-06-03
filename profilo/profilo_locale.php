@@ -214,7 +214,6 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                                         success: function (data) {
                                             $('#cntcts').empty();
                                             $('#cntcts').append(document.createElement("p").innerHTML = data);
-                                            console.log(data);
                                             setTimeout(doAjax, 3000);
                                         },
                                         error: function (data) {
@@ -247,7 +246,6 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                                             success: function (data) {
                                                 $('#rvws').empty();
                                                 $('#rvws').append(document.createElement("p").innerHTML = data);
-                                                console.log(data);
                                                 setTimeout(doAjax1, 3000);
                                             },
                                             error: function (data) {
@@ -284,10 +282,6 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
         });
 
         $('#modal_open2').on('click', function(e){
-            e.preventDefault();
-            $('#theModal').modal('show').find('.modal-content').load($(this).attr('href'));
-        });
-        $('.modal_open3').on('click', function(e){
             e.preventDefault();
             $('#theModal').modal('show').find('.modal-content').load($(this).attr('href'));
         });

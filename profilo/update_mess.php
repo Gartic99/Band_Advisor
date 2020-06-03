@@ -25,15 +25,15 @@
             $nonletti= "";
             while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
                 if ($line["read"]==1){
-                    $from=$line["id"];
-                    $letti=$letti."<a href='/modal/messaggi_band.php?from=$from' class='modal_open3'>";
+                    $from=trim($line["id"]);
+                    $letti=$letti."<a href='/modal/messaggi_band.php?from={$from}&letti=1' class='modal_open3'>";
                     $letti=$letti."{$line["nome"]}";
                     $letti=$letti.'</a>';
                     $letti=$letti."</br>";
                 }
                 else{
-                    $from=$line["id"];
-                    $nonletti=$nonletti."<a href='/modal/messaggi_band.php?from=$from' class='modal_open3'>";
+                    $from=trim($line["id"]);
+                    $nonletti=$nonletti."<a href='/modal/messaggi_band.php?from={$from}&letti=0' class='modal_open3'>";
                     $nonletti=$nonletti."{$line["nome"]}";
                     $nonletti=$nonletti.'</a>';
                     $nonletti=$nonletti."</br>";
@@ -59,18 +59,18 @@
             $nonletti= "";
             while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
                 if ($line["read"]==1){
-                    $from=$line["id"];
-                    $letti=$letti."<a href='/modal/messaggi_locale.php?from=$from' class='modal_open3'>";
-                    $letti=$letti."{$line["nome"]}";
-                    $letti=$letti.'</a>';
-                    $letti=$letti."</br>";
+                    $from=trim($line["id"]);
+                    $letti.="<a href='/modal/messaggi_locale.php?from={$from}&letti=1' class='modal_open3'>";
+                    $letti.="{$line["nome"]}";
+                    $letti.='</a>';
+                    $letti.="</br>";
                 }
                 else{
-                    $from=$line["id"];
-                    $nonletti=$nonletti."<a href='/modal/messaggi_locale.php?from=$from' class='modal_open3'>";
-                    $nonletti=$nonletti."{$line["nome"]}";
-                    $nonletti=$nonletti.'</a>';
-                    $nonletti=$nonletti."</br>";
+                    $from=trim($line["id"]);
+                    $nonletti.="<a href='/modal/messaggi_locale.php?from={$from}&letti=0' class='modal_open3'>";
+                    $nonletti.="{$line["nome"]}";
+                    $nonletti.='</a>';
+                    $nonletti.="</br>";
                 }
             }
             if($nonletti!=""){
@@ -85,7 +85,7 @@
 ?>  
 <script>
 $('.modal_open3').on('click', function(e){
-            e.preventDefault();
-            $('#theModal').modal('show').find('.modal-content').load($(this).attr('href'));
-        });
+    e.preventDefault();
+    $('#theModal').modal('show').find('.modal-content').load($(this).attr('href'));
+});
 </script>

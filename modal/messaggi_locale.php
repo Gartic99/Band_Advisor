@@ -26,20 +26,39 @@
         if (!$con){
             echo "<h1> Impossibile connettersi</h1>";
         }
-        $from=getMailfromId($_GET["from"]);
-        $q1="select cont,data
-        from contatta as c join band as b on c._from = b.mail
-        where b.mail=$1 and c._to =$2";
-        $result=pg_query_params($con,$q1,array($from,$_COOKIE["username"]));
-        
-        if(pg_num_rows($result)==0){
-            echo "Ancora nessuna band ti ha contattato</br>";
+        if ($_GET["letti"]){
+            $from=getMailfromId($_GET["from"]);
+            $q1="select cont,data
+            from contatta as c join band as b on c._from = b.mail
+            where b.mail=$1 and c._to =$2 and read=1";
+            $result=pg_query_params($con,$q1,array($from,$_COOKIE["username"]));
+            if(pg_num_rows($result)==0){
+                echo "Ancora nessuna band ti ha contattato</br>";
+            }
+            else{
+                while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
+                    echo '<h6>'.$line["data"].'</h6>';
+                    echo '<h6>'.$line["cont"].'</h6>';
+                    echo "</br>";
+                }
+            }
         }
         else{
-            while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-                echo '<h6>'.$line["data"].'</h6>';
-                echo '<h6>'.$line["cont"].'</h6>';
-                echo "</br>";
+            $from=getMailfromId($_GET["from"]);
+            $q1="select cont,data
+            from contatta as c join band as b on c._from = b.mail
+            where b.mail=$1 and c._to =$2 and read=0";
+            $result=pg_query_params($con,$q1,array($from,$_COOKIE["username"]));
+            
+            if(pg_num_rows($result)==0){
+                echo "Ancora nessuna band ti ha contattato</br>";
+            }
+            else{
+                while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
+                    echo '<h6>'.$line["data"].'</h6>';
+                    echo '<h6>'.$line["cont"].'</h6>';
+                    echo "</br>";
+                }
             }
             $q1="UPDATE contatta SET read = 1 WHERE _from = $1 ";
             $result=pg_query_params($con,$q1,array(getMailfromID($_GET["from"])));
