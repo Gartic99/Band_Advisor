@@ -25,7 +25,7 @@
         $contatta=strip_tags(trim($_POST["contatta_i"]));
 
         if (!$con){
-            echo "<h1> Impossibile connettersi<7h1>";
+            echo "<h1> Impossibile connettersi</h1>";
         }
         else{
             $from=strtolower(strip_tags($_POST["from_cont"]));
@@ -51,9 +51,9 @@
                     $response =  "<h1>Non puoi contattare un membro di Bandadvisor con il tuo stesso ruolo</h1>";
                 }
                 else{
-                    $q2 = 'INSERT INTO contatta VALUES($1,$2,$3,$4)';
+                    $q2 = 'INSERT INTO contatta VALUES($1,$2,$3,$4,$5)';
                     date_default_timezone_set('CET');
-                    $results = pg_query_params($con, $q2,array($from,$to,$contatta,date("Y-m-d H:i:s")));
+                    $results = pg_query_params($con, $q2,array($from,$to,$contatta,date("Y-m-d H:i:s"),0));
                     if ($results){
                         $response = "<h1> Messaggio inviato </h1>";
                     }

@@ -15,7 +15,7 @@
     }
     $type = $_COOKIE["type"];
     if ($type='band'){ 
-        $q1="select locale.nome,locale.id from contatta,locale where contatta._to=$1 and locale.mail=contatta._from group by nome,id";
+        $q1="select locale.nome,locale.id,contatta.read from contatta,locale where contatta._to=$1 and locale.mail=contatta._from group by nome,id,read";
         $result=pg_query_params($con,$q1,array($_COOKIE["username"]));
         if(pg_num_rows($result)==0){
             echo "Ancora nessuna band ti ha contattato</br>";
