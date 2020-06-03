@@ -14,14 +14,9 @@
   transition: all 0.5s ease;
 }
 .form-form {
-    /*border-radius: 44px;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);*/
     background: none;
     transition: all 0.5s ease;
   }
-/*.button{
-    border-radius: 44px;
-}*/
 textarea {
   font-family: Gilroy Medium;
   resize: none;

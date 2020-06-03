@@ -5,14 +5,6 @@
         header("Location: ../index.html");
     }
     else{
-        /*$host = "rogue.db.elephantsql.com";
-        $user = "mffqfyag";
-        $pass = "sCmWtk6dBysXWEn3IqvDDZtgvjcARlhs";
-        $db = "mffqfyag"; old db*/
-
-
-        
-        
         include  '../config/utils.php';
         $host = constant("DB_HOST");
         $user = constant("DB_USER");
@@ -34,6 +26,7 @@
             $result1 = pg_query_params($con,$q1,array($from));
             $result2 = pg_query_params($con,$q2,array($from));
             if(!(($line=pg_fetch_array($result1,null,PGSQL_ASSOC)) || ($line=pg_fetch_array($result2,null,PGSQL_ASSOC)))){
+                //Controllo in più per sicurezza
                 $response =  "<h1> Non sei registrato</h1>
                 <a href=../signup/signup.html>clicca qui per registrarti</a>";
             }
@@ -48,9 +41,11 @@
                     $response =  "<h1>Locale o Band non esistente</h1>";
                 }
                 else if( (isBand(getMail($to)) && isBand($_COOKIE["mail"])) || ( !isBand(getMail($to)) && !isBand($_COOKIE["mail"]))){
+                    //Va contro le regole del sito
                     $response =  "<h1>Non puoi contattare un membro di Bandadvisor con il tuo stesso ruolo</h1>";
                 }
                 else{
+                    //Il contatta va a buon fine
                     $q2 = 'INSERT INTO contatta VALUES($1,$2,$3,$4,$5)';
                     date_default_timezone_set('CET');
                     $results = pg_query_params($con, $q2,array($from,$to,$contatta,date("Y-m-d H:i:s"),0));

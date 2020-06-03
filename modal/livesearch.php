@@ -19,8 +19,7 @@
     if(isset($_REQUEST["term"])){
         $result=pg_query($con, "SELECT nome FROM band where lower(nome)=''");
         $result1=pg_query($con, "SELECT nome FROM band where lower(nome)=''");
-        // Prepare a select statement
-        /*$q = "SELECT distinct band.nome as nomeb,locale.nome as nomel FROM band,locale WHERE band.nome LIKE $1 or locale.nome LIKE $1";*/
+        // Filtro con like di postgres senza case sensitivity
         $q = "SELECT distinct band.nome as nomeb from band where lower(band.nome) like $1";
         $q1 = "SELECT distinct locale.nome as nomel from locale where lower(locale.nome) like $1";
         $term='%'.strtolower($_REQUEST["term"]).'%';
@@ -32,9 +31,9 @@
         }
 
         
-        // Check number of rows in the result set
+        // Controllo di avere un risultato
         if(pg_num_rows($result) > 0 ){
-            // Fetch result rows as an associative array
+            // Leggo i risultati per band e locali
             echo "<h4>Band</h4>";
             while($row = pg_fetch_array($result,null ,PGSQL_ASSOC)){
                 echo "<p style='cursor:pointer;'>" . $row["nomeb"] . "</p>";

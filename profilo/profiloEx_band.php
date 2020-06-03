@@ -234,9 +234,6 @@ session_start();
                             <div class="testi" id="rvws">
                                 <?php
                                     $mail=getMailFromId($_GET["id"]);
-                                    
-                                    //include  '../config/config.php';
-                                    //include  '../config/utils.php';
                                     $host = constant("DB_HOST");
                                     $user = constant("DB_USER");
                                     $pass = constant("DB_PASSWORD");
@@ -250,8 +247,6 @@ session_start();
                                     }
 
 
-                                    //TODO: leva il nome come id della rece fra
-                                    //Mi prendo il nome (Di nuovo)
                                     $q2="select band.nome from band where band.mail=$1";
                                     $result2=pg_query_params($con,$q2,array($mail));
                                     $ln=pg_fetch_array($result2);

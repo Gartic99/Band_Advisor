@@ -35,7 +35,7 @@
         $q1 = "delete from img_profili where mail = $1";
         pg_query_params($con, $q1,array($_COOKIE["mail"]));
         
-        // Insert it into the database
+        // Inserisco nel database
         $q1 = 'INSERT INTO img_profili VALUES($1,$2,$3)';
         $results = pg_query_params($con, $q1,array($_COOKIE["mail"],$data,$desc));
 
