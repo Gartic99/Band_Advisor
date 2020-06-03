@@ -27,38 +27,35 @@ session_start();
             //true if we are on mobile
             var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
             if(isMobile){
-                /*document.getElementById("leftLabel").style.height = "3vh";
-                document.getElementById("leftLabel").style.fontSize = "2vh";
-                document.getElementById("leftLabel").style.padding = "5%";*/
-
-                document.getElementById("rightLabel").style.height = "3vh";
-                document.getElementById("rightLabel").style.fontSize = "2vh";
+                
+                document.getElementById("rightLabel").style.height = "2rem";
+                document.getElementById("rightLabel").style.fontSize = "1rem";
                 document.getElementById("rightLabel").style.paddingLeft = "5%";
 
-                document.getElementById("nameLabel").style.height = "5vh";
-                document.getElementById("nameLabel").style.fontSize = "2vh";
+                document.getElementById("nameLabel").style.height = "2rem";
+                document.getElementById("nameLabel").style.fontSize = "1rem";
 
-                document.getElementById("genreLabel").style.height = "5vh";
-                document.getElementById("genreLabel").style.fontSize = "2vh";
+                document.getElementById("genreLabel").style.height = "2rem";
+                document.getElementById("genreLabel").style.fontSize = "1rem";
                 document.getElementById("genreLabel").style.paddingLeft = "5%";
 
                 //Controlliamo se è stata inserita una recensione
                 if(document.getElementById("centralLabel")){
-                    document.getElementById("centralLabel").style.height = "3vh";
-                    document.getElementById("centralLabel").style.fontSize = "2vh";
+                    document.getElementById("centralLabel").style.height = "2rem";
+                    document.getElementById("centralLabel").style.fontSize = "1rem";
                     document.getElementById("centralLabel").style.paddingLeft = "5%";
-                    document.getElementById("desc").style.fontSize = "2vh"
+                    document.getElementById("desc").style.fontSize = "1rem"
                 }
 
-                /*document.getElementById("cntcts").style.fontSize = "2vh";*/
-                document.getElementById("rvws").style.fontSize = "2vh";
-            
+                document.getElementById("cntcts").style.fontSize = "1rem";
+                document.getElementById("rvws").style.fontSize = "1rem";
+
                 if(document.getElementById("pro_pic")){
-                    document.getElementById("pro_pic").style.width="15vh";
-                    document.getElementById("pro_pic").style.height="15vh";
+                    document.getElementById("pro_pic").style.width="8rem";
+                    document.getElementById("pro_pic").style.height="8rem";
                 }else{
-                    document.getElementById("pro_pic_def").style.width="15vh";
-                    document.getElementById("pro_pic_def").style.height="15vh";
+                    document.getElementById("pro_pic_def").style.width="8rem";
+                    document.getElementById("pro_pic_def").style.height="8rem";
                 }
             }
         }

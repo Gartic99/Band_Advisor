@@ -19,14 +19,16 @@ session_start();
             //true if we are on mobile
             var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
             if(isMobile){
-                document.getElementById("leftLabel").style.height = "3vh";
-                document.getElementById("rightLabel").style.height = "3vh";
-                document.getElementById("leftLabel").style.fontSize = "2vh";
+                document.getElementById("leftLabel").style.height = "3rem";
+                document.getElementById("leftLabel").style.fontSize = "1rem";
                 document.getElementById("leftLabel").style.padding = "5%";
-                document.getElementById("rightLabel").style.fontSize = "2vh";
+
+                document.getElementById("rightLabel").style.height = "2rem";
+                document.getElementById("rightLabel").style.fontSize = "1rem";
                 document.getElementById("rightLabel").style.paddingLeft = "5%";
-                document.getElementById("cntcts").style.fontSize = "2vh";
-                document.getElementById("rvws").style.fontSize = "2vh";
+
+                document.getElementById("cntcts").style.fontSize = "1rem";
+                document.getElementById("rvws").style.fontSize = "1rem";
             }
         }
     </script>
