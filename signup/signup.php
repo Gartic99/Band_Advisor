@@ -57,7 +57,8 @@ session_start();
                     $results = pg_query_params($con, $q2,array($email,$nome,$password,$genre[0],null,md5($nome)));
                 }
                 if ($results){
-                    $response = "<h1> Registrazione completata</h1>";
+                    $response = "<h1> Registrazione completata</h1>
+                    <a href=../login/login.php.html></a>";
 
                 }
                 pg_free_result($results);
