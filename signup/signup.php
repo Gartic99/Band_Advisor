@@ -51,7 +51,11 @@ session_start();
                 $genre=$_POST['genere'];
 
                 $q2 = 'INSERT INTO band VALUES($1,$2,$3,$4,$5,$6)';
-                $results = pg_query_params($con, $q2,array($email,$nome,$password,$genre[0],$genre[1],md5($nome)));
+                if(isset($genre[1])){
+                    $results = pg_query_params($con, $q2,array($email,$nome,$password,$genre[0],$genre[1],md5($nome)));
+                }else{
+                    $results = pg_query_params($con, $q2,array($email,$nome,$password,$genre[0],null,md5($nome)));
+                }
                 if ($results){
                     $response = "<h1> Registrazione completata</h1>";
 
@@ -89,9 +93,9 @@ session_start();
                 $fav_music = $_POST['mus_pref'];
                 $q3 = 'INSERT INTO locale VALUES($1,$2,$3,$4,$5,$6,$7)';
                 if(isset($fav_music[1]){
-                  $results = pg_query_params($con, $q3,array($email,$nome,$password,$genre,$fav_music[0],$fav_music[1],md5($nome)));
+                    $results = pg_query_params($con, $q3,array($email,$nome,$password,$genre,$fav_music[0],$fav_music[1],md5($nome)));
                 }else{
-                  $results = pg_query_params($con, $q3,array($email,$nome,$password,$genre,$fav_music[0],null,md5($nome)));  
+                    $results = pg_query_params($con, $q3,array($email,$nome,$password,$genre,$fav_music[0],null,md5($nome)));  
                 }
                 if ($results){
                     $response =  "<h1> Registrazione completata</h1>";
