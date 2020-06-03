@@ -14,15 +14,15 @@
         echo "<h1> Impossibile connettersi</h1>";
     }
     $type = $_COOKIE["type"];
-    if ($type='band'){ 
+    if ($type=='band'){ 
         $q1="select locale.nome,locale.id,contatta.read from contatta,locale where contatta._to=$1 and locale.mail=contatta._from group by nome,id,read";
         $result=pg_query_params($con,$q1,array($_COOKIE["username"]));
         if(pg_num_rows($result)==0){
-            echo "Ancora nessuna band ti ha contattato</br>";
+            echo "Ancora nessun locale ti ha contattato</br>";
         }
         else{
-            $letti = "<h4> Messaggi Letti</h4>";
-            $nonletti= "<h4> Messaggi in arrivo</h4>";
+            $letti = "";
+            $nonletti= "";
             while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
                 if ($line["read"]==1){
                     $from=$line["id"];
@@ -39,11 +39,15 @@
                     $nonletti=$nonletti."</br>";
                 }
             }
-            echo $nonletti;
-            echo $letti;
+            if($nonletti!=""){
+                echo "<h3> Messaggi in arrivo</h3>".$nonletti;
+            }
+            if($letti!=""){
+                echo "<h3> Messaggi letti</h3>".$letti;
+            }
         }
     }
-    else if ($type='locale'){
+    else if ($type=='locale'){
         $q1="select band.nome,band.id,contatta.read from contatta,band where contatta._to=$1 and band.mail=contatta._from group by nome,id,read";
         $result=pg_query_params($con,$q1,array($_COOKIE["username"]));
 
@@ -51,8 +55,8 @@
             echo "Ancora nessuna band ti ha contattato</br>";
         }
         else{
-            $letti = "<h4> Messaggi Letti</h4>";
-            $nonletti= "<h4> Messaggi in arrivo</h4>";
+            $letti = "";
+            $nonletti= "";
             while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
                 if ($line["read"]==1){
                     $from=$line["id"];
@@ -69,8 +73,13 @@
                     $nonletti=$nonletti."</br>";
                 }
             }
-            echo $nonletti;
-            echo $letti;
+            if($nonletti!=""){
+                echo "<h3> Messaggi in arrivo</h3>".$nonletti;
+            }
+            if($letti!=""){
+                echo "<h3> Messaggi letti</h3>".$letti;
+            }
+            
         }
     }    
 ?>  
