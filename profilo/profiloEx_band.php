@@ -47,7 +47,6 @@ session_start();
                     document.getElementById("desc").style.fontSize = "1rem"
                 }
 
-                document.getElementById("cntcts").style.fontSize = "1rem";
                 document.getElementById("rvws").style.fontSize = "1rem";
 
                 if(document.getElementById("pro_pic")){
