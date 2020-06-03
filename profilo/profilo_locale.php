@@ -170,14 +170,14 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                             echo "</br>";
                         }
 
-                        echo "</br>";
+                        /*echo "</br>";
                         $q3="select fav_music as genre from locale where mail=$1";
                         $result = pg_query_params($con,$q3,array($_COOKIE["mail"])); 
                         echo "<div class='contattato row ' style='height: 12.5vh;' id='genreLabel'>";
                         $genre=pg_fetch_array($result,null,PGSQL_ASSOC)["genre"];
                         echo "I tuoi generi:</br> {$genre}</br>";
                         echo "</div>";
-                        echo "</br>";
+                        echo "</br>";*/
 
                         if($line["_desc"]!=null){
                             echo "<div class='row'>";
