@@ -36,6 +36,18 @@ session_start();
             }
         }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://bandadvisor.it/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://bandadvisor.it/main/search.php?search={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
 </head>
 <body onload="return load();">
     <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
