@@ -2,10 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
   <url>
     <loc>https://bandadvisor.it/login/login.html</loc>
-    <lastmod>2020-05-31</lastmod>
+    <lastmod>2020-06-03</lastmod>
   </url>
   <url>
     <loc>https://bandadvisor.it/signup/signup.html</loc>
-    <lastmod>2020-05-31</lastmod>
+    <lastmod>2020-06-03</lastmod>
+  </url>
+  <url>
+    <loc>https://bandadvisor.it/main/button.php?type=band</loc>
+    <lastmod>2020-06-03</lastmod>
+  </url>
+  <url>
+    <loc>https://bandadvisor.it/main/button.php?type=locale</loc>
+    <lastmod>2020-06-03</lastmod>
   </url>
 </urlset>
