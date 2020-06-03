@@ -236,14 +236,14 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                                                 $('#rvws').empty();
                                                 $('#rvws').append(document.createElement("p").innerHTML = data);
                                                 console.log(data);
-                                                setTimeout(doAjax, 3000);
+                                                setTimeout(doAjax1, 3000);
                                             },
                                             error: function (data) {
                                                 console.log(data);
                                             },
                                         });
                                     };
-                                    setTimeout(doAjax1, 1);
+                                    setTimeout(doAjax1, 1.5);
                                 </script>
                             </div>
                         </div>
