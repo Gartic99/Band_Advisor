@@ -21,30 +21,56 @@
             echo "Ancora nessuna band ti ha contattato</br>";
         }
         else{
+            $letti = "<h4> Messaggi Letti</h4>";
+            $nonletti= "<h4> Messaggi in arrivo</h4>";
             while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-                $from=$line["id"];
-                echo "<a href='/modal/messaggi_band.php?from=$from' class='modal_open3'>";
-                echo "{$line["nome"]}";
-                echo '</a>';
-                echo "</br>";
+                if ($line["read"]==1){
+                    $from=$line["id"];
+                    $letti=$letti."<a href='/modal/messaggi_band.php?from=$from' class='modal_open3'>";
+                    $letti=$letti."{$line["nome"]}";
+                    $letti=$letti.'</a>';
+                    $letti=$letti."</br>";
+                }
+                else{
+                    $from=$line["id"];
+                    $nonletti=$nonletti."<a href='/modal/messaggi_band.php?from=$from' class='modal_open3'>";
+                    $nonletti=$nonletti."{$line["nome"]}";
+                    $nonletti=$nonletti.'</a>';
+                    $nonletti=$nonletti."</br>";
+                }
             }
+            echo $nonletti;
+            echo $letti;
         }
     }
     else if ($type='locale'){
-        $q1="select band.nome,band.id from contatta,band where contatta._to=$1 and band.mail=contatta._from group by nome,id";
+        $q1="select band.nome,band.id,contatta.read from contatta,band where contatta._to=$1 and band.mail=contatta._from group by nome,id,read";
         $result=pg_query_params($con,$q1,array($_COOKIE["username"]));
 
         if(pg_num_rows($result)==0){
             echo "Ancora nessuna band ti ha contattato</br>";
         }
         else{
+            $letti = "<h4> Messaggi Letti</h4>";
+            $nonletti= "<h4> Messaggi in arrivo</h4>";
             while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-                $from=$line["id"];
-                echo "<a href='/modal/messaggi_locale.php?from=$from' class='modal_open3'>";
-                echo "{$line["nome"]}";
-                echo '</a>';
-                echo "</br>";
+                if ($line["read"]==1){
+                    $from=$line["id"];
+                    $letti=$letti."<a href='/modal/messaggi_locale.php?from=$from' class='modal_open3'>";
+                    $letti=$letti."{$line["nome"]}";
+                    $letti=$letti.'</a>';
+                    $letti=$letti."</br>";
+                }
+                else{
+                    $from=$line["id"];
+                    $nonletti=$nonletti."<a href='/modal/messaggi_locale.php?from=$from' class='modal_open3'>";
+                    $nonletti=$nonletti."{$line["nome"]}";
+                    $nonletti=$nonletti.'</a>';
+                    $nonletti=$nonletti."</br>";
+                }
             }
+            echo $nonletti;
+            echo $letti;
         }
     }    
 ?>  

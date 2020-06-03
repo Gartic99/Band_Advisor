@@ -35,11 +35,14 @@
         if(pg_num_rows($result)==0){
             echo "Ancora nessuna band ti ha contattato</br>";
         }
-        
-        while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-            echo '<h6>'.$line["data"].'</h6>';
-            echo '<h6>'.$line["cont"].'</h6>';
-            echo "</br>";
+        else{
+            while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
+                echo '<h6>'.$line["data"].'</h6>';
+                echo '<h6>'.$line["cont"].'</h6>';
+                echo "</br>";
+            }
+            $q1="UPDATE contatta SET read = 1 WHERE _from = $1 ";
+            $result=pg_query_params($con,$q1,array(getMailfromID($_GET["from"])));
         }
         ?>  
     </div>
