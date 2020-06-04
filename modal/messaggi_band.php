@@ -28,6 +28,7 @@
             }
             if ($_GET["letti"]){
                 $from=getMailfromID($_GET["from"]);
+                $from_nome=getName($from);
                 $q1="select mess._fro,mess.co,mess.da
                 from(
                     select c._from as _fro,c.cont as co ,c.data as da 
@@ -39,7 +40,7 @@
                     where c1._from=$3 and c1._to=$4
                 ) as mess
                 order by mess.da desc";
-                $result=pg_query_params($con,$q1,array($from,$_COOKIE["username"],$_COOKIE["mail"],$from_nome));
+                $result=pg_query_params($con,$q1,array($_COOKIE["mail"],$from_nome,$from,$_COOKIE["username"]));
                 if(pg_num_rows($result)==0){
                     echo "Ancora nessun locale ti ha contattato</br>";
                 }
