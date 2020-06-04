@@ -119,7 +119,7 @@
 
             document.getElementById('crop_button').addEventListener('click',function(){
                 $(".wrapper").hide();
-                sessionStorage.setItem("img",cropper.getCroppedCanvas({width:320,height:320}).toDataURL("image/jpeg").replace(/^data:image\/(png|jpeg);base64,/, ""));
+                sessionStorage.setItem("img",cropper.getCroppedCanvas({width:512,height:512}).toDataURL("image/jpeg").replace(/^data:image\/(png|jpeg);base64,/, ""));
                 cropper.destroy();
             });
         }
