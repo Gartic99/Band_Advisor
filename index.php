@@ -85,8 +85,8 @@ session_start();
             <div class="row" style="height: 25vh;">
             </div>
             <div class="row justify-content-center search-box">   
-                <form class="search-form col-8" action="/main/search.php" id="search1" method="GEt">
-                    <div class="row" style="height:8vh;" id="searchRow">
+                <form class="search-form col-lg-8 col-md-9 col-sm-9" action="/main/search.php" id="search1" method="GET">
+                    <div class="row" style="height:4rem;" id="searchRow">
                         <input type="image" src="/assets/tools-and-utensils.svg" alt="Bottone Ricerca" class="search-button" onclick="validateSearch()" id="lens">
                         <input type="text" value="" placeholder="Cosa stai cercando?" class="search-input" name="search" id="searchtext"><br>
                     </div>
@@ -109,7 +109,7 @@ session_start();
                                 </button>
                                 <button  class="btn btn-sq-lg" id="locale button" onclick="window.location.href ='/main/button.php?type=locale'">
                                     <img src="/assets/Icons/speaker.png"  alt="Bottone Locale" style="height: auto; width: 100%; padding:1%;"><br/>
-                                        Locali  </br> 
+                                    Locali  </br> 
                                 </button>
                             <!--</div>-->
                         </div>
