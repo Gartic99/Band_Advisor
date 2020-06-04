@@ -28,19 +28,26 @@
             }
             if ($_GET["letti"]){
                 $from=getMailfromID($_GET["from"]);
-                $q1="select cont,data
-                from contatta as c join locale as b on c._from = b.mail
-                where b.mail=$1 and c._to =$2 and read=1
-                ORDER BY data DESC";
-                $result=pg_query_params($con,$q1,array($from,$_COOKIE["username"]));
-
+                $q1="select mess._fro,mess.co,mess.da
+                from(
+                    select c._from as _fro,c.cont as co ,c.data as da 
+                    from contatta as c join band as b on c._from = b.mail 
+                    where c._from=$1 and c._to=$2 and read = 1
+                    union all
+                    select c1._from as _fro,c1.cont as co ,c1.data as da
+                    from contatta as c1 join locale as l on c1._from = l.mail
+                    where c1._from=$3 and c1._to=$4
+                ) as mess
+                order by mess.da desc";
+                $result=pg_query_params($con,$q1,array($from,$_COOKIE["username"],$_COOKIE["mail"],$from_nome));
                 if(pg_num_rows($result)==0){
                     echo "Ancora nessun locale ti ha contattato</br>";
                 }
                 else{
                     while( $line = pg_fetch_array( $result ,null ,PGSQL_ASSOC) ) {
-                        echo  '<h6>'.$line["data"].'</h6>';
-                        echo  '<h6>'.$line["cont"].'</h6>';
+                        $date = new DateTime($line["da"]);
+                        echo '<h5>'.getName($line["_fro"]).'</h5>'.'<h10 style="font-size:0.7rem; padding-top:-0.5rem">'.$date->format('d-m-Y H:i').'</h10>';
+                        echo '<h6>'.$line["co"].'</h6>';
                         echo "</br>";
                     }
                 }
