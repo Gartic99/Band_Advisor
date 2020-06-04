@@ -74,10 +74,10 @@
                 }
             }
             if($nonletti!=""){
-                echo "<h3> Messaggi in arrivo</h3>".$nonletti;
+                echo "<h3 style='font-size:2rem'> Messaggi in arrivo</h3>".$nonletti;
             }
             if($letti!=""){
-                echo "<h3> Messaggi letti</h3>".$letti;
+                echo "<h3 style='font-size:2rem'> Messaggi letti</h3>".$letti;
             }
             
         }
