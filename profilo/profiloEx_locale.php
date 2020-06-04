@@ -33,7 +33,8 @@ session_start();
                 
                 document.getElementById("rightLabel").style.height = "2rem";
                 document.getElementById("rightLabel").style.fontSize = "1rem";
-                document.getElementById("rightLabel").style.paddingLeft = "5%";
+                document.getElementById("rightLabel").style.paddingLeft = "5%"; 
+                document.getElementById("rightLabel").style.paddingBottom = "5%";
 
                 document.getElementById("nameLabel").style.height = "2rem";
                 document.getElementById("nameLabel").style.fontSize = "1rem";

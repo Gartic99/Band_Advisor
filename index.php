@@ -16,7 +16,7 @@ session_start();
     <link rel="stylesheet" href="/style/index.css">
     <link rel="stylesheet" href="/style/common.css">
     <link rel="stylesheet" href="/style/form.css">
-    <link rel="stylesheet" href="/profilo/profiles.css">
+    
 
     <script src="/js/cookie.js"></script>
     
@@ -27,14 +27,7 @@ session_start();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     
     <!-- Google Index Verification -->
-    <meta name="google-site-verification" content="aqksowhR4CMGpoNHD1zI-vqWzeK1CmZOEbbNfTgYAGc" />
-      
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-   
-
-    <link rel="stylesheet" href="/style/common.css">
-    <link rel="stylesheet" href="/style/index.css">
-    <link rel="stylesheet" href="/style/form.css">
+    <meta name="google-site-verification" content="aqksowhR4CMGpoNHD1zI-vqWzeK1CmZOEbbNfTgYAGc"/>
     <link rel="icon" href="/assets/B.png">
     <title>Band Advisor</title>
     <script>
