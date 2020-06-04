@@ -170,21 +170,76 @@ function locale_up(){
         tipo_locale.setAttribute("data-size","5");
 
         
-        var option=document.createElement("option");
-        option.value= "Bar";
-        option.innerHTML="Bar";
+        var option1=document.createElement("option");
+        option1.value= "Bar";
+        option1.innerHTML="Bar";
 
-        var optionB=document.createElement("option");
-        optionB.value= "Pub";
-        optionB.innerHTML="Pub";
+        var option2=document.createElement("option");
+        option2.value= "Pub";
+        option2.innerHTML="Pub";
 
-        var optionC=document.createElement("option");
-        optionC.value= "Risto_Bar";
-        optionC.innerHTML="Risto_bar";
+        var option3=document.createElement("option");
+        option3.value= "Risto Bar";
+        option3.innerHTML="Risto bar";
 
-        tipo_locale.appendChild(option);
-        tipo_locale.appendChild(optionB);
-        tipo_locale.appendChild(optionC);
+        var option4=document.createElement("option");
+        option4.value= "Ristorante";
+        option4.innerHTML="Ristorante";
+        
+        var option5=document.createElement("option");
+        option5.value= "Trattoria";
+        option5.innerHTML="Trattoria";
+
+        var option6=document.createElement("option");
+        option6.value= "Pizzeria";
+        option6.innerHTML="Pizzeria";
+
+        var option7=document.createElement("option");
+        option7.value= "Enoteca";
+        option7.innerHTML="Enoteca";
+
+        var option8=document.createElement("option");
+        option8.value= "Enoteca";
+        option8.innerHTML="Enoteca";
+
+        var option9=document.createElement("option");
+        option9.value= "Birreria";
+        option9.innerHTML="Birreria";
+
+        var option10=document.createElement("option");
+        option10.value= "Caffetteria";
+        option10.innerHTML="Caffetteria";
+
+        var option11=document.createElement("option");
+        option11.value= "Discoteca";
+        option11.innerHTML="Discoteca";
+
+        var option12=document.createElement("option");
+        option12.value= "Sala da ballo";
+        option12.innerHTML="Sala da ballo";
+
+        var option13=document.createElement("option");
+        option13.value= "Stabilimento Balneare";
+        option13.innerHTML="Stabilimento Balneare";
+
+        var option14=document.createElement("option");
+        option14.value= "Sala concerti";
+        option14.innerHTML="Sala concerti";
+
+        tipo_locale.appendChild(option1);
+        tipo_locale.appendChild(option2);
+        tipo_locale.appendChild(option3);
+        tipo_locale.appendChild(option4);
+        tipo_locale.appendChild(option5);
+        tipo_locale.appendChild(option6);
+        tipo_locale.appendChild(option7);
+        tipo_locale.appendChild(option8);
+        tipo_locale.appendChild(option9);
+        tipo_locale.appendChild(option10);
+        tipo_locale.appendChild(option11);
+        tipo_locale.appendChild(option12);
+        tipo_locale.appendChild(option13);
+        tipo_locale.appendChild(option14);
 
 
 
@@ -200,17 +255,121 @@ function locale_up(){
         musica_preferita.setAttribute("title","genere che preferisci");
         musica_preferita.setAttribute("data-size","5");
 
+        var optionC=document.createElement("option");
+        optionC.value= "Rock";
+        optionC.innerHTML="Rock";
+
         var optionD=document.createElement("option");
-        optionD.value= "Rock";
-        optionD.innerHTML="Rock";
+        optionD.value= "Pop";
+        optionD.innerHTML="Pop";
 
         var optionE=document.createElement("option");
-        optionE.value= "Pop";
-        optionE.innerHTML="Pop";
+        optionE.value= "Rap";
+        optionE.innerHTML="Rap";
 
         var optionF=document.createElement("option");
-        optionF.value= "Rap";
-        optionF.innerHTML="Rap";
+        optionF.value= "Jazz";
+        optionF.innerHTML="Jazz";
+
+        var optionG=document.createElement("option");
+        optionG.value= "Blues";
+        optionG.innerHTML="Blues";
+
+        var optionH=document.createElement("option");
+        optionH.value= "Metal";
+        optionH.innerHTML="Metal";
+
+        var optionI=document.createElement("option");
+        optionI.value= "Elettronica";
+        optionI.innerHTML="Elettronica";
+
+        var optionJ=document.createElement("option");
+        optionJ.value= "Trap";
+        optionJ.innerHTML="Trap";
+
+        var optionK=document.createElement("option");
+        optionK.value= "Folk";
+        optionK.innerHTML="Folk";
+
+        var optionL=document.createElement("option");
+        optionL.value= "Funk";
+        optionL.innerHTML="Funk";
+
+        var optionM=document.createElement("option");
+        optionM.value= "Gospel";
+        optionM.innerHTML="Gospel";
+
+        var optionN=document.createElement("option");
+        optionN.value= "House";
+        optionN.innerHTML="House";
+
+        var optionO=document.createElement("option");  
+        optionO.value= "Hip-Hop";
+        optionO.innerHTML="Hip-Hop";
+
+        var optionP=document.createElement("option");
+        optionP.value= "Techno";
+        optionP.innerHTML="Techno";
+
+        var optionQ=document.createElement("option");
+        optionQ.value= "R&B";
+        optionQ.innerHTML="R&B";
+
+        var optionR=document.createElement("option");
+        optionR.value= "Dance";
+        optionR.innerHTML="Dance";
+
+        var optionS=document.createElement("option");
+        optionS.value= "Punk";
+        optionS.innerHTML="Punk";
+        
+        var optionT=document.createElement("option");
+        optionT.value= "Reggaeton";
+        optionT.innerHTML="Reggaeton";
+
+        var optionU=document.createElement("option");
+        optionU.value= "Reggae";
+        optionU.innerHTML="Reggae";
+
+        var optionV=document.createElement("option");
+        optionV.value= "Alternative";
+        optionV.innerHTML="Alternative";
+
+        var optionV=document.createElement("option");
+        optionV.value= "Classica";
+        optionV.innerHTML="Classica";
+
+        var optionX=document.createElement("option");
+        optionX.value= "Indie";
+        optionX.innerHTML="Indie";
+
+        var optionY=document.createElement("option");
+        optionY.value= "Disco";
+        optionY.innerHTML="Disco";
+
+        genere.appendChild(optionC);
+        genere.appendChild(optionD);
+        genere.appendChild(optionE);
+        genere.appendChild(optionF);
+        genere.appendChild(optionG);
+        genere.appendChild(optionH);
+        genere.appendChild(optionI);
+        genere.appendChild(optionJ);
+        genere.appendChild(optionK);
+        genere.appendChild(optionL);
+        genere.appendChild(optionM);
+        genere.appendChild(optionN);
+        genere.appendChild(optionO);
+        genere.appendChild(optionP);
+        genere.appendChild(optionQ);
+        genere.appendChild(optionR);
+        genere.appendChild(optionS);
+        genere.appendChild(optionT);
+        genere.appendChild(optionU);
+        genere.appendChild(optionV);
+        genere.appendChild(optionX);
+        genere.appendChild(optionY);
+
 
         musica_preferita.appendChild(optionD);
         musica_preferita.appendChild(optionE);

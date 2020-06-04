@@ -158,27 +158,119 @@ function band_up(){
         
 
         var optionC=document.createElement("option");
-        //option.className="selectpicker";
         optionC.value= "Rock";
         optionC.innerHTML="Rock";
-        //$(option).selectpicker();
 
         var optionD=document.createElement("option");
-        //option.className="selectpicker";
         optionD.value= "Pop";
         optionD.innerHTML="Pop";
 
         var optionE=document.createElement("option");
-        //option.className="selectpicker";
         optionE.value= "Rap";
         optionE.innerHTML="Rap";
+
+        var optionF=document.createElement("option");
+        optionF.value= "Jazz";
+        optionF.innerHTML="Jazz";
+
+        var optionG=document.createElement("option");
+        optionG.value= "Blues";
+        optionG.innerHTML="Blues";
+
+        var optionH=document.createElement("option");
+        optionH.value= "Metal";
+        optionH.innerHTML="Metal";
+
+        var optionI=document.createElement("option");
+        optionI.value= "Elettronica";
+        optionI.innerHTML="Elettronica";
+
+        var optionJ=document.createElement("option");
+        optionJ.value= "Trap";
+        optionJ.innerHTML="Trap";
+
+        var optionK=document.createElement("option");
+        optionK.value= "Folk";
+        optionK.innerHTML="Folk";
+
+        var optionL=document.createElement("option");
+        optionL.value= "Funk";
+        optionL.innerHTML="Funk";
+
+        var optionM=document.createElement("option");
+        optionM.value= "Gospel";
+        optionM.innerHTML="Gospel";
+
+        var optionN=document.createElement("option");
+        optionN.value= "House";
+        optionN.innerHTML="House";
+
+        var optionO=document.createElement("option");  
+        optionO.value= "Hip-Hop";
+        optionO.innerHTML="Hip-Hop";
+
+        var optionP=document.createElement("option");
+        optionP.value= "Techno";
+        optionP.innerHTML="Techno";
+
+        var optionQ=document.createElement("option");
+        optionQ.value= "R&B";
+        optionQ.innerHTML="R&B";
+
+        var optionR=document.createElement("option");
+        optionR.value= "Dance";
+        optionR.innerHTML="Dance";
+
+        var optionS=document.createElement("option");
+        optionS.value= "Punk";
+        optionS.innerHTML="Punk";
+        
+        var optionT=document.createElement("option");
+        optionT.value= "Reggaeton";
+        optionT.innerHTML="Reggaeton";
+
+        var optionU=document.createElement("option");
+        optionU.value= "Reggae";
+        optionU.innerHTML="Reggae";
+
+        var optionV=document.createElement("option");
+        optionV.value= "Alternative";
+        optionV.innerHTML="Alternative";
+
+        var optionV=document.createElement("option");
+        optionV.value= "Classica";
+        optionV.innerHTML="Classica";
+
+        var optionX=document.createElement("option");
+        optionX.value= "Indie";
+        optionX.innerHTML="Indie";
+
+        var optionY=document.createElement("option");
+        optionY.value= "Disco";
+        optionY.innerHTML="Disco";
 
         genere.appendChild(optionC);
         genere.appendChild(optionD);
         genere.appendChild(optionE);
-        
-        
-
+        genere.appendChild(optionF);
+        genere.appendChild(optionG);
+        genere.appendChild(optionH);
+        genere.appendChild(optionI);
+        genere.appendChild(optionJ);
+        genere.appendChild(optionK);
+        genere.appendChild(optionL);
+        genere.appendChild(optionM);
+        genere.appendChild(optionN);
+        genere.appendChild(optionO);
+        genere.appendChild(optionP);
+        genere.appendChild(optionQ);
+        genere.appendChild(optionR);
+        genere.appendChild(optionS);
+        genere.appendChild(optionT);
+        genere.appendChild(optionU);
+        genere.appendChild(optionV);
+        genere.appendChild(optionX);
+        genere.appendChild(optionY);
 
 
 
