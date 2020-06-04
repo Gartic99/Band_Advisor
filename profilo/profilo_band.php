@@ -8,7 +8,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Il primo sito che mette in diretto contatto artisti emergenti e locali">
+    <meta name="description" content="Il tuo profilo band su Bandadvisor">
     <meta name="keywords" content="bandadvisor band emergenti locali">
     <meta name="author" content="Ghenadie Artic,Marco Calamo">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5">

@@ -119,15 +119,8 @@
 
             document.getElementById('crop_button').addEventListener('click',function(){
                 $(".wrapper").hide();
-                //if(this.files[0]){
-                    sessionStorage.setItem("img",cropper.getCroppedCanvas().toDataURL("image/jpeg").replace(/^data:image\/(png|jpeg);base64,/, ""));
-                    cropper.destroy();
-                /*}else{
-                    alert("else");
-                    sessionStorage.removeItem("img");
-                    cropper.destroy();
-                }*/
-                //cropper.destroy();
+                sessionStorage.setItem("img",cropper.getCroppedCanvas().toDataURL("image/jpeg").replace(/^data:image\/(png|jpeg);base64,/, ""));
+                cropper.destroy();
             });
         }
         //Error handler
