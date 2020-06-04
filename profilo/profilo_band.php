@@ -36,11 +36,13 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
             if(isMobile){
                 document.getElementById("leftLabel").style.height = "2rem";
                 document.getElementById("leftLabel").style.fontSize = "1rem";
-                document.getElementById("leftLabel").style.padding = "5%";
+                document.getElementById("leftLabel").style.paddingLeft = "5%";
+                document.getElementById("leftLabel").style.paddingBottom = "5%";
 
                 document.getElementById("rightLabel").style.height = "2rem";
                 document.getElementById("rightLabel").style.fontSize = "1rem";
                 document.getElementById("rightLabel").style.paddingLeft = "5%";
+                document.getElementById("rightLabel").style.paddingBottom = "5%";
 
                 document.getElementById("nameLabel").style.height = "2rem";
                 document.getElementById("nameLabel").style.fontSize = "1rem";
@@ -123,13 +125,13 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                     echo "<div class='row justify-content-center'>";
                     echo "<img src='../assets/social-media.png' width=200vh height=200vh  id='pro_pic_def'>";
                     echo "</div>";
-                    echo "<div class='contattato row justify-content-center' style='height: 12.5vh;' id='nameLabel'>";
+                    echo "<div class='contattato row justify-content-center' style='height: 5rem;' id='nameLabel'>";
                     echo "{$_COOKIE["username"]}</br>";
                     echo "</div>";
                     echo "</br>";
                     $q3="select genre1,genre2 from band where band.mail=$1";
                     $result = pg_query_params($con,$q3,array($_COOKIE["mail"])); 
-                    echo "<div class='contattato row ' style='height: 12.5vh;' id='genreLabel'>";
+                    echo "<div class='contattato row ' style='height: 5rem;' id='genreLabel'>";
                     $genre=pg_fetch_array($result,null,PGSQL_ASSOC);
                     echo "I tuoi generi:</br> {$genre["genre1"]}";
                     if ($genre["genre2"]!=null){
@@ -145,7 +147,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                         echo "<div class='row justify-content-center'>";
                         echo "<img src='../assets/social-media.png' width=200vh height=200vh id='pro_pic_def'>";
                         echo "</div>";
-                        echo "<div class='contattato row justify-content-center' style='height: 12.5vh;' id='nameLabel'>";
+                        echo "<div class='contattato row justify-content-center' style='height: 5rem;' id='nameLabel'>";
                         echo "{$_COOKIE["username"]}</br>";
                         echo "</div>";
                     }
@@ -163,7 +165,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                     echo "</br>";
                     $q3="select genre1,genre2 from band where band.mail=$1";
                     $result = pg_query_params($con,$q3,array($_COOKIE["mail"])); 
-                    echo "<div class='contattato row ' style='height: 12.5vh;' id='genreLabel'>";
+                    echo "<div class='contattato row ' style='height: 5rem;' id='genreLabel'>";
                     $genre=pg_fetch_array($result,null,PGSQL_ASSOC);
                     echo "I tuoi generi:</br> {$genre["genre1"]}";
                     if ($genre["genre2"]!=null){
@@ -173,7 +175,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                     echo "</br>";
                     if($line["_desc"]!=null){
                         echo "<div class='row'>";
-                        echo "<div class='contattato' style='height: 12.5vh;' id='centralLabel'>";
+                        echo "<div class='contattato' style='height: 5rem;' id='centralLabel'>";
                         echo "La tua descrizione</br>";
                         echo "</div>";
                         echo "<div class='col-lg-12 col-md-12'>";
@@ -190,7 +192,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
             <div class="row ">
                 <div class="col-lg-5 col-md-11 ">
                     <div class="row">
-                        <div class="contattato" style="height: 12.5vh;" id="leftLabel">
+                        <div class="contattato" style="height: 5rem;" id="leftLabel">
                             Locali che ti hanno contattato
                         </div>
                     </div>
@@ -222,7 +224,7 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                 <div class="col-lg-2 col-md-3 "></div>
                 <div class="col-lg-5 col-md-11">
                     <div class="row">
-                        <div class="recensioni" id="rightLabel" style="height: 12.5vh;">
+                        <div class="recensioni" id="rightLabel" style="height: 5rem;">
                             Le tue recensioni
                         </div>
                     </div>
