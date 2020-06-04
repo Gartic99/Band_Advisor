@@ -34,7 +34,7 @@ session_start();
                 document.getElementById('leftLabel').style.height = "1rem";
                 //document.getElementById('rightLabel').style.height = "3vh";
                 document.getElementById('leftLabel').style.fontSize = "2rem";
-                document.getElementById('leftLabel').style.paddingBottom = "7rem";
+                document.getElementById('leftLabel').style.paddingBottom = "10rem";
                 document.getElementById('leftLabel').style.paddingTop = "3rem";
                 document.getElementById('leftLabel').style.paddingLeft = "2rem";
                 document.getElementById('leftLabel').style.paddingRight = "2rem";
@@ -155,6 +155,12 @@ session_start();
                                 echo "<a href='/profilo/profiloEx_locale.php?id={$id}' style='font-family:Gilroy Medium'>";
                                 echo $line["nome"]."</h2>"; 
                                 echo '</a>';
+                                $gen="Generi: ".$line["fav_music1"];
+                                if($line["fav_music2"]!=null){
+                                    $gen.=", {$line["fav_music2"]}";
+                                }
+                                echo $gen;
+                                echo "</br>";
                                 echo "{$line['media']} "."<span class='fa fa-star checked'></span>";
                                 echo "</br>";
                                 echo "</br>";
@@ -174,6 +180,12 @@ session_start();
                                 echo "<a href='/profilo/profiloEx_band.php?id={$id}' style='font-family:Gilroy Medium'>";
                                 echo $line["nome"]."</h2>"; 
                                 echo '</a>';
+                                $gen="Generi: ".$line["genre1"];
+                                if($line["genre2"]!=null){
+                                    $gen.=", {$line["genre2"]}";
+                                }
+                                echo $gen;
+                                echo "</br>";
                                 echo "{$line['media']}"."<span class='fa fa-star checked'></span>";
                                 echo "</br>";
                                 echo "</br>";
