@@ -194,8 +194,6 @@ session_start();
                         
                     }
                 }
-                pg_free_result($result1);
-                pg_free_result($result2);
                 pg_close($con);
             ?>
             <div class="row">

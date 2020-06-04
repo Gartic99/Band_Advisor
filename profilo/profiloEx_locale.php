@@ -192,7 +192,7 @@ session_start();
                     echo "</br>";
                     echo "<div class='col-2'></div>";
                     $q3="select genre from locale where mail=$1";
-                    $result = pg_query_params($con,$q3,array($_COOKIE["mail"])); 
+                    $result = pg_query_params($con,$q3,array(getMailFromId($_GET["id"]))); 
                     echo "<div class='col-5' id='typeLabel'>";
                     $genre=pg_fetch_array($result,null,PGSQL_ASSOC);
                     echo "Tipo di locale:</br> {$genre["genre"]}";
@@ -215,7 +215,6 @@ session_start();
                         
                     }
                 }
-                pg_free_result($result);
                 pg_close($con);
             ?>
             <div class="row">
@@ -280,8 +279,6 @@ session_start();
                                         echo '</br>';
                                         $iter++;
                                     }
-                                    pg_free_result($result);
-                                    pg_free_result($result2);
                                     pg_close($con);
                                 ?>
                             </div>
