@@ -99,9 +99,10 @@ session_start();
             <div class="row" style="height: 6vh;"></div>
             <div class="row justify-content-center">
                 <div class="Option_bar">
-                    <div class="container">
+                    <!--<div class="container">-->
                         <div class="row justify-content-center">
-                            <div class="col-lg-6 col-md-12 col-sm-6" id="rec">
+                        <div class="row justify-content-center" id="rec">
+                            <!--<div class="col-lg-6 col-md-6 col-sm-6" >-->
                                 <button class="btn btn-sq-lg" id="band_button" onclick="window.location.href ='/main/button.php?type=band'">
                                     <img src="/assets/Icons/electric-guitar.png" alt="Bottone Band" style="height: auto; width: 100%; padding:1%;"><br/>
                                     Band </br>
@@ -110,9 +111,10 @@ session_start();
                                     <img src="/assets/Icons/speaker.png"  alt="Bottone Locale" style="height: auto; width: 100%; padding:1%;"><br/>
                                         Locali  </br> 
                                 </button>
-                            </div>
+                            <!--</div>-->
                         </div>
-                    </div>
+                        </div>
+                    <!--</div>-->
                 </div>
             </div>
         </div>
