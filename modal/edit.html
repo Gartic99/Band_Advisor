@@ -107,12 +107,12 @@
         /*Funzione chiamata da onchange di sopra serve a disgnare il frame*/
         function draw() {
             var canvas = document.getElementById('canvas');
+            $("#profile_img").attr("disabled","disabled");
             $("#crop_button").removeAttr("style");
             canvas.width = this.width;
             canvas.height = this.height;
             var ctx = canvas.getContext('2d');
             ctx.drawImage(this, 0,0); //Disegno il frame
-            $("profile_img").attr('disabled', false);
             const cropper = new Cropper(canvas, { //uso la libreria Cropperjs per il resize dell'immagine nel frame
                 aspectRatio: 1,
                 crop(event) {
@@ -120,8 +120,8 @@
             });
 
             document.getElementById('crop_button').addEventListener('click',function(){
+                $("#profile_img").removeAttr("disabled");
                 $(".wrapper").hide();
-                $("profile_img").attr('disabled', false);
                 sessionStorage.setItem("img",cropper.getCroppedCanvas({width:512,height:512}).toDataURL("image/jpeg").replace(/^data:image\/(png|jpeg);base64,/, ""));
                 cropper.destroy();
             });
