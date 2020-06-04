@@ -49,6 +49,10 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                 document.getElementById("genreLabel").style.fontSize = "1rem";
                 document.getElementById("genreLabel").style.paddingLeft = "5%";
 
+                document.getElementById("typeLabel").style.height = "2rem";
+                document.getElementById("typeLabel").style.fontSize = "1rem";
+                document.getElementById("typeLabel").style.paddingLeft = "5%";
+
                 //Controlliamo se è stata inserita una recensione
                 if(document.getElementById("centralLabel")){
                     document.getElementById("centralLabel").style.height = "2rem";
@@ -129,12 +133,22 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                         echo "</br>";
                         $q3="select fav_music1 as genre1,fav_music2 as genre2 from locale where mail=$1";
                         $result = pg_query_params($con,$q3,array($_COOKIE["mail"])); 
-                        echo "<div class='contattato row ' style='height: 12.5vh;' id='genreLabel'>";
+                        echo "<div class='contattato row ' style='height: 12.5vh;' >";
+                        echo "<div class='col-5' id='genreLabel'>";
                         $genre=pg_fetch_array($result,null,PGSQL_ASSOC);
                         echo "I tuoi generi:</br> {$genre["genre1"]}";
                         if ($genre["genre2"]!=null){
                             echo $genre["genre2"];
                         }
+                        echo "</div>";
+                        echo "</br>";
+                        echo "<div class='col-2'></div>";
+                        $q3="select genre from locale where mail=$1";
+                        $result = pg_query_params($con,$q3,array($_COOKIE["mail"])); 
+                        echo "<div class='col-5' id='typeLabel'>";
+                        $genre=pg_fetch_array($result,null,PGSQL_ASSOC);
+                        echo "Tipo di locale:</br> {$genre["genre"]}";
+                        echo "</div>";
                         echo "</div>";
                         echo "</br>";
                     }
@@ -163,12 +177,22 @@ if ($_COOKIE["username"]=='' || $_COOKIE["mail"]==''){
                             
                             $q3="select fav_music1 as genre1,fav_music2 as genre2 from locale where mail=$1";
                             $result = pg_query_params($con,$q3,array($_COOKIE["mail"])); 
-                            echo "<div class='contattato row ' style='height: 12.5vh;' id='genreLabel'>";
+                            echo "<div class='contattato row ' style='height: 12.5vh;' >";
+                            echo "<div class='col-5' id='genreLabel'>";
                             $genre=pg_fetch_array($result,null,PGSQL_ASSOC);
                             echo "I tuoi generi:</br> {$genre["genre1"]}";
                             if ($genre["genre2"]!=null){
                                 echo $genre["genre2"];
                             }
+                            echo "</div>";
+                            echo "</br>";
+                            echo "<div class='col-2'></div>";
+                            $q3="select genre from locale where mail=$1";
+                            $result = pg_query_params($con,$q3,array($_COOKIE["mail"])); 
+                            echo "<div class='col-5' id='typeLabel'>";
+                            $genre=pg_fetch_array($result,null,PGSQL_ASSOC);
+                            echo "Tipo di locale:</br> {$genre["genre"]}";
+                            echo "</div>";
                             echo "</div>";
                             echo "</br>";
                         }
