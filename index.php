@@ -101,7 +101,7 @@ session_start();
                 <div class="Option_bar">
                     <div class="container">
                         <div class="row justify-content-center">
-                            <div class="col-lg-6 col-md-12 col-sm-12" id="rec">
+                            <div class="col-lg-6 col-md-12 col-sm-6" id="rec">
                                 <button class="btn btn-sq-lg" id="band_button" onclick="window.location.href ='/main/button.php?type=band'">
                                     <img src="/assets/Icons/electric-guitar.png" alt="Bottone Band" style="height: auto; width: 100%; padding:1%;"><br/>
                                     Band </br>
