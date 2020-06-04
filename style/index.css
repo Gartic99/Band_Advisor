@@ -34,7 +34,7 @@
     height: 100%;
     width: auto;
     padding: 2.5%;
-    font-size: 1.5vw;
+    font-size: 1.5rem;
     background: none;
     color: #5a6674;
     border: none;
@@ -72,6 +72,7 @@
 /* main rectangle*/
 #rec{
     /*disegnato a mano con tanta cura*/
+    width: 17rem;
     border-radius: 25px;
     border-style: solid;
     border-color: #000000;

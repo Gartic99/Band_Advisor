@@ -1,4 +1,7 @@
 <?php
+ob_start();
+?>
+<?php
 session_start();
 ?>
 <!DOCTYPE html>
@@ -82,11 +85,9 @@ session_start();
                             <?php   
 
                                 if(empty((string) $_GET["search"])){
-                                    echo "ciao";
                                     header("Location: https://bandadvisor.it");
                                 }
                                 if("" === trim((string) $_GET['search'])){
-                                    echo "ciaone";
                                     header("Location: https://bandadvisor.it");
                                 }   
                                 if(!isset($_GET["search"])){
