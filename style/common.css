@@ -21,6 +21,12 @@
 
 a:active{ outline: none;}
 a img {outline : none;}
+a:hover,a:focus {
+    background-color: transparent !important;
+}
+a{
+    color: #000000;
+}
 img {border : 0;}
 h1{
     font-family: Gilroy Medium;
