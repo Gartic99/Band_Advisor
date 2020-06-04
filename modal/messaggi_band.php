@@ -30,7 +30,8 @@
                 $from=getMailfromID($_GET["from"]);
                 $q1="select cont,data
                 from contatta as c join locale as b on c._from = b.mail
-                where b.mail=$1 and c._to =$2 and read=1";
+                where b.mail=$1 and c._to =$2 and read=1
+                ORDER BY data DESC";
                 $result=pg_query_params($con,$q1,array($from,$_COOKIE["username"]));
 
                 if(pg_num_rows($result)==0){
@@ -48,7 +49,8 @@
                 $from=getMailfromID($_GET["from"]);
                 $q1="select cont,data
                 from contatta as c join locale as b on c._from = b.mail
-                where b.mail=$1 and c._to =$2 and read=0";
+                where b.mail=$1 and c._to =$2 and read=0
+                ORDER BY data DESC";
                 $result=pg_query_params($con,$q1,array($from,$_COOKIE["username"]));
 
                 if(pg_num_rows($result)==0){
