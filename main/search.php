@@ -125,6 +125,8 @@ session_start();
                                     echo '</a>';
                                     echo "</br>";
                                 }
+                                pg_free_result($result);
+                                pg_close($con);
                             ?> 
                         </div>
                     </div>
@@ -169,6 +171,8 @@ session_start();
                                         echo '</a>';
                                         echo "</br>";
                                     }
+                                    pg_free_result($result);
+                                    pg_close($con);
                                 ?>
                             </div>
                         </div>

@@ -33,8 +33,7 @@ session_start();
                 
                 document.getElementById("rightLabel").style.height = "2rem";
                 document.getElementById("rightLabel").style.fontSize = "1rem";
-                document.getElementById("rightLabel").style.paddingLeft = "5%"; 
-                document.getElementById("rightLabel").style.paddingBottom = "5%";
+                document.getElementById("rightLabel").style.paddingLeft = "5%";
 
                 document.getElementById("nameLabel").style.height = "2rem";
                 document.getElementById("nameLabel").style.fontSize = "1rem";
@@ -206,7 +205,6 @@ session_start();
                         echo "<div class='contattato' style='height: 12.5vh;' id='centralLabel'>";
                         echo "Descrizione di {$nome}</br>";
                         echo "</div>";
-                        //echo ""
                         echo "<div class='col-lg-12 col-md-12'>";
                         
                         echo "<div id='desc'>";
@@ -217,36 +215,10 @@ session_start();
                         
                     }
                 }
+                pg_free_result($result);
+                pg_close($con);
             ?>
             <div class="row">
-                <!--<div class="col-lg-12 col-md-12"  style="padding-bottom:15%;">
-                    <div class="row">
-                        <div class="nome" style="height: 12.5vh;" id="leftLabel">
-                            <?php
-                                $mail=getMailFromId($_GET["id"]);
-                                
-                                //include  '../config/config.php';
-                                $host = constant("DB_HOST");
-                                $user = constant("DB_USER");
-                                $pass = constant("DB_PASSWORD");
-                                $db =   constant("DB_NAME");
-
-                                //apro la connessione con il db postgress
-                                $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
-                                or die ("Could not connect to server\n");
-                                if (!$con){
-                                    echo "<h1> Impossibile connettersi</h1>";
-                                }
-                                $q1="select locale.nome from locale where locale.mail=$1";
-                                $result=pg_query_params($con,$q1,array($mail));
-                                $ln=pg_fetch_array($result);
-                                echo "Nome Locale: <br>";
-                                echo $ln["nome"];
-                            ?>
-                        </div>
-                    </div>
-                </div>-->
-                <!--<div class="col-lg-2 col-md-3 "></div>-->
                 <div class="col-lg-12 col-md-12 ">
                     <div class="row" >
                         <div class="recensioni" style="height: 12.5vh;" id="rightLabel">
@@ -258,8 +230,6 @@ session_start();
                             <div class="testi" id="rvws">
                                 <?php
                                     $mail=getMailFromId($_GET["id"]);
-                                    //include  '../config/config.php';
-                                    //include  '../config/utils.php';
                                     $host = constant("DB_HOST");
                                     $user = constant("DB_USER");
                                     $pass = constant("DB_PASSWORD");
@@ -272,8 +242,6 @@ session_start();
                                         echo "<h1> Impossibile connettersi</h1>";
                                     }
                                     
-                                    //TODO: leva il nome come id della rece fra
-                                    //Mi prendo il nome (Di nuovo)
                                     $q2="select locale.nome from locale where locale.mail=$1";
                                     $result2=pg_query_params($con,$q2,array($mail));
                                     $ln=pg_fetch_array($result2);
@@ -312,6 +280,9 @@ session_start();
                                         echo '</br>';
                                         $iter++;
                                     }
+                                    pg_free_result($result);
+                                    pg_free_result($result2);
+                                    pg_close($con);
                                 ?>
                             </div>
                         </div>

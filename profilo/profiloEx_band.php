@@ -194,36 +194,11 @@ session_start();
                         
                     }
                 }
+                pg_free_result($result1);
+                pg_free_result($result2);
+                pg_close($con);
             ?>
             <div class="row">
-                <!--<div class="col-lg-5 col-md-12 " style="padding-bottom:15%;">
-                    <div class="row">
-                        <div class="nome" style="height: 12.5vh;" id="leftLabel">
-                            <?php
-                                $mail=getMailFromId($_GET["id"]);
-                                
-                                //include  '../config/config.php';
-                                $host = constant("DB_HOST");
-                                $user = constant("DB_USER");
-                                $pass = constant("DB_PASSWORD");
-                                $db =   constant("DB_NAME");
-
-                                //apro la connessione con il db postgress
-                                $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
-                                or die ("Could not connect to server\n");
-                                if (!$con){
-                                    echo "<h1> Impossibile connettersi</h1>";
-                                }
-                                $q1="select band.nome from band where band.mail=$1";
-                                $result=pg_query_params($con,$q1,array($mail));
-                                $ln=pg_fetch_array($result);
-                                echo "Nome Band: <br>";
-                                echo $ln["nome"];
-                            ?>
-                        </div>
-                    </div>
-                </div>-->
-                <!--<div class="col-lg-2 col-md-3 "></div>-->
                 <div class="col-lg-12 col-md-12 ">
                     <div class="row">
                         <div class="recensioni" id="rightLabel" style="height: 12.5vh;">
@@ -285,6 +260,9 @@ session_start();
                                         echo '</br>';
                                         $iter++;
                                     }
+                                    pg_free_result($result);
+                                    pg_free_result($result2);
+                                    pg_close($con);
                                 ?>
                             </div>
                         </div>

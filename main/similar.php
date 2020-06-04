@@ -195,6 +195,8 @@ session_start();
                         echo "</div>";
                         echo "</div>";
                         echo "</div>";
+                        pg_free_result($result);
+                        pg_close($con);
                     ?>   
                 </div>
             </div>

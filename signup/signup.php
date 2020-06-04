@@ -58,7 +58,7 @@ session_start();
                 }
                 if ($results){
                     $response = "<h1> Registrazione completata</h1>
-                    <a href=../login/login.php>Inizia a navigare</a>";
+                    <a href=../login/login.html>Inizia a navigare</a>";
 
                 }
                 pg_free_result($results);

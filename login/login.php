@@ -4,13 +4,6 @@
 
     error_reporting(E_ALL | E_STRICT);
     ini_set('display_errors', 1);
-
-
-    /*$host = "rogue.db.elephantsql.com";
-    $user = "mffqfyag";
-    $pass = "sCmWtk6dBysXWEn3IqvDDZtgvjcARlhs";
-    $db = "mffqfyag"; old db*/
-
     
     include  '../config/config.php';
     $host = constant("DB_HOST");
@@ -34,20 +27,6 @@
     $lineBand=pg_fetch_array($resultBand,null,PGSQL_ASSOC);
     //verifico che ci siano dei risultati per il locale
     if(!pg_num_rows($resultLocale)==0){
-        /*echo $lineLocale['password'];
-        echo md5($password);
-        if(strcmp($lineLocale["password"],md5($password))==0){ //verifico che la password corrisponda con quella inserita
-            $qn="select locale.nome from locale where locale.mail=$1";
-            $resultName = pg_query_params($con,$qn,array($email));
-            $ln=pg_fetch_array($resultName,null,PGSQL_ASSOC);
-            $_SESSION["username"] = $ln["nome"];
-            header("location: /profilo/profilo_locale.php"); //carico il profilo dell'utente
-        } 
-        else{
-            echo "<h1>Errore Password</h1>
-            <a href=../login/login.html>clicca qui per login
-            </a>";
-        }*/
         $qn="select locale.nome,locale.mail,locale.fav_music1 as genre1,locale.fav_music2 as genre2 from locale where locale.mail=$1";
         $resultName = pg_query_params($con,$qn,array($email));
         $ln=pg_fetch_array($resultName,null,PGSQL_ASSOC);
@@ -69,17 +48,6 @@
     }
     //verifico che ci siano dei risultati per la band
     else if(!pg_num_rows($resultBand)==0){
-        /*if(strcmp($lineBand["password"],md5($password)==0)){ //verifico che la password corrisponda con quella inserita
-            $qn="select band.nome from band where band.mail=$1";
-            $resultName = pg_query_params($con,$qn,array($email));
-            $ln=pg_fetch_array($resultName,null,PGSQL_ASSOC);
-            $_SESSION["username"] = $ln["nome"];
-            header("location: /profilo/profilo_band.php"); //carico il profilo dell'utente
-        }
-        else{
-            echo "<h1>Errore Password</h1>
-            <a href=../login/login.html>clicca qui per login</a>";
-        }*/
         $qn="select band.nome,band.mail,band.genre1,band.genre2 from band where band.mail=$1";
         $resultName = pg_query_params($con,$qn,array($email));
         $ln=pg_fetch_array($resultName,null,PGSQL_ASSOC);

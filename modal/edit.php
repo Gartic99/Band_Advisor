@@ -42,4 +42,6 @@
         echo "<h2>Profilo aggiornato</h2>";
       }
     }
+    pg_free_result($result);
+    pg_close($con);
 ?>
