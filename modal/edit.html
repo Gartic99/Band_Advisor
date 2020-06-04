@@ -29,7 +29,8 @@
             <input type="submit" style="display: none;" name="edit_button"></input>
             <div class="wrapper" id="wrapper">
                 <canvas id= "canvas"></canvas>
-                <button id='crop_button' style="display: none;" type="button">Fine Crop</button>
+                <br>
+                <button id='crop_button' class="btn btn-default" style="display: none;" type="button">Fine Crop</button>
             </div>
             <div id="cropped_result" style="width: 1vh;height: 1vh;"></div>
         </form> 
@@ -111,6 +112,7 @@
             canvas.height = this.height;
             var ctx = canvas.getContext('2d');
             ctx.drawImage(this, 0,0); //Disegno il frame
+            $("profile_img").attr('disabled', false);
             const cropper = new Cropper(canvas, { //uso la libreria Cropperjs per il resize dell'immagine nel frame
                 aspectRatio: 1,
                 crop(event) {
@@ -119,6 +121,7 @@
 
             document.getElementById('crop_button').addEventListener('click',function(){
                 $(".wrapper").hide();
+                $("profile_img").attr('disabled', false);
                 sessionStorage.setItem("img",cropper.getCroppedCanvas({width:512,height:512}).toDataURL("image/jpeg").replace(/^data:image\/(png|jpeg);base64,/, ""));
                 cropper.destroy();
             });
