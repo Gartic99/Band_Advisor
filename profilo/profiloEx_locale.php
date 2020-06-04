@@ -344,7 +344,8 @@ session_start();
             else if (getCookie("type")=="locale" && document.getElementById("nav_nome")!=null){
                 document.getElementById("nav_nome").setAttribute("href", "/profilo/profilo_locale.php");
                 $(".nav-item").remove();
-                $(".nav-link").remove();
+                $("#modal_open").remove();
+                $("#modal_open1").remove();
             }
         });
     </script>

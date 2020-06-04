@@ -315,7 +315,8 @@ session_start();
             if (getCookie("type")=="band" && document.getElementById("nav_nome")!=null){
                 $("#nav_nome").attr("href", "/profilo/profilo_band.php");
                 $(".nav-item").remove();
-                $(".nav-link").remove();
+                $("#modal_open").remove();
+                $("#modal_open1").remove();
             }
             else if (getCookie("type")=="locale" && document.getElementById("nav_nome")!=null){
                 $("#nav_nome").attr("href", "/profilo/profilo_locale.php");
