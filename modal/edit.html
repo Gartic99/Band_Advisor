@@ -108,6 +108,7 @@
         function draw() {
             var canvas = document.getElementById('canvas');
             $("#profile_img").attr("disabled","disabled");
+            $("#fake").attr("disabled","disabled");
             $("#crop_button").removeAttr("style");
             canvas.width = this.width;
             canvas.height = this.height;
@@ -121,6 +122,7 @@
 
             document.getElementById('crop_button').addEventListener('click',function(){
                 $("#profile_img").removeAttr("disabled");
+                $("#fake").removeAttr("disabled");
                 $(".wrapper").hide();
                 sessionStorage.setItem("img",cropper.getCroppedCanvas({width:512,height:512}).toDataURL("image/jpeg").replace(/^data:image\/(png|jpeg);base64,/, ""));
                 cropper.destroy();
