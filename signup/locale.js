@@ -199,8 +199,8 @@ function locale_up(){
         option7.innerHTML="Enoteca";
 
         var option8=document.createElement("option");
-        option8.value= "Enoteca";
-        option8.innerHTML="Enoteca";
+        option8.value= "Lounge Bar";
+        option8.innerHTML="Lounge Bar";
 
         var option9=document.createElement("option");
         option9.value= "Birreria";
